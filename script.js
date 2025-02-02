@@ -1,4 +1,5 @@
 var lastTab = '';
+var isInProjectWindow = false;
 
 document.addEventListener("DOMContentLoaded", function () {
     const tabs = document.querySelectorAll("nav ul li a");
@@ -7,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function loadContent(tab) {
         const tabName = tab.dataset.tab;
 
-        if(tabName == lastTab) return;
+        if(tabName == lastTab && !isInProjectWindow) return;
         else lastTab = tabName;
 
         const path = `tabs/${tabName}.html`;
@@ -15,10 +16,11 @@ document.addEventListener("DOMContentLoaded", function () {
         fetch(path)
             .then(response => response.text())
             .then(data => {
+                isInProjectWindow = false;
                 mainContent.innerHTML = data;
                 tabs.forEach(t => t.classList.remove("active"));
                 tab.classList.add("active");
-        
+                
                 attachProjectLinks();
             })
             .catch(err => {
@@ -31,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
       fetch(projectURL)
         .then(response => response.text())
         .then(data => {
+          isInProjectWindow = true;
           mainContent.innerHTML = data;
         })
         .catch(error => {
