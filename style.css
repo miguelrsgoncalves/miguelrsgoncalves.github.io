@@ -42,7 +42,7 @@ nav ul {
 nav ul li a {
     position: relative;
     font-weight: 500;
-    transition: color 0.3s ease, transform 0.2s ease; /* Adding transition for smooth hover */
+    transition: color 0.3s ease, transform 0.2s ease;
 }
   
   nav ul li a:hover {
@@ -80,7 +80,6 @@ nav ul li a {
     left: 43.5%;
   }
   
-  /* Animation for stretching the underline */
   @keyframes stretchUnderline {
     from {
       width: 0;
@@ -186,22 +185,22 @@ nav ul li a {
 
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns by default */
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     padding: 20px;
     width: 100%;
     margin: 0 auto;
-    box-sizing: border-box; /* Ensures grid doesn't overflow */
+    box-sizing: border-box;
   }
 
     @media (max-width: 768px) {
         .projects-grid {
-        grid-template-columns: 1fr; /* 1 column on small screens */
-        padding: 0 20px; /* Adds horizontal padding on small screens */
+        grid-template-columns: 1fr;
+        padding: 0 20px;
         }
     
         .project-card {
-        margin: 0 auto; /* Centers cards when there's only 1 per row */
+        margin: 0 auto;
     }
   }
   

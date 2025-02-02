@@ -26,12 +26,24 @@ document.addEventListener("DOMContentLoaded", function () {
             mainContent.innerHTML = "<p>Error loading content</p>";
         });
     }
+
+    function loadProject(projectURL) {
+      fetch(projectURL)
+        .then(response => response.text())
+        .then(data => {
+          mainContent.innerHTML = data;
+        })
+        .catch(error => {
+          mainContent.innerHTML = `<p>Error loading project. Please try again.</p>`;
+          console.error("Error loading project:", error);
+      });
+    }
   
     function attachProjectLinks() {
       const projectLinks = document.querySelectorAll(".project-link");
       projectLinks.forEach((link) => {
         link.addEventListener("click", function (event) {
-          event.preventDefault();  // Prevent default navigation
+          event.preventDefault();
   
           const projectURL = this.getAttribute("data-project");
           console.log("Loading project from:", projectURL);
@@ -48,14 +60,11 @@ document.addEventListener("DOMContentLoaded", function () {
   
     tabs.forEach((tab) => {
       tab.addEventListener("click", function (event) {
-        event.preventDefault();  // Prevent default page navigation
+        event.preventDefault();
   
-        // Remove 'active' class from all tabs
         tabs.forEach(t => t.classList.remove("active"));
-        // Add 'active' class to the clicked tab
         tab.classList.add("active");
   
-        // Load the corresponding content
         loadContent(tab);
       });
     });
