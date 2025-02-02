@@ -1,4 +1,4 @@
-var lastTab = 'home';
+var lastTab = '';
 
 document.addEventListener("DOMContentLoaded", function () {
     const tabs = document.querySelectorAll("nav ul li a");
