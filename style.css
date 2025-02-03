@@ -14,17 +14,18 @@
   --font-size-base: 1rem;
   --font-size-large: 1.5rem;
   --font-size-xlarge: 2rem;
-  --font-size-website-title: 2.5rem;
+  --font-size-website-title: 1.5rem;
   --font-weight-regular: 500;
   --font-weight-bold: 600;
 
   /* Spacing */
-  --padding-main: 40px;
+  --padding-main: 20px;
   --border-radius: 20px;
   --border-radius-inner: 15px;
 }
 
 /* ========== GENERAL STYLES ========== */
+
 body {
   font-family: var(--font-family);
   margin: 0;
@@ -44,78 +45,80 @@ a {
 }
 
 /* ========== HEADER & NAVIGATION ========== */
+
 header {
   position: sticky;
+  top: 0;
   width: 100%;
   background-color: var(--secondary-bg);
   padding: 20px 0;
   text-align: center;
   box-shadow: 0 4px 6px var(--shadow-light);
   z-index: 999;
-}
 
-header h1 {
-  margin: 0;
-  font-size: var(--font-size-website-title);
-  font-weight: var(--font-weight-bold);
-  color: var(--primary-color);
-}
+  h1 {
+    margin: 0;
+    font-size: var(--font-size-website-title);
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-color);
+  }
 
-nav ul {
-  list-style: none;
-  padding: 0 20px;
-  margin: 10px 0 0;
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-}
+  nav ul {
+    list-style: none;
+    padding: 0 20px;
+    margin: 10px 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+  }
 
 
-li {
-  position: relative;
-  font-weight: var(--font-weight-regular);
-  font-size: var(--font-size-large);
-  transition: color 0.3s ease, transform 0.3s ease, font-size 0.3s ease;
-}
+  li {
+    position: relative;
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-base);
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  li::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 4px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease, left 0.3s ease;
+  }
+  
+  li:hover {
+    color: var(--primary-color);
+    transform: translateY(-4px);
+  }
 
-li:hover {
-  color: var(--primary-color);
-}
+  li:hover::after {
+    width: 15%;
+    left: 43.5%;
+  }
 
-/* Navigation Underline Animation */
-li::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background-color: var(--primary-color);
-  transition: width 0.3s ease, left 0.3s ease;
-}
+  li.active {
+    color: var(--primary-color);
+  }
 
-li:hover::after {
-  width: 15%;
-  left: 43.5%;
-}
+  li.active::after {
+    width: 100%;
+    left: 0;
+  }
 
-li.active {
-  color: var(--primary-color);
-}
-
-li.active::after {
-  width: 100%;
-  left: 0;
-}
-
-li.active:hover::after {
-  width: 75%;
-  left: 12.5%;
+  li.active:hover::after {
+    width: 75%;
+    left: 12.5%;
+  }
 }
 
 /* ========== MAIN CONTENT ========== */
 main {
-  padding: var(--padding-main) 20px;
+  padding: var(--padding-main);
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
@@ -175,7 +178,7 @@ main {
   background-color: var(--secondary-bg);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  padding-bottom: 8px;
+  animation: fadeIn 0.5s ease;
 
   h1, h2, h3 {
     margin: 0;
@@ -199,12 +202,14 @@ main {
   gap: 10px;
   font-size: 1rem;
   color: var(--text-muted);
+  margin-bottom: 8px;
 }
 
 .project-meta-data h2, .project-meta-data h3, .project-meta-data h4 {
   margin: 0;
   padding: 0;
   flex: 1;
+  color: var(--text-color);
   text-align: center;
 }
 
@@ -213,11 +218,10 @@ main {
 }
 
 .project-info {
-  padding: 15px;
+  padding: 0px 24px;
 }
 
 .project-info p {
-  margin-top: 16px;
   font-size: 1rem;
   color: var(--text-muted);
 }
@@ -265,21 +269,33 @@ main {
 }
 
 /* ========== MEDIA ELEMENTS ========== */
+
 video {
   width: 100%;
-  border-radius: var(--border-radius-inner);
-  margin-bottom: 20px;
-  box-shadow: 0 4px 6px var(--shadow-dark);
+  border-radius: var(--border-radius);
+  margin: 8px 0;
+  box-shadow: 0 8px 8px var(--shadow-dark);
+}
+
+audio {
+  width: 100%;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 8px var(--shadow-dark);
 }
 
 /* ========== FOOTER ========== */
+
 footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   text-align: center;
-  padding: 20px;
+  padding: 8px;
   background-color: var(--secondary-bg);
   color: var(--text-color);
-  margin-top: 40px;
   box-shadow: 0 -4px 6px var(--shadow-light);
+  z-index: 999;
 }
 
 footer p {

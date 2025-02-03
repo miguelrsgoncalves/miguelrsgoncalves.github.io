@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-    loadTab("home");
+    mainContent = document.getElementById("main-content");
     tabs = ([
         document.getElementById("home"),
         document.getElementById("game-dev"),
         document.getElementById("other-projects"),
         document.getElementById("contacts")
     ]);
-    mainContent = document.getElementById("main-content");
+    loadTab("home");
 });

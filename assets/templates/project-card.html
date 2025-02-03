@@ -1,13 +1,15 @@
 <!-- project-card-template.html -->
-<a href="{{link}}" class="project-card project-link" data-project="{{link}}">
-    <img src="{{image}}" alt="{{title}}">
-    <div class="project-info">
-        <h1>{{title}}</h1>
-        <div class="project-meta-data">
-            <h3>{{year}}</h3>
-            <h2>{{category}}</h2>
-            <h3>Software: {{software}}</h3>
+<template id="project-card">
+    <div class="project-card clickable" onclick="loadProject('{{projectURL}}')">
+        <img src="{{image}}" alt="{{title}}">
+        <div class="project-info">
+            <h1>{{title}}</h1>
+            <div class="project-meta-data">
+                <h3>{{software}}</h3>
+                <h2>{{category}}</h2>
+                <h3>{{year}}</h3>
+            </div>
+            <p>{{description}}</p>
         </div>
-        <p>{{description}}</p>
     </div>
-</a>
+</template>
