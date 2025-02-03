@@ -17,10 +17,10 @@
     <h1>Miguel Gonçalves</h1>
     <nav>
       <ul>
-        <li><a href="#home" class="active" onclick="loadTab('home')">Home</a></li>
-        <li><a href="#game-dev" onclick="loadTab('game-dev')">Game Dev</a></li>
-        <li><a href="#other-projects" onclick="loadTab('other-projects')">Other Projects</a></li>
-        <li><a href="#contacts" onclick="loadTab('contacts')">Contacts</a></li>
+        <li id="home" class="active clickable" onclick="loadTab('home')">Home</li>
+        <li id="game-dev" class="clickable" onclick="loadTab('game-dev')">Game Dev</li>
+        <li id="other-projects" class="clickable" onclick="loadTab('other-projects')">Other Projects</li>
+        <li id="contacts" class="clickable" onclick="loadTab('contacts')">Contacts</li>
       </ul>
     </nav>
   </header>
@@ -32,5 +32,6 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="setup-script.js"></script>
 </body>
 </html>

@@ -39,6 +39,10 @@ a {
   color: inherit;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 /* ========== HEADER & NAVIGATION ========== */
 header {
   position: sticky;
@@ -67,19 +71,19 @@ nav ul {
 }
 
 
-li a {
+li {
   position: relative;
   font-weight: var(--font-weight-regular);
   font-size: var(--font-size-large);
   transition: color 0.3s ease, transform 0.3s ease, font-size 0.3s ease;
 }
 
-li a:hover {
+li:hover {
   color: var(--primary-color);
 }
 
 /* Navigation Underline Animation */
-li a::after {
+li::after {
   content: "";
   position: absolute;
   bottom: -4px;
@@ -90,21 +94,21 @@ li a::after {
   transition: width 0.3s ease, left 0.3s ease;
 }
 
-li a:hover::after {
+li:hover::after {
   width: 15%;
   left: 43.5%;
 }
 
-li a.active {
+li.active {
   color: var(--primary-color);
 }
 
-li a.active::after {
+li.active::after {
   width: 100%;
   left: 0;
 }
 
-li a.active:hover::after {
+li.active:hover::after {
   width: 75%;
   left: 12.5%;
 }
