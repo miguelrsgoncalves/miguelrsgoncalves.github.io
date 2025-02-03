@@ -27,7 +27,7 @@
         "projectURL": "../project-pages/papers-please-the-short-film-audio-only-adaptation.html"
     },
     {
-        "image": "",
+        "image": "../assets/images/WebGLBirdGame_Thumbnail.png",
         "title": "WebGL Bird Game",
         "year": "2023",
         "category": "Computer Graphics",
@@ -36,12 +36,12 @@
         "projectURL": "../project-pages/webgl-bird-game.html"
     },
     {
-        "image": "",
+        "image": "../assets/images/WebGLTrainGame_Thumbnail.png",
         "title": "WebGL Train Game",
         "year": "2022",
         "category": "Computer Graphics",
         "software": ["WebGL"],
-        "description": "Prototype game where you play as a bird tasked with gathering eggs and dropping them on a nest. The whole project, including the meshes and animation were done in WebGL.",
+        "description": "Prototype game where you can watch a train locomotive go around a circle train track, stopping at the various train stations for a time. The whole project, including the meshes and animation were done in WebGL.",
         "projectURL": "../project-pages/webgl-train-game.html"
     }
 ]
