@@ -9,11 +9,11 @@ export class MyCylinderTotal extends CGFobject {
      * @param {CGFscene} scene CGFscene
      * @param {Number} slices number of slices
      */
-    constructor(scene, slices, yMax = 1 , radius = 1, matirial) {
+    constructor(scene, slices, yMax = 1 , radius = 1, material) {
         super(scene);
         this.yMax = yMax;
         this.radius = radius;
-        this.matirial =matirial;
+        this.material =material;
 
         this.cylinder = new MyCylinder(scene, slices, yMax, radius);
         this.circle = new MyCircle(scene, slices, radius);
@@ -23,7 +23,7 @@ export class MyCylinderTotal extends CGFobject {
      * Displays this object
      */
     display() {
-        this.matirial.apply();
+        this.material.apply();
 
         //Regular cylinder
         this.scene.pushMatrix();
@@ -44,7 +44,7 @@ export class MyCylinderTotal extends CGFobject {
         this.scene.popMatrix();
     }
 
-    setTexture( matirial ){
-        this.matirial = matirial;
+    setTexture( material ){
+        this.material = material;
     }
 }

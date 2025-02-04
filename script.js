@@ -1,6 +1,13 @@
 var lastTab = '';
 var isInProjectWindow = false;
 
+const tabsEnum = {
+  home: "home",
+  gameDev: "game-dev",
+  projects: "projects",
+  contacts: "contacts"
+}
+
 var tabs = [];
 var mainContent;
 
@@ -44,8 +51,8 @@ function loadProject(projectURL) {
 
 function perTabLoad(tabName) {
   switch (tabName) {
-    case "other-projects":
-      addProjects('card-container', 'assets/page-data-files/other-projects-data.json');
+    case "projects":
+      addProjects('card-container', 'assets/page-data-files/projects-data.json');
     default:
       return;
   }
