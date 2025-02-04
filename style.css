@@ -168,7 +168,6 @@ main {
   box-sizing: border-box;
 }
 
-/* Project Cards */
 .project-card {
   display: flex;
   flex-direction: column;
@@ -207,7 +206,7 @@ main {
 
 .project-meta-data h2, .project-meta-data h3, .project-meta-data h4 {
   margin: 0;
-  padding: 0;
+  padding: 0 16px;
   flex: 1;
   color: var(--text-color);
   text-align: center;
