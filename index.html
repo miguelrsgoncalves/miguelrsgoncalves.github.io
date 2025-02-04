@@ -12,6 +12,7 @@
     <title>Miguel Gonçalves</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=tune" />
   </head>
 
   <body>
@@ -27,6 +28,16 @@
       </nav>
     </header>
 
+
+    <div id="filter-header" class="filter-header off">
+      <div id="filter-icon" class="filter-icon clickable" onclick="toggleFilterHeader()"><span class="material-symbols-outlined">tune</span></div>
+      <!--
+      <div id="filter-content" class="filter-content">
+        contente header lol
+      </div>
+      --->
+    </div>
+
     <main id="main-content"></main>
 
     <!--
@@ -37,6 +48,6 @@
     
     <script src="script.js"></script>
     <script src="setup-script.js" defer></script>
-    <script src="add-project-cards.js"></script>
+    <script src="add-project-cards.js" defer></script>
   </body>
 </html>
