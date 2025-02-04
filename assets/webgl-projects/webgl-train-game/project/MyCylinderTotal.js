@@ -3,7 +3,7 @@ import {CGFobject} from '../lib/CGF.js';
 import { MyCylinder } from "./MyCylinder.js";
 import { MyCircle } from "./MyCircle.js";
 
-export class MyCylindertotal extends CGFobject {
+export class MyCylinderTotal extends CGFobject {
 
     /**
      * @param {CGFscene} scene CGFscene

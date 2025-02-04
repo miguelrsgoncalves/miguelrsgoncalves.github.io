@@ -1,4 +1,4 @@
-import { MyCylindertotal } from "./MyCylindertotal.js";
+import { MyCylinderTotal } from "./MyCylinderTotal.js";
 
 import {CGFobject, CGFappearance} from '../lib/CGF.js';
 /**
@@ -14,7 +14,7 @@ export class MyWood extends CGFobject {
         this.initMaterials(scene);
 
         //Initialize scene objects
-        this.cylinder_1 = new MyCylindertotal(scene, 20, 2, 0.2, this.woodMaterial);//raio de 0.9 unidades, e comprimento de 3.5 unidades
+        this.cylinder_1 = new MyCylinderTotal(scene, 20, 2, 0.2, this.woodMaterial);//raio de 0.9 unidades, e comprimento de 3.5 unidades
 	}
 
     initMaterials(scene){

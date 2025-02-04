@@ -1,6 +1,6 @@
 import { MyUnitCubeQuad } from "./MyUnitCubeQuad.js";
 import { MyUnitCubeQuadTopless } from "./MyUnitCubeQuadTopless.js";
-import { MyCylindertotal } from "./MyCylindertotal.js";
+import { MyCylinderTotal } from "./MyCylinderTotal.js";
 import { MyCylinderTopless } from "./MyCylinderTopless.js";
 import { MySphere } from "./MySphere.js";
 import { MyCrane } from "./MyCrane.js";
@@ -32,13 +32,13 @@ export class MyTrain extends CGFobject {
         this.cubeMap_2 = new MyUnitCubeQuad(scene, this.train_M_Path, this.train_M_Path, this.train_M_Path);
         this.box = new MyUnitCubeQuadTopless(scene, 'images/metal.jpg', 'images/metal.jpg');
         this.wheelRadius = 1;
-        this.cylinder_1 = new MyCylindertotal(scene, 20, 3.5, 0.9, this.trainMatirial);//raio de 0.9 unidades, e comprimento de 3.5 unidades
+        this.cylinder_1 = new MyCylinderTotal(scene, 20, 3.5, 0.9, this.trainMatirial);//raio de 0.9 unidades, e comprimento de 3.5 unidades
         this.cylinder_2 = new MyCylinderTopless(scene, 10, 2, 0.3, this.trainMatirial);
         this.wheelRadius = 0.75;
-        this.cylinder_wheel_1 = new MyCylindertotal(scene, 20, 0.2, this.wheelRadius, this.wheelMatirial); //diâmetro de 1.5 e largura 0.2 unidades
-        this.cylinder_wheel_2 = new MyCylindertotal(scene, 20, 0.2, this.wheelRadius, this.wheelMatirial); //diâmetro de 1.5 e largura 0.2 unidades
-        this.cylinder_wheel_3 = new MyCylindertotal(scene, 20, 0.2, this.wheelRadius, this.wheelMatirial); //diâmetro de 1.5 e largura 0.2 unidades
-        this.cylinder_wheel_4 = new MyCylindertotal(scene, 20, 0.2, this.wheelRadius, this.wheelMatirial); //diâmetro de 1.5 e largura 0.2 unidades
+        this.cylinder_wheel_1 = new MyCylinderTotal(scene, 20, 0.2, this.wheelRadius, this.wheelMatirial); //diâmetro de 1.5 e largura 0.2 unidades
+        this.cylinder_wheel_2 = new MyCylinderTotal(scene, 20, 0.2, this.wheelRadius, this.wheelMatirial); //diâmetro de 1.5 e largura 0.2 unidades
+        this.cylinder_wheel_3 = new MyCylinderTotal(scene, 20, 0.2, this.wheelRadius, this.wheelMatirial); //diâmetro de 1.5 e largura 0.2 unidades
+        this.cylinder_wheel_4 = new MyCylinderTotal(scene, 20, 0.2, this.wheelRadius, this.wheelMatirial); //diâmetro de 1.5 e largura 0.2 unidades
         this.crane = new MyCrane(scene);
 
         //train angle (changes according to the direction)

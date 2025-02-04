@@ -1,6 +1,6 @@
 import { MyUnitCubeQuad } from "./MyUnitCubeQuad.js";
 import { MyUnitCubeQuadTopless } from "./MyUnitCubeQuadTopless.js";
-import { MyCylindertotal } from "./MyCylindertotal.js";
+import { MyCylinderTotal } from "./MyCylinderTotal.js";
 import { MyCylinderTopless } from "./MyCylinderTopless.js";
 import { MySphere } from "./MySphere.js";
 import { CGFobject, CGFappearance} from '../lib/CGF.js';
@@ -18,7 +18,7 @@ export class MyCrane extends CGFobject {
 
         //Initialize scene objects
         this.sphere = new MySphere(scene, 10,12);
-        this.cylinder_1 = new MyCylindertotal(scene, 20, 3.5, 0.9, this.craneMatirial);//raio de 0.9 unidades, e comprimento de 3.5 unidades
+        this.cylinder_1 = new MyCylinderTotal(scene, 20, 3.5, 0.9, this.craneMatirial);//raio de 0.9 unidades, e comprimento de 3.5 unidades
 	}
 
     initMaterials(scene){
