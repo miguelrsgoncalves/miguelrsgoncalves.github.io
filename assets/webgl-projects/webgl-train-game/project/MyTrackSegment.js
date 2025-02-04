@@ -50,9 +50,6 @@ export class MyTrackSegment extends CGFobject {
     calculate_angle(a, b){
 		var dif = vec2.fromValues(0,0);
 		vec2.subtract(dif, b, a);
-		//console.log(dif);
-		//var a = Math.acos(this.point2.x - this.point1.x/this.calculate_distance(value,value+1));
-		//console.log( a );
 		return 	dif[0] < 0 ? Math.PI + Math.atan(dif[1]/dif[0]) : Math.atan(dif[1]/dif[0]);
 	}
 

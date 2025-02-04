@@ -93,7 +93,6 @@ export class MyTrack extends CGFobject {
 	displayTrain() {
 		this.scene.pushMatrix();
 		this.scene.translate(this.train.trainX, this.train.trainY, this.train.trainZ);
-		console.log("angleTrain::"+ this.train.angleTrain);
 		this.scene.rotate( - this.train.angleTrain , 0, 1, 0);
 		this.scene.rotate( Math.PI*0.5 , 0, 1, 0);
 		//this.segments[1].display();
@@ -113,7 +112,6 @@ export class MyTrack extends CGFobject {
 	}
 
 	cmpCoords(x1, x2, z1, z2, limit) {
-		//console.log("x1:"+x1+", x2:" +x2+", z1:"+z1+", z2:"+z2+", limit:"+limit)
 		return Math.abs(x2 - x1) <= limit && Math.abs(z2 - z1) <= limit;
 	};
 
@@ -145,7 +143,6 @@ export class MyTrack extends CGFobject {
 	 */
 	moveTrain(deltaTime) {
 		
-		//console.log("moveTrain = if :"+ this.cmpCoords(this.train.trainX, this.track_P_next.x, this.train.trainZ, this.track_P_next.z , 0.5));
 		if( this.cmpCoords(this.train.trainX, this.track_P_next.x, this.train.trainZ, this.track_P_next.z , 0.05)){
 			this.train.trainX =  this.track_P_next.x;
 			this.train.trainZ =  this.track_P_next.z;
@@ -167,11 +164,6 @@ export class MyTrack extends CGFobject {
 			this.track_P_last = this.track_Points[this.tP_last];
 			this.track_P_next = this.track_Points[this.tP_next];
 			this.alphaTrain = this.calculate_angle([this.track_P_last.x , this.track_P_last.z],[this.track_P_next.x , this.track_P_next.z]);
-			/*
-			console.log("this.track_P_last::"+this.track_P_last.x+"  "+this.track_P_last.x);
-			console.log("this.track_P_next::"+this.track_P_next.x+"  "+this.track_P_next.x);
-			console.log("----------");
-			*/
 		}	
 		
         if(!this.move_Train_Stop){
