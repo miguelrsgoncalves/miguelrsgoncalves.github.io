@@ -24,6 +24,7 @@ async function addProjects(containerId, dataSource) {
             throw new Error(`Container with ID "${containerId}" not found.`);
         }
 
+        container.innerHTML = "";
         projectsData.forEach(project => {
             const cardHTML = replacePlaceholders(template, project);
             container.insertAdjacentHTML('beforeend', cardHTML);

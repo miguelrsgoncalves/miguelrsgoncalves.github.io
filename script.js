@@ -16,8 +16,12 @@ function updateMainContent(data) {
 }
 
 function loadTab(tabName) {
-  if (tabName === lastTab && !isInProjectWindow) return;
-  else lastTab = tabName;
+  if (tabName === lastTab && !isInProjectWindow) {
+    window.scrollTo(0, 0);
+    return;
+  } else {
+    lastTab = tabName;
+  }
 
   const path = `tabs/${tabName}.html`;
 
