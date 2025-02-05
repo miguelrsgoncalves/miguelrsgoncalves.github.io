@@ -142,6 +142,7 @@ main {
 
 .tab-content {
   display: none;
+  padding: 20px;
   animation: fadeIn 0.5s ease;
 }
 
@@ -156,16 +157,24 @@ main {
   text-align: center;
 }
 
+/* ========== Filter Header ========== */
+.filter-header {
+  width: 100%;
+  border: 8px solid var(--secondary-bg);
+  border-radius: var(--border-radius);
+  background-color: var(--secondary-bg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  animation: fadeIn 0.5s ease;
+}
+
 /* ========== PROJECT SECTION ========== */
 
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  padding: 20px;
   width: 100%;
-  margin: 0 auto;
-  box-sizing: border-box;
+  margin: 0;
 }
 
 .project-card {
@@ -173,7 +182,6 @@ main {
   flex-direction: column;
   border: 8px solid var(--secondary-bg);
   border-radius: var(--border-radius);
-  overflow: hidden;
   background-color: var(--secondary-bg);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
@@ -225,7 +233,6 @@ main {
   color: var(--text-muted);
 }
 
-/* Hover Effects */
 .project-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 8px var(--shadow-dark);
@@ -241,30 +248,10 @@ main {
 
 /* ========== PROJECT CONTENT ========== */
 .project-content {
-  max-width: 800px;
+  max-width: 1024px;
   width: 100%;
   margin: 0 auto;
   text-align: center;
-}
-
-
-.project-content h2 {
-  font-size: 1.8rem;
-  color: var(--primary-color);
-  margin-bottom: 10px;
-}
-
-.project-content img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 6px var(--shadow-dark);
-}
-
-.project-content p {
-  font-size: var(--font-size-base);
-  color: var(--text-muted);
-  line-height: 1.8;
 }
 
 /* ========== MEDIA ELEMENTS ========== */
