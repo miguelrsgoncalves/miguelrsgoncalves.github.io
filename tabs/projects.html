@@ -6,22 +6,43 @@
     </div>
 
     <div id="filter-dropdown" class="filter-dropdown">
-        <div class="filter-option">
-          <input name="all" type="checkbox" id="all-years" checked onchange="toggleAllYears(this)">
-          <label>All</label>
+        <div>
+            <div class="filter-checkbox">
+                <input name="all" type="checkbox" id="all-years" checked onchange="toggleAllYears(this)">
+                <label>All</label>
+            </div>
+            <div class="filter-checkbox">
+                <input name="2024" type="checkbox" class="year-checkbox" checked onchange="updateYearFilters()">
+                <label>2024</label>
+            </div>
+            <div class="filter-checkbox">
+                <input name="2023" type="checkbox" class="year-checkbox" checked onchange="updateYearFilters()">
+                <label>2023</label>
+            </div>
+            <div class="filter-checkbox">
+                <input name="2022" type="checkbox" class="year-checkbox" checked onchange="updateYearFilters()">
+                <label>2022</label>
+            </div>
         </div>
-        <div class="filter-option">
-            <input name="2024" type="checkbox" checked onchange="updateYearFilters()">
-            <label>2024</label>
-          </div>
-        <div class="filter-option">
-          <input name="2023" type="checkbox" checked onchange="updateYearFilters()">
-          <label>2023</label>
-        </div>
-        <div class="filter-option">
-          <input name="2022" type="checkbox" checked onchange="updateYearFilters()">
-          <label>2022</label>
-        </div>
+        
+        <div>
+            <div class="filter-checkbox">
+                <input name="all" type="checkbox" id="all-roles-categories" checked onchange="toggleAllRolesCategories(this)">
+                <label>All</label>
+            </div>
+            <div class="filter-checkbox">
+                <input name="Animation" type="checkbox" class="roles-categories-checkbox" checked onchange="updateRolesCategoriesFilters()">
+                <label>Animation</label>
+            </div>
+            <div class="filter-checkbox">
+                <input name="Computer Graphics" type="checkbox" class="roles-categories-checkbox" checked onchange="updateRolesCategoriesFilters()">
+                <label>Computer Graphics</label>
+            </div>
+            <div class="filter-checkbox">
+                <input name="Sound Design" type="checkbox" class="roles-categories-checkbox" checked onchange="updateRolesCategoriesFilters()">
+                <label>Sound Design</label>
+            </div>
+        </div>        
     </div>
 
     <div id="card-container" class="projects-grid"></div>

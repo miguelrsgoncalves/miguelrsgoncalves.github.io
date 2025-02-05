@@ -28,18 +28,20 @@ async function loadProjects(containerId, dataSource) {
     }
 }
 
-function renderProjects(selectedYears) {
-    console.log(selectedYears)
+function renderProjects(filters) {
     container.innerHTML = "";
     projectsData.forEach(project => {
-        if(!selectedYears || selectedYears.includes(project.data.year)) container.insertAdjacentHTML('beforeend', project.html);
+        if(!filters || (
+            filters.years.includes(project.data.year) &&
+            filters.rolesCategories.includes(project.data.roleCategory[0])
+        )) container.insertAdjacentHTML('beforeend', project.html);
     })
 }
 
 function replacePlaceholders(template, data) {
     return template.replace(/{{(.*?)}}/g, (match, p1) => {
         const key = p1.trim();
-        if ((key === 'software' || key === 'role/category') && Array.isArray(data[key])) {
+        if ((key === 'software' || key === 'roleCategory') && Array.isArray(data[key])) {
             return data[key].join(' | ');
         }
         return data[key] || '';

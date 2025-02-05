@@ -197,18 +197,18 @@ main {
   display: block;
 }
 
-.filter-option {
+.filter-checkbox {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
 
-.filter-option input[type="checkbox"] {
+.filter-checkbox input[type="checkbox"] {
   margin-right: 10px;
   cursor: pointer;
 }
 
-.filter-option label {
+.filter-checkbox label {
   font-size: var(--font-size-base);
   cursor: pointer;
 }

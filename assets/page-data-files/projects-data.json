@@ -3,7 +3,7 @@
         "image": "../assets/images/NarrowEscape_Thumbnail.png",
         "title": "Narrow Escape",
         "year": "2024",
-        "role/category": ["Animation"],
+        "roleCategory": ["Animation"],
         "software": ["Maya"],
         "description": "Follow Anya as she escapes a trio of relentless goons, finding her way inside a weird and confusing system of sewer pipes.",
         "projectURL": "../project-pages/narrow-escape.html"
@@ -12,7 +12,7 @@
         "image": "../assets/images/PapersPleaseTheShortFilmSpatialAudioOnlyAdaptation_Thumbnail.jpg",
         "title": "Papers Please: The Short Film - Spatial Audio Only Adaptation",
         "year": "2023",
-        "role/category": ["Audio Design"],
+        "roleCategory": ["Sound Design"],
         "software": ["Reaper"],
         "description": "An audio only adaptation of the Papers Please: The Short Film made by Nikita Ordynskiy.",
         "projectURL": "../project-pages/papers-please-the-short-film-spatial-audio-only-adaptation.html"
@@ -21,7 +21,7 @@
         "image": "../assets/images/StylizedGrassField_Thumbnail.png",
         "title": "Stylized Grass Field",
         "year": "2024",
-        "role/category": ["Computer Graphics"],
+        "roleCategory": ["Computer Graphics"],
         "software": ["Unreal Engine 5"],
         "description": "Vast Stylized grass field made inside Unreal Engine 5, made to be performant and dense.",
         "projectURL": "../project-pages/narrow-escape.html"
@@ -30,7 +30,7 @@
         "image": "../assets/images/WebGLBirdGame_Thumbnail.png",
         "title": "WebGL Bird Game",
         "year": "2023",
-        "role/category": ["Computer Graphics"],
+        "roleCategory": ["Computer Graphics"],
         "software": ["WebGL"],
         "description": "Prototype game where you play as a bird tasked with gathering eggs and dropping them on a nest. The whole project, including the meshes and animation were done in WebGL.",
         "projectURL": "../project-pages/webgl-bird-game.html"
@@ -39,7 +39,7 @@
         "image": "../assets/images/WebGLTrainGame_Thumbnail.png",
         "title": "WebGL Train Game",
         "year": "2022",
-        "role/category": ["Computer Graphics"],
+        "roleCategory": ["Computer Graphics"],
         "software": ["WebGL"],
         "description": "Prototype game where you can watch a train locomotive go around a circle train track, stopping at the various train stations for a time. The whole project, including the meshes and animation were done in WebGL.",
         "projectURL": "../project-pages/webgl-train-game.html"
