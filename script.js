@@ -61,13 +61,3 @@ function perTabLoad(tabName) {
       return;
   }
 }
-
-function toggleFilterDropdown() {
-  const filterDropdown = document.getElementById('filter-dropdown');
-  filterDropdown.classList.toggle('active');
-}
-
-function filterProjectsByYear() {
-  const yearFilter = document.getElementById('year-filter').value;
-  renderProjects('card-container', yearFilter);
-}

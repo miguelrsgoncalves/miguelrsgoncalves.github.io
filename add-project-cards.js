@@ -1,3 +1,4 @@
+var container;
 var projectsData = [];
 
 async function loadProjects(containerId, dataSource) {
@@ -11,7 +12,7 @@ async function loadProjects(containerId, dataSource) {
         const templateDoc = parser.parseFromString(templateText, 'text/html');
         const template = templateDoc.getElementById('project-card').innerHTML;
         
-        const container = document.getElementById(containerId);
+        container = document.getElementById(containerId);
         if (!container) {throw new Error(`Container with ID "${containerId}" not found.`);}
 
         projectsData = [];
@@ -21,20 +22,17 @@ async function loadProjects(containerId, dataSource) {
             projectsData.push({data: project, html: cardHTML});
         });
         
-        renderProjects(containerId)
+        renderProjects(false)
     } catch (error) {
         console.error('Error loading projects:', error);
     }
 }
 
-function renderProjects(containerId, yearFilter = 'all') {
-    const container = document.getElementById(containerId);
+function renderProjects(selectedYears) {
+    console.log(selectedYears)
     container.innerHTML = "";
     projectsData.forEach(project => {
-        if(yearFilter == 'all') {container.insertAdjacentHTML('beforeend', project.html);}
-        else {
-            if(project.data.year == yearFilter) container.insertAdjacentHTML('beforeend', project.html);
-        }
+        if(!selectedYears || selectedYears.includes(project.data.year)) container.insertAdjacentHTML('beforeend', project.html);
     })
 }
 

@@ -1,22 +1,28 @@
 <section id="projects" class="tab-content active">
 
-    <div class="filter-header clickable" onclick="toggleFilterDropdown()">
+    <div class="filter-header clickable" onclick="toggleFilterDropdown('card-container')">
         <span class="material-symbols-outlined filter-icon">filter_list</span>
         <p>Filters</p>
     </div>
 
     <div id="filter-dropdown" class="filter-dropdown">
-        <label for="year-filter">Filter by Year:</label>
-        <checkbox>
-            
-        </checkbox>
-        <select id="year-filter" onchange="filterProjectsByYear()">
-          <option value="all">All Years</option>
-          <option value="2023">2023</option>
-          <option value="2022">2022</option>
-          <option value="2021">2021</option>
-        </select>
-      </div>
+        <div class="filter-option">
+          <input name="all" type="checkbox" id="all-years" checked onchange="toggleAllYears(this)">
+          <label>All</label>
+        </div>
+        <div class="filter-option">
+            <input name="2024" type="checkbox" checked onchange="updateYearFilters()">
+            <label>2024</label>
+          </div>
+        <div class="filter-option">
+          <input name="2023" type="checkbox" checked onchange="updateYearFilters()">
+          <label>2023</label>
+        </div>
+        <div class="filter-option">
+          <input name="2022" type="checkbox" checked onchange="updateYearFilters()">
+          <label>2022</label>
+        </div>
+    </div>
 
     <div id="card-container" class="projects-grid"></div>
 </section>

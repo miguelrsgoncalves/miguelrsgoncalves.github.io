@@ -197,23 +197,20 @@ main {
   display: block;
 }
 
-.filter-dropdown label {
-  font-size: var(--font-size-base);
-  margin-right: 10px;
+.filter-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.filter-dropdown select {
-  padding: 8px;
-  border-radius: var(--border-radius-inner);
-  border: 2px solid var(--primary-color);
-  background-color: var(--background-color);
-  color: var(--text-color);
-  font-size: var(--font-size-base);
+.filter-option input[type="checkbox"] {
+  margin-right: 10px;
   cursor: pointer;
 }
 
-.filter-dropdown select:hover {
-  border-color: var(--text-color);
+.filter-option label {
+  font-size: var(--font-size-base);
+  cursor: pointer;
 }
 
 /* ========== PROJECT SECTION ========== */
