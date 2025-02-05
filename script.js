@@ -56,8 +56,18 @@ function loadProject(projectURL) {
 function perTabLoad(tabName) {
   switch (tabName) {
     case "projects":
-      addProjects('card-container', 'assets/page-data-files/projects-data.json');
+      loadProjects('card-container', 'assets/page-data-files/projects-data.json');
     default:
       return;
   }
+}
+
+function toggleFilterDropdown() {
+  const filterDropdown = document.getElementById('filter-dropdown');
+  filterDropdown.classList.toggle('active');
+}
+
+function filterProjectsByYear() {
+  const yearFilter = document.getElementById('year-filter').value;
+  renderProjects('card-container', yearFilter);
 }
