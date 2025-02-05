@@ -10,7 +10,6 @@ const tabsEnum = {
 
 var tabs = [];
 var mainContent;
-var filterHeader;
 
 function updateMainContent(data) {
   mainContent.innerHTML = data;
@@ -42,7 +41,6 @@ function loadProject(projectURL) {
     .then(response => response.text())
     .then(data => {
       isInProjectWindow = true;
-      toggleFilterHeaderVisibility(false);
       updateMainContent(data);
     })
     .catch(error => {
@@ -53,22 +51,9 @@ function loadProject(projectURL) {
 
 function perTabLoad(tabName) {
   switch (tabName) {
-    case tabsEnum.projects:
-      toggleFilterHeaderVisibility(true);
+    case "projects":
       addProjects('card-container', 'assets/page-data-files/projects-data.json');
-      return;
     default:
-      toggleFilterHeaderVisibility(false);
-      filterHeader.classList.remove('expanded');
       return;
   }
-}
-
-function toggleFilterHeaderVisibility(value) {
-  if(value) {filterHeader.classList.add('on');}
-  else {filterHeader.classList.remove('on');}
-}
-
-function toggleFilterHeader() {
-  filterHeader.classList.toggle('expanded');
 }
