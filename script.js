@@ -19,6 +19,7 @@ function updateMainContent(data) {
 function loadTab(tabName) {
   if (tabName === lastTab && !isInProjectWindow) {
     scrollToTheTop();
+    closeFilterDropdown();
     return;
   } else {
     lastTab = tabName;

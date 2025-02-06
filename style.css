@@ -303,6 +303,11 @@ main {
   font-size: var(--font-size-base);
   margin-left: 10px;
   color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.filter-checkbox label:hover {
+  color: var(--primary-color);
 }
 
 /* ========== PROJECT SECTION ========== */

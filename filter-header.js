@@ -20,6 +20,11 @@ function toggleFilterDropdown(containerId) {
         softwareCheckboxes = document.querySelectorAll('.software-checkbox');
     }
 }
+
+function closeFilterDropdown() {
+    const filterDropdown = document.getElementById('filter-dropdown');
+    filterDropdown.classList.remove('active');
+}
   
 function filterProjects() {
     var filters = {
@@ -83,6 +88,15 @@ function updateYearFilters() {
     filterProjects();
 }
 
+function toggleOnlyYear(label) {
+    allYearsCheckbox.checked = false;
+    yearCheckboxes.forEach(element => {
+        if(element.name != label.innerHTML) element.checked = false;
+        else element.checked = true;
+    });
+    filterProjects();
+}
+
 function toggleAllRolesCategories(isCheckbox) {
     if(!isCheckbox) allRolesCategoriesCheckbox.checked = !allRolesCategoriesCheckbox.checked;
     rolesCategoriesCheckboxes.forEach(checkbox => {
@@ -100,6 +114,15 @@ function updateRolesCategoriesFilters() {
     filterProjects();
 }
 
+function toggleOnlyRolesCategories(label) {
+    allRolesCategoriesCheckbox.checked = false;
+    rolesCategoriesCheckboxes.forEach(element => {
+        if(element.name != label.innerHTML) element.checked = false;
+        else element.checked = true;
+    });
+    filterProjects();
+}
+
 function toggleAllSoftware(isCheckbox) {
     if(!isCheckbox) allSoftwareCheckbox.checked = !allSoftwareCheckbox.checked;
     softwareCheckboxes.forEach(checkbox => {
@@ -114,5 +137,14 @@ function updateSoftwareFilters() {
     } else {
         allSoftwareCheckbox.checked = true;
     }
+    filterProjects();
+}
+
+function toggleOnlySoftware(label) {
+    allSoftwareCheckbox.checked = false;
+    softwareCheckboxes.forEach(element => {
+        if(element.name != label.innerHTML) element.checked = false;
+        else element.checked = true;
+    });
     filterProjects();
 }
