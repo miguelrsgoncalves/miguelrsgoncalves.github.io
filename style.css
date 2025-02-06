@@ -162,15 +162,14 @@ main {
 }
 
 .page-content {
+  display: flex;
+  flex-direction: column;
   max-width: 1024px;
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  align-content: center;
 
   img {
-    display: flex;
-    flex: 1;
     height: auto;
     width: 100%;
     border-radius: var(--border-radius);
@@ -421,14 +420,16 @@ main {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: var(--border-radius);
   }
-
+  
   .image-content img {
     width: 100%;
     height: auto;
+    max-height: 500px;
     display: block;
-    border-radius: var(--border-radius);
+    object-fit: cover;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
   .image-content::before {
@@ -444,23 +445,45 @@ main {
 
 .text-image-section.reverse {
   flex-direction: row;
-
   .image-content::before {
     background: linear-gradient(-90deg, rgba(255, 255, 255, 0) 75%, var(--background-color) 100%);
+  }
+  img {
+    border-radius: var(--border-radius);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }
 
 @media (max-width: 1024px) {
   .text-image-section {
     flex-direction: column-reverse;
+    border-radius: var(--border-radius);
+
+    .image-content {
+      border-radius: var(--border-radius);
+    }
+
+    .image-content img {
+      border-radius: var(--border-radius) !important;
+    }
+
+    .image-content::before {
+      display: none;
+    }
   }
 
   .text-image-section.reverse {
     flex-direction: column;
-  }
+    border-radius: var(--border-radius);
 
-  .image-content::before {
-    display: none;
+    .image-content {
+      border-radius: var(--border-radius);
+    }
+
+    .image-content img {
+      border-radius: var(--border-radius) !important;
+    }
   }
 }
 
@@ -468,28 +491,24 @@ main {
 
 .image-image-section {
   display: flex;
-  align-items: center;
-  flex: 1;
-  margin-bottom: 20px;
   gap: 20px;
   position: relative;
-  content: '';
 
   .image-content {
     flex: 1;
     position: relative;
     overflow: hidden;
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .image-content img {
     width: 100%;
-    height: auto;
-    display: block;
-    border-radius: var(--border-radius);
+    height: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    object-position: center;
   }
 }
 
