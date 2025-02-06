@@ -1,48 +1,84 @@
 <section id="projects" class="tab-content active">
 
-    <div class="filter-header clickable" onclick="toggleFilterDropdown('card-container')">
-        <span class="material-symbols-outlined filter-icon">filter_list</span>
-        <p>Filters</p>
+    <div class="filter-header">
+        <div class="filter-icon clickable" onclick="toggleFilterDropdown('card-container')">
+            <span class="material-symbols-outlined">filter_list</span>
+            <p>Filters</p>
+        </div>
+        <div class="vl"></div>
+        <div class="filter-reset-button clickable" onclick="resetFilters()">Reset</div>
     </div>
 
     <div id="filter-dropdown" class="filter-dropdown">
-        <div>
+        <div class="filter-column">
+            <h4 class="filter-title">Year</h4>
             <div class="filter-checkbox">
-                <input name="all" type="checkbox" id="all-years" checked onchange="toggleAllYears(this)">
-                <label>All</label>
+                <input name="all" type="checkbox" id="all-years" class="clickable" checked onchange="toggleAllYears(true)">
+                <label class="clickable" onclick="toggleAllYears(false)">All</label>
             </div>
-            <div class="filter-checkbox">
-                <input name="2024" type="checkbox" class="year-checkbox" checked onchange="updateYearFilters()">
-                <label>2024</label>
-            </div>
-            <div class="filter-checkbox">
-                <input name="2023" type="checkbox" class="year-checkbox" checked onchange="updateYearFilters()">
-                <label>2023</label>
-            </div>
-            <div class="filter-checkbox">
-                <input name="2022" type="checkbox" class="year-checkbox" checked onchange="updateYearFilters()">
-                <label>2022</label>
+            <div class="indented-checkboxes">
+                <div class="filter-checkbox">
+                    <input name="2024" type="checkbox" class="year-checkbox clickable" checked onchange="updateYearFilters()">
+                    <label>2024</label>
+                </div>
+                <div class="filter-checkbox">
+                    <input name="2023" type="checkbox" class="year-checkbox clickable" checked onchange="updateYearFilters()">
+                    <label>2023</label>
+                </div>
+                <div class="filter-checkbox">
+                    <input name="2022" type="checkbox" class="year-checkbox clickable" checked onchange="updateYearFilters()">
+                    <label>2022</label>
+                </div>
             </div>
         </div>
         
-        <div>
+        <div class="filter-column">
+            <h4 class="filter-title">Category</h4>
             <div class="filter-checkbox">
-                <input name="all" type="checkbox" id="all-roles-categories" checked onchange="toggleAllRolesCategories(this)">
-                <label>All</label>
+                <input name="all" type="checkbox" id="all-roles-categories" class="clickable" checked onchange="toggleAllRolesCategories(true)">
+                <label class="clickable" onclick="toggleAllRolesCategories(false)">All</label>
             </div>
+            <div class="indented-checkboxes">
+                <div class="filter-checkbox">
+                    <input name="Animation" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="updateRolesCategoriesFilters()">
+                    <label>Animation</label>
+                </div>
+                <div class="filter-checkbox">
+                    <input name="Computer Graphics" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="updateRolesCategoriesFilters()">
+                    <label>Computer Graphics</label>
+                </div>
+                <div class="filter-checkbox">
+                    <input name="Sound Design" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="updateRolesCategoriesFilters()">
+                    <label>Sound Design</label>
+                </div>
+            </div>
+        </div>
+    
+        <div class="filter-column">
+            <h4 class="filter-title">Software</h4>
             <div class="filter-checkbox">
-                <input name="Animation" type="checkbox" class="roles-categories-checkbox" checked onchange="updateRolesCategoriesFilters()">
-                <label>Animation</label>
+                <input name="all" type="checkbox" id="all-software" class="clickable" checked onchange="toggleAllSoftware(true)">
+                <label class="clickable" onclick="toggleAllSoftware(false)">All</label>
             </div>
-            <div class="filter-checkbox">
-                <input name="Computer Graphics" type="checkbox" class="roles-categories-checkbox" checked onchange="updateRolesCategoriesFilters()">
-                <label>Computer Graphics</label>
+            <div class="indented-checkboxes">
+                <div class="filter-checkbox">
+                    <input name="Unreal Engine 5" type="checkbox" class="software-checkbox clickable" checked onchange="updateSoftwareFilters()">
+                    <label>Unreal Engine 5</label>
+                </div>
+                <div class="filter-checkbox">
+                    <input name="Maya" type="checkbox" class="software-checkbox clickable" checked onchange="updateSoftwareFilters()">
+                    <label>Maya</label>
+                </div>
+                <div class="filter-checkbox">
+                    <input name="Reaper" type="checkbox" class="software-checkbox clickable" checked onchange="updateSoftwareFilters()">
+                    <label>Reaper</label>
+                </div>
+                <div class="filter-checkbox">
+                    <input name="WebGL" type="checkbox" class="software-checkbox clickable" checked onchange="updateSoftwareFilters()">
+                    <label>WebGL</label>
+                </div>
             </div>
-            <div class="filter-checkbox">
-                <input name="Sound Design" type="checkbox" class="roles-categories-checkbox" checked onchange="updateRolesCategoriesFilters()">
-                <label>Sound Design</label>
-            </div>
-        </div>        
+        </div>
     </div>
 
     <div id="card-container" class="projects-grid"></div>

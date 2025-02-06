@@ -33,7 +33,8 @@ function renderProjects(filters) {
     projectsData.forEach(project => {
         if(!filters || (
             filters.years.includes(project.data.year) &&
-            filters.rolesCategories.includes(project.data.roleCategory[0])
+            filterContainsRoleCategory(filters.rolesCategories, project.data.roleCategory) &&
+            filterContainsSoftware(filters.software, project.data.software)
         )) container.insertAdjacentHTML('beforeend', project.html);
     })
 }
@@ -46,4 +47,12 @@ function replacePlaceholders(template, data) {
         }
         return data[key] || '';
     });
+}
+
+function filterContainsRoleCategory(filterRoleCategory, projectDataRoleCategory) {
+    return projectDataRoleCategory.some(element => filterRoleCategory.includes(element));
+}
+
+function filterContainsSoftware(filterSoftware, projectDataSoftware) {
+    return projectDataSoftware.some(element => filterSoftware.includes(element));
 }

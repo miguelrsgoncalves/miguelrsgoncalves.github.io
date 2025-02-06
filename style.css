@@ -120,6 +120,7 @@ header {
 main {
   padding: var(--padding-main);
   width: 100%;
+  justify-content: center;
   box-sizing: border-box;
   color: var(--text-muted);
 
@@ -151,20 +152,29 @@ main {
 .page-content {
   max-width: 1024px;
   width: 100%;
+  text-align: center;
+  align-content: center;
+}
+
+.vl {
+  border-left: 4px solid var(--primary-color);
+  height: auto;
+  width: 0;
 }
 
 /* ========== Filter Header ========== */
+
 .filter-header {
+  display: flex;
+  justify-content: space-between;
   width: auto;
   color: var(--primary-color);
   margin-bottom: 20px;
-  border: 8px solid var(--secondary-bg);
   border-radius: var(--border-radius);
   background-color: var(--secondary-bg);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   animation: fadeIn 0.5s ease;
 
-  span, p {
+  span, p, .filter-reset-button{
     display: inline-block;
     text-align: center;
     vertical-align: middle;
@@ -172,17 +182,42 @@ main {
     padding: 4px 8px;
     font-size: var(--font-size-base);
   }
-}
 
-.filter-header:hover {
-  border-color: var(--primary-color);
-  transform: translateY(-8px);
-  box-shadow: 0 8px 8px var(--shadow-dark);
+  .filter-icon {
+    flex-grow: 9;
+    border: 8px solid var(--secondary-bg);
+    border-right: none;
+    border-radius: var(--border-radius);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    transition: border-color 0.3s ease;
+  }
+
+  .filter-icon:hover {
+    border-color: var(--primary-color);
+  }
+
+  .filter-reset-button {
+    flex-grow: 1;
+    text-align: end;
+    border: 8px solid var(--secondary-bg);
+    border-left: none;
+    border-radius: var(--border-radius);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    transition: border-color 0.3s ease;
+  }
+
+  .filter-reset-button:hover {
+    border-color: var(--primary-color);
+  }
 }
 
 /* ========== Filter Dropdown ========== */
+
 .filter-dropdown {
-  display: none; /* Hidden by default */
+  display: none;
+  justify-content: space-between;
   width: auto;
   padding: 20px;
   margin-bottom: 20px;
@@ -194,7 +229,23 @@ main {
 }
 
 .filter-dropdown.active {
-  display: block;
+  display: flex;
+}
+
+.filter-column {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.filter-column:last-child {
+  margin-right: 0;
+}
+
+.filter-title {
+  font-size: var(--font-size-large);
+  color: var(--primary-color);
+  margin: 0;
+  margin-bottom: 16px;
 }
 
 .filter-checkbox {
@@ -203,14 +254,39 @@ main {
   margin-bottom: 10px;
 }
 
+.indented-checkboxes {
+  margin-left: 32px;
+}
+
 .filter-checkbox input[type="checkbox"] {
-  margin-right: 10px;
-  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 24px;
+  height: 24px;
+  border: 4px solid var(--primary-color);
+  border-radius: 4px;
+  background-color: var(--secondary-bg);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.filter-checkbox input[type="checkbox"]:hover {
+  background-color: var(--primary-color);
+}
+
+.filter-checkbox input[type="checkbox"]:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.filter-checkbox input[type="checkbox"]:checked:hover {
+  background-color: var(--secondary-bg);
 }
 
 .filter-checkbox label {
   font-size: var(--font-size-base);
-  cursor: pointer;
+  margin-left: 10px;
+  color: var(--text-color);
 }
 
 /* ========== PROJECT SECTION ========== */
@@ -219,7 +295,7 @@ main {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  width: 100%;
+  width: auto;
   margin: 0;
 }
 
@@ -288,17 +364,7 @@ main {
 @media (max-width: 1000px) {
   .projects-grid {
     grid-template-columns: 1fr;
-    padding: 0 20px;
   }
-}
-
-/* ========== PROJECT CONTENT ========== */
-
-.project-content {
-  max-width: 1024px;
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
 }
 
 /* ========== MEDIA ELEMENTS ========== */

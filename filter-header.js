@@ -3,6 +3,8 @@ var allYearsCheckbox;
 var yearCheckboxes;
 var allRolesCategoriesCheckbox;
 var rolesCategoriesCheckboxes;
+var allSoftwareCheckbox;
+var softwareCheckboxes;
 
 function toggleFilterDropdown(containerId) {
     const filterDropdown = document.getElementById('filter-dropdown');
@@ -14,15 +16,30 @@ function toggleFilterDropdown(containerId) {
         yearCheckboxes = document.querySelectorAll('.year-checkbox');
         allRolesCategoriesCheckbox = document.getElementById('all-roles-categories');
         rolesCategoriesCheckboxes = document.querySelectorAll('.roles-categories-checkbox');
+        allSoftwareCheckbox = document.getElementById('all-software');
+        softwareCheckboxes = document.querySelectorAll('.software-checkbox');
     }
 }
   
 function filterProjects() {
     var filters = {
         years: getSelectedYears(),
-        rolesCategories: getSelectedRolesCategories()
+        rolesCategories: getSelectedRolesCategories(),
+        software: getSelectedSoftware()
     };
     renderProjects(filters);
+}
+
+function resetFilters() {
+    if(!allYearsCheckbox || !allRolesCategoriesCheckbox || !allSoftwareCheckbox) return;
+    
+    allYearsCheckbox.checked = true;
+    allRolesCategoriesCheckbox.checked = true;
+    allSoftwareCheckbox.checked = true;
+    toggleAllYears(true);
+    toggleAllRolesCategories(true);
+    toggleAllSoftware(true);
+    renderProjects(false);
 }
   
 function getSelectedYears() {
@@ -41,7 +58,16 @@ function getSelectedRolesCategories() {
     return selectedRolesCategories;
 }
 
-function toggleAllYears(allYearsCheckbox) {
+function getSelectedSoftware() {
+    var selectedSoftware = [];
+    softwareCheckboxes.forEach(element => {
+        if(element.checked  ) selectedSoftware.push(element.name);
+    });
+    return selectedSoftware;
+}
+
+function toggleAllYears(isCheckbox) {
+    if(!isCheckbox) allYearsCheckbox.checked = !allYearsCheckbox.checked;
     yearCheckboxes.forEach(checkbox => {
         checkbox.checked = allYearsCheckbox.checked;
     });
@@ -57,7 +83,8 @@ function updateYearFilters() {
     filterProjects();
 }
 
-function toggleAllRolesCategories(allRolesCategoriesCheckbox) {
+function toggleAllRolesCategories(isCheckbox) {
+    if(!isCheckbox) allRolesCategoriesCheckbox.checked = !allRolesCategoriesCheckbox.checked;
     rolesCategoriesCheckboxes.forEach(checkbox => {
         checkbox.checked = allRolesCategoriesCheckbox.checked;
     });
@@ -69,6 +96,23 @@ function updateRolesCategoriesFilters() {
         allRolesCategoriesCheckbox.checked = false;
     } else {
         allRolesCategoriesCheckbox.checked = true;
+    }
+    filterProjects();
+}
+
+function toggleAllSoftware(isCheckbox) {
+    if(!isCheckbox) allSoftwareCheckbox.checked = !allSoftwareCheckbox.checked;
+    softwareCheckboxes.forEach(checkbox => {
+        checkbox.checked = allSoftwareCheckbox.checked;
+    });
+    filterProjects();
+}
+
+function updateSoftwareFilters() {
+    if (Array.from(softwareCheckboxes).some(checkbox => !checkbox.checked)) {
+        allSoftwareCheckbox.checked = false;
+    } else {
+        allSoftwareCheckbox.checked = true;
     }
     filterProjects();
 }
