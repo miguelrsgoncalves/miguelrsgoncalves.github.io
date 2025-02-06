@@ -418,6 +418,7 @@ main {
     width: 100%;
     height: auto;
     display: block;
+    border-radius: var(--border-radius);
   }
 
   .image-content::before {
@@ -554,7 +555,6 @@ footer p {
 
 * {
   scrollbar-width: auto;
-  border-radius: var(--border-radius);
   scrollbar-color: var(--primary-color) var(--secondary-bg);
   scroll-behavior: smooth;
 }
