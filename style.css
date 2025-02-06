@@ -11,6 +11,7 @@
 
   /* Typography */
   --font-family: 'Poppins', sans-serif;
+  --font-size-small: 0.75rem;
   --font-size-base: 1rem;
   --font-size-large: 1.5rem;
   --font-size-xlarge: 2rem;
@@ -166,6 +167,14 @@ main {
   margin: 0 auto;
   text-align: center;
   align-content: center;
+
+  img {
+    display: flex;
+    flex: 1;
+    height: auto;
+    width: 100%;
+    border-radius: var(--border-radius);
+  }
 }
 
 .vl {
@@ -328,7 +337,7 @@ main {
   }
 
   h4 {
-    color: var(--text-color);
+    font-size: var(--font-size-small);
   }
 }
 
@@ -370,10 +379,14 @@ main {
 }
 
 .project-info {
+  display: flex;
+  flex-direction: column;
   padding: 0px 24px;
+  flex-grow: 1;
 }
 
 .project-info p {
+  flex-grow: 1;
   font-size: 1rem;
   color: var(--text-muted);
 }
@@ -392,6 +405,7 @@ main {
   flex-direction: row-reverse;
   flex: 1;
   margin-bottom: 20px;
+  gap: 20px;
   position: relative;
   overflow: hidden;
   content: '';
@@ -404,6 +418,10 @@ main {
     flex: 1;
     position: relative;
     overflow: hidden;
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius);
   }
 
   .image-content img {
@@ -434,15 +452,44 @@ main {
 
 @media (max-width: 1024px) {
   .text-image-section {
-    flex-direction: column-reverse; /* Stack with image below text */
+    flex-direction: column-reverse;
   }
 
   .text-image-section.reverse {
-    flex-direction: column; /* Stack with image below text */
+    flex-direction: column;
   }
 
   .image-content::before {
-    display: none; /* Remove gradient overlay */
+    display: none;
+  }
+}
+
+/* ========== SIDE BY SIDE IMAGES ========== */
+
+.image-image-section {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  margin-bottom: 20px;
+  gap: 20px;
+  position: relative;
+  content: '';
+
+  .image-content {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius);
+  }
+
+  .image-content img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius);
   }
 }
 
