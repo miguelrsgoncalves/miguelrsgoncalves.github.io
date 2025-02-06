@@ -160,6 +160,7 @@ main {
 
 .vl {
   border-left: 8px solid var(--primary-color);
+  border-radius: 0;
   height: auto;
   width: 0;
 }
@@ -450,6 +451,35 @@ footer p {
   border-radius: var(--border-radius-inner);
   border: none;
 }
+
+/* ========== CUSTOM SCROLLBAR ========== */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary-bg);
+  border-radius: var(--border-radius);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: var(--border-radius);
+  border: 2px solid var(--secondary-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-color);
+}
+
+* {
+  scrollbar-width: auto;
+  border-radius: var(--border-radius);
+  scrollbar-color: var(--primary-color) var(--secondary-bg);
+  scroll-behavior: smooth;
+}
+
 /* ========== ANIMATIONS ========== */
 @keyframes fadeIn {
   from {
