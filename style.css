@@ -118,11 +118,13 @@ header {
   }
 
   .page-title {
+    margin: 0;
     font-size: var(--font-size-large);
     animation: fadeOut 0.3s ease;
   }
   
   .page-title.active {
+    margin-bottom: 10px;
     animation: fadeIn 0.3s ease;
   }
 }
@@ -135,19 +137,27 @@ main {
   box-sizing: border-box;
   color: var(--text-muted);
 
+  h1, h2, h3, h4 {
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
   h1 {
     font-size: var(--font-size-xlarge);
     color: var(--primary-color);
+    margin-top: 50px;
   }
 
   h2 {
     font-size: var(--font-size-large);
     color: var(--text-color);
+    margin-top: 30px;
   }
 
   h3 {
     font-size: var(--font-size-base);
     color: var(--text-muted);
+    margin-top: 20px;
   }
 }
 
@@ -493,6 +503,7 @@ main {
   display: flex;
   gap: 20px;
   position: relative;
+  margin-bottom: 20px;
 
   .image-content {
     flex: 1;
