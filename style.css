@@ -286,17 +286,9 @@ main {
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.filter-checkbox input[type="checkbox"]:hover {
-  background-color: var(--primary-color);
-}
-
 .filter-checkbox input[type="checkbox"]:checked {
   background-color: var(--primary-color);
   border-color: var(--primary-color);
-}
-
-.filter-checkbox input[type="checkbox"]:checked:hover {
-  background-color: var(--secondary-bg);
 }
 
 .filter-checkbox label {
