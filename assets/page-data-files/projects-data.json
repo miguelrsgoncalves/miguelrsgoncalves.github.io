@@ -43,5 +43,14 @@
         "software": ["WebGL"],
         "description": "Prototype game where you can watch a train locomotive go around a circle train track, stopping at the various train stations for a time. The whole project, including the meshes and animation were done in WebGL.",
         "projectURL": "../project-pages/webgl-train-game.html"
+    },
+    {
+        "image": "../assets/images/WebGLTrainGame_Thumbnail.png",
+        "title": "Well of Wandering",
+        "year": "2023",
+        "roleCategory": ["Sound Design", "Computer Graphics"],
+        "software": ["P5"],
+        "description": "Prototype game where you can watch a train locomotive go around a circle train track, stopping at the various train stations for a time. The whole project, including the meshes and animation were done in WebGL.",
+        "projectURL": "../project-pages/well-of-wandering.html"
     }
 ]
