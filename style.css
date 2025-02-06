@@ -230,7 +230,7 @@ main {
 
 .filter-dropdown {
   display: none;
-  flex-wrap: wrap; /* Allow columns to wrap */
+  flex-wrap: wrap;
   justify-content: space-between;
   width: auto;
   padding: 20px;
@@ -389,6 +389,67 @@ main {
 @media (max-width: 1000px) {
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ========== TEXT & IMAGE SECTION ========== */
+
+.text-image-section {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  flex: 1;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  content: '';
+
+  .text-content {
+    flex: 1;
+  }
+
+  .image-content {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .image-content img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .image-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 75%, var(--background-color) 100%);
+  }
+}
+
+.text-image-section.reverse {
+  flex-direction: row;
+
+  .image-content::before {
+    background: linear-gradient(-90deg, rgba(255, 255, 255, 0) 75%, var(--background-color) 100%);
+  }
+}
+
+@media (max-width: 1024px) {
+  .text-image-section {
+    flex-direction: column-reverse; /* Stack with image below text */
+  }
+
+  .text-image-section.reverse {
+    flex-direction: column; /* Stack with image below text */
+  }
+
+  .image-content::before {
+    display: none; /* Remove gradient overlay */
   }
 }
 
