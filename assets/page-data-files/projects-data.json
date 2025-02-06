@@ -5,9 +5,9 @@
         "year": "2024",
         "roleCategory": ["Animation"],
         "software": ["Maya"],
-        "description": "Follow Anya as she escapes a trio of relentless goons, finding her way inside a weird and confusing system of sewer pipes.",
+        "description": "Follow Anya as she escapes a trio of relenthless goons, Oscar, Manuel and Joseph, finding her way through a weird and confusing system of sewer pipes.",
         "aditionalLabel": "",
-        "projectURL": "../project-pages/narrow-escape.html"
+        "pageURL": "../project-pages/narrow-escape.html"
     },
     {
         "image": "../assets/images/PapersPleaseTheShortFilmSpatialAudioOnlyAdaptation_Thumbnail.jpg",
@@ -17,7 +17,7 @@
         "software": ["Reaper"],
         "description": "An audio only adaptation of the Papers Please: The Short Film made by Nikita Ordynskiy.",
         "aditionalLabel": "",
-        "projectURL": "../project-pages/papers-please-the-short-film-spatial-audio-only-adaptation.html"
+        "pageURL": "../project-pages/papers-please-the-short-film-spatial-audio-only-adaptation.html"
     },
     {
         "image": "../assets/images/StylizedGrassField_Thumbnail.png",
@@ -27,7 +27,7 @@
         "software": ["Unreal Engine 5"],
         "description": "Vast Stylized grass field made inside Unreal Engine 5, made to be performant and dense.",
         "aditionalLabel": "",
-        "projectURL": "../project-pages/narrow-escape.html"
+        "pageURL": "../project-pages/narrow-escape.html"
     },
     {
         "image": "../assets/images/WebGLBirdGame_Thumbnail.png",
@@ -35,19 +35,19 @@
         "year": "2023",
         "roleCategory": ["Computer Graphics"],
         "software": ["WebGL"],
-        "description": "Prototype game where you play as a bird tasked with gathering eggs and dropping them on a nest. The whole project, including the meshes and animation were done in WebGL.",
+        "description": "Prototype game where you play as a bird tasked with gathering eggs and dropping them on a nest. The whole project, including the meshes and animations were done in WebGL.",
         "aditionalLabel": "",
-        "projectURL": "../project-pages/webgl-bird-game.html"
+        "pageURL": "../project-pages/webgl-bird-game.html"
     },
     {
         "image": "../assets/images/WebGLTrainGame_Thumbnail.png",
-        "title": "WebGL Train Game",
-        "year": "2022",
-        "roleCategory": ["Computer Graphics"],
-        "software": ["WebGL"],
-        "description": "Prototype game where you can watch a train locomotive go around a circle train track, stopping at the various train stations for a time. The whole project, including the meshes and animation were done in WebGL.",
+        "title": "God Simulator",
+        "year": "2023",
+        "roleCategory": ["Game Dev", "Computer Graphics"],
+        "software": ["P5"],
+        "description": "Step on the shoes of God and watch over and aid a civilization in their survival. Or their demise.",
         "aditionalLabel": "",
-        "projectURL": "../project-pages/webgl-train-game.html"
+        "pageURL": "../project-pages/god-simulator.html"
     },
     {
         "image": "../assets/images/WebGLTrainGame_Thumbnail.png",
@@ -55,8 +55,18 @@
         "year": "2023",
         "roleCategory": ["Sound Design", "Computer Graphics"],
         "software": ["P5"],
-        "description": "Prototype game where you can watch a train locomotive go around a circle train track, stopping at the various train stations for a time. The whole project, including the meshes and animation were done in WebGL.",
+        "description": "Create generative music by manipulating the elements of the Well of Wandering.",
         "aditionalLabel": "",
-        "projectURL": "../project-pages/well-of-wandering.html"
+        "pageURL": "../project-pages/well-of-wandering.html"
+    },
+    {
+        "image": "../assets/images/WebGLTrainGame_Thumbnail.png",
+        "title": "WebGL Train Game",
+        "year": "2022",
+        "roleCategory": ["Computer Graphics"],
+        "software": ["WebGL"],
+        "description": "Prototype game where you can watch a train locomotive go around a circle train track, stopping at the various train stations for a time. The whole project, including the meshes and animations were done in WebGL.",
+        "aditionalLabel": "",
+        "pageURL": "../project-pages/webgl-train-game.html"
     }
 ]

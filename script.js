@@ -10,6 +10,7 @@ const tabsEnum = {
 
 var tabs = [];
 var mainContent;
+var pageTitle;
 
 function updateMainContent(data) {
   mainContent.innerHTML = data;
@@ -17,7 +18,7 @@ function updateMainContent(data) {
 
 function loadTab(tabName) {
   if (tabName === lastTab && !isInProjectWindow) {
-    window.scrollTo(0, 0);
+    scrollToTheTop();
     return;
   } else {
     lastTab = tabName;
@@ -29,6 +30,8 @@ function loadTab(tabName) {
     .then(response => response.text())
     .then(data => {
       isInProjectWindow = false;
+      pageTitle.innerHTML = "";
+      pageTitle.classList.remove('active');
       updateMainContent(data);
       perTabLoad(tabName);
       tabs.forEach(t => t.classList.remove("active"));
@@ -40,11 +43,12 @@ function loadTab(tabName) {
     });
 }
 
-function loadProject(projectURL) {
-  fetch(projectURL)
+function loadPage(pageURL, title) {
+  fetch(pageURL)
     .then(response => response.text())
     .then(data => {
       isInProjectWindow = true;
+      if(title) {pageTitle.innerHTML = title; pageTitle.classList.add('active')}
       updateMainContent(data);
     })
     .catch(error => {
@@ -60,4 +64,8 @@ function perTabLoad(tabName) {
     default:
       return;
   }
+}
+
+function scrollToTheTop() {
+  window.scrollTo(0, 0);
 }

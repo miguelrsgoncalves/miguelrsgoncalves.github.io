@@ -6,5 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById(tabsEnum.projects),
         document.getElementById(tabsEnum.contacts)
     ]);
+    pageTitle = document.getElementById('page-title');
     loadTab(tabsEnum.home);
 });

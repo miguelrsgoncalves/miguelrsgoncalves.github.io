@@ -14,7 +14,7 @@
   --font-size-base: 1rem;
   --font-size-large: 1.5rem;
   --font-size-xlarge: 2rem;
-  --font-size-website-title: 1.5rem;
+  --font-size-website-title: 1rem;
   --font-weight-regular: 500;
   --font-weight-bold: 600;
 
@@ -51,7 +51,7 @@ header {
   top: 0;
   width: 100%;
   background-color: var(--secondary-bg);
-  padding: 20px 0;
+  padding: 10px 0;
   text-align: center;
   box-shadow: 0 4px 6px var(--shadow-light);
   z-index: 999;
@@ -65,8 +65,9 @@ header {
 
   nav ul {
     list-style: none;
-    padding: 0 20px;
-    margin: 10px 0 0;
+    padding: 0 10px;
+    margin: 0;
+    margin-top: 5px;
     display: flex;
     justify-content: center;
     gap: 25px;
@@ -113,6 +114,15 @@ header {
   li.active:hover::after {
     width: 75%;
     left: 12.5%;
+  }
+
+  .page-title {
+    font-size: var(--font-size-large);
+    animation: fadeOut 0.3s ease;
+  }
+  
+  .page-title.active {
+    animation: fadeIn 0.3s ease;
   }
 }
 
@@ -220,6 +230,7 @@ main {
 
 .filter-dropdown {
   display: none;
+  flex-wrap: wrap; /* Allow columns to wrap */
   justify-content: space-between;
   width: auto;
   padding: 20px;
@@ -229,6 +240,7 @@ main {
   background-color: var(--secondary-bg);
   color: var(--text-color);
   animation: fadeIn 0.5s ease;
+  gap: 20px;
 }
 
 .filter-dropdown.active {
@@ -236,8 +248,9 @@ main {
 }
 
 .filter-column {
-  flex: 1;
-  margin-right: 20px;
+  flex: 1 1 calc(33.333% - 20px);
+  margin-right: 0;
+  min-width: 250px;
 }
 
 .filter-column:last-child {
@@ -489,6 +502,17 @@ footer p {
   to {
       opacity: 1;
       transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  to {
+      opacity: 0;
+      transform: translateY(-32px);
   }
 }
 
