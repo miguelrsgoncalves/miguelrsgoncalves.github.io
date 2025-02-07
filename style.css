@@ -648,6 +648,31 @@ footer p {
   }
 }
 
+.webgl-controls-menu {
+  display: flex;
+  position: relative;
+  border-radius: var(--border-radius);
+  background-color: var(--secondary-bg);
+  padding: 20px;
+  margin-bottom: 20px;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  span {
+    flex: 1;
+  }
+  
+  h1, h2, h3 {
+    padding: 0;
+    margin: 0;
+  }
+
+  h1 {
+    flex: 0 0 100%;
+  }
+}
+
 /* ========== P5 ========== */
 
 .p5-card {

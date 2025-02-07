@@ -7,16 +7,17 @@
     <div id="webgl-frame" class="webgl-frame"></div>
   </div>
 
-  <div class="webgl-controls-menu">
-    <div class="webgl-controls-menu-buttons">
-      <div id="start-button" class="start-button clickable" onclick="loadWebGL(this, 'webgl-frame', '../assets/templates/webgl-bird-game-project.html', 'loading-screen')">Start</div>
-      <div class="vl"></div>
-      <div class="restart-button clickable" onclick="restartWebGL('start-button', 'webgl-frame', '../assets/templates/webgl-bird-game-project.html', 'loading-screen')">Restart</div>
-    </div>
+  <div class="webgl-controls-menu-buttons">
+    <div id="start-button" class="start-button clickable" onclick="loadWebGL(this, 'webgl-frame', '../assets/templates/webgl-bird-game-project.html', 'loading-screen')">Start</div>
+    <div class="vl"></div>
+    <div class="restart-button clickable" onclick="restartWebGL('start-button', 'webgl-frame', '../assets/templates/webgl-bird-game-project.html', 'loading-screen')">Restart</div>
+  </div>
 
-    <h2>Controls</h2>
-    <p>AWSD for movement</p>
-    <p>P to catch eggs</p>
-    <p>O to drop egg</p>
+  <div class="webgl-controls-menu">
+    <h1>Controls</h1>
+    <span style="flex: 0 0 100%;"><h2>IMPORTANT</h2><h3>To focus on the game window press the egg counter text on the top of the game window!</h3></span>
+    <span><h2>Movement</h2><h3>WASD</h3></span>
+    <span><h2>Catch</h2><h3>P</h3></span>
+    <span><h2>Drop</h2><h3>O</h3></span>
   </div>
 </section>

@@ -7,16 +7,16 @@
     <div id="webgl-frame" class="webgl-frame"></div>
   </div>
 
-  <div class="webgl-controls-menu">
-    <div class="webgl-controls-menu-buttons">
-      <div id="start-button" class="start-button clickable" onclick="loadWebGL(this, 'webgl-frame', '../assets/templates/webgl-train-game-project.html', 'loading-screen')">Start</div>
-      <div class="vl"></div>
-      <div class="restart-button clickable" onclick="restartWebGL('start-button', 'webgl-frame', '../assets/templates/webgl-train-game-project.html', 'loading-screen')">Restart</div>
-    </div>
+  <div class="webgl-controls-menu-buttons">
+    <div id="start-button" class="start-button clickable" onclick="loadWebGL(this, 'webgl-frame', '../assets/templates/webgl-train-game-project.html', 'loading-screen')">Start</div>
+    <div class="vl"></div>
+    <div class="restart-button clickable" onclick="restartWebGL('start-button', 'webgl-frame', '../assets/templates/webgl-train-game-project.html', 'loading-screen')">Restart</div>
+  </div>
 
-    <h2>Controls</h2>
-    <p>AWSD for movement</p>
-    <p>P to catch eggs</p>
-    <p>O to drop egg</p>
+  <div class="webgl-controls-menu">
+    <h1>Controls</h1>
+    <span><h2>Rotate</h2><h3>Left Mouse Button Drag</h3></span>
+    <span><h2>Move</h2><h3>Right Mouse Button Drag</h3></span>
+    <span><h2>Zoom</h2><h3>Middle Mouse Button Drag</h3></span>
   </div>
 </section>
