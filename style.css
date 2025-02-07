@@ -71,6 +71,7 @@ header {
   width: 100%;
   background-color: var(--secondary-bg);
   padding: 10px 0;
+  font-weight: bold;
   text-align: center;
   box-shadow: 0 4px 6px var(--shadow-light);
   z-index: 999;
@@ -78,7 +79,7 @@ header {
   h1 {
     margin: 0;
     font-size: var(--font-size-website-title);
-    font-weight: var(--font-weight-bold);
+    font-weight: bold;
     color: var(--primary-color);
   }
 
@@ -225,6 +226,7 @@ main {
 
   span, p, .filter-reset-button{
     display: inline-block;
+    font-weight: bold;
     text-align: center;
     vertical-align: middle;
     margin: 0;
@@ -268,6 +270,7 @@ main {
   display: none;
   flex-wrap: wrap;
   justify-content: space-between;
+  font-weight: bold;
   width: auto;
   padding: 20px;
   margin-bottom: 20px;
@@ -476,11 +479,34 @@ main {
   .image-content::before {
     background: linear-gradient(-90deg, rgba(255, 255, 255, 0) 75%, var(--background-color) 100%);
   }
+  
   img {
     border-radius: var(--border-radius);
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
+}
+
+.text-image-section .image-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 75%, var(--background-color) 100%);
+}
+
+.text-image-section .image-content.in-card::before {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 75%, var(--secondary-bg) 100%);
+}
+
+.text-image-section.reverse .image-content::before {
+  background: linear-gradient(-90deg, rgba(255, 255, 255, 0) 75%, var(--background-color) 100%);
+}
+
+.text-image-section.reverse .image-content.in-card::before {
+  background: linear-gradient(-90deg, rgba(255, 255, 255, 0) 75%, var(--secondary-bg) 100%);
 }
 
 @media (max-width: 1024px) {
@@ -612,6 +638,7 @@ footer p {
 
   .start-button, .restart-button{
     display: inline-block;
+    font-weight: bold;
     text-align: center;
     vertical-align: middle;
     margin: 0;
@@ -663,15 +690,40 @@ footer p {
 
   span {
     flex: 1;
+    padding: 0;
+    margin: 0;
+
+    h3 {
+      color: var(--text-muted);
+    }
+  }
+
+  section {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
   }
 
   h1, h2, h3 {
     padding: 0;
     margin: 0;
+    margin-top: 20px;
+    margin-bottom: 10px;
   }
 
   h1 {
     flex: 0 0 100%;
+  }
+
+  h3 {
+    margin: 0;
+    margin-top: 10px;
+    color: var(--text-color);
+  }
+
+  p {
+    padding: 0;
+    margin: 0;
   }
 }
 

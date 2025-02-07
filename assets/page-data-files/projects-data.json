@@ -43,7 +43,7 @@
         "image": "../assets/images/god_simulator_thumbnail.png",
         "title": "Hand of God",
         "year": "2023",
-        "roleCategory": ["Game Dev", "Computer Graphics"],
+        "roleCategory": ["Prototype Game"],
         "software": ["P5"],
         "description": "Step on the shoes of God and watch over and aid a civilization in their survival. Or their demise.",
         "aditionalLabel": "College Assignment",
