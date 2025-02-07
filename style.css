@@ -670,6 +670,7 @@ footer p {
 
 /* ========== CUSTOM SCROLLBAR ========== */
 
+/*
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -688,6 +689,7 @@ footer p {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-color);
 }
+  */
 
 * {
   scrollbar-width: auto;
