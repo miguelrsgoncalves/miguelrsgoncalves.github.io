@@ -30,7 +30,7 @@
         "pageURL": "../project-pages/papers-please-the-short-film-spatial-audio-only-adaptation.html"
     },
     {
-        "image": "../assets/images/WebGLTrainGame_Thumbnail.png",
+        "image": "../assets/images/well_of_wandering_thumbnail.png",
         "title": "Well of Wandering",
         "year": "2023",
         "roleCategory": ["Sound Design", "Computer Graphics"],
@@ -40,8 +40,8 @@
         "pageURL": "../project-pages/well-of-wandering.html"
     },
     {
-        "image": "../assets/images/WebGLTrainGame_Thumbnail.png",
-        "title": "God Simulator",
+        "image": "../assets/images/god_simulator_thumbnail.png",
+        "title": "Hand of God",
         "year": "2023",
         "roleCategory": ["Game Dev", "Computer Graphics"],
         "software": ["P5"],
