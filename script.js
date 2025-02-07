@@ -13,6 +13,7 @@ var mainContent;
 var pageTitle;
 
 function updateMainContent(data) {
+  scrollToTheTop();
   mainContent.innerHTML = data;
 }
 
