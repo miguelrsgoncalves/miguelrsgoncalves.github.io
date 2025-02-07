@@ -1,8 +1,20 @@
 <section class="tab-content page-content active">
   <div class="webgl-card">
-    <iframe class = "webgl-frame" src="../assets/webgl-projects/webgl-bird-game/project/index.html"></iframe>
-    <h2>Controls</h2>
+    <div id="loading-screen" class="loading-screen">
+      <div class="loading-spinner"></div>
+    </div>
 
+    <div id="webgl-frame" class="webgl-frame"></div>
+  </div>
+
+  <div class="webgl-controls-menu">
+    <div class="webgl-controls-menu-buttons">
+      <div id="start-button" class="start-button clickable" onclick="loadWebGL(this, 'webgl-frame', '../assets/templates/webgl-bird-game-project.html', 'loading-screen')">Start</div>
+      <div class="vl"></div>
+      <div class="restart-button clickable" onclick="restartWebGL('start-button', 'webgl-frame', '../assets/templates/webgl-bird-game-project.html', 'loading-screen')">Restart</div>
+    </div>
+
+    <h2>Controls</h2>
     <p>AWSD for movement</p>
     <p>P to catch eggs</p>
     <p>O to drop egg</p>

@@ -45,6 +45,24 @@ a {
   cursor: pointer;
 }
 
+.loading-screen {
+  visibility: hidden;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+  .loading-spinner {
+    border: 8px solid;
+    border-color: var(--primary-color) transparent var(--primary-color) transparent;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    animation: spin 1s ease infinite;
+  }
+}
+
 /* ========== HEADER & NAVIGATION ========== */
 
 header {
@@ -566,19 +584,68 @@ footer p {
 .webgl-card {
   border-radius: var(--border-radius);
   background-color: var(--secondary-bg);
-
-  h1, h2, h3 {
-    margin: 0;
-    padding: 0;
-  }
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
 .webgl-frame {
+  position: relative;
   max-width: 1024px;
   width: 100%;
   height: 576px;
   border-radius: var(--border-radius-inner);
   border: none;
+  z-index: 2;
+}
+
+.webgl-controls-menu-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  border-radius: var(--border-radius);
+  background-color: var(--secondary-bg);
+  animation: fadeIn 0.5s ease;
+
+  .start-button, .restart-button{
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0;
+    padding: 4px 8px;
+    font-size: var(--font-size-base);
+  }
+
+  .start-button {
+    flex-grow: 1;
+    text-align: start;
+    border: 8px solid var(--secondary-bg);
+    border-right: none;
+    border-radius: var(--border-radius);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    transition: border-color 0.3s ease;
+  }
+
+  .start-button:hover {
+    border-color: var(--primary-color);
+  }
+
+  .restart-button {
+    flex-grow: 1;
+    text-align: end;
+    border: 8px solid var(--secondary-bg);
+    border-left: none;
+    border-radius: var(--border-radius);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    transition: border-color 0.3s ease;
+  }
+
+  .restart-button:hover {
+    border-color: var(--primary-color);
+  }
 }
 
 /* ========== P5 ========== */
@@ -656,10 +723,19 @@ footer p {
     opacity: 0;
     transform: translateY(32px);
     height: 0;
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+      height: auto;
+  }
 }
-to {
-    opacity: 1;
-    transform: translateY(0);
-    height: auto;
-}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
 }

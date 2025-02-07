@@ -1,5 +1,15 @@
 [
     {
+        "image": "../assets/images/StylizedGrassField_Thumbnail.png",
+        "title": "Stylized Grass Field",
+        "year": "2024",
+        "roleCategory": ["Computer Graphics"],
+        "software": ["Unreal Engine 5"],
+        "description": "Vast Stylized grass field made inside Unreal Engine 5, made to be performant and dense.",
+        "aditionalLabel": "",
+        "pageURL": "../project-pages/narrow-escape.html"
+    },
+    {
         "image": "../assets/images/NarrowEscape_Thumbnail.png",
         "title": "Narrow Escape",
         "year": "2024",
@@ -20,24 +30,14 @@
         "pageURL": "../project-pages/papers-please-the-short-film-spatial-audio-only-adaptation.html"
     },
     {
-        "image": "../assets/images/StylizedGrassField_Thumbnail.png",
-        "title": "Stylized Grass Field",
-        "year": "2024",
-        "roleCategory": ["Computer Graphics"],
-        "software": ["Unreal Engine 5"],
-        "description": "Vast Stylized grass field made inside Unreal Engine 5, made to be performant and dense.",
-        "aditionalLabel": "",
-        "pageURL": "../project-pages/narrow-escape.html"
-    },
-    {
-        "image": "../assets/images/WebGLBirdGame_Thumbnail.png",
-        "title": "WebGL Bird Game",
+        "image": "../assets/images/WebGLTrainGame_Thumbnail.png",
+        "title": "Well of Wandering",
         "year": "2023",
-        "roleCategory": ["Computer Graphics"],
-        "software": ["WebGL"],
-        "description": "Prototype game where you play as a bird tasked with gathering eggs and dropping them on a nest. The whole project, including the meshes and animations were done in WebGL.",
+        "roleCategory": ["Sound Design", "Computer Graphics"],
+        "software": ["P5"],
+        "description": "Create generative music by manipulating the elements of the Well of Wandering.",
         "aditionalLabel": "College Assignment",
-        "pageURL": "../project-pages/webgl-bird-game.html"
+        "pageURL": "../project-pages/well-of-wandering.html"
     },
     {
         "image": "../assets/images/WebGLTrainGame_Thumbnail.png",
@@ -50,14 +50,14 @@
         "pageURL": "../project-pages/god-simulator.html"
     },
     {
-        "image": "../assets/images/WebGLTrainGame_Thumbnail.png",
-        "title": "Well of Wandering",
+        "image": "../assets/images/WebGLBirdGame_Thumbnail.png",
+        "title": "Egg Hunt",
         "year": "2023",
-        "roleCategory": ["Sound Design", "Computer Graphics"],
-        "software": ["P5"],
-        "description": "Create generative music by manipulating the elements of the Well of Wandering.",
+        "roleCategory": ["Computer Graphics"],
+        "software": ["WebGL"],
+        "description": "Prototype game where you play as a bird tasked with gathering eggs and dropping them on a nest. The whole project, including the meshes and animations were done in WebGL.",
         "aditionalLabel": "College Assignment",
-        "pageURL": "../project-pages/well-of-wandering.html"
+        "pageURL": "../project-pages/webgl-bird-game.html"
     },
     {
         "image": "../assets/images/WebGLTrainGame_Thumbnail.png",

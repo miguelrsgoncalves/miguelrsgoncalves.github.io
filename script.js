@@ -67,6 +67,50 @@ function perTabLoad(tabName) {
   }
 }
 
+function loadWebGL(startButton, container, webGLGameHTML, loadingScreen) {
+  const webglContent = document.getElementById(container);
+  const loadingScreenElement = document.getElementById(loadingScreen);
+
+  if(startButton.innerHTML == 'Start') {
+    loadingScreenElement.style.visibility = 'visible';
+    fetch(webGLGameHTML)
+    .then(response => response.text())
+    .then(data => {
+      startButton.innerHTML = "Stop"
+      webglContent.innerHTML = data;
+    })
+    .catch(error => {
+      loadingScreenElement.style.visibility = 'hidden';
+      console.error("Error loading WebGL Game:", error);
+      webglContent.innerHTML = `<p>Error loading project. Please try again.</p>`;
+    });
+  } else {
+    loadingScreenElement.style.visibility = 'hidden';
+    startButton.innerHTML = "Start"
+    webglContent.innerHTML = "";
+  }
+}
+
+function restartWebGL(startButton, container, webGLGameHTML, loadingScreen) {
+  const webglContent = document.getElementById(container);
+  const startButtonElement = document.getElementById(startButton);
+  const loadingScreenElement = document.getElementById(loadingScreen);
+
+  if(startButtonElement.innerHTML == 'Stop') {
+    loadingScreenElement.style.visibility = 'visible';
+    fetch(webGLGameHTML)
+    .then(response => response.text())
+    .then(data => {
+      webglContent.innerHTML = data;
+    })
+    .catch(error => {
+      loadingScreenElement.style.visibility = 'hidden';
+      console.error("Error loading WebGL Game:", error);
+      webglContent.innerHTML = `<p>Error loading project. Please try again.</p>`;
+    });
+  }
+}
+
 function scrollToTheTop() {
   window.scrollTo(0, 0);
 }
