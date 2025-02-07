@@ -1,19 +1,19 @@
 <section class="tab-content page-content active">
-  <div class="webgl-card">
+  <div class="embedded-project-card">
     <div id="loading-screen" class="loading-screen">
       <div class="loading-spinner"></div>
     </div>
 
-    <div id="webgl-frame" class="webgl-frame"></div>
+    <div id="embedded-project-frame" class="embedded-project-frame"></div>
   </div>
 
-  <div class="webgl-controls-menu-buttons">
-    <div id="start-button" class="start-button clickable" onclick="loadWebGL(this, 'webgl-frame', '../assets/templates/webgl-train-game-project.html', 'loading-screen')">Start</div>
+  <div class="embedded-project-controls-menu-buttons">
+    <div id="start-button" class="start-button clickable" onclick="loadEmbeddedProject(this, 'embedded-project-frame', '../assets/templates/webgl-train-game-embedded.html', 'loading-screen')">Start</div>
     <div class="vl"></div>
-    <div class="restart-button clickable" onclick="restartWebGL('start-button', 'webgl-frame', '../assets/templates/webgl-train-game-project.html', 'loading-screen')">Restart</div>
+    <div class="restart-button clickable" onclick="restartEmbeddedProject('start-button', 'embedded-project-frame', '../assets/templates/webgl-train-game-embedded.html', 'loading-screen')">Restart</div>
   </div>
 
-  <div class="webgl-controls-menu">
+  <div class="embedded-project-controls-menu">
     <h1>Controls</h1>
     <span><h2>Rotate</h2><h3>Left Mouse Button Drag</h3></span>
     <span><h2>Move</h2><h3>Right Mouse Button Drag</h3></span>

@@ -579,26 +579,28 @@ footer p {
   color: var(--text-muted);
 }
 
-/* ========== WEBGL ========== */
+/* ========== EMBEDDED PROJECT ========== */
 
-.webgl-card {
+.embedded-project-card {
   border-radius: var(--border-radius);
   background-color: var(--secondary-bg);
   padding: 20px;
+  margin: auto;
   margin-bottom: 20px;
 }
 
-.webgl-frame {
+.embedded-project-frame {
   position: relative;
   max-width: 1024px;
   width: 100%;
   height: 576px;
   border-radius: var(--border-radius-inner);
+  justify-content: center;
   border: none;
   z-index: 2;
 }
 
-.webgl-controls-menu-buttons {
+.embedded-project-controls-menu-buttons {
   display: flex;
   justify-content: space-between;
   width: auto;
@@ -648,7 +650,7 @@ footer p {
   }
 }
 
-.webgl-controls-menu {
+.embedded-project-controls-menu {
   display: flex;
   position: relative;
   border-radius: var(--border-radius);
@@ -671,26 +673,6 @@ footer p {
   h1 {
     flex: 0 0 100%;
   }
-}
-
-/* ========== P5 ========== */
-
-.p5-card {
-  border-radius: var(--border-radius);
-  background-color: var(--secondary-bg);
-
-  h1, h2, h3 {
-    margin: 0;
-    padding: 0;
-  }
-}
-
-.p5-frame {
-  max-width: 1024px;
-  width: 100%;
-  height: 576px;
-  border-radius: var(--border-radius-inner);
-  border: none;
 }
 
 /* ========== CUSTOM SCROLLBAR ========== */

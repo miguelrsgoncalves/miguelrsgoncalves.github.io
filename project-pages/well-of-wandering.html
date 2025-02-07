@@ -1,4 +1,23 @@
 <section class="tab-content page-content active">
-    <p>This is a description of Game Project 1. It showcases my skills in game development, including level design, character animation, and gameplay mechanics.</p>
-    <iframe class="p5-frame" src="../assets/p5-projects/WellOfWandering/index.html"></iframe>
-</section>
+    <div class="embedded-project-card" style="max-width: 612px;">
+      <div id="loading-screen" class="loading-screen">
+        <div class="loading-spinner"></div>
+      </div>
+  
+      <div id="embedded-project-frame" class="embedded-project-frame"></div>
+    </div>
+  
+    <div class="embedded-project-controls-menu-buttons">
+      <div id="start-button" class="start-button clickable" onclick="loadEmbeddedProject(this, 'embedded-project-frame', '../assets/templates/well-of-wandering-embedded.html', 'loading-screen')">Start</div>
+      <div class="vl"></div>
+      <div class="restart-button clickable" onclick="restartEmbeddedProject('start-button', 'embedded-project-frame', '../assets/templates/well-of-wandering-embedded.html', 'loading-screen')">Restart</div>
+    </div>
+  
+    <div class="embedded-project-controls-menu">
+      <h1>Controls</h1>
+      <span style="flex: 0 0 100%;"><h2>IMPORTANT</h2><h3>To focus on the game window press the egg counter text on the top of the game window!</h3></span>
+      <span><h2>Movement</h2><h3>WASD</h3></span>
+      <span><h2>Catch</h2><h3>P</h3></span>
+      <span><h2>Drop</h2><h3>O</h3></span>
+    </div>
+  </section>
