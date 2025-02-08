@@ -203,6 +203,15 @@ main {
     width: 100%;
     border-radius: var(--border-radius);
   }
+
+  h1, h2 {
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    margin: 20px;
+  }
 }
 
 .vl {
@@ -753,8 +762,16 @@ footer p {
     font-size: var(--font-size-base);
   }
 
+  .title {
+    font-size: var(--font-size-xlarge);
+    margin: 0;
+    margin-top: 50px;
+  }
+
   h1 {
     font-size: var(--font-size-base);
+    margin: 0;
+    margin-top: 30px;
     margin-bottom: 10px;
     padding: 0;
   }
@@ -765,9 +782,14 @@ footer p {
   }
 
   h3 {
+    font-weight: normal;
     font-size: var(--font-size-large);
     margin: 0;
     margin-bottom: 0px;
+  }
+
+  p {
+    margin: 10px 0;
   }
 }
 
