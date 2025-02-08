@@ -727,6 +727,50 @@ footer p {
   }
 }
 
+/* ========== CREDITS ========== */
+
+.credits {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  
+  .name-row {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: var(--font-size-base);
+  }
+
+  h1 {
+    font-size: var(--font-size-base);
+    margin-bottom: 10px;
+    padding: 0;
+  }
+
+  h2, a {
+    margin: 0;
+    padding: 0;
+  }
+
+  h3 {
+    font-size: var(--font-size-large);
+    margin: 0;
+    margin-bottom: 0px;
+  }
+}
+
 /* ========== CUSTOM SCROLLBAR ========== */
 
 /*
@@ -757,6 +801,7 @@ footer p {
 }
 
 /* ========== ANIMATIONS ========== */
+
 @keyframes fadeIn {
   from {
       opacity: 0;
