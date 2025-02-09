@@ -1,0 +1,12 @@
+[
+    {
+        "image": "../assets/images/StylizedGrassField_Thumbnail.png",
+        "title": "Sisyphus Climb",
+        "year": "2024",
+        "roleCategory": ["Visual Artist"],
+        "software": ["Blender", "Unity", "Krita"],
+        "description": "Vast Stylized grass field made inside Unreal Engine 5, made to be performant and dense.",
+        "aditionalLabel": "College Assignment",
+        "pageURL": "../game-dev-pages/sisyphus-climb.html"
+    }
+]

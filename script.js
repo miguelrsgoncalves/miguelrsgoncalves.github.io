@@ -61,8 +61,10 @@ function loadPage(pageURL, title) {
 
 function perTabLoad(tabName) {
   switch (tabName) {
-    case "projects":
+    case tabsEnum.projects:
       loadProjects('card-container', 'assets/page-data-files/projects-data.json');
+    case tabsEnum.gameDev:
+      loadProjects('card-container', 'assets/page-data-files/game-dev-data.json');
     default:
       return;
   }

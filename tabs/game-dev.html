@@ -1,12 +1,93 @@
-<section id="game-dev" class="tab-content active">
-    <div class="projects-grid">
-        <a href="../game-dev/SisyphusClimb.html" class="project-card project-link" data-project="../project-pages/sisyphus-climb.html">
-            <img src="../images/sisyphus.jpg" alt="Sisyphus Climb">
-            <div class="overlay">Sisyphus Climb</div>
-        </a>
-        <a href="../game-dev/" class="project-card project-link" data-project="../game-dev/project2.html">
-            <img src="i../mages/project2.jpg" alt="Project 2">
-            <div class="overlay">Game Project 2</div>
-        </a>
+<section id="projects" class="tab-content active">
+
+    <div class="filter-header">
+        <div class="filter-icon clickable" onclick="toggleFilterDropdown('card-container')">
+            <span class="material-symbols-outlined">filter_list</span>
+            <p>Filters</p>
+        </div>
+        <div class="vl"></div>
+        <div class="filter-reset-button clickable" onclick="resetFilters()">Reset</div>
     </div>
+
+    <div id="filter-dropdown" class="filter-dropdown">
+        <div class="filter-column">
+            <h4 class="filter-title">Year</h4>
+            <div class="filter-checkbox">
+                <input name="all" type="checkbox" id="all-years" class="clickable" checked onchange="toggleAllYears(true)">
+                <label class="clickable" onclick="toggleAllYears(false)">All</label>
+            </div>
+            <div class="indented-checkboxes">
+                <div class="filter-checkbox">
+                    <input name="2024" type="checkbox" class="year-checkbox clickable" checked onchange="updateYearFilters()">
+                    <label class="clickable" onclick="toggleOnlyYear(this)">2024</label>
+                </div>
+                <div class="filter-checkbox">
+                    <input name="2023" type="checkbox" class="year-checkbox clickable" checked onchange="updateYearFilters()">
+                    <label class="clickable" onclick="toggleOnlyYear(this)">2023</label>
+                </div>
+                <div class="filter-checkbox">
+                    <input name="2022" type="checkbox" class="year-checkbox clickable" checked onchange="updateYearFilters()">
+                    <label class="clickable" onclick="toggleOnlyYear(this)">2022</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="filter-column">
+            <h4 class="filter-title">Role</h4>
+            <div class="filter-checkbox">
+                <input name="all" type="checkbox" id="all-roles-categories" class="clickable" checked onchange="toggleAllRolesCategories(true)">
+                <label class="clickable" onclick="toggleAllRolesCategories(false)">All</label>
+            </div>
+            <div class="indented-checkboxes">
+                <div class="filter-checkbox">
+                    <input name="Programmer" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="updateRolesCategoriesFilters()">
+                    <label class="clickable" onclick="toggleOnlyRolesCategories(this)">Programmer</label>
+                </div>
+                <div class="filter-checkbox">
+                    <input name="Visual Artist" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="updateRolesCategoriesFilters()">
+                    <label class="clickable" onclick="toggleOnlyRolesCategories(this)">Visual Artist</label>
+                </div>
+                <div class="filter-checkbox">
+                    <input name="Solo Dev" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="updateRolesCategoriesFilters()">
+                    <label class="clickable" onclick="toggleOnlyRolesCategories(this)">Solo Dev</label>
+                </div>
+            </div>
+        </div>
+    
+        <div class="filter-column">
+            <h4 class="filter-title">Software</h4>
+            <div class="filter-checkbox">
+                <input name="all" type="checkbox" id="all-software" class="clickable" checked onchange="toggleAllSoftware(true)">
+                <label class="clickable" onclick="toggleAllSoftware(false)">All</label>
+            </div>
+            <div class="indented-checkboxes">
+                <div class="filter-checkbox">
+                    <input name="Blender" type="checkbox" class="software-checkbox clickable" checked onchange="updateSoftwareFilters()">
+                    <label class="clickable" onclick="toggleOnlySoftware(this)">Blender</label>
+                </div>
+                <div class="filter-checkbox">
+                    <input name="Maya" type="checkbox" class="software-checkbox clickable" checked onchange="updateSoftwareFilters()">
+                    <label class="clickable" onclick="toggleOnlySoftware(this)">Maya</label>
+                </div>
+                <div class="filter-checkbox">
+                    <input name="P5" type="checkbox" class="software-checkbox clickable" checked onchange="updateSoftwareFilters()">
+                    <label class="clickable" onclick="toggleOnlySoftware(this)">P5</label>
+                </div>
+                <div class="filter-checkbox">
+                    <input name="Reaper" type="checkbox" class="software-checkbox clickable" checked onchange="updateSoftwareFilters()">
+                    <label class="clickable" onclick="toggleOnlySoftware(this)">Reaper</label>
+                </div>
+                <div class="filter-checkbox">
+                    <input name="Unreal Engine 5" type="checkbox" class="software-checkbox clickable" checked onchange="updateSoftwareFilters()">
+                    <label class="clickable" onclick="toggleOnlySoftware(this)">Unreal Engine 5</label>
+                </div>
+                <div class="filter-checkbox">
+                    <input name="WebGL" type="checkbox" class="software-checkbox clickable" checked onchange="updateSoftwareFilters()">
+                    <label class="clickable" onclick="toggleOnlySoftware(this)">WebGL</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="card-container" class="projects-grid"></div>
 </section>
