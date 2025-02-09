@@ -55,7 +55,7 @@
         "year": "2023",
         "roleCategory": ["Computer Graphics", "Prototype Game"],
         "software": ["WebGL"],
-        "description": "Prototype game where you play as a bird tasked with gathering eggs and dropping them on a nest. The whole project, including the meshes and animations were done in WebGL.",
+        "description": "Prototype game where you play as a bird tasked with gathering eggs and dropping them on a nest.",
         "aditionalLabel": "College Assignment",
         "pageURL": "../project-pages/webgl-bird-game.html"
     },
@@ -65,7 +65,7 @@
         "year": "2022",
         "roleCategory": ["Computer Graphics"],
         "software": ["WebGL"],
-        "description": "Prototype game where you can watch a train locomotive go around a circle train track, stopping at the various train stations for a time. The whole project, including the meshes and animations were done in WebGL.",
+        "description": "Prototype game where you can watch a train locomotive go around a circle train track, stopping at the various train stations for a time.",
         "aditionalLabel": "College Assignment",
         "pageURL": "../project-pages/webgl-train-game.html"
     }

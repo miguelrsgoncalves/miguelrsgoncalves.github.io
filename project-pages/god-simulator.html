@@ -119,7 +119,7 @@
 
       <p>The world is proceduraly generated every time the game starts, making every run unique with differents challenges.</p>
 
-      <section class="text-image-section reverse" style="flex: 0 0 100%;">
+      <section class="text-image-section" style="flex: 0 0 100%;">
         <div class="text-content">
             <h2 style="flex: 0 0 100%;">Plots of Land</h2>
             <h3 style="flex: 0 0 100%;">Grass</h3>
@@ -136,7 +136,7 @@
             <p>Plot of land capable of producing wood by a woodcuter.</p>
             <h3 style="flex: 0 0 100%;">No Man's Land</h3>
             <p>Color: Dark Grey</p>
-            <p>Plot of land that is left behind the Final Judgement. Has no use nor can it be recovered.</p>
+            <p>Plot of land that is left behind from the Final Judgement. Has no use nor can it be recovered.</p>
         </div>
         <div class="image-content in-card">
           <img src="../assets/images/god-simulator-page/god_simulator_world.png" alt="The World.">
@@ -145,7 +145,7 @@
 
       <h2 style="flex: 0 0 100%;">The Civilization</h2>
 
-      <section class="text-image-section" style="flex: 0 0 100%;">
+      <section class="text-image-section reverse" style="flex: 0 0 100%;">
         <div class="text-content">
             <h2 style="flex: 0 0 100%;">Food</h2>
             <p>The people consume food during time. The more people there are, the more food they consume.</p>
@@ -158,7 +158,7 @@
         </div>
       </section>
 
-      <section class="text-image-section reverse" style="flex: 0 0 100%;">
+      <section class="text-image-section" style="flex: 0 0 100%;">
         <div class="text-content">
             <h2 style="flex: 0 0 100%;">Workers</h2>
             <p>In this society, everybody is born with a specific job for life.</p>
@@ -199,4 +199,57 @@
       <h2 style="flex: 0 0 100%;">Final Judgment</h2>
       <p style="flex: 0 0 100%;">It's fun to use! Just don't feel remorse after!</p>
     </div>
+
+    <h1>The Hand of God</h1>
+    
+    <section class="text-image-section reverse">
+      <div class="text-content">
+        <p>In order to track the hand and the position of its different elements I use ML5.js PoseNet.</p>
+        <p>PoseNet also gives access to the state of each finger, like if it's curled or extended.</p>
+        <p>I then map the positions of the fingers to the index of the world's map tiles.</p>
+      </div>
+      <div class="image-content">
+        <img src="../assets/images/god-simulator-page/hand_of_god.gif" alt="Hand of God gif.">
+      </div>
+    </section>
+
+    <h1>The World</h1>
+    
+    <section class="text-image-section">
+      <div class="text-content">
+        <p>The world uses a noise texture for the procedural generation.</p>
+        <p>The values from the texture are used to choose what type of plot each tile will be.</p>
+        <p>The settings of the noise texture give the world a nice mix of land and sea, filling in the land with forests and farmlands.</p>
+      </div>
+      <div class="image-content">
+        <img src="../assets/images/god-simulator-page/hand_of_god.gif" alt="Hand of God gif.">
+      </div>
+    </section>
+
+    <h1>The Civilization</h1>
+
+    <h2>The People</h2>
+    
+    <section class="text-image-section reverse">
+      <div class="text-content">
+        <p>The workers function with an A* search for the detection of their resources to work on.</p>
+        <p>The movement works in a simple straight line, as adding more complex movement was creating a lot of lag with the amount of moving pieces plus PoseNet reading the players input at all times.</p>
+        <p>To combat the straight line movement, workers get boats when they are on water, at least this way they don't seem to randomly gain the power to walk on the sea.</p>
+      </div>
+      <div class="image-content">
+        <img src="../assets/images/god-simulator-page/hand_of_god.gif" alt="Hand of God gif.">
+      </div>
+    </section>
+
+    <h2>The City</h2>
+
+    <section class="text-image-section">
+      <div class="text-content">
+        <p>The city spawns houses randomly around the city center, trying to mimic a growing civilization as the number of houses grow.</p>
+      </div>
+      <div class="image-content">
+        <img src="../assets/images/god-simulator-page/hand_of_god.gif" alt="Hand of God gif.">
+      </div>
+    </section>
+
   </section>
