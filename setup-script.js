@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     /**
      * DEBUG ONLY! LOAD A DIFFERENT INITIAL PAGE FOR EASIER DEBBUGING AND DEVELOPMENT
     */
-    loadPage("../project-pages/grass-field.html", "!!TESTING PAGE LOADING!! REMOVE BEFORE DEPLOYMENT!!");
+    loadPage("../project-pages/papers-please-the-short-film-spatial-audio-only-adaptation.html", "!!TESTING PAGE AUTO STARTING LOAD!! REMOVE BEFORE DEPLOYMENT!!");
     /**
      * COMMENT LINE ABOVE FOR DEPLOYMENT AND UNCOMMENT TOP MOST COMMENT
      */
