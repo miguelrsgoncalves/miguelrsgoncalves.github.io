@@ -1,27 +1,40 @@
 <section class="tab-content page-content active">
     
-    <video autoplay muted loop><source src="../assets/images/grass-field-page/grass_field_2.mp4" type="video/mp4"></video>
+    <video autoplay muted loop  controlsList="nodownload"><source src="../assets/images/grass-field-page/grass_field_2.mp4" type="video/mp4"></video>
 
-    <h1>Grass Field</h1>
+    <h1>The Sea</h1>
 
-    <p>With the intent of learning and getting a better understanding on how to create a large scale grass field that could be dinamically affected by wind and other outside forces I decided to create a vast grass field inside Unreal Engine 5.</p>
+    <p>The idea behind this project was to learn how to do a vast, dense and fluid grass system that could fill in a landscape and make it feel soft, fluffy and alive but soothing and calm.</p>
 
-    <section class="text-image-section">
-        <div class="text-content">
-            <p>Content</p>
-        </div>
-        <div class="image-content">
-            <video autoplay muted loop><source src="../assets/images/grass-field-page/grass_field.mp4" type="video/mp4"></video>
-        </div>
-    </section>
-    
-    <section class="text-image-section reverse">
-        <div class="text-content">
-            <p>Content</p>
-        </div>
-        <div class="image-content">
-            <video autoplay muted loop><source src="../assets/images/grass-field-page/grass_field_2.mp4" type="video/mp4"></video>
-        </div>
-    </section>
+    <video autoplay muted loop  controlsList="nodownload"><source src="../assets/images/grass-field-page/grass_field.mp4" type="video/mp4"></video>
+
+    <h1>The Initial Steps</h1>
+
+    <p>The software of choice for this project was Unreal Engine 5 and I got started with learning the landscape, grass and material systems of the engine.</p>
+    <p>I made some quick grass blades assets in Blender and then connected the grass system to the landscape, letting me instantiate grass automatically in the landscape layers of choice and making the grass receive the base color of the layer it was on.</p>
+    <p>The systems worked, however, the results were very far away from satisfying. But it was a starting point.</p>
+
+
+    <h1>The Grass Clump</h1>
+
+    <p>The next step was to work on the grass assets themselves. I created in Blender a grass clump that would contain around 20 grass blades each, making them taller and more grass shape, although I did make them with no curvature.</p>
+    <p>I made the normals of the grass blades look straight up, giving them a more toon-like shading and implemented a basic wind system that allowed me to easily control the intensity and angle of the wind.</p>
+    <p>I problem I faced was that when the intensity was too high the grass blades would almsot lay flat on the ground, and I wanted a more natural bended look to them.</p>
+
+
+    <h2>Vertex Paint</h2>
+
+    <p>The next step was to add vertex painting to the individual grass blades, making the values 0 at the bottom and interpolating them to 1 on the end of the blade. I then made it so the wind influence would be affected by the vertex paint values, having 0 influence at the bottom of the blades and the strongest influence at the end.</p>
+    <p>This showed better results and the movement was looking more natural and fluffy.</p>
+
+
+    <h1>The Night Setting</h1>
+
+    <p>I then worked on making the setting being under a night sky and worked on a stylized shader.</p>
+
+    <h1>Better Grass Clumps</h1>
+
+    <p>The blades on the current grass clumps were too straight and made it so the wind animation would break at hight wind intensities. The baldes would also be invisible when viewed from the side, which would mean the grass field would lose density and cohesion when looking from different angles and during the wind animation. The vertical normals also made it so it was difficult to dintinguish the grass blades from one another unless they were under high intensity light sources.</p>
+    <p>I worked on new grass clumps that had a curvature to the blades, not only vertically but also when viewed from the sides, giving a better density to the field and also distinction between the blades, making it easier to see the clumps oscillating with the wind.</p>
 
 </section>

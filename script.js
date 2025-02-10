@@ -13,8 +13,10 @@ var mainContent;
 var pageTitle;
 
 function updateMainContent(data) {
+  cleanupResources();
   scrollToTheTop();
   mainContent.innerHTML = data;
+  startObsevingVideos();
 }
 
 function loadTab(tabName) {
@@ -118,4 +120,11 @@ function restartEmbeddedProject(startButton, container, embeddedProjectHTML, loa
 
 function scrollToTheTop() {
   window.scrollTo(0, 0);
+}
+
+function cleanupResources() {
+  while (mainContent.firstChild) {
+    mainContent.removeChild(mainContent.firstChild);
+  }
+  stopObservingVideos();
 }
