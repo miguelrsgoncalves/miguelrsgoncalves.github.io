@@ -582,8 +582,12 @@ video {
   width: 100%;
   border-radius: var(--border-radius);
   margin: 8px 0;
-  box-shadow: 0 8px 8px var(--shadow-dark);
   background-color: var(--secondary-bg);
+  box-shadow: none;
+}
+
+.video-player {
+  box-shadow: 0 8px 8px var(--shadow-dark);
 }
 
 audio {

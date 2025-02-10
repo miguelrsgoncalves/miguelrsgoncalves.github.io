@@ -7,5 +7,13 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById(tabsEnum.contacts)
     ]);
     pageTitle = document.getElementById('page-title');
-    loadTab(tabsEnum.home);
+    //loadTab(tabsEnum.home);
+
+    /**
+     * DEBUG ONLY! LOAD A DIFFERENT INITIAL PAGE FOR EASIER DEBBUGING AND DEVELOPMENT
+    */
+    loadPage("../project-pages/grass-field.html", "!!TESTING PAGE LOADING!! REMOVE BEFORE DEPLOYMENT!!");
+    /**
+     * COMMENT LINE ABOVE FOR DEPLOYMENT AND UNCOMMENT TOP MOST COMMENT
+     */
 });
