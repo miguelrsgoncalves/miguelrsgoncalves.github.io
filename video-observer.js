@@ -20,6 +20,7 @@ const observer = new IntersectionObserver(handleIntersection, options);
 
 function startObsevingVideos () {
     document.querySelectorAll('video[autoplay]').forEach(video => {
+        video.pause();
         observer.observe(video);
     });
 }
