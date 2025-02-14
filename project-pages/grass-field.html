@@ -6,43 +6,75 @@
 
     <p>The idea behind this project was to learn how to do a vast, dense and fluid grass system that could fill in a landscape and make it feel soft, fluffy and alive but soothing and calm.</p>
 
-    <video autoplay muted loop  controlsList="nodownload"><source src="../assets/images/grass-field-page/grass_field.mp4" type="video/mp4"></video>
+    <video autoplay muted loop controlsList="nodownload"><source src="../assets/images/grass-field-page/grass_field.mp4" type="video/mp4"></video>
 
     <h1>The Initial Steps</h1>
 
     <p>The software of choice for this project was Unreal Engine 5 and I got started with learning the landscape, grass and material systems of the engine.</p>
     <p>I made some quick grass blades assets in Blender and then connected the grass system to the landscape, letting me instantiate grass automatically in the landscape layers of choice and making the grass receive the base color of the layer it was on.</p>
     <p>The systems worked, however, the results were very far away from satisfying. But it was a starting point.</p>
-
+    
+    <video autoplay muted loop controlsList="nodownload"><source src="../assets/images/grass-field-page/grass_field_test1.mp4" type="video/mp4"></video>
 
     <h1>The Grass Clump</h1>
 
-    <p>The next step was to work on the grass assets themselves. I created in Blender a grass clump that would contain around 20 grass blades each, making them taller and more grass shape, although I did make them with no curvature.</p>
-    <p>I made the normals of the grass blades look straight up, giving them a more toon-like shading and implemented a basic wind system that allowed me to easily control the intensity and angle of the wind.</p>
-    <p>I problem I faced was that when the intensity was too high the grass blades would almsot lay flat on the ground, and I wanted a more natural bended look to them.</p>
+    <section class="text-image-section reverse">
+        <div class="text-content">
+            <p>The next step was to work on the grass assets themselves. I created in Blender a grass clump that would contain around 20 grass blades each, making them taller and more grass shape, although I did make them with no curvature. I also created 2 LOD levels that would help with performance.</p>
+            <p>I made the normals of the grass blades look straight up, giving them a more cellshading look and implemented a basic wind system that allowed me to easily control the intensity and angle of the wind.</p>
+            <p>The problem I faced was that when the intensity was too high the grass blades would almost lay flat on the ground, and I wanted a more natural bending to their animation.</p>
+        </div>
+        <div class="image-content">
+            <img src="../assets/images/grass-field-page/grass_clump_test1.png" alt="Grass Clump Test 1.">
+        </div>
+    </section>
 
+    <video autoplay muted loop controlsList="nodownload"><source src="../assets/images/grass-field-page/grass_field_test2.mp4" type="video/mp4"></video>
 
     <h2>Vertex Paint</h2>
 
-    <p>The next step was to add vertex painting to the individual grass blades, making the values 0 at the bottom and interpolating them to 1 on the end of the blade. I then made it so the wind influence would be affected by the vertex paint values, having 0 influence at the bottom of the blades and the strongest influence at the end.</p>
-    <p>This showed better results and the movement was looking more natural and fluffy.</p>
+    <section class="text-image-section">
+        <div class="text-content">
+            <p>The next step was to add vertex painting to the individual grass blades, making the values 0 at the bottom and interpolating them to 1 on the end of the blade. I then made it so the wind influence would be affected by the vertex paint values, having 0 influence at the bottom of the blades and the strongest influence at the end.</p>
+            <p>This showed better results and the movement was looking more natural.</p>
+        </div>
+        <div class="image-content">
+            <img src="../assets/images/grass-field-page/grass_vertex_paint.png" alt="Grass Blade Vertex Paint.">
+        </div>
+    </section>
 
+    <video autoplay muted loop  controlsList="nodownload"><source src="../assets/images/grass-field-page/grass_field_test3.mp4" type="video/mp4"></video>
 
     <h1>The Night Setting</h1>
 
-    <p>I then worked on making the setting being under a night sky and worked on a stylized shader.</p>
+    <p>I then worked on making the setting a night sky and worked on a cell shader.</p>
     <p>The overall look of the field was coming togheter, but there were changes that could be made.</p>
 
+    <video autoplay muted loop controlsList="nodownload"><source src="../assets/images/grass-field-page/grass_field_test4.mp4" type="video/mp4"></video>
+    
+    <video autoplay muted loop controlsList="nodownload"><source src="../assets/images/grass-field-page/grass_field_test5.mp4" type="video/mp4"></video>
+    
     <h1>Better Grass Clumps</h1>
 
-    <p>The blades on the current grass clumps were too straight and made it so the wind animation would break at hight wind intensities. The blades would also be invisible when viewed from the side, which would mean the grass field would lose density and cohesion when looking from different angles and during the wind animation. The vertical normals also made it so it was difficult to dintinguish the grass blades from one another unless they were under high intensity light sources.</p>
-    <p>I worked on new grass clumps that had a curvature to the blades, not only vertically but also when viewed from the sides, giving a better density to the field and also distinction between the blades, making it easier to see the clumps oscillating with the wind. I also pointed the normals facing perpendicular to the faces, making ti so the grass blades would be shaded according to the lighting sources correctly. It did lose the more 2D look, but made it so they were more perceivable and their movement more readable.</p>
+    <section class="text-image-section reverse">
+        <div class="text-content">
+            <p>The blades on the current grass clumps were too straight and made it so the wind animation would break at hight wind intensities. The blades would also be invisible when viewed from the side, which would mean the grass field would lose density and cohesion when looking from different angles and during the wind animation. The vertical normals also made it so it was difficult to dintinguish the grass blades from one another unless they were under high intensity light sources.</p>
+            <p>I worked on new grass clumps that had a curvature to the blades, not only vertically but also when viewed from the sides, giving a better density to the field and also distinction between the blades, making it easier to see the clumps oscillating with the wind. I also pointed the normals facing perpendicular to the faces, making it so the grass blades would be shaded according to the lighting sources correctly. It did lose the more 2D look, but made it so they were more perceivable and their movement more readable.</p>
+        </div>
+        <div class="image-content">
+            <img src="../assets/images/grass-field-page/better_grass_clump.png" alt="Better Grass Clump.">
+        </div>
+    </section>
 
     <h1>Final Result</h1>
 
-    <p>The result of this project was a vast and dense grass field, akin to a wavy sea, that looks fluffy, alive and calm.</p>
-    <p>In the performance department, I monitored the project during the whole production. With my laptop (RTX 2060) I could run in-editor the project around 120 fps. There were still more performance aspects to tackle, but for the project it was I was content.</p>
+    <p>The result of this project was a vast and dense grass field, akin to a wavy sea, that looks fluffy and alive.</p>
+    <p>In the performance department, I monitored the project during the whole production. With my laptop (RTX 2060) I could run in-editor the project around 144 fps. There were still more performance aspects to tackle, but for the project it was I was content.</p>
     <p>I did learn a lot during the making of this and have a better understanding how to work on instanciation and materials to achieve a good performance and a nice look to the future games I will work on.</p>
+
+    <video autoplay muted loop controlsList="nodownload"><source src="../assets/images/grass-field-page/grass_field_test6.mp4" type="video/mp4"></video>
+    
+    <video autoplay muted loop controlsList="nodownload"><source src="../assets/images/grass-field-page/grass_field_test7.mp4" type="video/mp4"></video>
 
     <h1>The Future</h1>
 
