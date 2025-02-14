@@ -4,9 +4,9 @@
         "title": "Sea Above Water",
         "year": "2024",
         "roleCategory": ["Computer Graphics"],
-        "software": ["Unreal Engine 5", "Blender"],
+        "software": ["Unreal Engine 5"],
         "description": "Vast Stylized grass field made inside Unreal Engine 5, made to be performant and dense.",
-        "aditionalLabel": "",
+        "misc": [""],
         "pageURL": "../project-pages/grass-field.html"
     },
     {
@@ -16,7 +16,7 @@
         "roleCategory": ["Animation"],
         "software": ["Maya"],
         "description": "Follow Anya as she escapes a trio of relenthless goons, Oscar, Manuel and Joseph, finding her way through a weird and confusing system of sewer pipes.",
-        "aditionalLabel": "College Assignment",
+        "misc": ["College Assignment"],
         "pageURL": "../project-pages/narrow-escape.html"
     },
     {
@@ -26,7 +26,7 @@
         "roleCategory": ["Sound Design"],
         "software": ["Reaper"],
         "description": "An audio-only adaptation of the PAPERS, PLEASE - The Short Film by Nikita Ordynskiy.",
-        "aditionalLabel": "College Assignment",
+        "misc": ["College Assignment"],
         "pageURL": "../project-pages/papers-please-the-short-film-spatial-audio-only-adaptation.html"
     },
     {
@@ -36,7 +36,7 @@
         "roleCategory": ["Sound Design"],
         "software": ["P5"],
         "description": "Create generative music by manipulating the elements of the Well of Wandering.",
-        "aditionalLabel": "College Assignment",
+        "misc": ["College Assignment"],
         "pageURL": "../project-pages/well-of-wandering.html"
     },
     {
@@ -46,7 +46,7 @@
         "roleCategory": ["Prototype Game"],
         "software": ["P5"],
         "description": "Step on the shoes of God and watch over and aid a civilization in their survival. Or their demise.",
-        "aditionalLabel": "College Assignment",
+        "misc": ["College Assignment"],
         "pageURL": "../project-pages/god-simulator.html"
     },
     {
@@ -56,7 +56,7 @@
         "roleCategory": ["Computer Graphics", "Prototype Game"],
         "software": ["WebGL"],
         "description": "Prototype game where you play as a bird tasked with gathering eggs and dropping them on a nest.",
-        "aditionalLabel": "College Assignment",
+        "misc": ["College Assignment"],
         "pageURL": "../project-pages/webgl-bird-game.html"
     },
     {
@@ -66,7 +66,7 @@
         "roleCategory": ["Computer Graphics"],
         "software": ["WebGL"],
         "description": "Prototype game where you can watch a train locomotive go around a circle train track, stopping at the various train stations for a time.",
-        "aditionalLabel": "College Assignment",
+        "misc": ["College Assignment"],
         "pageURL": "../project-pages/webgl-train-game.html"
     }
 ]

@@ -5,6 +5,8 @@ var allRolesCategoriesCheckbox;
 var rolesCategoriesCheckboxes;
 var allSoftwareCheckbox;
 var softwareCheckboxes;
+var allMiscCheckbox;
+var miscCheckboxes;
 
 function toggleFilterDropdown(containerId) {
     const filterDropdown = document.getElementById('filter-dropdown');
@@ -18,6 +20,8 @@ function toggleFilterDropdown(containerId) {
         rolesCategoriesCheckboxes = document.querySelectorAll('.roles-categories-checkbox');
         allSoftwareCheckbox = document.getElementById('all-software');
         softwareCheckboxes = document.querySelectorAll('.software-checkbox');
+        allMiscCheckbox = document.getElementById('all-misc');
+        miscCheckboxes = document.querySelectorAll('.misc-checkbox');
     }
 }
 
@@ -30,20 +34,23 @@ function filterProjects() {
     var filters = {
         years: getSelectedYears(),
         rolesCategories: getSelectedRolesCategories(),
-        software: getSelectedSoftware()
+        software: getSelectedSoftware(),
+        misc: getSelectedMisc()
     };
     renderProjects(filters);
 }
 
 function resetFilters() {
-    if(!allYearsCheckbox || !allRolesCategoriesCheckbox || !allSoftwareCheckbox) return;
+    if(!allYearsCheckbox || !allRolesCategoriesCheckbox || !allSoftwareCheckbox || !allMiscCheckbox) return;
     
     allYearsCheckbox.checked = true;
     allRolesCategoriesCheckbox.checked = true;
     allSoftwareCheckbox.checked = true;
+    allMiscCheckbox.checkbox = true;
     toggleAllYears(true);
     toggleAllRolesCategories(true);
     toggleAllSoftware(true);
+    toggleAllMisc(true);
     renderProjects(false);
 }
   
@@ -69,6 +76,17 @@ function getSelectedSoftware() {
         if(element.checked  ) selectedSoftware.push(element.name);
     });
     return selectedSoftware;
+}
+
+function getSelectedMisc() {
+    var selectedMisc = [];
+    miscCheckboxes.forEach(element => {
+        if(element.checked  ) {
+            if(element.name == "None") selectedMisc.push("");
+            else selectedMisc.push(element.name);
+        }
+    });
+    return selectedMisc;
 }
 
 function toggleAllYears(isCheckbox) {
@@ -145,6 +163,32 @@ function toggleOnlySoftware(label) {
     softwareCheckboxes.forEach(element => {
         if(element.name != label.innerHTML) element.checked = false;
         else element.checked = true;
+    });
+    filterProjects();
+}
+
+function toggleAllMisc(isCheckbox) {
+    if(!isCheckbox) allMiscCheckbox.checked = !allMiscCheckbox.checked;
+    miscCheckboxes.forEach(checkbox => {
+        checkbox.checked = allMiscCheckbox.checked;
+    });
+    filterProjects();
+}
+
+function updateMiscFilters() {
+    if (Array.from(miscCheckboxes).some(checkbox => !checkbox.checked)) {
+        allMiscCheckbox.checked = false;
+    } else {
+        allMiscCheckbox.checked = true;
+    }
+    filterProjects();
+}
+
+function toggleOnlyMisc(label) {
+    allMiscCheckbox.checked = false;
+    miscCheckboxes.forEach(element => {
+        if(element.name != label.innerHTML) element.checked = false;
+        else {element.checked = true;}
     });
     filterProjects();
 }

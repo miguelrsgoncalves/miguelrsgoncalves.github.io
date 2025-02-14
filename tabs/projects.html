@@ -91,6 +91,26 @@
                 </div>
             </div>
         </div>
+    
+        <div class="filter-column">
+            <h4 class="filter-title">Misc</h4>
+            <div class="filter-checkbox">
+                <input name="all" type="checkbox" id="all-misc" class="clickable" checked onchange="toggleAllMisc(true)">
+                <label class="clickable" onclick="toggleAllMisc(false)">All</label>
+            </div>
+            <div class="indented-checkboxes">
+                <div class="filter-checkbox">
+                    <input name="None" type="checkbox" class="misc-checkbox clickable" checked onchange="updateMiscFilters()">
+                    <label class="clickable" onclick="toggleOnlyMisc(this)">None</label>
+                </div>
+            </div>
+            <div class="indented-checkboxes">
+                <div class="filter-checkbox">
+                    <input name="College Assignment" type="checkbox" class="misc-checkbox clickable" checked onchange="updateMiscFilters()">
+                    <label class="clickable" onclick="toggleOnlyMisc(this)">College Assignment</label>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="card-container" class="projects-grid"></div>

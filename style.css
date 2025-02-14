@@ -303,7 +303,7 @@ main {
 }
 
 .filter-column {
-  flex: 1 1 calc(33.333% - 20px);
+  flex: 1 1 calc(25% - 20px);
   margin-right: 0;
   min-width: 250px;
 }
