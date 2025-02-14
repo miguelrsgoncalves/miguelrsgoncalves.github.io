@@ -6,7 +6,7 @@
         "roleCategory": ["Visual Artist"],
         "software": ["Blender", "Unity", "Krita"],
         "description": "Fight for your right to be the true Sisyphus and carry the boulder to the top.",
-        "misc": ["College Assignment"],
+        "misc": ["University Project"],
         "pageURL": "../game-dev-pages/sisyphus-climb.html"
     },
     {
@@ -16,7 +16,7 @@
         "roleCategory": ["Sound Designer"],
         "software": ["Reaper", "FMOD"],
         "description": "You are part of a rescue team which mission is extract a previous team from a cargo ship. Be careful though, the souls lost are uneasy.",
-        "misc": ["College Assignment"],
+        "misc": ["University Project"],
         "pageURL": "../game-dev-pages/sisyphus-climb.html"
     },
     {
