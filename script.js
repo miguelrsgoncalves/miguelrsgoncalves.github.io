@@ -3,7 +3,6 @@ var isInProjectWindow = false;
 
 const tabsEnum = {
   home: "home",
-  gameDev: "game-dev",
   projects: "projects",
   about: "about"
 }
