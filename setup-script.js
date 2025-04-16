@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById(tabsEnum.home),
         document.getElementById(tabsEnum.gameDev),
         document.getElementById(tabsEnum.projects),
-        document.getElementById(tabsEnum.contacts)
+        document.getElementById(tabsEnum.about)
     ]);
     pageTitle = document.getElementById('page-title');
     loadTab(tabsEnum.home);

@@ -5,7 +5,7 @@ const tabsEnum = {
   home: "home",
   gameDev: "game-dev",
   projects: "projects",
-  contacts: "contacts"
+  about: "about"
 }
 
 var tabs = [];
