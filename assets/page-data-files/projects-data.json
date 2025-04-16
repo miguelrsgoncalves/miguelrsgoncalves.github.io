@@ -68,5 +68,45 @@
         "description": "Prototype game where you can watch a train locomotive go around a circle train track, stopping at the various train stations for a time.",
         "misc": ["University Project"],
         "pageURL": "../project-pages/webgl-train-game.html"
+    },
+    {
+        "image": "../assets/images/StylizedGrassField_Thumbnail.png",
+        "title": "Sisyphus Climb",
+        "year": "2024",
+        "roleCategory": ["Visual Artist"],
+        "software": ["Blender", "Unity", "Krita"],
+        "description": "Fight for your right to be the true Sisyphus and carry the boulder to the top.",
+        "misc": ["University Project", "Game Dev"],
+        "pageURL": "../project-pages/sisyphus-climb.html"
+    },
+    {
+        "image": "../assets/images/StylizedGrassField_Thumbnail.png",
+        "title": "Abyssal Descent: SCP-455",
+        "year": "2024",
+        "roleCategory": ["Sound Designer"],
+        "software": ["Reaper", "FMOD"],
+        "description": "You are part of a rescue team which mission is extract a previous team from a cargo ship. Be careful though, the souls lost are uneasy.",
+        "misc": ["University Project", "Game Dev"],
+        "pageURL": "../project-pages/sisyphus-climb.html"
+    },
+    {
+        "image": "../assets/images/StylizedGrassField_Thumbnail.png",
+        "title": "Paranoia",
+        "year": "2024",
+        "roleCategory": ["Sound Designer"],
+        "software": ["FL Studio"],
+        "description": "Go through a dungeon while you go insane. Things might change.",
+        "misc": ["Game Jam", "Game Dev"],
+        "pageURL": "../project-pages/sisyphus-climb.html"
+    },
+    {
+        "image": "../assets/images/StylizedGrassField_Thumbnail.png",
+        "title": "PLAY WITH ME",
+        "year": "2024",
+        "roleCategory": ["Programmer"],
+        "software": ["Unreal Engine 5"],
+        "description": "You are a little toy soldier. Survive the Demon Baby until the mother comes back.",
+        "misc": ["Game Jam", "Game Dev"],
+        "pageURL": "../project-pages/sisyphus-climb.html"
     }
 ]

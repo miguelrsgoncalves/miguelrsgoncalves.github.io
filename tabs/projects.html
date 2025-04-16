@@ -33,12 +33,25 @@
         </div>
         
         <div class="filter-column">
-            <h4 class="filter-title">Category</h4>
+            <h4 class="filter-title">Role / Category</h4>
             <div class="filter-checkbox">
                 <input name="all" type="checkbox" id="all-roles-categories" class="clickable" checked onchange="toggleAllRolesCategories(true)">
                 <label class="clickable" onclick="toggleAllRolesCategories(false)">All</label>
             </div>
             <div class="indented-checkboxes">
+                <div class="filter-checkbox">
+                    <input name="Programmer" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="updateRolesCategoriesFilters()">
+                    <label class="clickable" onclick="toggleOnlyRolesCategories(this)">Programmer</label>
+                </div>
+                <div class="filter-checkbox">
+                    <input name="Visual Artist" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="updateRolesCategoriesFilters()">
+                    <label class="clickable" onclick="toggleOnlyRolesCategories(this)">Visual Artist</label>
+                </div>
+                <div class="filter-checkbox">
+                    <input name="Sound Designer" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="updateRolesCategoriesFilters()">
+                    <label class="clickable" onclick="toggleOnlyRolesCategories(this)">Sound Designer</label>
+                </div>
+                <div>Separation</div>
                 <div class="filter-checkbox">
                     <input name="Animation" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="updateRolesCategoriesFilters()">
                     <label class="clickable" onclick="toggleOnlyRolesCategories(this)">Animation</label>
@@ -74,6 +87,18 @@
                     <label class="clickable" onclick="toggleOnlySoftware(this)">Maya</label>
                 </div>
                 <div class="filter-checkbox">
+                    <input name="FL Studio" type="checkbox" class="software-checkbox clickable" checked onchange="updateSoftwareFilters()">
+                    <label class="clickable" onclick="toggleOnlySoftware(this)">FL Studio</label>
+                </div>
+                <div class="filter-checkbox">
+                    <input name="FMOD" type="checkbox" class="software-checkbox clickable" checked onchange="updateSoftwareFilters()">
+                    <label class="clickable" onclick="toggleOnlySoftware(this)">FMOD</label>
+                </div>
+                <div class="filter-checkbox">
+                    <input name="Krita" type="checkbox" class="software-checkbox clickable" checked onchange="updateSoftwareFilters()">
+                    <label class="clickable" onclick="toggleOnlySoftware(this)">Krita</label>
+                </div>
+                <div class="filter-checkbox">
                     <input name="P5" type="checkbox" class="software-checkbox clickable" checked onchange="updateSoftwareFilters()">
                     <label class="clickable" onclick="toggleOnlySoftware(this)">P5</label>
                 </div>
@@ -84,6 +109,10 @@
                 <div class="filter-checkbox">
                     <input name="Unreal Engine 5" type="checkbox" class="software-checkbox clickable" checked onchange="updateSoftwareFilters()">
                     <label class="clickable" onclick="toggleOnlySoftware(this)">Unreal Engine 5</label>
+                </div>
+                <div class="filter-checkbox">
+                    <input name="Unity" type="checkbox" class="software-checkbox clickable" checked onchange="updateSoftwareFilters()">
+                    <label class="clickable" onclick="toggleOnlySoftware(this)">Unity</label>
                 </div>
                 <div class="filter-checkbox">
                     <input name="WebGL" type="checkbox" class="software-checkbox clickable" checked onchange="updateSoftwareFilters()">
@@ -102,6 +131,18 @@
                 <div class="filter-checkbox">
                     <input name="None" type="checkbox" class="misc-checkbox clickable" checked onchange="updateMiscFilters()">
                     <label class="clickable" onclick="toggleOnlyMisc(this)">None</label>
+                </div>
+            </div>
+            <div class="indented-checkboxes">
+                <div class="filter-checkbox">
+                    <input name="Game Dev" type="checkbox" class="misc-checkbox clickable" checked onchange="updateMiscFilters()">
+                    <label class="clickable" onclick="toggleOnlyMisc(this)">Game Dev</label>
+                </div>
+            </div>
+            <div class="indented-checkboxes">
+                <div class="filter-checkbox">
+                    <input name="Game Jam" type="checkbox" class="misc-checkbox clickable" checked onchange="updateMiscFilters()">
+                    <label class="clickable" onclick="toggleOnlyMisc(this)">Game Jam</label>
                 </div>
             </div>
             <div class="indented-checkboxes">
