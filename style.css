@@ -228,6 +228,20 @@ main {
   width: 0;
 }
 
+.hl {
+  border-top: 8px solid var(--primary-color);
+  border-radius: 0;
+  height: 0;
+  width: auto;
+}
+
+.hl-thin {
+  border-top: 2px solid var(--primary-color);
+  border-radius: 0;
+  height: 0;
+  width: auto;
+}
+
 /* ========== Filter Header ========== */
 
 .filter-header {
