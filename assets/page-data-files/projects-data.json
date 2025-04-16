@@ -1,6 +1,6 @@
 [
     {
-        "image": "../assets/images/StylizedGrassField_Thumbnail.png",
+        "image": "../assets/images/chat95_thumbnail.png",
         "title": "Chat95",
         "year": "2025",
         "roleCategory": ["Sound Designer"],
@@ -24,13 +24,13 @@
         "title": "Sea Above Water",
         "year": "2024",
         "roleCategory": ["Computer Graphics"],
-        "software": ["Unreal Engine 5"],
+        "software": ["Unreal Engine 5", "Blender"],
         "description": "Vast Stylized grass field made inside Unreal Engine 5, made to be performant and dense.",
         "misc": [""],
         "pageURL": "../project-pages/grass-field.html"
     },
     {
-        "image": "../assets/images/StylizedGrassField_Thumbnail.png",
+        "image": "../assets/images/abyssal_descent_thumbnail.png",
         "title": "Abyssal Descent: SCP-455",
         "year": "2024",
         "roleCategory": ["Sound Designer"],
@@ -50,7 +50,7 @@
         "pageURL": "../project-pages/narrow-escape.html"
     },
     {
-        "image": "../assets/images/StylizedGrassField_Thumbnail.png",
+        "image": "../assets/images/paranoia_thumbnail.png",
         "title": "Paranoia",
         "year": "2024",
         "roleCategory": ["Sound Designer"],
@@ -70,7 +70,7 @@
         "pageURL": "../project-pages/papers-please-the-short-film-spatial-audio-only-adaptation.html"
     },
     {
-        "image": "../assets/images/StylizedGrassField_Thumbnail.png",
+        "image": "../assets/images/play_with_me_thumbnail.png",
         "title": "PLAY WITH ME",
         "year": "2024",
         "roleCategory": ["Programmer"],
