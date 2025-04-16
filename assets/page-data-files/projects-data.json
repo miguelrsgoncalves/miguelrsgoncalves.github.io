@@ -1,6 +1,26 @@
 [
     {
         "image": "../assets/images/StylizedGrassField_Thumbnail.png",
+        "title": "Chat95",
+        "year": "2025",
+        "roleCategory": ["Sound Designer"],
+        "software": ["Reaper", "FL Studio"],
+        "description": "You are ChatGPT. Talk with a set of wierd costumers and take care of their ordeals!",
+        "misc": ["Game Jam", "Game Dev"],
+        "pageURL": "../project-pages/sisyphus-climb.html"
+    },
+    {
+        "image": "../assets/images/StylizedGrassField_Thumbnail.png",
+        "title": "Sisyphus Climb",
+        "year": "2024",
+        "roleCategory": ["Visual Artist"],
+        "software": ["Blender", "Unity", "Krita"],
+        "description": "Fight for your right to be the true Sisyphus and carry the boulder to the top in a legendary duel.",
+        "misc": ["University Project", "Game Dev"],
+        "pageURL": "../project-pages/sisyphus-climb.html"
+    },
+    {
+        "image": "../assets/images/StylizedGrassField_Thumbnail.png",
         "title": "Sea Above Water",
         "year": "2024",
         "roleCategory": ["Computer Graphics"],
@@ -8,6 +28,16 @@
         "description": "Vast Stylized grass field made inside Unreal Engine 5, made to be performant and dense.",
         "misc": [""],
         "pageURL": "../project-pages/grass-field.html"
+    },
+    {
+        "image": "../assets/images/StylizedGrassField_Thumbnail.png",
+        "title": "Abyssal Descent: SCP-455",
+        "year": "2024",
+        "roleCategory": ["Sound Designer"],
+        "software": ["Reaper", "FMOD"],
+        "description": "You are part of a rescue team which mission is extract a previous team from a cargo ship. Be careful though, the lost souls are uneasy.",
+        "misc": ["University Project", "Game Dev"],
+        "pageURL": "../project-pages/sisyphus-climb.html"
     },
     {
         "image": "../assets/images/NarrowEscape_Thumbnail.png",
@@ -20,6 +50,16 @@
         "pageURL": "../project-pages/narrow-escape.html"
     },
     {
+        "image": "../assets/images/StylizedGrassField_Thumbnail.png",
+        "title": "Paranoia",
+        "year": "2024",
+        "roleCategory": ["Sound Designer"],
+        "software": ["FL Studio"],
+        "description": "Go through a dungeon while you go insane. Things might change.",
+        "misc": ["Game Jam", "Game Dev"],
+        "pageURL": "../project-pages/sisyphus-climb.html"
+    },
+    {
         "image": "../assets/images/PapersPleaseTheShortFilmSpatialAudioOnlyAdaptation_Thumbnail.jpg",
         "title": "PAPERS, PLEASE - The Short Film | Spatial Audio-Only Adaptation",
         "year": "2024",
@@ -28,6 +68,16 @@
         "description": "An audio-only adaptation of the PAPERS, PLEASE - The Short Film by Nikita Ordynskiy.",
         "misc": ["University Project"],
         "pageURL": "../project-pages/papers-please-the-short-film-spatial-audio-only-adaptation.html"
+    },
+    {
+        "image": "../assets/images/StylizedGrassField_Thumbnail.png",
+        "title": "PLAY WITH ME",
+        "year": "2024",
+        "roleCategory": ["Programmer"],
+        "software": ["Unreal Engine 5"],
+        "description": "You are a little toy soldier. Survive the Demon Baby until it's mother comes back.",
+        "misc": ["Game Jam", "Game Dev"],
+        "pageURL": "../project-pages/sisyphus-climb.html"
     },
     {
         "image": "../assets/images/well_of_wandering_thumbnail.png",
@@ -68,45 +118,5 @@
         "description": "Prototype game where you can watch a train locomotive go around a circle train track, stopping at the various train stations for a time.",
         "misc": ["University Project"],
         "pageURL": "../project-pages/webgl-train-game.html"
-    },
-    {
-        "image": "../assets/images/StylizedGrassField_Thumbnail.png",
-        "title": "Sisyphus Climb",
-        "year": "2024",
-        "roleCategory": ["Visual Artist"],
-        "software": ["Blender", "Unity", "Krita"],
-        "description": "Fight for your right to be the true Sisyphus and carry the boulder to the top.",
-        "misc": ["University Project", "Game Dev"],
-        "pageURL": "../project-pages/sisyphus-climb.html"
-    },
-    {
-        "image": "../assets/images/StylizedGrassField_Thumbnail.png",
-        "title": "Abyssal Descent: SCP-455",
-        "year": "2024",
-        "roleCategory": ["Sound Designer"],
-        "software": ["Reaper", "FMOD"],
-        "description": "You are part of a rescue team which mission is extract a previous team from a cargo ship. Be careful though, the souls lost are uneasy.",
-        "misc": ["University Project", "Game Dev"],
-        "pageURL": "../project-pages/sisyphus-climb.html"
-    },
-    {
-        "image": "../assets/images/StylizedGrassField_Thumbnail.png",
-        "title": "Paranoia",
-        "year": "2024",
-        "roleCategory": ["Sound Designer"],
-        "software": ["FL Studio"],
-        "description": "Go through a dungeon while you go insane. Things might change.",
-        "misc": ["Game Jam", "Game Dev"],
-        "pageURL": "../project-pages/sisyphus-climb.html"
-    },
-    {
-        "image": "../assets/images/StylizedGrassField_Thumbnail.png",
-        "title": "PLAY WITH ME",
-        "year": "2024",
-        "roleCategory": ["Programmer"],
-        "software": ["Unreal Engine 5"],
-        "description": "You are a little toy soldier. Survive the Demon Baby until the mother comes back.",
-        "misc": ["Game Jam", "Game Dev"],
-        "pageURL": "../project-pages/sisyphus-climb.html"
     }
 ]
