@@ -186,6 +186,37 @@ main {
   animation: fadeIn 0.5s ease;
 }
 
+.tab-page-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+
+  img {
+    height: auto;
+    width: 100%;
+    border-radius: var(--border-radius);
+  }
+
+  h1, h2 {
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    margin: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: var(--font-size-base);
+  }
+}
+
 .tab-content.active {
   display: block;
 }
@@ -597,6 +628,50 @@ main {
   }
 }
 
+/* ========== HIGHTLIGHTED PROJECTS ========== */
+
+.highlights-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.scroll-button {
+  border: none;
+  font-size: 2rem;
+  margin: 0 24px;
+  padding: 8px;
+  font-weight: var(--font-weight-bold);
+
+  color: var(--primary-color);
+  border: 8px solid var(--secondary-bg);
+  border-radius: var(--border-radius);
+  background-color: var(--secondary-bg);
+  transition: border-color 0.3s ease;
+}
+
+.scroll-button:hover {
+  border-color: var(--primary-color);
+}
+
+.scroll-button-left {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.scroll-button-right {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.highlights-track {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: auto;
+  margin: 0;
+}
+
 /* ========== MEDIA ELEMENTS ========== */
 
 video {
@@ -758,6 +833,31 @@ footer p {
   p {
     padding: 0;
     margin: 0;
+  }
+}
+
+/* ========== LINKS ============ */
+
+.link {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  margin: 10px;
+  padding: 0;
+  width: 100%;
+  gap: 20px;
+
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: var(--font-size-large);
+  }
+
+  h2, a {
+    margin: 0;
+    padding: 0;
   }
 }
 

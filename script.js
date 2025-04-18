@@ -1,5 +1,6 @@
 var lastTab = '';
 var isInProjectWindow = false;
+var highlightedProjectIndex = 0;
 
 const tabsEnum = {
   home: "home",
@@ -62,17 +63,16 @@ function loadPage(pageURL, title) {
 
 function perTabLoad(tabName) {
   switch (tabName) {
+    case tabsEnum.home:
+      getHightlightedProjects();
+      break;
     case tabsEnum.projects:
       loadProjects('card-container', 'assets/page-data-files/projects-data.json');
-      return;
-    case tabsEnum.gameDev:
-      loadProjects('card-container', 'assets/page-data-files/game-dev-data.json');
-      return;
+      break;
     default:
-      return;
+      break;
   }
 }
-
 function loadEmbeddedProject(startButton, container, embeddedProjectHTML, loadingScreen) {
   const embeddedProjectContent = document.getElementById(container);
   const loadingScreenElement = document.getElementById(loadingScreen);
@@ -126,4 +126,42 @@ function cleanupResources() {
     mainContent.removeChild(mainContent.firstChild);
   }
   stopObservingVideos();
+  highlightedProjectIndex = 0;
+}
+
+async function getHightlightedProjects() {
+  try {
+    const highlightTrack = document.querySelector('.highlights-track');
+
+    highlightTrack.innerHTML = "";
+
+    const [jsonResponse, templateResponse] = await Promise.all([
+      fetch('assets/page-data-files/highlighted-projects-data.json'),
+      fetch('assets/templates/project-card.html')
+    ]);
+  
+    const projects = await jsonResponse.json();
+    const templateText = await templateResponse.text();
+    const parser = new DOMParser();
+    const templateDoc = parser.parseFromString(templateText, 'text/html');
+    const template = templateDoc.getElementById('project-card').innerHTML;
+  
+    for(var i = 0; i < 3; i++) {
+      var html = replacePlaceholders(template, projects[(highlightedProjectIndex + i) % projects.length]);
+      highlightTrack.insertAdjacentHTML('beforeend', html);
+    }
+  } catch (error) {
+    console.error("Error loading highlighted projects:", error);
+  }
+}
+
+function scrollHighlights(direction) {
+  if(direction) {
+    highlightedProjectIndex++;
+  } else {
+    highlightedProjectIndex--;
+    if(highlightedProjectIndex < 0) highlightedProjectIndex = 1000;
+  }
+
+  getHightlightedProjects();
 }
