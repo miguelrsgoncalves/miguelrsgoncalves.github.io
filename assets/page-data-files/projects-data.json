@@ -7,7 +7,7 @@
         "software": ["Reaper", "FL Studio"],
         "description": "You are ChatGPT. Talk with a set of wierd costumers and take care of their ordeals!",
         "misc": ["Game Jam", "Game Dev"],
-        "pageURL": "../project-pages/sisyphus-climb.html"
+        "pageURL": "../project-pages/chat95.html"
     },
     {
         "image": "../assets/images/sisyphus_climb_thumbnail.png",
@@ -37,7 +37,7 @@
         "software": ["Reaper", "FMOD"],
         "description": "You are part of a rescue team which mission is extract a previous team from a cargo ship. Be careful though, the lost souls are uneasy.",
         "misc": ["University Project", "Game Dev"],
-        "pageURL": "../project-pages/sisyphus-climb.html"
+        "pageURL": "../project-pages/abyssal-descent.html"
     },
     {
         "image": "../assets/images/NarrowEscape_Thumbnail.png",
@@ -57,7 +57,7 @@
         "software": ["FL Studio"],
         "description": "Go through a dungeon while you go insane. Things might change.",
         "misc": ["Game Jam", "Game Dev"],
-        "pageURL": "../project-pages/sisyphus-climb.html"
+        "pageURL": "../project-pages/paranoia.html"
     },
     {
         "image": "../assets/images/PapersPleaseTheShortFilmSpatialAudioOnlyAdaptation_Thumbnail.jpg",
@@ -77,7 +77,7 @@
         "software": ["Unreal Engine 5"],
         "description": "You are a little toy soldier. Survive the Demon Baby until it's mother comes back.",
         "misc": ["Game Jam", "Game Dev"],
-        "pageURL": "../project-pages/sisyphus-climb.html"
+        "pageURL": "../project-pages/play-with-me.html"
     },
     {
         "image": "../assets/images/well_of_wandering_thumbnail.png",
