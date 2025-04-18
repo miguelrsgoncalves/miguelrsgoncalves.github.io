@@ -44,7 +44,7 @@
         "title": "Narrow Escape",
         "year": "2024",
         "roleCategory": ["Animation"],
-        "software": ["Maya"],
+        "software": ["Maya", "Reaper", "DaVinci Resolve"],
         "description": "Follow Anya as she escapes a trio of relenthless goons, Oscar, Manuel and Joseph, finding her way through a weird and confusing system of sewer pipes.",
         "misc": ["University Project"],
         "pageURL": "../project-pages/narrow-escape.html"
