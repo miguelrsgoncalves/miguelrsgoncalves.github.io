@@ -18,6 +18,10 @@
             </div>
             <div class="indented-checkboxes">
                 <div class="filter-checkbox">
+                    <input name="2025" type="checkbox" class="year-checkbox clickable" checked onchange="updateYearFilters()">
+                    <label class="clickable" onclick="toggleOnlyYear(this)">2025</label>
+                </div>
+                <div class="filter-checkbox">
                     <input name="2024" type="checkbox" class="year-checkbox clickable" checked onchange="updateYearFilters()">
                     <label class="clickable" onclick="toggleOnlyYear(this)">2024</label>
                 </div>
@@ -83,8 +87,8 @@
                     <label class="clickable" onclick="toggleOnlySoftware(this)">Blender</label>
                 </div>
                 <div class="filter-checkbox">
-                    <input name="Maya" type="checkbox" class="software-checkbox clickable" checked onchange="updateSoftwareFilters()">
-                    <label class="clickable" onclick="toggleOnlySoftware(this)">Maya</label>
+                    <input name="DaVinci Resolve" type="checkbox" class="software-checkbox clickable" checked onchange="updateSoftwareFilters()">
+                    <label class="clickable" onclick="toggleOnlySoftware(this)">DaVinci Resolve</label>
                 </div>
                 <div class="filter-checkbox">
                     <input name="FL Studio" type="checkbox" class="software-checkbox clickable" checked onchange="updateSoftwareFilters()">
@@ -97,6 +101,10 @@
                 <div class="filter-checkbox">
                     <input name="Krita" type="checkbox" class="software-checkbox clickable" checked onchange="updateSoftwareFilters()">
                     <label class="clickable" onclick="toggleOnlySoftware(this)">Krita</label>
+                </div>
+                <div class="filter-checkbox">
+                    <input name="Maya" type="checkbox" class="software-checkbox clickable" checked onchange="updateSoftwareFilters()">
+                    <label class="clickable" onclick="toggleOnlySoftware(this)">Maya</label>
                 </div>
                 <div class="filter-checkbox">
                     <input name="P5" type="checkbox" class="software-checkbox clickable" checked onchange="updateSoftwareFilters()">
