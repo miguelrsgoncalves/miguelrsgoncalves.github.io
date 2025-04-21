@@ -13,8 +13,8 @@
   --font-family: 'Poppins', sans-serif;
   --font-size-small: 0.75rem;
   --font-size-base: 1rem;
-  --font-size-large: 1.5rem;
-  --font-size-xlarge: 2rem;
+  --font-size-large: 1.15rem;
+  --font-size-xlarge: 1.5rem;
   --font-size-website-title: 1rem;
   --font-weight-regular: 500;
   --font-weight-bold: 600;
@@ -410,6 +410,7 @@ main {
   gap: 20px;
   width: auto;
   margin: 0;
+  box-sizing: border-box;
 }
 
 .project-card {
@@ -484,7 +485,7 @@ main {
 
 @media (max-width: 1024px) {
   .projects-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
