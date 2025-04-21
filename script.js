@@ -1,6 +1,6 @@
 var lastTab = '';
 var isInProjectWindow = false;
-var highlightedProjectIndex = 0;
+var highlightedProjectIndex = 1000;
 
 const tabsEnum = {
   home: "home",
@@ -126,7 +126,7 @@ function cleanupResources() {
     mainContent.removeChild(mainContent.firstChild);
   }
   stopObservingVideos();
-  highlightedProjectIndex = 0;
+  highlightedProjectIndex = 1000;
 }
 
 async function getHightlightedProjects() {
