@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <script>
+    const currentUrl = window.location.pathname + window.location.search + window.location.hash;
+    sessionStorage.setItem("redirectAfterReload", currentUrl);
+    window.location.href = "/";
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>

@@ -1,5 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
-    loadPage(tabsEnum.home);
+    let path = window.location.pathname;
+
+    const stored = sessionStorage.getItem("redirectAfterReload");
+    if (stored) {
+        sessionStorage.removeItem("redirectAfterReload");
+        path = stored;
+        history.replaceState({}, "", stored);
+        try {
+            loadPage(history.state.page)
+        } catch (error) {
+            loadPage(tabsEnum.home);
+        }
+    } else loadPage(tabsEnum.home);
 
     /**
      * DEBUG ONLY! LOADS A DIFFERENT INITIAL PAGE FOR EASIER DEBBUGING AND DEVELOPMENT

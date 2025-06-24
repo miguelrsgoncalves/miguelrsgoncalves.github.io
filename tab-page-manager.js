@@ -17,6 +17,11 @@ function updateMainContent(data) {
   startObsevingVideos();
 }
 
+/**
+ * Used to load tabs/pages
+ * @param {String} pageName Name of the tab/page
+ * @param {boolean} isWindowPop If the loading is done by browser history back/forward change or not. Default = false
+ */
 function loadPage(pageName, isWindowPop = false) {
   if(Object.values(tabsEnum).includes(pageName)) {
     tabName = pageName;
@@ -69,6 +74,10 @@ function loadPage(pageName, isWindowPop = false) {
   }
 }
 
+/**
+ * Logic exclusive for each tab to perform as it gets loaded. Call this function in the loadPage() when it's handling tabs.
+ * @param {string} tabName 
+ */
 function perTabLoad(tabName) {
   switch (tabName) {
     case tabsEnum.home:
@@ -82,10 +91,16 @@ function perTabLoad(tabName) {
   }
 }
 
+/**
+ * Scrolls the page to the top.
+ */
 function scrollToTheTop() {
   window.scrollTo(0, 0);
 }
 
+/**
+ * Cleans all resources to avoid memory leaks.
+ */
 function cleanupResources() {
   while (mainContent.firstChild) {
     mainContent.removeChild(mainContent.firstChild);
