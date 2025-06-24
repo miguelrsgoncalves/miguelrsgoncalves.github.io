@@ -54,13 +54,13 @@ function loadPage(pageName, isWindowPop = false) {
         console.error("Error loading the content: ", err);
       });
   } else {
-    path = '';
+    var path = '';
 
     if(projectEnum.has(pageName)) path = 'project-pages/';
 
-    const path = `${path}${pageName}.html`;
+    const pageURL = `${path}${pageName}.html`;
 
-    fetch(path)
+    fetch(pageURL)
     .then(response => response.text())
     .then(data => {
       pageTitle.innerHTML = projectEnum.get(pageName); pageTitle.classList.add('active')
