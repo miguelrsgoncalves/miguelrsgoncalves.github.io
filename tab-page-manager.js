@@ -24,6 +24,7 @@ function updateMainContent(data) {
  * @param {boolean} isWindowPop If the loading is done by browser history back/forward change or not. Default = false
  */
 function loadPage(pageName, isWindowPop = false) {
+  console.log(doesPageExist(pageName))
   if(!doesPageExist(pageName)) loadPage(tabsEnum.home);
 
   if(Object.values(tabsEnum).includes(pageName)) {
