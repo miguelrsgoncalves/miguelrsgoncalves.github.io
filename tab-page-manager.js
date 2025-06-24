@@ -54,13 +54,13 @@ function loadPage(pageName, isWindowPop = false) {
         console.error("Error loading the content: ", err);
       });
   } else {
-    var path = '';
+    var folder = '';
 
-    if(projectEnum.has(pageName)) path = 'project-pages/';
+    if(projectEnum.has(pageName)) folder = 'project-pages/';
 
-    const pageURL = `${path}${pageName}.html`;
+    const path = `${folder}${pageName}.html`;
 
-    fetch(pageURL)
+    fetch(path)
     .then(response => response.text())
     .then(data => {
       pageTitle.innerHTML = projectEnum.get(pageName); pageTitle.classList.add('active')
@@ -117,7 +117,7 @@ window.onpopstate = function(event) {
   if (Object.values(tabsEnum).includes(page) || projectEnum.has(page)) {
     loadPage(page, true);
   } else {
-    loadPage("home", true);
+    loadPage(tabsEnum.home, true);
   }
 };
 

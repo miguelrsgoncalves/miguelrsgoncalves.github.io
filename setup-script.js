@@ -2,8 +2,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
     const path = params.get('path') || '';
 
-    console.log("Loaded path:", path);
-
     if (path) {
         history.replaceState({}, '', '/' + path);
         loadPage(path);
