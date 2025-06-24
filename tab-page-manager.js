@@ -10,6 +10,7 @@ tabs = ([
       ]);
 var mainContent = document.getElementById("main-content");
 var pageTitle = document.getElementById('page-title');
+var pageTitleText = document.getElementById('page-title-text');
 
 function updateMainContent(data) {
   cleanupResources();
@@ -45,13 +46,12 @@ function loadPage(pageName, isWindowPop = false) {
     fetch(path)
       .then(response => response.text())
       .then(data => {
-        pageTitle.innerHTML = "";
+        pageTitleText.innerHTML = "";
         pageTitle.classList.remove('active');
         if(!isWindowPop) history.pushState({page: tabName}, tabName, tabName);
         updateMainContent(data);
         perTabLoad(tabName);
-        tabs.forEach(t => t.classList.remove("active"));
-        document.getElementById(tabName).classList.add("active");
+        updateTabNav(tabName);
       })
       .catch(err => {
         console.error("Error loading the content: ", err);
@@ -59,14 +59,17 @@ function loadPage(pageName, isWindowPop = false) {
   } else {
     var folder = '';
 
-    if(projectEnum.has(pageName)) folder = 'project-pages/';
+    if(projectEnum.has(pageName)) {
+      folder = 'project-pages/';
+      updateTabNav(tabsEnum.projects);
+    }
 
     const path = `${folder}${pageName}.html`;
 
     fetch(path)
     .then(response => response.text())
     .then(data => {
-      pageTitle.innerHTML = projectEnum.get(pageName); pageTitle.classList.add('active')
+      pageTitleText.innerHTML = projectEnum.get(pageName); pageTitle.classList.add('active')
       if(!isWindowPop) history.pushState({page: pageName}, pageName, pageName);
       updateMainContent(data);
       isInProjectWindow = true;
@@ -127,6 +130,11 @@ function doesPageExist(pageName) {
     projectEnum.has(pageName)
   ) return true;
   return false;
+}
+
+function updateTabNav(tabName) {
+  tabs.forEach(t => t.classList.remove("active"));
+  document.getElementById(tabName).classList.add("active");
 }
 
 window.onpopstate = function(event) {

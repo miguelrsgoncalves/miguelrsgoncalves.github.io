@@ -70,11 +70,11 @@ header {
   top: 0;
   width: 100%;
   background-color: var(--secondary-bg);
-  padding: 10px 0;
   font-weight: bold;
   text-align: center;
   box-shadow: 0 4px 6px var(--shadow-light);
   z-index: 999;
+  transition: height 0.3s ease;
 
   h1 {
     margin: 0;
@@ -85,20 +85,28 @@ header {
 
   nav ul {
     list-style: none;
-    padding: 0 10px;
+    padding: 0;
     margin: 0;
-    margin-top: 5px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 5%;
   }
-
 
   li {
     position: relative;
-    font-weight: var(--font-weight-regular);
-    font-size: var(--font-size-base);
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: color 0.3s ease;
+
+    span{
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  li:hover span {
+    transform: translateY(-4px);
   }
   
   li::after {
@@ -114,12 +122,11 @@ header {
   
   li:hover {
     color: var(--primary-color);
-    transform: translateY(-4px);
   }
 
   li:hover::after {
-    width: 15%;
-    left: 43.5%;
+    width: 25%;
+    left: 37.5%;
   }
 
   li.active {
@@ -137,14 +144,16 @@ header {
   }
 
   .page-title {
+    display: none;
     margin: 0;
-    font-size: var(--font-size-large);
-    animation: fadeOut 0.3s ease;
+    padding: 0;
+    animation: slideOut 0.3s ease;
   }
   
   .page-title.active {
+    display: block;
     margin-bottom: 10px;
-    animation: fadeIn 0.3s ease;
+    animation: slideIn 0.3s ease;
   }
 }
 
@@ -183,7 +192,7 @@ main {
 .tab-content {
   display: none;
   margin: 0;
-  animation: fadeIn 0.5s ease;
+  animation: slideIn 0.5s ease;
 }
 
 .tab-page-content {
@@ -283,7 +292,7 @@ main {
   margin-bottom: 20px;
   border-radius: var(--border-radius);
   background-color: var(--secondary-bg);
-  animation: fadeIn 0.5s ease;
+  animation: slideIn 0.5s ease;
 
   span, p, .filter-reset-button{
     display: inline-block;
@@ -339,7 +348,7 @@ main {
   border-radius: var(--border-radius);
   background-color: var(--secondary-bg);
   color: var(--text-color);
-  animation: fadeIn 0.5s ease;
+  animation: slideIn 0.5s ease;
   gap: 20px;
 }
 
@@ -421,7 +430,7 @@ main {
   background-color: var(--secondary-bg);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  animation: fadeIn 0.5s ease;
+  animation: slideIn 0.5s ease;
 
   h1, h2, h3, h4 {
     margin: 0;
@@ -744,7 +753,7 @@ footer p {
   margin-bottom: 20px;
   border-radius: var(--border-radius);
   background-color: var(--secondary-bg);
-  animation: fadeIn 0.5s ease;
+  animation: slideIn 0.5s ease;
 
   .start-button, .restart-button{
     display: inline-block;
@@ -950,7 +959,7 @@ footer p {
 
 /* ========== ANIMATIONS ========== */
 
-@keyframes fadeIn {
+@keyframes slideIn {
   from {
       opacity: 0;
       transform: translateY(32px);
@@ -961,7 +970,7 @@ footer p {
   }
 }
 
-@keyframes fadeOut {
+@keyframes slideOut {
   from {
       opacity: 1;
       transform: translateY(0);
@@ -972,7 +981,7 @@ footer p {
   }
 }
 
-@keyframes filterDropdownFadeIn {
+@keyframes filterDropdownslideIn {
   from {
     opacity: 0;
     transform: translateY(32px);
