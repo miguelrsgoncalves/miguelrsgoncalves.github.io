@@ -50,7 +50,7 @@ function loadPage(pageName, isWindowPop = false) {
       })
       .catch(err => {
         console.error("Error loading the content: ", err);
-        mainContent.innerHTML = "<p>Error loading content</p>";
+        loadPage(tabsEnum.home);
       });
   } else {
     path = '';
@@ -69,7 +69,7 @@ function loadPage(pageName, isWindowPop = false) {
     })
     .catch(error => {
       console.error("Error loading project:", error);
-      mainContent.innerHTML = `<p>Error loading project. Please try again.</p>`;
+      loadPage(tabsEnum.home);
     });
   }
 }

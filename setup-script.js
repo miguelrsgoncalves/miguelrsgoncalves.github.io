@@ -1,10 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    try {
-        loadPage(window.location.pathname)
-    } catch (error) {
-        loadPage(tabsEnum.home);
-        console.log('URL not found. Redericting to Home page.')
-    }
+    loadPage(history.state.page)
 
     /**
      * DEBUG ONLY! LOADS A DIFFERENT INITIAL PAGE FOR EASIER DEBBUGING AND DEVELOPMENT
