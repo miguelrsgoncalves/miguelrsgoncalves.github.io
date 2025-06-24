@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Redirecting...</title>
   <script>
-    const fallbackUrl = '/' + '?path=' + encodeURIComponent(window.location.pathname.slice(1));
-    window.location.replace(fallbackUrl);
+    const path = window.location.pathname;
+    const query = window.location.search;
+    const hash = window.location.hash;
+
+    const redirectTo = '/index.html?path=' + encodeURIComponent(path.slice(1)) + query + hash;
+
+    window.location.replace(redirectTo);
   </script>
 </head>
 <body>
-  <p>Redirecting...</p>
+  <p>Redirecting to homepage...</p>
 </body>
 </html>

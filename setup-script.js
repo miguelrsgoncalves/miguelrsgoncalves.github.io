@@ -1,15 +1,15 @@
 window.addEventListener('DOMContentLoaded', () => {
-    const params = new URLSearchParams(window.location.search);
-    const path = params.get('path');
+  const params = new URLSearchParams(window.location.search);
+  const path = params.get('path') || '';
 
-    console.log(path)
+  console.log("Loaded path:", path);
 
-    if (path) {
-      history.replaceState({}, '', '/' + path);
-      loadPage(path);
-    } else {
-      loadPage(tabsEnum.home);
-    }
+  if (path) {
+    history.replaceState({}, '', '/' + path);
+    loadPage(path);
+  } else {
+    loadPage(tabsEnum.home);
+  }
 
     /**
      * DEBUG ONLY! LOADS A DIFFERENT INITIAL PAGE FOR EASIER DEBBUGING AND DEVELOPMENT
