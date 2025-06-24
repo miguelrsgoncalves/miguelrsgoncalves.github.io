@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
-    const path = URLSearchParams(window.location.search).get('path') || '';
+    const path = new URLSearchParams(window.location.search).get('path') || '';
 
     if (path) {
         history.replaceState({}, '', '/' + path);
