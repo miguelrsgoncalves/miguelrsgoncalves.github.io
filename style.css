@@ -11,11 +11,11 @@
 
   /* Typography */
   --font-family: 'Poppins', sans-serif;
-  --font-size-small: 0.75rem;
-  --font-size-base: 1rem;
-  --font-size-large: 1.15rem;
-  --font-size-xlarge: 1.5rem;
-  --font-size-website-title: 1rem;
+  --font-size-small: 0.75em;
+  --font-size-base: 1em;
+  --font-size-large: 1.15em;
+  --font-size-xlarge: 1.5em;
+  --font-size-website-title: 1em;
   --font-weight-regular: 500;
   --font-weight-bold: 600;
 
@@ -453,7 +453,7 @@ main {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  font-size: 1rem;
+  font-size: 1em;
   color: var(--text-muted);
   margin-bottom: 8px;
 }
@@ -479,7 +479,7 @@ main {
 
 .project-info p {
   flex-grow: 1;
-  font-size: 1rem;
+  font-size: 1em;
   color: var(--text-muted);
 }
 
@@ -639,7 +639,7 @@ main {
 
 .scroll-button {
   border: none;
-  font-size: 2rem;
+  font-size: 2em;
   margin: 0 24px;
   padding: 8px;
   font-weight: var(--font-weight-bold);
@@ -711,7 +711,7 @@ footer {
 
 footer p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.9em;
   color: var(--text-muted);
 }
 

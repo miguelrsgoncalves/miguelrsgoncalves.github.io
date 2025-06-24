@@ -50,6 +50,7 @@ function loadPage(pageName, isWindowPop = false) {
       })
       .catch(err => {
         console.error("Error loading the content: ", err);
+        history.state.back();
         loadPage(tabsEnum.home);
       });
   } else {
@@ -69,6 +70,7 @@ function loadPage(pageName, isWindowPop = false) {
     })
     .catch(error => {
       console.error("Error loading project:", error);
+      history.state.back()
       loadPage(tabsEnum.home);
     });
   }
