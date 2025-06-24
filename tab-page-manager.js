@@ -1,5 +1,6 @@
 var currentTab = '';
 var isInProjectWindow = false;
+var hasFilterHeader = false;
 //var highlightedProjectIndex = 1000;
 
 tabs = ([
@@ -28,7 +29,7 @@ function loadPage(pageName, isWindowPop = false) {
 
     if (tabName === currentTab && !isInProjectWindow) {
       scrollToTheTop();
-      closeFilterDropdown();
+      if(hasFilterHeader) closeFilterDropdown();
       return;
     } else {
       currentTab = tabName;
@@ -39,7 +40,6 @@ function loadPage(pageName, isWindowPop = false) {
     fetch(path)
       .then(response => response.text())
       .then(data => {
-        isInProjectWindow = false;
         pageTitle.innerHTML = "";
         pageTitle.classList.remove('active');
         if(!isWindowPop) history.pushState({page: tabName}, tabName, tabName);
@@ -63,10 +63,10 @@ function loadPage(pageName, isWindowPop = false) {
     fetch(pageURL)
     .then(response => response.text())
     .then(data => {
-      isInProjectWindow = true;
       pageTitle.innerHTML = projectEnum.get(pageName); pageTitle.classList.add('active')
       if(!isWindowPop) history.pushState({page: pageName}, pageName, pageName);
       updateMainContent(data);
+      isInProjectWindow = true;
     })
     .catch(error => {
       console.error("Error loading project:", error);
@@ -86,6 +86,7 @@ function perTabLoad(tabName) {
       //getHightlightedProjects();
       break;
     case tabsEnum.projects:
+      hasFilterHeader = true;
       loadProjects('card-container', 'assets/page-data-files/projects-data.json');
       break;
     default:
@@ -109,6 +110,8 @@ function cleanupResources() {
   }
   stopObservingVideos();
   highlightedProjectIndex = 1000;
+  isInProjectWindow = false;
+  hasFilterHeader = false;
 }
 
 window.onpopstate = function(event) {

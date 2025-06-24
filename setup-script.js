@@ -1,6 +1,13 @@
-document.addEventListener("DOMContentLoaded", function () {
-    if(history.state) loadPage(history.state.page);
-    else loadPage(tabsEnum.home);
+window.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const path = params.get('path');
+
+    if (path) {
+      history.replaceState({}, '', '/' + path);
+      loadPage(path);
+    } else {
+      loadPage(tabsEnum.home);
+    }
 
     /**
      * DEBUG ONLY! LOADS A DIFFERENT INITIAL PAGE FOR EASIER DEBBUGING AND DEVELOPMENT
