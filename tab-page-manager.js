@@ -112,6 +112,20 @@ function cleanupResources() {
   hasFilterHeader = false;
 }
 
+/**
+ * Find if pageName exists in database of tabs and pages names.
+ * @param {String} pageName 
+ * @returns true if the page exists
+ * @returns false if page does not exist
+ */
+function doesPageExist(pageName) {
+  if(
+    Object.values(tabsEnum).includes(pageName) ||
+    projectEnum.has(pageName)
+  ) return true;
+  return false;
+}
+
 window.onpopstate = function(event) {
   const page = event.state.page;
   if (Object.values(tabsEnum).includes(page) || projectEnum.has(page)) {
@@ -120,11 +134,6 @@ window.onpopstate = function(event) {
     loadPage(tabsEnum.home, true);
   }
 };
-
-function doesPageExist(pageName) {
-  if(Object.values(tabsEnum).includes(pageName) || projectEnum.has(pageName)) return true;
-  return false;
-}
 
 /*
 async function getHightlightedProjects() {

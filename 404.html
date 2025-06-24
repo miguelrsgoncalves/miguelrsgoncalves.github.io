@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Redirecting...</title>
-  <script>
-    const path = window.location.pathname;
-    const query = window.location.search;
-    const hash = window.location.hash;
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miguel Gonçalves</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=filter_list" />
+    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
 
-    const redirectTo = '/index.html?path=' + encodeURIComponent(path.slice(1)) + query + hash;
+    <script>
+      const path = window.location.pathname;
+      const query = window.location.search;
+      const hash = window.location.hash;
 
-    window.location.replace(redirectTo);
-  </script>
-</head>
-<body>
-  <p>Redirecting to homepage...</p>
-</body>
+      const redirectTo = '/index.html?path=' + encodeURIComponent(path.slice(1)) + query + hash;
+
+      window.location.replace(redirectTo);
+    </script>
+  </head>
+
+  <body>
+    <p>Redirecting to homepage...</p>
+  </body>
 </html>
