@@ -16,7 +16,7 @@
 
   <body>
     <script>
-      history.pushState(window.location.pathname);
+      history.pushState({page: window.location.pathname}, window.location.pathname, window.location.pathname);
       window.location.href = "/";
     </script>
   </body>
