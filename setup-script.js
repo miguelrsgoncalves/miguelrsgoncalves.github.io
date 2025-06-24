@@ -1,15 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
-    mainContent = document.getElementById("main-content");
-    tabs = ([
-        document.getElementById(tabsEnum.home),
-        document.getElementById(tabsEnum.projects),
-        document.getElementById(tabsEnum.about)
-    ]);
-    pageTitle = document.getElementById('page-title');
-    loadTab(tabsEnum.home);
+    let path = window.location.pathname;
+
+    const stored = sessionStorage.getItem("redirectAfterReload");
+    if (stored) {
+        sessionStorage.removeItem("redirectAfterReload");
+        path = stored;
+        history.replaceState({}, "", stored);
+        try {
+            loadPage(history.state.page)
+        } catch (error) {
+            loadPage(tabsEnum.home);
+        }
+    } else loadPage(tabsEnum.home);
 
     /**
-     * DEBUG ONLY! LOAD A DIFFERENT INITIAL PAGE FOR EASIER DEBBUGING AND DEVELOPMENT
+     * DEBUG ONLY! LOADS A DIFFERENT INITIAL PAGE FOR EASIER DEBBUGING AND DEVELOPMENT
     */
     //loadPage("../project-pages/papers-please-the-short-film-spatial-audio-only-adaptation.html", "!!TESTING PAGE AUTO STARTING LOAD!! REMOVE BEFORE DEPLOYMENT!!");
     /**

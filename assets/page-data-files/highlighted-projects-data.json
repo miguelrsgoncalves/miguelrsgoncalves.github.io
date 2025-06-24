@@ -7,7 +7,7 @@
         "software": ["Maya", "Reaper", "DaVinci Resolve"],
         "description": "Follow Anya as she escapes a trio of relenthless goons, Oscar, Manuel and Joseph, finding her way through a weird and confusing system of sewer pipes.",
         "misc": ["University Project"],
-        "pageURL": "../project-pages/narrow-escape.html"
+        "pageName": "narrow-escape"
     },
     {
         "image": "../assets/images/PapersPleaseTheShortFilmSpatialAudioOnlyAdaptation_Thumbnail.jpg",
@@ -17,7 +17,7 @@
         "software": ["Reaper"],
         "description": "An audio-only adaptation of the PAPERS, PLEASE - The Short Film by Nikita Ordynskiy.",
         "misc": ["University Project"],
-        "pageURL": "../project-pages/papers-please-the-short-film-spatial-audio-only-adaptation.html"
+        "pageName": "papers-please-the-short-film-spatial-audio-only-adaptation"
     },
     {
         "image": "../assets/images/chat95_thumbnail.png",
@@ -27,7 +27,7 @@
         "software": ["Reaper", "FL Studio"],
         "description": "You are ChatGPT. Talk with a set of wierd costumers and take care of their ordeals!",
         "misc": ["Game Jam", "Game Dev"],
-        "pageURL": "../project-pages/chat95.html"
+        "pageName": "chat95"
     },
     {
         "image": "../assets/images/StylizedGrassField_Thumbnail.png",
@@ -37,6 +37,6 @@
         "software": ["Unreal Engine 5", "Blender"],
         "description": "Vast Stylized grass field made inside Unreal Engine 5, made to be performant and dense.",
         "misc": [""],
-        "pageURL": "../project-pages/grass-field.html"
+        "pageName": "grass-field"
     }
 ]

@@ -19,9 +19,9 @@
       <h1>Miguel Gonçalves</h1>
       <nav>
         <ul>
-          <li id="home" class="active clickable" onclick="loadTab(tabsEnum.home)">Home</li>
-          <li id="projects" class="clickable" onclick="loadTab(tabsEnum.projects)">Projects</li>
-          <li id="about" class="clickable" onclick="loadTab(tabsEnum.about)">About</li>
+          <li id="home" class="active clickable" onclick="loadPage(tabsEnum.home)">Home</li>
+          <li id="projects" class="clickable" onclick="loadPage(tabsEnum.projects)">Projects</li>
+          <li id="about" class="clickable" onclick="loadPage(tabsEnum.about)">About</li>
         </ul>
       </nav>
       <nav>
@@ -33,17 +33,13 @@
 
     <main id="main-content"></main>
 
-    <!--
-    <footer>
-      <p>&copy; Miguel Gonçalves</p>
-    </footer>
-    --->
-    
-    <script src="script.js"></script>
+    <script src="enums.js"></script>
     <script src="setup-script.js" defer></script>
+    <script src="tab-page-manager.js" defer></script>
     <script src="project-cards.js" defer></script>
     <script src="filter-header.js" defer></script>
     <script src="video-observer.js" defer></script>
+    <script src="embedded-projects.js" defer></script>
     <script>
       console.log("What are you doing snooping around the console? Do you think you are clever, you computer nerd!? There are no errors to be shown! I'm the best programmer alive! GO AWAY!");
     </script>
