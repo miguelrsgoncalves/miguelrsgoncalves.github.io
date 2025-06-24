@@ -1,10 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
-    try {
-        loadPage(window.location.pathname)
-    } catch (error) {
-        loadPage(tabsEnum.home);
-        console.log('URL not found. Redericting to Home page.')
-    }
+    let path = window.location.pathname;
+
+    const stored = sessionStorage.getItem("redirectAfterReload");
+    if (stored) {
+        sessionStorage.removeItem("redirectAfterReload");
+        path = stored;
+        history.replaceState({}, "", stored);
+        try {
+            loadPage(history.state.page)
+        } catch (error) {
+            loadPage(tabsEnum.home);
+            console.log('URL not found. Redericting to Home page.')
+        }
+    } else loadPage(tabsEnum.home);
 
     /**
      * DEBUG ONLY! LOADS A DIFFERENT INITIAL PAGE FOR EASIER DEBBUGING AND DEVELOPMENT
