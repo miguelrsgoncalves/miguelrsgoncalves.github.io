@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   console.log("Loaded path:", path);
 
-  if (path) {
+  if (path && path != undefined) {
     history.replaceState({}, '', '/' + path);
     loadPage(path);
   } else {
