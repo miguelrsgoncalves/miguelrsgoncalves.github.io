@@ -24,6 +24,8 @@ function updateMainContent(data) {
  * @param {boolean} isWindowPop If the loading is done by browser history back/forward change or not. Default = false
  */
 function loadPage(pageName, isWindowPop = false) {
+  if(!doesPageExist()) loadPage(tabName.home);
+
   if(Object.values(tabsEnum).includes(pageName)) {
     tabName = pageName;
 
@@ -50,17 +52,15 @@ function loadPage(pageName, isWindowPop = false) {
       })
       .catch(err => {
         console.error("Error loading the content: ", err);
-        history.state.back();
-        loadPage(tabsEnum.home);
       });
   } else {
     path = '';
 
     if(projectEnum.has(pageName)) path = 'project-pages/';
 
-    const pageURL = `${path}${pageName}.html`;
+    const path = `${path}${pageName}.html`;
 
-    fetch(pageURL)
+    fetch(path)
     .then(response => response.text())
     .then(data => {
       pageTitle.innerHTML = projectEnum.get(pageName); pageTitle.classList.add('active')
@@ -70,8 +70,6 @@ function loadPage(pageName, isWindowPop = false) {
     })
     .catch(error => {
       console.error("Error loading project:", error);
-      history.state.back()
-      loadPage(tabsEnum.home);
     });
   }
 }
@@ -122,6 +120,11 @@ window.onpopstate = function(event) {
     loadPage("home", true);
   }
 };
+
+function doesPageExist(pageName) {
+  if(Object.values(tabsEnum).includes(pageName) || projectEnum.has(pageName)) return true
+  return false
+}
 
 /*
 async function getHightlightedProjects() {
