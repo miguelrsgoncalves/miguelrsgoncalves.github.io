@@ -1,0 +1,45 @@
+/* ========== ANIMATIONS ========== */
+
+@keyframes slideIn {
+  from {
+      opacity: 0;
+      transform: translateY(32px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  to {
+      opacity: 0;
+      transform: translateY(-32px);
+  }
+}
+
+@keyframes filterDropdownslideIn {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+    height: 0;
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+      height: auto;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}

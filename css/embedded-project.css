@@ -1,0 +1,121 @@
+/* ========== EMBEDDED PROJECT ========== */
+
+.embedded-project-card {
+  border-radius: var(--border-radius);
+  background-color: var(--secondary-bg);
+  padding: 20px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.embedded-project-frame {
+  position: relative;
+  max-width: 1024px;
+  width: 100%;
+  height: 576px;
+  border-radius: var(--border-radius-inner);
+  justify-content: center;
+  border: none;
+  z-index: 2;
+}
+
+.embedded-project-controls-menu-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  border-radius: var(--border-radius);
+  background-color: var(--secondary-bg);
+  animation: slideIn 0.5s ease;
+
+  .start-button, .restart-button{
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0;
+    padding: 4px 8px;
+    font-size: var(--font-size-base);
+  }
+
+  .start-button {
+    flex-grow: 1;
+    text-align: start;
+    border: 8px solid var(--secondary-bg);
+    border-right: none;
+    border-radius: var(--border-radius);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    transition: border-color 0.3s ease;
+  }
+
+  .start-button:hover {
+    border-color: var(--primary-color);
+  }
+
+  .restart-button {
+    flex-grow: 1;
+    text-align: end;
+    border: 8px solid var(--secondary-bg);
+    border-left: none;
+    border-radius: var(--border-radius);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    transition: border-color 0.3s ease;
+  }
+
+  .restart-button:hover {
+    border-color: var(--primary-color);
+  }
+}
+
+.embedded-project-controls-menu {
+  display: flex;
+  position: relative;
+  border-radius: var(--border-radius);
+  background-color: var(--secondary-bg);
+  padding: 20px;
+  margin-bottom: 20px;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  span {
+    flex: 1;
+    padding: 0;
+    margin: 0;
+
+    h3 {
+      color: var(--text-muted);
+    }
+  }
+
+  section {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  h1, h2, h3 {
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    flex: 0 0 100%;
+  }
+
+  h3 {
+    margin: 0;
+    margin-top: 10px;
+    color: var(--text-color);
+  }
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
+}
