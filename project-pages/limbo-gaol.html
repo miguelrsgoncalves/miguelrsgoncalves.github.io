@@ -1,0 +1,23 @@
+<section class="tab-content page-content active">
+  <div class="embedded-project-card">
+    <div id="loading-screen" class="loading-screen">
+      <div class="loading-spinner"></div>
+    </div>
+
+    <div id="embedded-project-frame" class="embedded-project-frame"></div>
+  </div>
+
+  <div class="embedded-project-controls-menu-buttons">
+    <div id="start-button" class="start-button clickable" onclick="loadEmbeddedProject(this, 'embedded-project-frame', '../assets/webgl-projects/webgl-bird-game/webgl-bird-game-embedded.html', 'loading-screen')">Start</div>
+    <div class="vl"></div>
+    <div class="restart-button clickable" onclick="restartEmbeddedProject('start-button', 'embedded-project-frame', '../assets/webgl-projects/webgl-bird-game/webgl-bird-game-embedded.html', 'loading-screen', 'loading-screen')">Restart</div>
+  </div>
+
+  <div class="embedded-project-controls-menu">
+    <h1>Controls</h1>
+    <span><h2>Movement</h2><h3>WASD</h3></span>
+    <span><h2>Interact</h2><h3>E</h3></span>
+    <span><h2>Look Around</h2><h3>Mouse</h3></span>
+    <span><h2>Pause</h2><h3>Escape</h3></span>
+  </div>
+</section>

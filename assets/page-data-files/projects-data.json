@@ -1,6 +1,16 @@
 [
     {
         "image": "../assets/images/chat95_thumbnail.png",
+        "title": "Limbo's Gaol",
+        "year": "2025",
+        "roleCategory": ["Master Thesis"],
+        "software": ["Godot", "Blender", "Reaper"],
+        "description": "Explore the Limbo's Gaol as one of 4 protagonists!",
+        "misc": ["Master Thesis"],
+        "pageName": "limbo-gaol"
+    },
+    {
+        "image": "../assets/images/chat95_thumbnail.png",
         "title": "Chat95",
         "year": "2025",
         "roleCategory": ["Sound Designer"],

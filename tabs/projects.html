@@ -37,7 +37,7 @@
         </div>
         
         <div class="filter-column">
-            <h4 class="filter-title">Role / Category</h4>
+            <h4 class="filter-title">Category</h4>
             <div class="filter-checkbox">
                 <input name="all" type="checkbox" id="all-roles-categories" class="clickable" checked onchange="toggleAllRolesCategories(true)">
                 <label class="clickable" onclick="toggleAllRolesCategories(false)">All</label>
@@ -157,6 +157,12 @@
                 <div class="filter-checkbox">
                     <input name="University Project" type="checkbox" class="misc-checkbox clickable" checked onchange="updateMiscFilters()">
                     <label class="clickable" onclick="toggleOnlyMisc(this)">University Project</label>
+                </div>
+            </div>
+            <div class="indented-checkboxes">
+                <div class="filter-checkbox">
+                    <input name="Master Thesis" type="checkbox" class="misc-checkbox clickable" checked onchange="updateMiscFilters()">
+                    <label class="clickable" onclick="toggleOnlyMisc(this)">Master Thesis</label>
                 </div>
             </div>
         </div>
