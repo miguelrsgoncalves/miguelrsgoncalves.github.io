@@ -1,0 +1,49 @@
+/* Regular 400 */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/font-families/Poppins-Regular.ttf');
+}
+
+/* Bold 600 */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/assets/fonts/font-families/Poppins-Bold.ttf');
+}
+
+/* Italic 400 */
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/font-families/Poppins-Italic.ttf');
+}
+
+/* Bold Italic 600 */
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/assets/fonts/font-families/Poppins-BoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Material Symbols Rounded';
+  src: url('/assets/fonts/icons/MaterialSymbolsRounded-VariableFont_FILL\,GRAD\,opsz\,wght.ttf');
+  font-display: block;
+}
+
+.material-symbols-rounded {
+  font-family: 'Material Symbols Rounded';
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 200, 'opsz' 48;
+  font-size: 24px;
+  color: var(--primary-color);
+  display: inline-block;
+}

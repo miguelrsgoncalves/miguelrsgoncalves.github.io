@@ -35,6 +35,13 @@ header {
     color: var(--primary-color);
   }
 
+  .menu-button {
+    position: absolute;
+    right: var(--padding-main);
+    display: flex;
+    align-items: center;
+  }
+
   @media (max-width: 1024px) {
     .website-name {
       display: none;
