@@ -530,3 +530,17 @@ footer p {
   scrollbar-color: var(--primary-color) var(--secondary-bg);
   scroll-behavior: smooth;
 }
+
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+:is(header, .header-menu-dropdown, .filter-header, .filter-dropdown, .embedded-project-controls-menu-buttons) {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}

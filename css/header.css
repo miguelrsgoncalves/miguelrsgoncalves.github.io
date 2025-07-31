@@ -120,3 +120,39 @@ header {
     animation: slideIn 0.3s ease;
   }
 }
+
+.header-menu-dropdown {
+  position: absolute;
+  top: 2em + 20px;
+  right: 0;
+  background: var(--secondary-bg);
+  padding: var(--padding-main);
+  display: none;
+  flex-direction: column;
+  width: 15%;
+  box-shadow: 0 4px 6px var(--shadow-light);
+  border-radius: 0;
+  border-bottom-left-radius: var(--border-radius);
+  z-index: 998;
+  list-style: none;
+
+  li {
+    transition: color 0.3s ease;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    span{
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  .hl-thin {
+    margin: 20px 0;
+  }
+}
+
+.header-menu-dropdown.show {
+  display: flex;
+}

@@ -43,6 +43,10 @@
   font-family: 'Material Symbols Rounded';
   font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 200, 'opsz' 48;
   font-size: 2em;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   margin: 0;
   padding: 0;
   line-height: 0;

@@ -11,6 +11,7 @@ tabs = ([
 var mainContent = document.getElementById("main-content");
 var pageTitle = document.getElementById('page-title');
 var pageTitleText = document.getElementById('page-title-text');
+var headerMenuDropdown = document.getElementById('header-menu-dropdown');
 
 function updateMainContent(data) {
   cleanupResources();
@@ -103,6 +104,15 @@ function perTabLoad(tabName) {
  */
 function scrollToTheTop() {
   window.scrollTo(0, 0);
+}
+
+function openHeaderMenuDropdown() {
+  if(headerMenuDropdown.classList.contains('show')) {
+    headerMenuDropdown.classList.remove('show')
+  }
+  else {
+    headerMenuDropdown.classList.add('show')
+  }
 }
 
 /**
