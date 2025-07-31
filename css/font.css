@@ -37,13 +37,14 @@
 @font-face {
   font-family: 'Material Symbols Rounded';
   src: url('/assets/fonts/icons/MaterialSymbolsRounded-VariableFont_FILL\,GRAD\,opsz\,wght.ttf');
-  font-display: block;
 }
 
 .material-symbols-rounded {
   font-family: 'Material Symbols Rounded';
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 200, 'opsz' 48;
-  font-size: 24px;
+  font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 200, 'opsz' 48;
+  font-size: 2em;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
   color: var(--primary-color);
-  display: inline-block;
 }

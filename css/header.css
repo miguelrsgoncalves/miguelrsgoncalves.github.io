@@ -7,6 +7,7 @@ header {
   background-color: var(--secondary-bg);
   font-weight: bold;
   text-align: center;
+  align-items: center;
   box-shadow: 0 4px 6px var(--shadow-light);
   z-index: 999;
   transition: height 0.3s ease;
@@ -35,11 +36,16 @@ header {
     color: var(--primary-color);
   }
 
-  .menu-button {
+  .header-menu-button {
     position: absolute;
     right: var(--padding-main);
     display: flex;
-    align-items: center;
+    top: 50%;
+    transition: transform 0.3s ease;
+  }
+
+  .header-menu-button:hover {
+    transform: translateY(-4px);
   }
 
   @media (max-width: 1024px) {
