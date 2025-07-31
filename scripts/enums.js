@@ -4,12 +4,16 @@ const tabsEnum = {
   about: "about"
 }
 
+const pagesEnum = new Map([
+    ["portfolio", "Portfolio"],
+]);
+
 /**
  * Used for having the title of the project when loading a page.
  * 
  * Everytime a project title is updated it needs to be updated here and in the projects.json
  */
-const projectEnum = new Map([
+const projectsEnum = new Map([
     ["abyssal-descent", "Abyssal Descent: SCP-455"],
     ["chat95", "Chat95"],
     ["god-simulator", "Hand of God"],

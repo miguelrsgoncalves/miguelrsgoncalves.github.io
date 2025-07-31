@@ -42,7 +42,7 @@
   .start-button {
     flex-grow: 1;
     text-align: start;
-    border: 8px solid var(--secondary-bg);
+    border: 4px solid var(--secondary-bg);
     border-right: none;
     border-radius: var(--border-radius);
     border-top-right-radius: 0;
@@ -57,7 +57,7 @@
   .restart-button {
     flex-grow: 1;
     text-align: end;
-    border: 8px solid var(--secondary-bg);
+    border: 4px solid var(--secondary-bg);
     border-left: none;
     border-radius: var(--border-radius);
     border-top-left-radius: 0;

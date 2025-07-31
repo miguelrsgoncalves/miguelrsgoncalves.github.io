@@ -44,14 +44,16 @@
           <li id="page-title" class="page-title clickable" onclick="scrollToTheTop()"><span id="page-title-text"></span></li>
         </ul>
       </nav>
-      <span class="material-symbols-rounded header-menu-button clickable" onclick="openHeaderMenuDropdown()">menu</span>
+      <span id="header-menu-button" class="material-symbols-rounded header-menu-button clickable" onclick="openHeaderMenuDropdown()">menu</span>
+
+      <div id="header-menu-dropdown" class="header-menu-dropdown">
+        <ul>
+          <li class="clickable" onclick="loadPage(tabsEnum.projects); openHeaderMenuDropdown()"><span>Projects</span></li>
+          <li class="clickable" onclick="loadPage('portfolio'); openHeaderMenuDropdown()"><span>Portfolio</span></li>
+        </ul>
+      </div>
     </header>
 
-    <div id="header-menu-dropdown" class="header-menu-dropdown">
-      <li class="clickable" onclick="loadPage(tabsEnum.projects); closeDropdown()"><span>Projects</span></button></li>
-      <div class="hl-thin"></div>
-        <li class="clickable" onclick="loadPage(tabsEnum.home); closeDropdown()"><span>Portfolio</span></button></li>
-    </div>
 
     <main id="main-content"></main>
 

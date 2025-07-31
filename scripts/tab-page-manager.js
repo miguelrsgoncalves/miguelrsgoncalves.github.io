@@ -11,6 +11,7 @@ tabs = ([
 var mainContent = document.getElementById("main-content");
 var pageTitle = document.getElementById('page-title');
 var pageTitleText = document.getElementById('page-title-text');
+var headerMenuButton = document.getElementById('header-menu-button');
 var headerMenuDropdown = document.getElementById('header-menu-dropdown');
 
 function updateMainContent(data) {
@@ -59,10 +60,16 @@ function loadPage(pageName, isWindowPop = false) {
       });
   } else {
     var folder = '';
+    var currEnum = null;
 
-    if(projectEnum.has(pageName)) {
+    if(pagesEnum.has(pageName)) {
+      folder = 'pages/';
+      //updateTabNav(pagesEnum.portfolio);
+      currEnum = pagesEnum.get(pageName);
+    } else if (projectsEnum.has(pageName)) {
       folder = 'project-pages/';
       updateTabNav(tabsEnum.projects);
+      currEnum = projectsEnum.get(pageName);
     }
 
     const path = `${folder}${pageName}.html`;
@@ -70,7 +77,7 @@ function loadPage(pageName, isWindowPop = false) {
     fetch(path)
     .then(response => response.text())
     .then(data => {
-      pageTitleText.innerHTML = projectEnum.get(pageName); pageTitle.classList.add('active')
+      pageTitleText.innerHTML = projectsEnum.get(pageName); pageTitle.classList.add('active')
       if(!isWindowPop) history.pushState({page: pageName}, pageName, pageName);
       updateMainContent(data);
       isInProjectWindow = true;
@@ -115,6 +122,14 @@ function openHeaderMenuDropdown() {
   }
 }
 
+document.addEventListener('click', (e) => {
+  if (headerMenuDropdown.classList.contains('show') &&
+      !headerMenuDropdown.contains(e.target) &&
+      !headerMenuButton.contains(e.target)) {
+    openHeaderMenuDropdown();
+  }
+});
+
 /**
  * Cleans all resources to avoid memory leaks.
  */
@@ -137,7 +152,8 @@ function cleanupResources() {
 function doesPageExist(pageName) {
   if(
     Object.values(tabsEnum).includes(pageName) ||
-    projectEnum.has(pageName)
+    pagesEnum.has(pageName) ||
+    projectsEnum.has(pageName)
   ) return true;
   return false;
 }
@@ -149,7 +165,7 @@ function updateTabNav(tabName) {
 
 window.onpopstate = function(event) {
   const page = event.state.page;
-  if (Object.values(tabsEnum).includes(page) || projectEnum.has(page)) {
+  if (Object.values(tabsEnum).includes(page) || projectsEnum.has(page)) {
     loadPage(page, true);
   } else {
     loadPage(tabsEnum.home, true);

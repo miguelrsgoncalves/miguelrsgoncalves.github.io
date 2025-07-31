@@ -22,7 +22,7 @@
   /* Spacing */
   --padding-main: 20px;
   --border-radius: 20px;
-  --border-radius-inner: 10px;
+  --border-radius-inner: 16.5px;
 }
 
 /* ========== GENERAL STYLES ========== */
@@ -168,14 +168,14 @@ main {
 }
 
 .vl {
-  border-left: 8px solid var(--primary-color);
+  border-left: 4px solid var(--primary-color);
   border-radius: 0;
   width: 0;
   height: auto;
 }
 
 .hl {
-  border-top: 8px solid var(--primary-color);
+  border-top: 4px solid var(--primary-color);
   border-radius: 0;
   height: 0;
   width: auto;

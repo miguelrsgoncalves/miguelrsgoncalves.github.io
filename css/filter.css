@@ -22,7 +22,7 @@
 
   .filter-icon {
     flex-grow: 9;
-    border: 8px solid var(--secondary-bg);
+    border: 4px solid var(--secondary-bg);
     border-right: none;
     border-radius: var(--border-radius);
     border-top-right-radius: 0;
@@ -37,7 +37,7 @@
   .filter-reset-button {
     flex-grow: 1;
     text-align: end;
-    border: 8px solid var(--secondary-bg);
+    border: 4px solid var(--secondary-bg);
     border-left: none;
     border-radius: var(--border-radius);
     border-top-left-radius: 0;
