@@ -1,7 +1,6 @@
 var currentTab = '';
 var isInProjectWindow = false;
 var hasFilterHeader = false;
-//var highlightedProjectIndex = 1000;
 
 tabs = ([
   document.getElementsByName(tabsEnum.home),
@@ -171,48 +170,9 @@ function updateTabPageNav(tabPageName) {
 
 window.onpopstate = function(event) {
   const page = event.state.page;
-  if (Object.values(tabsEnum).includes(page) || projectsEnum.has(page)) {
+  if (Object.values(tabsEnum).includes(page) || pagesEnum.has(page) || projectsEnum.has(page)) {
     loadPage(page, true);
   } else {
     loadPage(tabsEnum.home, true);
   }
 };
-
-/*
-async function getHightlightedProjects() {
-  try {
-    const highlightTrack = document.querySelector('.highlights-track');
-
-    highlightTrack.innerHTML = "";
-
-    const [jsonResponse, templateResponse] = await Promise.all([
-      fetch('assets/page-data-files/highlighted-projects-data.json'),
-      fetch('assets/templates/project-card.html')
-    ]);
-  
-    const projects = await jsonResponse.json();
-    const templateText = await templateResponse.text();
-    const parser = new DOMParser();
-    const templateDoc = parser.parseFromString(templateText, 'text/html');
-    const template = templateDoc.getElementById('project-card').innerHTML;
-  
-    for(var i = 0; i < 3; i++) {
-      var html = replacePlaceholders(template, projects[(highlightedProjectIndex + i) % projects.length]);
-      highlightTrack.insertAdjacentHTML('beforeend', html);
-    }
-  } catch (error) {
-    console.error("Error loading highlighted projects:", error);
-  }
-}
-
-function scrollHighlights(direction) {
-  if(direction) {
-    highlightedProjectIndex++;
-  } else {
-    highlightedProjectIndex--;
-    if(highlightedProjectIndex < 0) highlightedProjectIndex = 1000;
-  }
-
-  getHightlightedProjects();
-}
-  */

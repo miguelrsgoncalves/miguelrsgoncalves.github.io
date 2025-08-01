@@ -1,6 +1,6 @@
 [
     {
-        "image": "../assets/images/chat95_thumbnail.png",
+        "image": "../assets/images/limbo_gaol_thumbnail.png",
         "title": "Limbo's Gaol",
         "year": "2025",
         "roleCategory": ["Master Thesis"],
@@ -34,7 +34,7 @@
         "title": "Sisyphus Climb",
         "year": "2024",
         "roleCategory": ["Game Art"],
-        "software": ["Blender", "Unity"],
+        "software": ["Unity", "Blender"],
         "description": "Fight for your right to be the true Sisyphus and carry the boulder to the top in a legendary duel!",
         "misc": ["University Project", "Game Dev"],
         "pageName": "sisyphus-climb"
