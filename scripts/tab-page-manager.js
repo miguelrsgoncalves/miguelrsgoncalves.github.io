@@ -82,7 +82,7 @@ function loadPage(pageName, isWindowPop = false) {
     fetch(path)
     .then(response => response.text())
     .then(data => {
-      pageTitleText.innerHTML = projectsEnum.get(pageName); pageTitle.classList.add('active')
+      pageTitleText.innerHTML = currEnum; pageTitle.classList.add('active')
       if(!isWindowPop) history.pushState({page: pageName}, pageName, pageName);
       updateMainContent(data);
       isInProjectWindow = true;
