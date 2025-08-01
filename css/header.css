@@ -189,11 +189,47 @@ header {
 
     li.active:hover::after {
       width: 75%;
-      left: 12.5%;
+      left: 0;
+    }
+
+    .adaptable-extended {
+      display: flex;
+    }
+
+    .adaptable-shrinked {
+      display: none;
+    }
+
+    @media (max-width: 1024px) {
+      .adaptable-extended {
+        display: none;
+      }
+
+      .adaptable-shrinked {
+        display: flex;
+      }
     }
   }
 
   .header-menu-dropdown.show {
     display: flex;
+  }
+
+  .adaptable-extended {
+    display: flex;
+  }
+
+  .adaptable-shrinked {
+    display: none;
+  }
+
+  @media (max-width: 1024px) {
+    .adaptable-extended {
+      display: none;
+    }
+
+    .adaptable-shrinked {
+      display: flex;
+    }
   }
 }

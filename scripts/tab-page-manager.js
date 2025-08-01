@@ -4,10 +4,15 @@ var hasFilterHeader = false;
 //var highlightedProjectIndex = 1000;
 
 tabs = ([
-        document.getElementById(tabsEnum.home),
-        document.getElementById(tabsEnum.projects),
-        document.getElementById(tabsEnum.about)
-      ]);
+  document.getElementsByName(tabsEnum.home),
+  document.getElementsByName(tabsEnum.projects),
+  document.getElementsByName(tabsEnum.about)
+]);
+
+pages = ([
+  document.getElementsByName(pagesEnum.keys().next().value),
+])
+
 var mainContent = document.getElementById("main-content");
 var pageTitle = document.getElementById('page-title');
 var pageTitleText = document.getElementById('page-title-text');
@@ -53,7 +58,7 @@ function loadPage(pageName, isWindowPop = false) {
         if(!isWindowPop) history.pushState({page: tabName}, tabName, tabName);
         updateMainContent(data);
         perTabLoad(tabName);
-        updateTabNav(tabName);
+        updateTabPageNav(tabName);
       })
       .catch(err => {
         console.error("Error loading the content: ", err);
@@ -64,11 +69,11 @@ function loadPage(pageName, isWindowPop = false) {
 
     if(pagesEnum.has(pageName)) {
       folder = 'pages/';
-      //updateTabNav(pagesEnum.portfolio);
+      updateTabPageNav(pagesEnum.keys().next().value);
       currEnum = pagesEnum.get(pageName);
     } else if (projectsEnum.has(pageName)) {
       folder = 'project-pages/';
-      updateTabNav(tabsEnum.projects);
+      updateTabPageNav(tabsEnum.projects);
       currEnum = projectsEnum.get(pageName);
     }
 
@@ -158,9 +163,10 @@ function doesPageExist(pageName) {
   return false;
 }
 
-function updateTabNav(tabName) {
-  tabs.forEach(t => t.classList.remove("active"));
-  document.getElementById(tabName).classList.add("active");
+function updateTabPageNav(tabPageName) {
+  tabs.forEach(t => t.forEach(y => y.classList.remove("active")));
+  pages.forEach(p => p.forEach(y => y.classList.remove("active")));
+  document.getElementsByName(tabPageName).forEach(e => e.classList.add("active"));
 }
 
 window.onpopstate = function(event) {

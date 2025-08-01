@@ -34,9 +34,9 @@
       </span>
       <nav>
         <ul>
-          <li id="home" class="clickable" onclick="loadPage(tabsEnum.home)"><span>Home</span></li>
-          <li id="projects" class="clickable" onclick="loadPage(tabsEnum.projects)"><span>Projects</span></li>
-          <li id="about" class="clickable" onclick="loadPage(tabsEnum.about)"><span>About</span></li>
+          <li name="home"class="clickable" onclick="loadPage(tabsEnum.home)"><span>Home</span></li>
+          <li name="projects" class="adaptable-extended clickable" onclick="loadPage(tabsEnum.projects)"><span>Projects</span></li>
+          <li name="about" class="clickable" onclick="loadPage(tabsEnum.about)"><span>About</span></li>
         </ul>
       </nav>
       <nav>
@@ -48,8 +48,8 @@
 
       <div id="header-menu-dropdown" class="header-menu-dropdown">
         <ul>
-          <li class="clickable" onclick="loadPage(tabsEnum.projects); openHeaderMenuDropdown()"><span>Projects</span></li>
-          <li class="clickable" onclick="loadPage('portfolio'); openHeaderMenuDropdown()"><span>Portfolio</span></li>
+          <li name="projects" class="adaptable-shrinked clickable" onclick="loadPage(tabsEnum.projects); openHeaderMenuDropdown()"><span>Projects</span></li>
+          <li name="portfolio" class="clickable" onclick="loadPage('portfolio'); openHeaderMenuDropdown()"><span>Portfolio</span></li>
         </ul>
       </div>
     </header>
