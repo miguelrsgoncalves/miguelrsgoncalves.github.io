@@ -22,6 +22,7 @@ const projectsEnum = new Map([
     ["narrow-escape", "Narrow Escape"],
     ["papers-please-the-short-film-spatial-audio-only-adaptation", "PAPERS, PLEASE - The Short Film | Spatial Audio-Only Adaptation"],
     ["paranoia", "Paranoia"],
+    ["personal-website", "Personal Website"],
     ["play-with-me", "PLAY WITH ME"],
     ["sisyphus-climb", "Sisyphus Climb"],
     ["webgl-bird-game", "Egg Hunt"],

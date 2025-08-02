@@ -1,0 +1,15 @@
+<section class="tab-content page-content active">
+  <div class="embedded-project-card">
+    <div id="loading-screen" class="loading-screen">
+      <div class="loading-spinner"></div>
+    </div>
+
+    <div id="embedded-project-frame" class="embedded-project-frame"></div>
+  </div>
+
+  <div class="embedded-project-controls-menu-buttons">
+    <div id="start-button" class="start-button clickable" onclick="loadEmbeddedProject(this, 'embedded-project-frame', 'not-found.html', 'loading-screen')">Start</div>
+    <div class="vl"></div>
+    <div class="restart-button clickable" onclick="restartEmbeddedProject('start-button', 'embedded-project-frame', 'not-found.html', 'loading-screen', 'loading-screen', 'loading-screen')">Restart</div>
+  </div>
+</section>

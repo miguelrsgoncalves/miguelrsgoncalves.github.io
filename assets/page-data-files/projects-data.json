@@ -30,6 +30,16 @@
         "pageName": "chat95"
     },
     {
+        "image": "../assets/images/personal_website_thumbnail.png",
+        "title": "Personal Website",
+        "year": "2025",
+        "roleCategory": ["Programming"],
+        "software": ["HTML", "CSS", "Javascript"],
+        "description": "The Best website ever created!",
+        "misc": [""],
+        "pageName": "personal-website"
+    },
+    {
         "image": "../assets/images/sisyphus_climb_thumbnail.png",
         "title": "Sisyphus Climb",
         "year": "2024",
