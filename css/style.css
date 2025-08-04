@@ -142,7 +142,6 @@ main {
   max-width: 1024px;
   width: 100%;
   margin: 0 auto;
-  text-align: center;
 
   img {
     height: auto;
@@ -153,6 +152,11 @@ main {
   h1, h2 {
     margin-top: 50px;
     margin-bottom: 20px;
+    text-align: center;
+  }
+
+  h3 {
+    text-align: center;
   }
 
   p {
@@ -328,50 +332,6 @@ main {
   }
 }
 
-/* ========== HIGHTLIGHTED PROJECTS ========== */
-
-.highlights-wrapper {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-}
-
-.scroll-button {
-  border: none;
-  font-size: 2em;
-  margin: 0 24px;
-  padding: 8px;
-  font-weight: var(--font-weight-bold);
-
-  color: var(--primary-color);
-  border: 8px solid var(--secondary-bg);
-  border-radius: var(--border-radius);
-  background-color: var(--secondary-bg);
-  transition: border-color 0.3s ease;
-}
-
-.scroll-button:hover {
-  border-color: var(--primary-color);
-}
-
-.scroll-button-left {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.scroll-button-right {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.highlights-track {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  width: 100%;
-  margin: 0;
-}
-
 /* ========== MEDIA ELEMENTS ========== */
 
 video {
@@ -397,27 +357,6 @@ audio {
   border-radius: var(--border-radius);
   box-shadow: 0 8px 8px var(--shadow-dark);
   background-color: var(--secondary-bg);
-}
-
-/* ========== FOOTER ========== */
-
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  padding: 8px;
-  background-color: var(--secondary-bg);
-  color: var(--text-color);
-  box-shadow: 0 -4px 6px var(--shadow-light);
-  z-index: 999;
-}
-
-footer p {
-  margin: 0;
-  font-size: 0.9em;
-  color: var(--text-muted);
 }
 
 /* ========== LINKS ============ */
