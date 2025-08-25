@@ -36,10 +36,10 @@
 
 @font-face {
   font-family: 'Material Symbols Rounded';
-  src: url('/assets/fonts/icons/MaterialSymbolsRounded-VariableFont_FILL\,GRAD\,opsz\,wght.ttf');
+  src: url('/assets/fonts/icons/icons.ttf');
 }
 
-.material-symbols-rounded {
+.icon {
   font-family: 'Material Symbols Rounded';
   font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 200, 'opsz' 48;
   font-size: 2em;
