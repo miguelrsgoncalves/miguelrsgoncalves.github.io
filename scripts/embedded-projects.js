@@ -8,17 +8,17 @@ function loadEmbeddedProject(startButton, container, embeddedProjectHTML, loadin
     .then(response => response.text())
     .then(data => {
       startButton.innerHTML = "Stop"
-      embeddedProjectContent.innerHTML = data;
+      embeddedProjectContent.replaceChildren(document.createRange().createContextualFragment(data));
     })
     .catch(error => {
       loadingScreenElement.style.visibility = 'hidden';
       console.error("Error loading embedded project:", error);
-      embeddedProjectContent.innerHTML = `<p>Error loading project. Please try again.</p>`;
+      embeddedProjectContent.replaceChildren(document.createRange().createContextualFragment("<p>Error loading project. Please try again.</p>"));
     });
   } else {
     loadingScreenElement.style.visibility = 'hidden';
     startButton.innerHTML = "Start"
-    embeddedProjectContent.innerHTML = "";
+    embeddedProjectContent.replaceChildren(document.createRange().createContextualFragment(""));
   }
 }
 
@@ -32,12 +32,12 @@ function restartEmbeddedProject(startButton, container, embeddedProjectHTML, loa
     fetch(embeddedProjectHTML)
     .then(response => response.text())
     .then(data => {
-      embeddedProjectContent.innerHTML = data;
+      embeddedProjectContent.replaceChildren(document.createRange().createContextualFragment(data));
     })
     .catch(error => {
       loadingScreenElement.style.visibility = 'hidden';
       console.error("Error loading embedded project:", error);
-      embeddedProjectContent.innerHTML = `<p>Error loading project. Please try again.</p>`;
+      embeddedProjectContent.replaceChildren(document.createRange().createContextualFragment("<p>Error loading project. Please try again.</p>"));
     });
   }
 }

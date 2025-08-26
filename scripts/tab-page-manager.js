@@ -21,7 +21,7 @@ var headerMenuDropdown = document.getElementById('header-menu-dropdown');
 function updateMainContent(data) {
   cleanupResources();
   scrollToTheTop();
-  mainContent.innerHTML = data;
+  mainContent.replaceChildren(document.createRange().createContextualFragment(data));
   startObsevingVideos();
 }
 
@@ -138,9 +138,6 @@ document.addEventListener('click', (e) => {
  * Cleans all resources to avoid memory leaks.
  */
 function cleanupResources() {
-  while (mainContent.firstChild) {
-    mainContent.removeChild(mainContent.firstChild);
-  }
   stopObservingVideos();
   highlightedProjectIndex = 1000;
   isInProjectWindow = false;
