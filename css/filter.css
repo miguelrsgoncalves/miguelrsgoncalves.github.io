@@ -10,10 +10,9 @@
   background-color: var(--secondary-bg);
   animation: slideIn 0.5s ease;
 
-  span, p, .filter-reset-button{
+  span, p, .filter-search-bar, .filter-reset-button{
     display: inline-block;
     font-weight: bold;
-    text-align: center;
     vertical-align: middle;
     margin: 0;
     padding: 4px 8px;
@@ -21,7 +20,8 @@
   }
 
   .filter-icon {
-    flex-grow: 9;
+    flex-grow: 1;
+    text-align: start;
     border: 4px solid var(--secondary-bg);
     border-right: none;
     border-radius: var(--border-radius);
@@ -31,6 +31,18 @@
   }
 
   .filter-icon:hover {
+    border-color: var(--primary-color);
+  }
+
+  .filter-search-bar {
+    flex-grow: 8;
+    border: 4px solid var(--secondary-bg);
+    border-left: none;
+    border-right: none;
+    transition: border-color 0.3s ease;
+  }
+
+  .filter-search-bar:hover {
     border-color: var(--primary-color);
   }
 
