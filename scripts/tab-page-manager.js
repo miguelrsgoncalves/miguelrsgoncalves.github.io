@@ -139,7 +139,6 @@ document.addEventListener('click', (e) => {
  */
 function cleanupResources() {
   stopObservingVideos();
-  highlightedProjectIndex = 1000;
   isInProjectWindow = false;
   hasFilterHeader = false;
 }
@@ -175,9 +174,9 @@ window.onpopstate = function(event) {
 };
 
 function loadIncludes() {
-  mainContent.querySelectorAll("[data-include]").forEach(async (el) => {
-    const file = el.getAttribute("data-include");
-    const html = await fetch(file).then(r => r.text());
-    el.outerHTML = html; // replace placeholder with actual content
+  mainContent.querySelectorAll("[data-include]").forEach(async (element) => {
+    const file = element.getAttribute("data-include");
+    const html = await fetch(file).then(template => template.text());
+    element.outerHTML = html;
   });
 }

@@ -1,5 +1,5 @@
 var container;
-const filterGroups = {
+var filterGroups = {
   years: {
     all: "all-years",
     checkboxes: ".year-checkbox",
