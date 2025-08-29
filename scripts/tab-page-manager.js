@@ -22,6 +22,7 @@ function updateMainContent(data) {
   cleanupResources();
   scrollToTheTop();
   mainContent.replaceChildren(document.createRange().createContextualFragment(data));
+  loadIncludes();
   startObsevingVideos();
 }
 
@@ -102,7 +103,6 @@ function perTabLoad(tabName) {
       //getHightlightedProjects();
       break;
     case tabsEnum.projects:
-      hasFilterHeader = true;
       loadProjects('card-container', 'assets/page-data-files/projects-data.json');
       break;
     default:
@@ -173,3 +173,11 @@ window.onpopstate = function(event) {
     loadPage(tabsEnum.home, true);
   }
 };
+
+function loadIncludes() {
+  mainContent.querySelectorAll("[data-include]").forEach(async (el) => {
+    const file = el.getAttribute("data-include");
+    const html = await fetch(file).then(r => r.text());
+    el.outerHTML = html; // replace placeholder with actual content
+  });
+}
