@@ -10,19 +10,7 @@ permissions:
   id-token: write
 
 jobs:
-  cleanup:
-    runs-on: ubuntu-latest
-    permissions: write-all
-    steps:
-      - name: Delete Deployment Environment
-        uses: strumwolf/delete-deployment-environment@v3
-        with:
-          token: ${{ secrets.DEPLOY_MIGUELRSGONCALVES_COM }}
-          environment: miguelrsgoncalves.com
-          onlyRemoveDeployments: true
-
   deploy:
-    needs: cleanup
     runs-on: ubuntu-latest
     environment:
       name: miguelrsgoncalves.com
