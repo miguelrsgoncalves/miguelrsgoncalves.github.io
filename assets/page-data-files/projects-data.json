@@ -1,5 +1,15 @@
 [
     {
+        "image": "../assets/images/cglf_thumbnail.png",
+        "title": "CGLF — Custom Global Light Function",
+        "year": "2025",
+        "roleCategory": ["Godot Plugin"],
+        "software": ["Godot"],
+        "description": "Provides a manager to define and customize a single centralized custom global light() function shared across all or chosen shaders in the project.",
+        "misc": [""],
+        "pageName": "limbo-gaol"
+    },
+    {
         "image": "../assets/images/limbo_gaol_thumbnail.png",
         "title": "Limbo's Gaol",
         "year": "2025",

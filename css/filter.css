@@ -3,7 +3,7 @@
 .filter-header {
   display: flex;
   justify-content: space-between;
-  width: auto;
+  font-weight: bold;
   color: var(--primary-color);
   margin-bottom: 20px;
   border-radius: var(--border-radius);
@@ -11,8 +11,7 @@
   animation: slideIn 0.5s ease;
 
   span, p, .filter-search-bar, .filter-reset-button{
-    display: inline-block;
-    font-weight: bold;
+    display: inline-flex;
     vertical-align: middle;
     margin: 0;
     padding: 4px 8px;
@@ -59,6 +58,12 @@
 
   .filter-reset-button:hover {
     border-color: var(--primary-color);
+  }
+
+  @media (max-width: 1024px) {
+    .filter-icon, .filter-search-bar, .filter-reset-button {
+      flex-grow: 1;
+    }
   }
 }
 
