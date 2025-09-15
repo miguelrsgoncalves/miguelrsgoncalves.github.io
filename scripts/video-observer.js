@@ -18,7 +18,7 @@ var handleIntersection = (entries) => {
 
 const observer = new IntersectionObserver(handleIntersection, options);
 
-function startObsevingVideos () {
+function startObservingVideos () {
     document.querySelectorAll('video[autoplay]').forEach(video => {
         video.pause();
         observer.observe(video);

@@ -23,7 +23,7 @@ function updateMainContent(data) {
   scrollToTheTop();
   mainContent.replaceChildren(document.createRange().createContextualFragment(data));
   loadIncludes();
-  startObsevingVideos();
+  startObservingVideos();
 }
 
 /**
@@ -57,7 +57,6 @@ function loadPage(pageName, isWindowPop = false) {
         pageTitle.classList.remove('active');
         if(!isWindowPop) history.pushState({page: tabName}, tabName, tabName);
         updateMainContent(data);
-        perTabLoad(tabName);
         updateTabPageNav(tabName);
       })
       .catch(err => {
@@ -90,23 +89,6 @@ function loadPage(pageName, isWindowPop = false) {
     .catch(error => {
       console.error("Error loading project:", error);
     });
-  }
-}
-
-/**
- * Logic exclusive for each tab to perform as it gets loaded. Call this function in the loadPage() when it's handling tabs.
- * @param {string} tabName 
- */
-function perTabLoad(tabName) {
-  switch (tabName) {
-    case tabsEnum.home:
-      //getHightlightedProjects();
-      break;
-    case tabsEnum.projects:
-      loadProjects('card-container', 'assets/page-data-files/projects-data.json');
-      break;
-    default:
-      break;
   }
 }
 
