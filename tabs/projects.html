@@ -1,12 +1,15 @@
 <script src="scripts/filter-header.js" defer></script>
+<script type="module" src="scripts/project-cards.js"></script>
+<script type="module" defer>
+  import { loadProjectCards } from "/scripts/project-cards.js"
+  loadProjectCards('card-container', 'assets/page-data-files/projects-data.json');
+</script>
 
 <section id="projects" class="tab-content active">
 
-    <div data-include="assets\templates\filter-header.html"></div>
+  <div data-include="assets/templates/filter-header.html"></div>
 
-    <div data-include="assets\templates\filter-dropdown.html"></div>
-
-  </div>
+  <div data-include="assets/templates/filter-dropdown.html"></div>
 
   <div id="card-container" class="projects-grid"></div>
 

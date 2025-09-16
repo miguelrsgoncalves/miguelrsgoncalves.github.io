@@ -1,7 +1,10 @@
 var container;
 var projectsData = [];
+var renderIndex = 0;
+var renderStep = 6;
 
-async function loadProjects(containerId, dataSource) {
+export async function loadProjectCards(containerId, dataSource) {
+    console.log(renderIndex)
     try {
         const response = await fetch(dataSource);
         const projectsDataJSON = await response.json();
@@ -23,21 +26,28 @@ async function loadProjects(containerId, dataSource) {
         });
         
         renderProjects(false)
+
+        window.addEventListener('scroll', handleScroll)
     } catch (error) {
         console.error('Error loading projects:', error);
     }
 }
 
 function renderProjects(filters) {
-    container.innerHTML = "";
-    projectsData.forEach(project => {
+    let count = 0;
+    while (renderIndex < projectsData.length && count < renderStep) {
+        const project = projectsData[renderIndex];
         if(!filters || (
             filters.years.includes(project.data.year) &&
             filterContainsRoleCategory(filters.rolesCategories, project.data.roleCategory) &&
             filterContainsSoftware(filters.software, project.data.software) &&
             filterContainsMisc(filters.misc, project.data.misc)
-        )) container.insertAdjacentHTML('beforeend', project.html);
-    })
+        )) {
+            container.insertAdjacentHTML('beforeend', project.html);
+        }
+        renderIndex++;
+        count++;
+    }
 }
 
 function replacePlaceholders(template, data) {
@@ -48,6 +58,12 @@ function replacePlaceholders(template, data) {
         }
         return data[key] || '';
     });
+}
+
+function handleScroll() {
+    if((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+        renderProjects(false)
+    }
 }
 
 function filterContainsRoleCategory(filterRoleCategory, projectDataRoleCategory) {

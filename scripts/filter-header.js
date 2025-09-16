@@ -18,10 +18,6 @@ var filterGroups = {
   }
 };
 
-window.addEventListener('DOMContentLoaded', () => {
-    hasFilterHeader = true
-});
-
 function toggleFilterDropdown(containerId) {
   const filterDropdown = document.getElementById("filter-dropdown");
   filterDropdown.classList.toggle("active");
