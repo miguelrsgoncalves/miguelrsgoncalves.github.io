@@ -1,8 +1,7 @@
 name: Deploy website
 
 on:
-  push:
-    branches: ["main"]
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -10,6 +9,17 @@ permissions:
   id-token: write
 
 jobs:
+  cleanup:
+      runs-on: ubuntu-latest
+      permissions: write-all
+
+      steps:
+        - name: 🗑 Delete deployment
+          uses: strumwolf/delete-deployment-environment@v2
+          with:
+            token: ${{ secrets.DEPLOY_MIGUELRSGONCALVES_COM }}
+            environment: miguelrsgoncalves.com
+            onlyRemoveDeployments: true
   deploy:
     runs-on: ubuntu-latest
     environment:
