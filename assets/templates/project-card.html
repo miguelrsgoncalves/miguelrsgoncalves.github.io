@@ -1,7 +1,10 @@
 <!-- project-card-template.html -->
 <template id="project-card">
     <div class="project-card clickable" onclick="loadPage('{{pageName}}')">
-        <img src="{{image}}" alt="{{title}}">
+        <picture>
+            <source srcset="{{image}}.webp" type="image/webp">
+            <img src="{{image}}.png" alt="{{title}}">
+        </picture>
         <div class="project-info">
             <h1>{{title}}</h1>
             <div class="project-meta-data">
