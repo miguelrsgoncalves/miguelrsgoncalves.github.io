@@ -21,6 +21,7 @@ var headerMenuDropdown = document.getElementById('header-menu-dropdown');
 function updateMainContent(data) {
   cleanupResources();
   scrollToTheTop();
+  cleanupSignal.cleanup()
   mainContent.replaceChildren(document.createRange().createContextualFragment(data));
   loadIncludes();
   startObservingVideos();

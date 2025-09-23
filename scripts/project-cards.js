@@ -1,15 +1,13 @@
-var container;
+var container = null;
 var projectsData = [];
 var renderIndex = 0;
 var renderStep = 6;
 
 export function init() {
-    projectsData = [];
-    renderIndex = 0;
+    cleanupSignal.subscribe(cleanup);
 }
 
 export async function loadProjectCards(containerId, dataSource) {
-    console.log(renderIndex)
     try {
         const response = await fetch(dataSource);
         const projectsDataJSON = await response.json();
@@ -81,4 +79,13 @@ function filterContainsSoftware(filterSoftware, projectDataSoftware) {
 
 function filterContainsMisc(filterMisc, projectDataMisc) {
     return projectDataMisc.some(element => filterMisc.includes(element));
+}
+
+function cleanup() {
+    console.log("CLEANUP")
+    window.removeEventListener('scroll', handleScroll);
+    container = null;
+    projectsData = [];
+    renderIndex = 0;
+    renderStep = 6;
 }
