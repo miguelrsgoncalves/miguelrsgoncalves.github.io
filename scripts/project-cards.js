@@ -3,6 +3,11 @@ var projectsData = [];
 var renderIndex = 0;
 var renderStep = 6;
 
+export function init() {
+    projectsData = [];
+    renderIndex = 0;
+}
+
 export async function loadProjectCards(containerId, dataSource) {
     console.log(renderIndex)
     try {

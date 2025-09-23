@@ -1,7 +1,7 @@
 <script src="scripts/filter-header.js" defer></script>
-<script type="module" src="scripts/project-cards.js"></script>
 <script type="module" defer>
-  import { loadProjectCards } from "/scripts/project-cards.js"
+  import { init, loadProjectCards } from "/scripts/project-cards.js"
+  init()
   loadProjectCards('card-container', 'assets/page-data-files/projects-data.json');
 </script>
 
