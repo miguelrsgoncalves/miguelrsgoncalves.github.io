@@ -1,6 +1,6 @@
 [
     {
-        "image": "../assets/images/cglf_thumbnail.png",
+        "image": "../assets/images/cglf_thumbnail.webp",
         "title": "CGLF — Custom Global Light Function",
         "year": "2025",
         "roleCategory": ["Godot Plugin"],
@@ -10,7 +10,7 @@
         "pageName": "limbo-gaol"
     },
     {
-        "image": "../assets/images/limbo_gaol_thumbnail.png",
+        "image": "../assets/images/limbo_gaol_thumbnail.webp",
         "title": "Limbo's Gaol",
         "year": "2025",
         "roleCategory": ["Master Thesis"],
@@ -20,7 +20,7 @@
         "pageName": "limbo-gaol"
     },
     {
-        "image": "../assets/images/chat95_thumbnail.png",
+        "image": "../assets/images/chat95_thumbnail.webp",
         "title": "The Player's Eye",
         "year": "2025",
         "roleCategory": ["Master Thesis"],
@@ -30,7 +30,7 @@
         "pageName": "the-player-eye"
     },
     {
-        "image": "../assets/images/chat95_thumbnail.png",
+        "image": "../assets/images/chat95_thumbnail.webp",
         "title": "Chat95",
         "year": "2025",
         "roleCategory": ["Sound Design"],
@@ -40,7 +40,7 @@
         "pageName": "chat95"
     },
     {
-        "image": "../assets/images/personal_website_thumbnail.png",
+        "image": "../assets/images/personal_website_thumbnail.webp",
         "title": "Personal Website",
         "year": "2025",
         "roleCategory": ["Programming"],
@@ -50,7 +50,7 @@
         "pageName": "personal-website"
     },
     {
-        "image": "../assets/images/sisyphus_climb_thumbnail.png",
+        "image": "../assets/images/sisyphus_climb_thumbnail.webp",
         "title": "Sisyphus Climb",
         "year": "2024",
         "roleCategory": ["Game Art"],
@@ -60,7 +60,7 @@
         "pageName": "sisyphus-climb"
     },
     {
-        "image": "../assets/images/StylizedGrassField_Thumbnail.png",
+        "image": "../assets/images/stylized_grass_field_thumbnail.webp",
         "title": "Sea Above Water",
         "year": "2024",
         "roleCategory": ["Technical Art"],
@@ -70,7 +70,7 @@
         "pageName": "grass-field"
     },
     {
-        "image": "../assets/images/abyssal_descent_thumbnail.png",
+        "image": "../assets/images/abyssal_descent_thumbnail.webp",
         "title": "Abyssal Descent: SCP-455",
         "year": "2024",
         "roleCategory": ["Sound Design"],
@@ -80,7 +80,7 @@
         "pageName": "abyssal-descent"
     },
     {
-        "image": "../assets/images/NarrowEscape_Thumbnail.png",
+        "image": "../assets/images/narrow_escape_thumbnail.webp",
         "title": "Narrow Escape",
         "year": "2024",
         "roleCategory": ["Animation"],
@@ -90,7 +90,7 @@
         "pageName": "narrow-escape"
     },
     {
-        "image": "../assets/images/paranoia_thumbnail.png",
+        "image": "../assets/images/paranoia_thumbnail.webp",
         "title": "Paranoia",
         "year": "2024",
         "roleCategory": ["Sound Design"],
@@ -100,7 +100,7 @@
         "pageName": "paranoia"
     },
     {
-        "image": "../assets/images/PapersPleaseTheShortFilmSpatialAudioOnlyAdaptation_Thumbnail.jpg",
+        "image": "../assets/images/papers_please_the_short_film_spatial_audio_only_adaptation_thumbnail.webp",
         "title": "PAPERS, PLEASE - The Short Film | Spatial Audio-Only Adaptation",
         "year": "2024",
         "roleCategory": ["Sound Design"],
@@ -110,7 +110,7 @@
         "pageName": "papers-please-the-short-film-spatial-audio-only-adaptation"
     },
     {
-        "image": "../assets/images/play_with_me_thumbnail.png",
+        "image": "../assets/images/play_with_me_thumbnail.webp",
         "title": "PLAY WITH ME",
         "year": "2024",
         "roleCategory": ["Gameplay Programming"],
@@ -120,7 +120,7 @@
         "pageName": "play-with-me"
     },
     {
-        "image": "../assets/images/well_of_wandering_thumbnail.png",
+        "image": "../assets/images/well_of_wandering_thumbnail.webp",
         "title": "Well of Wandering",
         "year": "2023",
         "roleCategory": ["Sound Design"],
@@ -130,7 +130,7 @@
         "pageName": "well-of-wandering"
     },
     {
-        "image": "../assets/images/god_simulator_thumbnail.png",
+        "image": "../assets/images/god_simulator_thumbnail.webp",
         "title": "Hand of God",
         "year": "2023",
         "roleCategory": ["Prototype Game"],
@@ -140,7 +140,7 @@
         "pageName": "god-simulator"
     },
     {
-        "image": "../assets/images/WebGLBirdGame_Thumbnail.png",
+        "image": "../assets/images/webgl_bird_game_thumbnail.webp",
         "title": "Egg Hunt",
         "year": "2023",
         "roleCategory": ["Graphics Programming", "Prototype Game"],
@@ -150,7 +150,7 @@
         "pageName": "webgl-bird-game"
     },
     {
-        "image": "../assets/images/WebGLTrainGame_Thumbnail.png",
+        "image": "../assets/images/webgl_train_game_thumbnail.webp",
         "title": "WebGL Train",
         "year": "2022",
         "roleCategory": ["Graphics Programming"],
