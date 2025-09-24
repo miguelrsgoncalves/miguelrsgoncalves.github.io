@@ -1,30 +1,30 @@
 const options = {
     threshold: 0.35,
-  };
+  }
   
 var handleIntersection = (entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             if (entry.target.paused) {
-                entry.target.play();
+                entry.target.play()
             }
         } else {
             if (!entry.target.paused) {
-                entry.target.pause();
+                entry.target.pause()
             }
         }
-    });
-};
+    })
+}
 
-const observer = new IntersectionObserver(handleIntersection, options);
+const observer = new IntersectionObserver(handleIntersection, options)
 
 function startObservingVideos () {
     document.querySelectorAll('video[autoplay]').forEach(video => {
-        video.pause();
-        observer.observe(video);
-    });
+        video.pause()
+        observer.observe(video)
+    })
 }
 
 function stopObservingVideos () {
-    observer.disconnect();
+    observer.disconnect()
 }

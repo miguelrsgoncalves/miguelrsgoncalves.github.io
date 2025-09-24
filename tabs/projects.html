@@ -1,8 +1,7 @@
-<script src="scripts/filter-header.js" defer></script>
-<script type="module" defer>
-  import { init, loadProjectCards } from "/scripts/project-cards.js"
-  init()
-  loadProjectCards('card-container', 'assets/page-data-files/projects-data.json');
+<script defer>
+  filter.init()
+  projectCards.init()
+  projectCards.loadProjectCards('card-container', 'assets/page-data-files/projects-data.json')
 </script>
 
 <section id="projects" class="tab-content active">

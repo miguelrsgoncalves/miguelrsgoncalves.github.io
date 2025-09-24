@@ -4,25 +4,25 @@
     <div class="filter-column">
       <h4 class="filter-title">Year</h4>
       <div class="filter-checkbox">
-        <input type="checkbox" id="all-years" class="clickable" checked onchange="toggleAll('years', true)">
-        <label class="clickable" onclick="toggleAll('years', false)">All</label>
+        <input type="checkbox" id="all-years" class="clickable" checked onchange="filter.toggleAll('years', true)">
+        <label class="clickable" onclick="filter.toggleAll('years', false)">All</label>
       </div>
       <div class="indented-checkboxes">
         <div class="filter-checkbox">
-          <input name="2025" type="checkbox" class="year-checkbox clickable" checked onchange="updateGroup('years')">
-          <label class="clickable" onclick="toggleOnly('years', this)">2025</label>
+          <input name="2025" type="checkbox" class="year-checkbox clickable" checked onchange="filter.updateGroup('years')">
+          <label class="clickable" onclick="filter.toggleOnly('years', this)">2025</label>
         </div>
         <div class="filter-checkbox">
-          <input name="2024" type="checkbox" class="year-checkbox clickable" checked onchange="updateGroup('years')">
-          <label class="clickable" onclick="toggleOnly('years', this)">2024</label>
+          <input name="2024" type="checkbox" class="year-checkbox clickable" checked onchange="filter.updateGroup('years')">
+          <label class="clickable" onclick="filter.toggleOnly('years', this)">2024</label>
         </div>
         <div class="filter-checkbox">
-          <input name="2023" type="checkbox" class="year-checkbox clickable" checked onchange="updateGroup('years')">
-          <label class="clickable" onclick="toggleOnly('years', this)">2023</label>
+          <input name="2023" type="checkbox" class="year-checkbox clickable" checked onchange="filter.updateGroup('years')">
+          <label class="clickable" onclick="filter.toggleOnly('years', this)">2023</label>
         </div>
         <div class="filter-checkbox">
-          <input name="2022" type="checkbox" class="year-checkbox clickable" checked onchange="updateGroup('years')">
-          <label class="clickable" onclick="toggleOnly('years', this)">2022</label>
+          <input name="2022" type="checkbox" class="year-checkbox clickable" checked onchange="filter.updateGroup('years')">
+          <label class="clickable" onclick="filter.toggleOnly('years', this)">2022</label>
         </div>
       </div>
     </div>
@@ -31,49 +31,49 @@
     <div class="filter-column">
       <h4 class="filter-title">Category</h4>
       <div class="filter-checkbox">
-        <input type="checkbox" id="all-roles-categories" class="clickable" checked onchange="toggleAll('rolesCategories', true)">
-        <label class="clickable" onclick="toggleAll('rolesCategories', false)">All</label>
+        <input type="checkbox" id="all-roles-categories" class="clickable" checked onchange="filter.toggleAll('rolesCategories', true)">
+        <label class="clickable" onclick="filter.toggleAll('rolesCategories', false)">All</label>
       </div>
       <div class="indented-checkboxes">
         <div class="filter-checkbox">
-          <input name="Animation" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="updateGroup('rolesCategories')">
-          <label class="clickable" onclick="toggleOnly('rolesCategories', this)">Animation</label>
+          <input name="Animation" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="filter.updateGroup('rolesCategories')">
+          <label class="clickable" onclick="filter.toggleOnly('rolesCategories', this)">Animation</label>
         </div>
         <div class="filter-checkbox">
-          <input name="Game Art" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="updateGroup('rolesCategories')">
-          <label class="clickable" onclick="toggleOnly('rolesCategories', this)">Game Art</label>
+          <input name="Game Art" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="filter.updateGroup('rolesCategories')">
+          <label class="clickable" onclick="filter.toggleOnly('rolesCategories', this)">Game Art</label>
         </div>
         <div class="filter-checkbox">
-          <input name="Gameplay Programming" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="updateGroup('rolesCategories')">
-          <label class="clickable" onclick="toggleOnly('rolesCategories', this)">Gameplay Programming</label>
+          <input name="Gameplay Programming" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="filter.updateGroup('rolesCategories')">
+          <label class="clickable" onclick="filter.toggleOnly('rolesCategories', this)">Gameplay Programming</label>
         </div>
         <div class="filter-checkbox">
-          <input name="Graphics Programming" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="updateGroup('rolesCategories')">
-          <label class="clickable" onclick="toggleOnly('rolesCategories', this)">Graphics Programming</label>
+          <input name="Graphics Programming" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="filter.updateGroup('rolesCategories')">
+          <label class="clickable" onclick="filter.toggleOnly('rolesCategories', this)">Graphics Programming</label>
         </div>
         <div class="filter-checkbox">
-          <input name="Godot Plugin" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="updateGroup('rolesCategories')">
-          <label class="clickable" onclick="toggleOnly('rolesCategories', this)">Godot Plugin</label>
+          <input name="Godot Plugin" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="filter.updateGroup('rolesCategories')">
+          <label class="clickable" onclick="filter.toggleOnly('rolesCategories', this)">Godot Plugin</label>
         </div>
         <div class="filter-checkbox">
-          <input name="Master Thesis" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="updateGroup('rolesCategories')">
-          <label class="clickable" onclick="toggleOnly('rolesCategories', this)">Master Thesis</label>
+          <input name="Master Thesis" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="filter.updateGroup('rolesCategories')">
+          <label class="clickable" onclick="filter.toggleOnly('rolesCategories', this)">Master Thesis</label>
         </div>
         <div class="filter-checkbox">
-          <input name="Programming" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="updateGroup('rolesCategories')">
-          <label class="clickable" onclick="toggleOnly('rolesCategories', this)">Programming</label>
+          <input name="Programming" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="filter.updateGroup('rolesCategories')">
+          <label class="clickable" onclick="filter.toggleOnly('rolesCategories', this)">Programming</label>
         </div>
         <div class="filter-checkbox">
-          <input name="Prototype Game" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="updateGroup('rolesCategories')">
-          <label class="clickable" onclick="toggleOnly('rolesCategories', this)">Prototype Game</label>
+          <input name="Prototype Game" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="filter.updateGroup('rolesCategories')">
+          <label class="clickable" onclick="filter.toggleOnly('rolesCategories', this)">Prototype Game</label>
         </div>
         <div class="filter-checkbox">
-          <input name="Sound Design" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="updateGroup('rolesCategories')">
-          <label class="clickable" onclick="toggleOnly('rolesCategories', this)">Sound Design</label>
+          <input name="Sound Design" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="filter.updateGroup('rolesCategories')">
+          <label class="clickable" onclick="filter.toggleOnly('rolesCategories', this)">Sound Design</label>
         </div>
         <div class="filter-checkbox">
-          <input name="Technical Art" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="updateGroup('rolesCategories')">
-          <label class="clickable" onclick="toggleOnly('rolesCategories', this)">Technical Art</label>
+          <input name="Technical Art" type="checkbox" class="roles-categories-checkbox clickable" checked onchange="filter.updateGroup('rolesCategories')">
+          <label class="clickable" onclick="filter.toggleOnly('rolesCategories', this)">Technical Art</label>
         </div>
       </div>
     </div>
@@ -82,65 +82,65 @@
     <div class="filter-column">
       <h4 class="filter-title">Software</h4>
       <div class="filter-checkbox">
-        <input type="checkbox" id="all-software" class="clickable" checked onchange="toggleAll('software', true)">
-        <label class="clickable" onclick="toggleAll('software', false)">All</label>
+        <input type="checkbox" id="all-software" class="clickable" checked onchange="filter.toggleAll('software', true)">
+        <label class="clickable" onclick="filter.toggleAll('software', false)">All</label>
       </div>
       <div class="indented-checkboxes">
         <div class="filter-checkbox">
-          <input name="Blender" type="checkbox" class="software-checkbox clickable" checked onchange="updateGroup('software')">
-          <label class="clickable" onclick="toggleOnly('software', this)">Blender</label>
+          <input name="Blender" type="checkbox" class="software-checkbox clickable" checked onchange="filter.updateGroup('software')">
+          <label class="clickable" onclick="filter.toggleOnly('software', this)">Blender</label>
         </div>
         <div class="filter-checkbox">
-          <input name="CSS" type="checkbox" class="software-checkbox clickable" checked onchange="updateGroup('software')">
-          <label class="clickable" onclick="toggleOnly('software', this)">CSS</label>
+          <input name="CSS" type="checkbox" class="software-checkbox clickable" checked onchange="filter.updateGroup('software')">
+          <label class="clickable" onclick="filter.toggleOnly('software', this)">CSS</label>
         </div>
         <div class="filter-checkbox">
-          <input name="FL Studio" type="checkbox" class="software-checkbox clickable" checked onchange="updateGroup('software')">
-          <label class="clickable" onclick="toggleOnly('software', this)">FL Studio</label>
+          <input name="FL Studio" type="checkbox" class="software-checkbox clickable" checked onchange="filter.updateGroup('software')">
+          <label class="clickable" onclick="filter.toggleOnly('software', this)">FL Studio</label>
         </div>
         <div class="filter-checkbox">
-          <input name="FMOD" type="checkbox" class="software-checkbox clickable" checked onchange="updateGroup('software')">
-          <label class="clickable" onclick="toggleOnly('software', this)">FMOD</label>
+          <input name="FMOD" type="checkbox" class="software-checkbox clickable" checked onchange="filter.updateGroup('software')">
+          <label class="clickable" onclick="filter.toggleOnly('software', this)">FMOD</label>
         </div>
         <div class="filter-checkbox">
-          <input name="Godot" type="checkbox" class="software-checkbox clickable" checked onchange="updateGroup('software')">
-          <label class="clickable" onclick="toggleOnly('software', this)">Godot</label>
+          <input name="Godot" type="checkbox" class="software-checkbox clickable" checked onchange="filter.updateGroup('software')">
+          <label class="clickable" onclick="filter.toggleOnly('software', this)">Godot</label>
         </div>
         <div class="filter-checkbox">
-          <input name="HTML" type="checkbox" class="software-checkbox clickable" checked onchange="updateGroup('software')">
-          <label class="clickable" onclick="toggleOnly('software', this)">HTML</label>
+          <input name="HTML" type="checkbox" class="software-checkbox clickable" checked onchange="filter.updateGroup('software')">
+          <label class="clickable" onclick="filter.toggleOnly('software', this)">HTML</label>
         </div>
         <div class="filter-checkbox">
-          <input name="Javascript" type="checkbox" class="software-checkbox clickable" checked onchange="updateGroup('software')">
-          <label class="clickable" onclick="toggleOnly('software', this)">Javascript</label>
+          <input name="Javascript" type="checkbox" class="software-checkbox clickable" checked onchange="filter.updateGroup('software')">
+          <label class="clickable" onclick="filter.toggleOnly('software', this)">Javascript</label>
         </div>
         <div class="filter-checkbox">
-          <input name="LaTeX" type="checkbox" class="software-checkbox clickable" checked onchange="updateGroup('software')">
-          <label class="clickable" onclick="toggleOnly('software', this)">LaTeX</label>
+          <input name="LaTeX" type="checkbox" class="software-checkbox clickable" checked onchange="filter.updateGroup('software')">
+          <label class="clickable" onclick="filter.toggleOnly('software', this)">LaTeX</label>
         </div>
         <div class="filter-checkbox">
-          <input name="Maya" type="checkbox" class="software-checkbox clickable" checked onchange="updateGroup('software')">
-          <label class="clickable" onclick="toggleOnly('software', this)">Maya</label>
+          <input name="Maya" type="checkbox" class="software-checkbox clickable" checked onchange="filter.updateGroup('software')">
+          <label class="clickable" onclick="filter.toggleOnly('software', this)">Maya</label>
         </div>
         <div class="filter-checkbox">
-          <input name="P5" type="checkbox" class="software-checkbox clickable" checked onchange="updateGroup('software')">
-          <label class="clickable" onclick="toggleOnly('software', this)">P5</label>
+          <input name="P5" type="checkbox" class="software-checkbox clickable" checked onchange="filter.updateGroup('software')">
+          <label class="clickable" onclick="filter.toggleOnly('software', this)">P5</label>
         </div>
         <div class="filter-checkbox">
-          <input name="Reaper" type="checkbox" class="software-checkbox clickable" checked onchange="updateGroup('software')">
-          <label class="clickable" onclick="toggleOnly('software', this)">Reaper</label>
+          <input name="Reaper" type="checkbox" class="software-checkbox clickable" checked onchange="filter.updateGroup('software')">
+          <label class="clickable" onclick="filter.toggleOnly('software', this)">Reaper</label>
         </div>
         <div class="filter-checkbox">
-          <input name="Unreal Engine 5" type="checkbox" class="software-checkbox clickable" checked onchange="updateGroup('software')">
-          <label class="clickable" onclick="toggleOnly('software', this)">Unreal Engine 5</label>
+          <input name="Unreal Engine 5" type="checkbox" class="software-checkbox clickable" checked onchange="filter.updateGroup('software')">
+          <label class="clickable" onclick="filter.toggleOnly('software', this)">Unreal Engine 5</label>
         </div>
         <div class="filter-checkbox">
-          <input name="Unity" type="checkbox" class="software-checkbox clickable" checked onchange="updateGroup('software')">
-          <label class="clickable" onclick="toggleOnly('software', this)">Unity</label>
+          <input name="Unity" type="checkbox" class="software-checkbox clickable" checked onchange="filter.updateGroup('software')">
+          <label class="clickable" onclick="filter.toggleOnly('software', this)">Unity</label>
         </div>
         <div class="filter-checkbox">
-          <input name="WebGL" type="checkbox" class="software-checkbox clickable" checked onchange="updateGroup('software')">
-          <label class="clickable" onclick="toggleOnly('software', this)">WebGL</label>
+          <input name="WebGL" type="checkbox" class="software-checkbox clickable" checked onchange="filter.updateGroup('software')">
+          <label class="clickable" onclick="filter.toggleOnly('software', this)">WebGL</label>
         </div>
       </div>
     </div>
@@ -149,29 +149,29 @@
     <div class="filter-column">
       <h4 class="filter-title">Misc</h4>
       <div class="filter-checkbox">
-        <input type="checkbox" id="all-misc" class="clickable" checked onchange="toggleAll('misc', true)">
-        <label class="clickable" onclick="toggleAll('misc', false)">All</label>
+        <input type="checkbox" id="all-misc" class="clickable" checked onchange="filter.toggleAll('misc', true)">
+        <label class="clickable" onclick="filter.toggleAll('misc', false)">All</label>
       </div>
       <div class="indented-checkboxes">
         <div class="filter-checkbox">
-          <input name="None" type="checkbox" class="misc-checkbox clickable" checked onchange="updateGroup('misc')">
-          <label class="clickable" onclick="toggleOnly('misc', this)">None</label>
+          <input name="None" type="checkbox" class="misc-checkbox clickable" checked onchange="filter.updateGroup('misc')">
+          <label class="clickable" onclick="filter.toggleOnly('misc', this)">None</label>
         </div>
         <div class="filter-checkbox">
-          <input name="Game Dev" type="checkbox" class="misc-checkbox clickable" checked onchange="updateGroup('misc')">
-          <label class="clickable" onclick="toggleOnly('misc', this)">Game Dev</label>
+          <input name="Game Dev" type="checkbox" class="misc-checkbox clickable" checked onchange="filter.updateGroup('misc')">
+          <label class="clickable" onclick="filter.toggleOnly('misc', this)">Game Dev</label>
         </div>
         <div class="filter-checkbox">
-          <input name="Game Jam" type="checkbox" class="misc-checkbox clickable" checked onchange="updateGroup('misc')">
-          <label class="clickable" onclick="toggleOnly('misc', this)">Game Jam</label>
+          <input name="Game Jam" type="checkbox" class="misc-checkbox clickable" checked onchange="filter.updateGroup('misc')">
+          <label class="clickable" onclick="filter.toggleOnly('misc', this)">Game Jam</label>
         </div>
         <div class="filter-checkbox">
-          <input name="University Project" type="checkbox" class="misc-checkbox clickable" checked onchange="updateGroup('misc')">
-          <label class="clickable" onclick="toggleOnly('misc', this)">University Project</label>
+          <input name="University Project" type="checkbox" class="misc-checkbox clickable" checked onchange="filter.updateGroup('misc')">
+          <label class="clickable" onclick="filter.toggleOnly('misc', this)">University Project</label>
         </div>
         <div class="filter-checkbox">
-          <input name="Master Thesis" type="checkbox" class="misc-checkbox clickable" checked onchange="updateGroup('misc')">
-          <label class="clickable" onclick="toggleOnly('misc', this)">Master Thesis</label>
+          <input name="Master Thesis" type="checkbox" class="misc-checkbox clickable" checked onchange="filter.updateGroup('misc')">
+          <label class="clickable" onclick="filter.toggleOnly('misc', this)">Master Thesis</label>
         </div>
       </div>
 </div>
