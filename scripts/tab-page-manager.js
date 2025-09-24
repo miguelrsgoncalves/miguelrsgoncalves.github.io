@@ -24,7 +24,6 @@ function updateMainContent(data) {
   cleanupSignal.cleanup()
   mainContent.replaceChildren(document.createRange().createContextualFragment(data));
   loadIncludes();
-  startObservingVideos();
 }
 
 /**
@@ -121,7 +120,6 @@ document.addEventListener('click', (e) => {
  * Cleans all resources to avoid memory leaks.
  */
 function cleanupResources() {
-  stopObservingVideos();
   isInProjectWindow = false;
   hasFilterHeader = false;
 }
