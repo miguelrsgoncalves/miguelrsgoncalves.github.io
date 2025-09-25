@@ -25,6 +25,7 @@ const projectsEnum = new Map([
     ["personal-website", "Personal Website"],
     ["play-with-me", "PLAY WITH ME"],
     ["sisyphus-climb", "Sisyphus Climb"],
+    ["the-player-eye", "The Player's Eye"],
     ["webgl-bird-game", "Egg Hunt"],
     ["webgl-train-game", "WebGL Train"],
     ["well-of-wandering", "Well of Wandering"],
