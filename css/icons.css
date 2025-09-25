@@ -4,7 +4,8 @@
   src: url('../assets/fonts/icons/icons.eot?t=1757584552867#iefix') format('embedded-opentype'),
   url('../assets/fonts/icons/icons.woff2?t=1757584552867') format('woff2'),
   url('../assets/fonts/icons/icons.woff?t=1757584552867') format('woff'),
-  url('../assets/fonts/icons/icons.ttf?t=1757584552867') format('truetype');
+  url('../assets/fonts/icons/icons.ttf?t=1757584552867') format('truetype'),
+  url('../assets/fonts/icons/icons.svg')
 }
 
 [class^="icon-"], [class*=" icon-"] {
