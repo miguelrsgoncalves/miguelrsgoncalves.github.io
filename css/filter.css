@@ -10,7 +10,7 @@
   background-color: var(--secondary-bg);
   animation: slideIn 0.5s ease;
 
-  span, p, .filter-search-bar, .filter-reset-button{
+  i, p, .filter-search-bar, .filter-reset-button{
     display: inline-flex;
     vertical-align: middle;
     margin: 0;
@@ -18,7 +18,7 @@
     font-size: var(--font-size-base);
   }
 
-  .filter-icon {
+  .filter-button {
     flex-grow: 1;
     text-align: start;
     border: 4px solid var(--secondary-bg);
@@ -29,7 +29,7 @@
     transition: border-color 0.3s ease;
   }
 
-  .filter-icon:hover {
+  .filter-button:hover {
     border-color: var(--primary-color);
   }
 
@@ -47,7 +47,7 @@
 
   .filter-reset-button {
     flex-grow: 1;
-    text-align: end;
+    justify-content: end;
     border: 4px solid var(--secondary-bg);
     border-left: none;
     border-radius: var(--border-radius);

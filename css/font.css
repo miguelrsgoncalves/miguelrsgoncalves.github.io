@@ -33,21 +33,3 @@
   font-display: swap;
   src: url('/assets/fonts/font-families/Poppins-BoldItalic.ttf');
 }
-
-@font-face {
-  font-family: 'Material Symbols Rounded';
-  src: url('/assets/fonts/icons/icons.ttf');
-}
-
-.icon {
-  font-family: 'Material Symbols Rounded';
-  font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 200, 'opsz' 48;
-  font-size: 2em;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  margin: 0;
-  padding: 0;
-  color: var(--primary-color);
-}
