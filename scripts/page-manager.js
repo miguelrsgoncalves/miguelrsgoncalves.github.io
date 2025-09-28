@@ -1,6 +1,6 @@
-var currentTab = '';
-var isInProjectWindow = false;
-var hasFilterHeader = false;
+var currentTab = ''
+var isInProjectWindow = false
+var hasFilterHeader = false
 
 tabs = ([
   document.getElementsByName(tabsEnum.home),
@@ -12,18 +12,18 @@ pages = ([
   document.getElementsByName(pagesEnum.keys().next().value),
 ])
 
-var mainContent = document.getElementById("main-content");
-var pageTitle = document.getElementById('page-title');
-var pageTitleText = document.getElementById('page-title-text');
-var headerMenuButton = document.getElementById('header-menu-button');
-var headerMenuDropdown = document.getElementById('header-menu-dropdown');
+var mainContent = document.getElementById("main-content")
+var pageTitle = document.getElementById('page-title')
+var pageTitleText = document.getElementById('page-title-text')
+var headerMenuButton = document.getElementById('header-menu-button')
+var headerMenuDropdown = document.getElementById('header-menu-dropdown')
 
 function updateMainContent(data) {
-  cleanupResources();
-  scrollToTheTop();
+  scrollToTheTop()
+  cleanupResources()
   cleanupSignal.cleanup()
-  mainContent.replaceChildren(document.createRange().createContextualFragment(data));
-  loadIncludes();
+  mainContent.replaceChildren(document.createRange().createContextualFragment(data))
+  loadIncludes()
 }
 
 /**
@@ -33,61 +33,61 @@ function updateMainContent(data) {
  */
 function loadPage(pageName, isWindowPop = false) {
   if(!doesPageExist(pageName)) {
-    loadPage(tabsEnum.home);
-    return;
-  };
+    loadPage(tabsEnum.home)
+    return
+  }
 
   if(Object.values(tabsEnum).includes(pageName)) {
-    tabName = pageName;
+    tabName = pageName
 
     if (tabName === currentTab && !isInProjectWindow) {
-      scrollToTheTop();
-      if(hasFilterHeader) closeFilterDropdown();
-      return;
+      scrollToTheTop()
+      if(hasFilterHeader) closeFilterDropdown()
+      return
     } else {
-      currentTab = tabName;
+      currentTab = tabName
     }
 
-    const path = `tabs/${tabName}.html`;
+    const path = `tabs/${tabName}.html`
 
     fetch(path)
       .then(response => response.text())
       .then(data => {
-        pageTitleText.innerHTML = "";
-        pageTitle.classList.remove('active');
-        if(!isWindowPop) history.pushState({page: tabName}, tabName, tabName);
-        updateMainContent(data);
-        updateTabPageNav(tabName);
+        pageTitleText.innerHTML = ""
+        pageTitle.classList.remove('active')
+        if(!isWindowPop) history.pushState({page: tabName}, tabName, tabName)
+        updateMainContent(data)
+        updateTabPageNav(tabName)
       })
       .catch(err => {
-        console.error("Error loading the content: ", err);
+        console.error("Error loading the content: ", err)
       });
   } else {
-    var folder = '';
-    var currEnum = null;
+    var folder = ''
+    var currEnum = null
 
     if(pagesEnum.has(pageName)) {
-      folder = 'pages/';
-      updateTabPageNav(pagesEnum.keys().next().value);
-      currEnum = pagesEnum.get(pageName);
+      folder = 'pages/'
+      updateTabPageNav(pagesEnum.keys().next().value)
+      currEnum = pagesEnum.get(pageName)
     } else if (projectsEnum.has(pageName)) {
-      folder = 'project-pages/';
-      updateTabPageNav(tabsEnum.projects);
-      currEnum = projectsEnum.get(pageName);
+      folder = 'project-pages/'
+      updateTabPageNav(tabsEnum.projects)
+      currEnum = projectsEnum.get(pageName)
     }
 
-    const path = `${folder}${pageName}.html`;
+    const path = `${folder}${pageName}.html`
 
     fetch(path)
     .then(response => response.text())
     .then(data => {
       pageTitleText.innerHTML = currEnum; pageTitle.classList.add('active')
-      if(!isWindowPop) history.pushState({page: pageName}, pageName, pageName);
-      updateMainContent(data);
-      isInProjectWindow = true;
+      if(!isWindowPop) history.pushState({page: pageName}, pageName, pageName)
+      updateMainContent(data)
+      isInProjectWindow = true
     })
     .catch(error => {
-      console.error("Error loading project:", error);
+      console.error("Error loading project:", error)
     });
   }
 }
@@ -96,7 +96,11 @@ function loadPage(pageName, isWindowPop = false) {
  * Scrolls the page to the top.
  */
 function scrollToTheTop() {
-  window.scrollTo(0, 0);
+  window.scrollTo({
+    top: 0,
+    left: 9,
+    behavior: "instant"
+  })
 }
 
 function openHeaderMenuDropdown() {
@@ -112,7 +116,7 @@ document.addEventListener('click', (e) => {
   if (headerMenuDropdown.classList.contains('show') &&
       !headerMenuDropdown.contains(e.target) &&
       !headerMenuButton.contains(e.target)) {
-    openHeaderMenuDropdown();
+    openHeaderMenuDropdown()
   }
 });
 
@@ -120,8 +124,8 @@ document.addEventListener('click', (e) => {
  * Cleans all resources to avoid memory leaks.
  */
 function cleanupResources() {
-  isInProjectWindow = false;
-  hasFilterHeader = false;
+  isInProjectWindow = false
+  hasFilterHeader = false
 }
 
 /**
@@ -135,29 +139,29 @@ function doesPageExist(pageName) {
     Object.values(tabsEnum).includes(pageName) ||
     pagesEnum.has(pageName) ||
     projectsEnum.has(pageName)
-  ) return true;
-  return false;
+  ) return true
+  return false
 }
 
 function updateTabPageNav(tabPageName) {
-  tabs.forEach(t => t.forEach(y => y.classList.remove("active")));
-  pages.forEach(p => p.forEach(y => y.classList.remove("active")));
-  document.getElementsByName(tabPageName).forEach(e => e.classList.add("active"));
+  tabs.forEach(t => t.forEach(y => y.classList.remove("active")))
+  pages.forEach(p => p.forEach(y => y.classList.remove("active")))
+  document.getElementsByName(tabPageName).forEach(e => e.classList.add("active"))
 }
 
 window.onpopstate = function(event) {
-  const page = event.state.page;
+  const page = event.state.page
   if (Object.values(tabsEnum).includes(page) || pagesEnum.has(page) || projectsEnum.has(page)) {
-    loadPage(page, true);
+    loadPage(page, true)
   } else {
-    loadPage(tabsEnum.home, true);
+    loadPage(tabsEnum.home, true)
   }
 };
 
 function loadIncludes() {
   mainContent.querySelectorAll("[data-include]").forEach(async (element) => {
-    const file = element.getAttribute("data-include");
-    const html = await fetch(file).then(template => template.text());
-    element.outerHTML = html;
+    const file = element.getAttribute("data-include")
+    const html = await fetch(file).then(template => template.text())
+    element.outerHTML = html
   });
 }

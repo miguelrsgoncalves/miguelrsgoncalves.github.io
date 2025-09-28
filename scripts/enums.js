@@ -30,3 +30,7 @@ const projectsEnum = new Map([
     ["webgl-train-game", "WebGL Train"],
     ["well-of-wandering", "Well of Wandering"],
 ]);
+
+const paths = {
+
+}
