@@ -7,7 +7,7 @@
         "software": ["Godot"],
         "description": "Provides a manager to define and customize a single centralized custom global light() function shared across all or chosen shaders in the project.",
         "misc": [""],
-        "pageName": "limbo-gaol"
+        "pageName": "cglf-custom-global-light-function"
     },
     {
         "image": "../assets/images/limbo_gaol_thumbnail",

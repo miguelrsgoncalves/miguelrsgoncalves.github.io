@@ -11,11 +11,12 @@ const pagesEnum = new Map([
 /**
  * Used for having the title of the project when loading a page.
  * 
- * Everytime a project title is updated it needs to be updated here and in the projects.json
+ * Every time a project title is updated it needs to be updated here and in the projects.json
  */
 const projectsEnum = new Map([
     ["abyssal-descent", "Abyssal Descent: SCP-455"],
     ["chat95", "Chat95"],
+    ["cglf-custom-global-light-function", "CGLF — Custom Global Light Function"],
     ["god-simulator", "Hand of God"],
     ["grass-field", "Sea Above Water"],
     ["limbo-gaol", "Limbo's Gaol"],

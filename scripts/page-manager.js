@@ -42,7 +42,6 @@ function navigate(destination, isBrowserHistory = false) {
  * Load selected page
  */
 function loadPage(pageName, isWindowPop = false) {
-
   if(Object.values(tabsEnum).includes(pageName)) {
     tabName = pageName
 
@@ -119,11 +118,9 @@ function toggleHeaderMenuDropdown() {
   }
 }
 
-
-
 /**
- * Find if pageName exists in database of tabs and pages names.
- * @param {String} pageName 
+ * Find if destination exists in database of destination names.
+ * @param {String} destination 
  * @returns true if the page exists
  * @returns false if page does not exist
  */
