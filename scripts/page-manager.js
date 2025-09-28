@@ -1,6 +1,5 @@
 var currentTab = ''
 var isInProjectWindow = false
-var hasFilterHeader = false
 
 tabs = ([
   document.getElementsByName(tabsEnum.home),
@@ -19,30 +18,36 @@ var headerMenuButton = document.getElementById('header-menu-button')
 var headerMenuDropdown = document.getElementById('header-menu-dropdown')
 
 function updateMainContent(data) {
-  scrollToTheTop()
-  cleanupResources()
+  scrollToTheTop(true)
   cleanupSignal.cleanup()
   mainContent.replaceChildren(document.createRange().createContextualFragment(data))
   loadIncludes()
 }
 
 /**
- * Used to load tabs/pages
- * @param {String} pageName Name of the tab/page
- * @param {boolean} isWindowPop If the loading is done by browser history back/forward change or not. Default = false
+ * Starts the navigation process
+ * @param {string} destination Name of the destination page
+ * @param {boolean} browserHistory If the navigation is done by using the browser history feature
  */
-function loadPage(pageName, isWindowPop = false) {
-  if(!doesPageExist(pageName)) {
+function navigate(destination, isBrowserHistory = false) {
+  if(!doesDestinationExist(destination)) {
     loadPage(tabsEnum.home)
     return
   }
+
+  loadPage(destination, isBrowserHistory)
+}
+
+/**
+ * Load selected page
+ */
+function loadPage(pageName, isWindowPop = false) {
 
   if(Object.values(tabsEnum).includes(pageName)) {
     tabName = pageName
 
     if (tabName === currentTab && !isInProjectWindow) {
       scrollToTheTop()
-      if(hasFilterHeader) closeFilterDropdown()
       return
     } else {
       currentTab = tabName
@@ -53,6 +58,7 @@ function loadPage(pageName, isWindowPop = false) {
     fetch(path)
       .then(response => response.text())
       .then(data => {
+        isInProjectWindow = false
         pageTitleText.innerHTML = ""
         pageTitle.classList.remove('active')
         if(!isWindowPop) history.pushState({page: tabName}, tabName, tabName)
@@ -93,17 +99,18 @@ function loadPage(pageName, isWindowPop = false) {
 }
 
 /**
- * Scrolls the page to the top.
+ * Scrolls the page to the top
+ * @param {*} instant — true if the scroll should be instant
  */
-function scrollToTheTop() {
-  window.scrollTo({
-    top: 0,
-    left: 9,
-    behavior: "instant"
+function scrollToTheTop(instant) {
+  var behavior = "auto"
+  if (instant) behavior = "instant"
+  window.scrollTo(0, 0, {
+    behavior: behavior
   })
 }
 
-function openHeaderMenuDropdown() {
+function toggleHeaderMenuDropdown() {
   if(headerMenuDropdown.classList.contains('show')) {
     headerMenuDropdown.classList.remove('show')
   }
@@ -112,21 +119,7 @@ function openHeaderMenuDropdown() {
   }
 }
 
-document.addEventListener('click', (e) => {
-  if (headerMenuDropdown.classList.contains('show') &&
-      !headerMenuDropdown.contains(e.target) &&
-      !headerMenuButton.contains(e.target)) {
-    openHeaderMenuDropdown()
-  }
-});
 
-/**
- * Cleans all resources to avoid memory leaks.
- */
-function cleanupResources() {
-  isInProjectWindow = false
-  hasFilterHeader = false
-}
 
 /**
  * Find if pageName exists in database of tabs and pages names.
@@ -134,11 +127,11 @@ function cleanupResources() {
  * @returns true if the page exists
  * @returns false if page does not exist
  */
-function doesPageExist(pageName) {
+function doesDestinationExist(destination) {
   if(
-    Object.values(tabsEnum).includes(pageName) ||
-    pagesEnum.has(pageName) ||
-    projectsEnum.has(pageName)
+    Object.values(tabsEnum).includes(destination) ||
+    pagesEnum.has(destination) ||
+    projectsEnum.has(destination)
   ) return true
   return false
 }
@@ -147,6 +140,14 @@ function updateTabPageNav(tabPageName) {
   tabs.forEach(t => t.forEach(y => y.classList.remove("active")))
   pages.forEach(p => p.forEach(y => y.classList.remove("active")))
   document.getElementsByName(tabPageName).forEach(e => e.classList.add("active"))
+}
+
+function loadIncludes() {
+  mainContent.querySelectorAll("[data-include]").forEach(async (element) => {
+    const file = element.getAttribute("data-include")
+    const html = await fetch(file).then(template => template.text())
+    element.outerHTML = html
+  });
 }
 
 window.onpopstate = function(event) {
@@ -158,10 +159,10 @@ window.onpopstate = function(event) {
   }
 };
 
-function loadIncludes() {
-  mainContent.querySelectorAll("[data-include]").forEach(async (element) => {
-    const file = element.getAttribute("data-include")
-    const html = await fetch(file).then(template => template.text())
-    element.outerHTML = html
-  });
-}
+document.addEventListener('click', (e) => {
+  if (headerMenuDropdown.classList.contains('show') &&
+      !headerMenuDropdown.contains(e.target) &&
+      !headerMenuButton.contains(e.target)) {
+    toggleHeaderMenuDropdown();
+  }
+});
