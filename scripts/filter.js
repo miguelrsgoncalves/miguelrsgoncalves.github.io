@@ -1,5 +1,5 @@
-var container
-var filterGroups = {
+var container = undefined
+const filterGroups = {
   years: {
     all: "all-years",
     checkboxes: ".year-checkbox",
@@ -118,5 +118,5 @@ function resetFilter() {
 }
 
 function filterCleanup() {
-  container = null
+  container = undefined
 }

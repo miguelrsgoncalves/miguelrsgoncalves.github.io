@@ -1,12 +1,14 @@
 var dataSourcePath = undefined
 var container = undefined
 var projectsData = undefined
-var renderIndex = 0
-const renderStep = 6
+var renderIndex = undefined
+var renderStep = undefined
 var filter = undefined
 
 function projectManagerInit(path) {
     cleanupSignal.subscribe(projectManagerCleanup)
+    renderIndex = 0
+    renderStep = 6
     if(dataSourcePath != path) {
         dataSourcePath = path
         projectsData = undefined
@@ -36,10 +38,11 @@ async function getProjectData() {
 }
 
 async function populateProjects(containerId) {
+    window.removeEventListener("scroll", handleScroll)
     container = document.getElementById(containerId)
     await getProjectData()
     renderProjects()
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener("scroll", handleScroll)
 }
 
 function renderProjects() {
@@ -96,7 +99,8 @@ function filterContainsMisc(filterMisc, projectDataMisc) {
 
 function projectManagerCleanup() {
     container = undefined
-    renderIndex = 0
+    renderIndex = undefined
+    renderStep = undefined
     filter = undefined
     window.removeEventListener('scroll', handleScroll)
 }

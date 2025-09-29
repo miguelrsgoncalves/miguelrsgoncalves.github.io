@@ -99,14 +99,16 @@ function loadPage(pageName, isWindowPop = false) {
 
 /**
  * Scrolls the page to the top
- * @param {*} instant — true if the scroll should be instant
+ * @param {*} instant true if the scroll should be instant
  */
 function scrollToTheTop(instant) {
-  var behavior = "auto"
-  if (instant) behavior = "instant"
-  window.scrollTo(0, 0, {
-    behavior: behavior
-  })
+  if(instant) {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant"
+    })
+  } else window.scrollTo(0, 0)
 }
 
 function toggleHeaderMenuDropdown() {
