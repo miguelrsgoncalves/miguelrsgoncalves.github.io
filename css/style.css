@@ -4,7 +4,7 @@
   --primary-color: #ff4a46;
   --background-color: #1e1e2f;
   --secondary-bg: #2a2a40;
-  --text-color: #fff;
+  --text-base: #fff;
   --text-muted: #ccc;
   --shadow-light: rgba(0, 0, 0, 0.1);
   --shadow-dark: rgba(0, 0, 0, 0.75);
@@ -32,7 +32,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--background-color);
-  color: var(--text-color);
+  color: var(--text-base);
   line-height: 1.6;
 }
 
@@ -94,7 +94,7 @@ main {
 
   h2 {
     font-size: var(--font-size-large);
-    color: var(--text-color);
+    color: var(--text-base);
     margin-top: 30px;
   }
 
@@ -183,6 +183,13 @@ main {
 
 .vl {
   border-left: 4px solid var(--primary-color);
+  border-radius: 0;
+  width: 0;
+  height: auto;
+}
+
+.vl-thin {
+  border-left: 2px solid var(--primary-color);
   border-radius: 0;
   width: 0;
   height: auto;
@@ -344,6 +351,12 @@ main {
 
 /* ========== MEDIA ELEMENTS ========== */
 
+picture {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
 video {
   width: 100%;
   border-radius: var(--border-radius);
@@ -475,7 +488,7 @@ audio {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-color);
+  background: var(--text-base);
 }
   */
 

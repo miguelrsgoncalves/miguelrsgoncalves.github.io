@@ -7,13 +7,25 @@
         </picture>
         <div class="project-info">
             <h1>{{title}}</h1>
-            <div class="project-meta-data">
-                <h3>{{software}}</h3>
-                <h2>{{roleCategory}}</h2>
-                <h3>{{year}}</h3>
+            <div class="project-info-grid">
+                <div class="metadata-container">
+                    <div class="metadata">
+                        <h2>{{roleCategory}}</h2>
+                        <h4>{{misc}}</h4>
+                    </div>
+                    <div class="vl-thin"></div>
+                </div>
+                <div class="metadata">
+                    <p>{{description}}</p>
+                </div>
+                <div class="metadata-container">
+                    <div class="vl-thin"></div>
+                    <div class="metadata">
+                        <h3>{{year}}</h3>
+                        <h3>{{software}}</h3>
+                    </div>
+                </div>
             </div>
-            <p>{{description}}</p>
-            <h4>{{misc}}</h4>
         </div>
     </div>
 </template>

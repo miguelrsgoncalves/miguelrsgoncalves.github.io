@@ -80,7 +80,7 @@
   border: 8px solid var(--secondary-bg);
   border-radius: var(--border-radius);
   background-color: var(--secondary-bg);
-  color: var(--text-color);
+  color: var(--text-base);
   animation: slideIn 0.5s ease;
   gap: 20px;
 }
@@ -136,7 +136,7 @@
 .filter-checkbox label {
   font-size: var(--font-size-base);
   margin-left: 10px;
-  color: var(--text-color);
+  color: var(--text-base);
   transition: color 0.3s ease;
 }
 
