@@ -13,17 +13,17 @@
         "image": "../assets/images/limbo_gaol_thumbnail",
         "title": "Limbo's Gaol",
         "year": "2025",
-        "roleCategory": ["Master Thesis"],
-        "software": ["Godot"],
-        "description": "Explore the Limbo's Gaol as one of 4 protagonists!",
-        "misc": ["Master Thesis"],
+        "roleCategory": ["Solo Dev"],
+        "software": ["Godot", "Blender", "Reaper"],
+        "description": "Explore the Limbo's Gaol in an experimental narrative, unraveling the prison's mysteries through the eyes of one of four protagonists.",
+        "misc": ["Master Thesis", "Game Dev"],
         "pageName": "limbo-gaol"
     },
     {
         "image": "../assets/images/limbo_gaol_thumbnail",
         "title": "The Player's Eye",
         "year": "2025",
-        "roleCategory": ["Master Thesis"],
+        "roleCategory": ["Research"],
         "software": ["LaTeX"],
         "description": "How narrative structures and gameplay elements influence the perspective of players on video game narratives",
         "misc": ["Master Thesis"],
@@ -35,7 +35,7 @@
         "year": "2025",
         "roleCategory": ["Sound Design"],
         "software": ["Reaper", "FL Studio"],
-        "description": "You are ChatGPT. Talk with a set of wierd costumers and take care of their ordeals!",
+        "description": "You are ChatGPT. Talk with a set of weird costumers and take care of their crazy ordeals!",
         "misc": ["Game Jam", "Game Dev"],
         "pageName": "chat95"
     },
@@ -45,7 +45,7 @@
         "year": "2025",
         "roleCategory": ["Programming"],
         "software": ["HTML", "CSS", "Javascript"],
-        "description": "The Best website ever created!",
+        "description": "The best website ever created!",
         "misc": [""],
         "pageName": "personal-website"
     },
@@ -64,9 +64,9 @@
         "title": "Sea Above Water",
         "year": "2024",
         "roleCategory": ["Technical Art"],
-        "software": ["Unreal Engine 5"],
-        "description": "Vast Stylized grass field made inside Unreal Engine 5, made to be performant and dense.",
-        "misc": [""],
+        "software": ["Unreal Engine 5", "Blender"],
+        "description": "Vast Stylized grass field made inside Unreal Engine 5, designed to be performant and dense.",
+        "misc": ["Game Dev"],
         "pageName": "grass-field"
     },
     {
@@ -75,7 +75,7 @@
         "year": "2024",
         "roleCategory": ["Sound Design"],
         "software": ["Reaper", "FMOD"],
-        "description": "You are part of a rescue team which mission is extract a previous team from a cargo ship. Be careful though, the lost souls are uneasy.",
+        "description": "You are part of a rescue team which mission is to extract a previous team from a cargo ship. Be careful though, the lost souls are uneasy.",
         "misc": ["University Project", "Game Dev"],
         "pageName": "abyssal-descent"
     },
@@ -85,7 +85,7 @@
         "year": "2024",
         "roleCategory": ["Animation"],
         "software": ["Maya"],
-        "description": "Follow Anya as she escapes a trio of relenthless goons, Oscar, Manuel and Joseph, finding her way through a weird and confusing system of sewer pipes.",
+        "description": "Follow Anya as she escapes a trio of relentless goons, Oscar, Manuel and Joseph, finding her way through a weird and confusing system of sewer pipes.",
         "misc": ["University Project"],
         "pageName": "narrow-escape"
     },
@@ -95,7 +95,7 @@
         "year": "2024",
         "roleCategory": ["Sound Design"],
         "software": ["FL Studio"],
-        "description": "Go through a dungeon while you go insane. Things might change.",
+        "description": "Play through an unusual dungeon while trying to not lose your own mind. Things might change.",
         "misc": ["Game Jam", "Game Dev"],
         "pageName": "paranoia"
     },
@@ -105,7 +105,7 @@
         "year": "2024",
         "roleCategory": ["Sound Design"],
         "software": ["Reaper"],
-        "description": "An audio-only adaptation of the PAPERS, PLEASE - The Short Film by Nikita Ordynskiy.",
+        "description": "A spatial audio-only adaptation of the PAPERS, PLEASE - The Short Film by Nikita Ordynskiy. Experience a day of an Arstotzka's border officer's life.",
         "misc": ["University Project"],
         "pageName": "papers-please-the-short-film-spatial-audio-only-adaptation"
     },
@@ -113,9 +113,9 @@
         "image": "../assets/images/play_with_me_thumbnail",
         "title": "PLAY WITH ME",
         "year": "2024",
-        "roleCategory": ["Gameplay Programming"],
+        "roleCategory": ["Programming"],
         "software": ["Unreal Engine 5"],
-        "description": "You are a little toy soldier. Survive the Demon Baby until it's mother comes back.",
+        "description": "You are a little toy soldier. You find yourself imprisoned inside the baby's bedroom. Survive your demonic company until it's mother comes home. ",
         "misc": ["Game Jam", "Game Dev"],
         "pageName": "play-with-me"
     },
@@ -125,7 +125,7 @@
         "year": "2023",
         "roleCategory": ["Sound Design"],
         "software": ["P5"],
-        "description": "Create generative music by manipulating the elements of the Well of Wandering.",
+        "description": "Let the Well of Wandering take you on a journey down the vibes of generative music.",
         "misc": ["University Project"],
         "pageName": "well-of-wandering"
     },
@@ -135,7 +135,7 @@
         "year": "2023",
         "roleCategory": ["Prototype Game"],
         "software": ["P5"],
-        "description": "Step on the shoes of God and watch over and aid a civilization in their survival. Or their demise.",
+        "description": "Step into the shoes of God and watch over and aid a civilization in their survival... Or their demise...",
         "misc": ["University Project"],
         "pageName": "god-simulator"
     },
@@ -155,7 +155,7 @@
         "year": "2022",
         "roleCategory": ["Graphics Programming"],
         "software": ["WebGL"],
-        "description": "Prototype game where you can watch a train locomotive go around a circle train track, stopping at the various train stations for a time.",
+        "description": "Prototype game where you can watch a train locomotive go around a circle train track, stopping at the various train stations along the way.",
         "misc": ["University Project"],
         "pageName": "webgl-train-game"
     }
