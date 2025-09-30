@@ -47,9 +47,11 @@
 
   h1 {
     text-align: center;
+    margin: 0;
+    padding: 0;
   }
-
-  h1, h2, h3, h4 {
+  
+  h2, h3, h4 {
     text-wrap-mode: nowrap;
     margin: 0;
     padding: 0;
@@ -62,34 +64,42 @@
   h3 {
     color: var(--text-base);
   }
-
-  p {
-    margin: 0;
-    padding: 0;
-  }
-
+  
   .project-info-grid {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     height: 100%;
     gap: 20px;
     margin: 20px;
-
+    margin-top: 0;
+    
   }
-
+  
   .metadata-container {
     display: flex;
     flex-direction: row;
+    flex-grow: 0;
     gap: 20px;
   }
-
+  
   .metadata {
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: space-between;
     text-align: start;
+    flex-grow: 0;
+    flex-basis: content;
+  }
+  
+  .description {
+    display: flex;
+    flex-grow: 1;
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
   }
 }
 
