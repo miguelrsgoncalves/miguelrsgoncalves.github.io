@@ -511,3 +511,69 @@ audio {
   -moz-user-select: none;
   -ms-user-select: none;
 }
+
+/* ========== WINDOW SIZE ADAPTATION ========== */
+
+.wide-screen {
+  display: block;
+}
+
+.mid-screen {
+  display: none;
+  * {
+      display: none;
+    }
+}
+
+.narrow-screen {
+  display: none;
+  * {
+      display: none;
+    }
+}
+
+@media (max-width: 1600px) {
+  .wide-screen {
+    display: none;
+    * {
+      display: none;
+    }
+  }
+
+  .mid-screen {
+    display: block;
+    * {
+      display: block;
+    }
+  }
+
+  .narrow-screen {
+    display: none;
+    * {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .wide-screen {
+    display: none;
+    * {
+      display: none;
+    }
+  }
+
+  .mid-screen {
+    display: none;
+    * {
+      display: none;
+    }
+  }
+
+  .narrow-screen {
+    display: block;
+    * {
+      display: block;
+    }
+  }
+}
