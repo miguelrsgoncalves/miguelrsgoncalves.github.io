@@ -23,6 +23,10 @@
   --padding-main: 20px;
   --border-radius: 20px;
   --border-radius-inner: 16.5px;
+
+  /* Sizes */
+  --medium-screen: 1600px;
+  --narrow-screen: 800px;
 }
 
 /* ========== GENERAL STYLES ========== */
@@ -514,66 +518,23 @@ audio {
 
 /* ========== WINDOW SIZE ADAPTATION ========== */
 
-.wide-screen {
-  display: block;
-}
-
-.mid-screen {
-  display: none;
-  * {
-      display: none;
-    }
-}
-
-.narrow-screen {
-  display: none;
-  * {
-      display: none;
-    }
-}
-
-@media (max-width: 1600px) {
-  .wide-screen {
-    display: none;
-    * {
-      display: none;
-    }
-  }
-
-  .mid-screen {
-    display: block;
-    * {
-      display: block;
-    }
-  }
-
-  .narrow-screen {
-    display: none;
-    * {
-      display: none;
-    }
+/* On WIDE screens (1600px and up): Hide narrow and medium elements */
+@media screen and (min-width: 1600px) {
+  .hide-wide {
+    display: none !important;
   }
 }
 
-@media (max-width: 1024px) {
-  .wide-screen {
-    display: none;
-    * {
-      display: none;
-    }
+/* On MEDIUM screens (800px to 1600px): Hide narrow and wide elements */
+@media screen and (max-width: 1600px) and (min-width: 800px) {
+  .hide-medium {
+    display: none !important;
   }
+}
 
-  .mid-screen {
-    display: none;
-    * {
-      display: none;
-    }
-  }
-
-  .narrow-screen {
-    display: block;
-    * {
-      display: block;
-    }
+/* On NARROW screens (max-width 800px): Hide medium and wide elements */
+@media screen and (max-width: 800px) {
+  .hide-narrow {
+    display: none !important;
   }
 }
