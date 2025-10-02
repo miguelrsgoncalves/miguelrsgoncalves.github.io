@@ -5,26 +5,20 @@
             <source srcset="{{image}}.webp" type="image/webp">
             <img src="{{image}}.png" alt="{{title}}" loading="lazy">
         </picture>
-        <div class="project-info">
+        <div class="project-metadata">
             <h1>{{title}}</h1>
-            <div class="project-info-grid">
-                <div class="vl-thin"></div>
-                <div class="metadata">
-                    <h2>{{roleCategory}}</h2>
-                    <h4>{{misc}}</h4>
+            <div class="project-metadata-container">
+                <div class="project-metadata-grid">
+                    <div class="category-misc-container">
+                        <h2 class="category">{{roleCategory}}</h2>
+                        <h4 class="misc">{{misc}}</h4>
+                    </div>
+                    <div class="vl-thin"></div>
+                    <h3 class="year">{{year}}</h3>
+                    <div class="vl-thin"></div>
+                    <h3 class="software">{{software}}</h3>
                 </div>
-                <div class="vl-thin"></div>
-                <div class="metadata">
-                    <h3>{{year}}</h3>
-                </div>
-                <div class="vl-thin"></div>
-                <div class="metadata">
-                    <h3>{{software}}</h3>
-                </div>
-                <div class="vl-thin"></div>
-                <div class="metadata description">
-                    <p>{{description}}</p>
-                </div>
+                <p class="description">{{description}}</p>
             </div>
         </div>
     </div>

@@ -73,7 +73,7 @@ function replacePlaceholders(template, data) {
     return template.replace(/{{(.*?)}}/g, (match, p1) => {
         const key = p1.trim()
         if ((key === 'software' || key === 'roleCategory' || key === 'misc') && Array.isArray(data[key])) {
-            return data[key].join('<br>')
+            return data[key].map(item => `<span>${item}</span>`).join('')
         }
         return data[key] || ''
     })
