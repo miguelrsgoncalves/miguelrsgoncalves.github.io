@@ -6,7 +6,9 @@
             <img src="{{image}}.png" alt="{{title}}" loading="lazy">
         </picture>
         <div class="project-metadata">
-            <h1>{{title}}</h1>
+            <div class="title">
+                <h1 class="scrollable">{{title}}</h1>
+            </div>
             <div class="project-metadata-container">
                 <div class="project-metadata-grid">
                     <div class="category-misc-container">
@@ -16,7 +18,9 @@
                     <div class="vl-thin"></div>
                     <h3 class="year">{{year}}</h3>
                     <div class="vl-thin"></div>
-                    <h3 class="software">{{software}}</h3>
+                    <div class="software">
+                        <h3 class="scrollable">{{software}}</h3>
+                    </div>
                 </div>
                 <p class="description">{{description}}</p>
             </div>

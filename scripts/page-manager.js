@@ -165,3 +165,25 @@ document.addEventListener('click', (e) => {
     toggleHeaderMenuDropdown();
   }
 });
+
+window.addEventListener("resize", () => {
+  initScrollables()
+})
+
+function initScrollables() {
+  const velocity = 100
+    document.querySelectorAll(".scrollable").forEach(el => {
+        let overflow = el.scrollWidth - el.clientWidth
+        if(overflow > 0) {
+          const rawDuration = velocity / Math.pow(overflow, 1)
+          const duration = Math.min(Math.min((rawDuration, 2), 15))
+          el.style.setProperty("--scroll-distance", `-${overflow}px`)
+          el.style.setProperty("--scroll-duration", `${duration}s`)
+          el.classList.add("scroll")
+        }
+        else {
+          el.classList.remove("scroll")
+          el.style.removeProperty("--scroll-distance")
+        }
+    })
+}

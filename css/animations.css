@@ -54,3 +54,25 @@
     transform: rotate(180deg);
   }
 }
+
+.scroll {
+  animation: scroll-text var(--scroll-duration) ease-in-out infinite alternate;
+}
+
+@keyframes scroll-text {
+  0%   { transform: translateX(0%); }
+  10%   { transform: translateX(0%); }
+  90% { transform: translateX(var(--scroll-distance)); }
+  100% { transform: translateX(var(--scroll-distance)); }
+}
+
+.v-scroll {
+  animation: v-scroll var(--scroll-duration) ease-in-out infinite alternate;
+}
+
+@keyframes v-scroll {
+  0%   { transform: translateY(0%); }
+  10%   { transform: translateY(0%); }
+  90% { transform: translateY(var(--scroll-distance)); }
+  100% { transform: translateY(var(--scroll-distance)); }
+}
