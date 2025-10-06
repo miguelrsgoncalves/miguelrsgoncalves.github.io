@@ -60,6 +60,16 @@
         "pageName": "sisyphus-climb"
     },
     {
+        "image": "../assets/images/hums_of_the_soul_first_light_thumbnail",
+        "title": "Hums of the Soul — First Light",
+        "year": "2024",
+        "roleCategory": ["Solo Dev"],
+        "software": ["Unreal Engine 5", "Krita", "Reaper"],
+        "description": "Fight for your right to be the true Sisyphus and carry the boulder to the top in a legendary duel!",
+        "misc": ["Game Dev"],
+        "pageName": "hums-of-the-soul-first-light"
+    },
+    {
         "image": "../assets/images/stylized_grass_field_thumbnail",
         "title": "Sea Above Water",
         "year": "2024",
