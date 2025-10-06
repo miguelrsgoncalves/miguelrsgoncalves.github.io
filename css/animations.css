@@ -56,7 +56,7 @@
 }
 
 .scroll {
-  animation: scroll-text var(--scroll-duration) ease-in-out infinite alternate;
+  animation: scroll-text 5s ease-in-out infinite alternate;
 }
 
 @keyframes scroll-text {
