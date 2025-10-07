@@ -171,19 +171,27 @@ window.addEventListener("resize", () => {
 })
 
 function initScrollables() {
-  const velocity = 100
-    document.querySelectorAll(".scrollable").forEach(el => {
-        let overflow = el.scrollWidth - el.clientWidth
-        if(overflow > 0) {
-          const rawDuration = velocity / Math.pow(overflow, 1)
-          const duration = Math.min(Math.min((rawDuration, 2), 15))
-          el.style.setProperty("--scroll-distance", `-${overflow}px`)
-          el.style.setProperty("--scroll-duration", `${duration}s`)
-          el.classList.add("scroll")
-        }
-        else {
-          el.classList.remove("scroll")
-          el.style.removeProperty("--scroll-distance")
-        }
-    })
+  document.querySelectorAll(".h-scrollable").forEach(el => {
+      let overflow = el.scrollWidth - el.clientWidth
+      if(overflow > 0) {
+        el.style.setProperty("--scroll-distance", `-${overflow}px`)
+        el.classList.add("h-scroll")
+      }
+      else {
+        el.classList.remove("h-scroll")
+        el.style.removeProperty("--scroll-distance")
+      }
+  })
+
+  document.querySelectorAll(".v-scrollable").forEach(el => {
+      let overflow = el.scrollHeight - el.clientHeight
+      if(overflow > 0) {
+        el.style.setProperty("--scroll-distance", `-${overflow}px`)
+        el.classList.add("v-scroll")
+      }
+      else {
+        el.classList.remove("v-scroll")
+        el.style.removeProperty("--scroll-distance")
+      }
+  })
 }

@@ -55,7 +55,7 @@
   }
 }
 
-.scroll {
+.h-scroll {
   animation: scroll-text 5s ease-in-out infinite alternate;
 }
 
