@@ -15,7 +15,7 @@ function projectManagerInit(path) {
     }
 }
 
-async function getProjectData() {
+async function getProjectsData() {
     if(!Array.isArray(projectsData) || projectsData.length == 0) {
         projectsData = []
         try {
@@ -40,9 +40,19 @@ async function getProjectData() {
 async function populateProjects(containerId) {
     window.removeEventListener("scroll", handleScroll)
     container = document.getElementById(containerId)
-    await getProjectData()
+    await getProjectsData()
     renderProjects()
     window.addEventListener("scroll", handleScroll)
+}
+
+async function insertProjects() {
+    await getProjectsData()
+    
+    document.querySelectorAll('[name="single-project-card"]').forEach(el => {
+        const pageName = el.getAttribute("pageName")
+        const projectCard = projectsData.find(element => element?.data?.pageName === pageName)
+        el.replaceWith(document.createRange().createContextualFragment(projectCard.html))
+    })
 }
 
 function renderProjects() {

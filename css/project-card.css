@@ -111,12 +111,14 @@
   .category {
     display: flex;
     flex-direction: column;
+    text-align: start;
   }
 
   .misc {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    text-align: start;
   }
 
   .year {
@@ -130,10 +132,9 @@
     
     h3 {
       display: flex;
-      flex-grow: 0;
-      flex-shrink: 0;
-      flex-direction: column;
-      gap: 0;
+      flex-wrap: wrap;
+      flex-direction: row;
+      gap: 1em;
 
     }
   }
