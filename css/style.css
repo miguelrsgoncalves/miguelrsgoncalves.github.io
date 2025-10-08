@@ -362,6 +362,48 @@ main {
   }
 }
 
+/* ========== Project Info Section ========== */
+
+.project-info-section {
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .tab {
+    flex: 1;
+    color: var(--primary-color);
+    padding: 4px 8px;
+    font-weight: var(--font-weight-bold);
+    background-color: var(--secondary-bg);
+    border-radius: var(--border-radius);
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    text-align: center;
+  }
+  
+  .tab.left {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .tab.center {
+    border-radius: 0;
+  }
+
+  .tab.right {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .content {
+    background-color: var(--secondary-bg);
+    border-bottom-right-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+  }
+}
+
 /* ========== MEDIA ELEMENTS ========== */
 
 picture {

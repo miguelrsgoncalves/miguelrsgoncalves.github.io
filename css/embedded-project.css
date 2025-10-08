@@ -30,7 +30,7 @@
   animation: slideIn 0.5s ease;
 
   .start-button, .restart-button{
-    display: inline-block;
+    flex: 1;
     font-weight: bold;
     text-align: center;
     vertical-align: middle;
