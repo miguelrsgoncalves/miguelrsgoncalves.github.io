@@ -19,7 +19,7 @@ const projectsEnum = new Map([
     ["cglf-custom-global-light-function", "CGLF — Custom Global Light Function"],
     ["god-simulator", "Hand of God"],
     ["grass-field", "Sea Above Water"],
-    ["hums-of-the-soul-first-light", "Hums of the Soul — First Light"],
+    ["hums-of-the-soul-first-light", "Hums of the Soul: First Light"],
     ["limbo-gaol", "Limbo's Gaol"],
     ["narrow-escape", "Narrow Escape"],
     ["papers-please-the-short-film-spatial-audio-only-adaptation", "PAPERS, PLEASE - The Short Film | Spatial Audio-Only Adaptation"],
