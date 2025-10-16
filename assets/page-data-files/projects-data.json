@@ -1,5 +1,15 @@
 [
     {
+        "image": "../assets/images/hums_of_the_soul_first_light_thumbnail",
+        "title": "Hums of the Soul",
+        "year": "2024",
+        "roleCategory": ["Solo Dev"],
+        "software": ["Godot", "Pencil2D", "Reaper"],
+        "description": "This project was created to be a 14 day challenge. It was abandoned and never released, but still its a nice look into the past. Maybe even a start to something in the future.",
+        "misc": ["Game Dev"],
+        "pageName": "hums-of-the-soul"
+    },
+    {
         "image": "../assets/images/cglf_thumbnail",
         "title": "CGLF — Custom Global Light Function",
         "year": "2025",
