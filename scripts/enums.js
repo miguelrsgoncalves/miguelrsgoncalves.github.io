@@ -19,6 +19,7 @@ const projectsEnum = new Map([
     ["cglf-custom-global-light-function", "CGLF — Custom Global Light Function"],
     ["god-simulator", "Hand of God"],
     ["grass-field", "Sea Above Water"],
+    ["hums-of-the-soul", "Hums of the Soul"],
     ["hums-of-the-soul-first-light", "Hums of the Soul: First Light"],
     ["limbo-gaol", "Limbo's Gaol"],
     ["narrow-escape", "Narrow Escape"],
