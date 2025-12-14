@@ -4,10 +4,20 @@
         "title": "Hums of the Soul",
         "year": "2024",
         "roleCategory": ["Solo Dev"],
-        "software": ["Godot", "Pencil2D", "Reaper"],
-        "description": "Gather all your friends and make your own music to guide you through all your troubles and defeat your enemies!",
-        "misc": ["Game Dev"],
+        "software": ["Godot", "Krita", "Reaper"],
+        "description": "MAKE YOUR OWN MUSIC AND FIGHT WITH YOUR OWN MUSIC! Gather all your friends and make your own music to guide you through all your troubles and defeat your enemies!",
+        "misc": ["Game Dev", "Development"],
         "pageName": "hums-of-the-soul"
+    },
+    {
+        "image": "../assets/images/tileset_padder_thumbnail",
+        "title": "Tileset Padder",
+        "year": "2025",
+        "roleCategory": ["Krita Plugin"],
+        "software": ["Krita", "Python"],
+        "description": "A Krita plugin that allows to add padding and anti-bleeding pixels to any tileset!",
+        "misc": [""],
+        "pageName": "tileset-padder"
     },
     {
         "image": "../assets/images/cglf_thumbnail",
@@ -48,6 +58,16 @@
         "description": "You are ChatGPT. Talk with a set of weird costumers and take care of their crazy ordeals!",
         "misc": ["Game Jam", "Game Dev"],
         "pageName": "chat95"
+    },
+    {
+        "image": "../assets/images/pigment_thumbnail",
+        "title": "Pigment",
+        "year": "2024",
+        "roleCategory": ["Solo Dev"],
+        "software": ["Godot", "Krita"],
+        "description": "",
+        "misc": ["Game Dev", "Development"],
+        "pageName": "pigment"
     },
     {
         "image": "../assets/images/personal_website_thumbnail",

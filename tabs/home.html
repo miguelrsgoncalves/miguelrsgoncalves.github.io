@@ -1,4 +1,5 @@
 <script defer>
+    videoObserver.init()
   projectManagerInit('assets/page-data-files/projects-data.json')
   insertProjects()
 </script>
@@ -6,15 +7,11 @@
 <section id="home" class="tab-content active">
     <div class="tab-page-content">
         <h1>Hums of the Soul</h1>
+        
+            <video autoplay controls muted loop preload="metadata"  playsinline controlsList="nodownload" disablePictureInPicture data-src="../assets/videos/hums-of-the-soul/showcase.mp4"></video>
+        
+            <p>Hums of the Soul is the current project in development. Its a game where the player will be able to create music and fight with it, using a feature rich integrated DAW made fully inside Godot!</p>
+            <div name="single-project-card" pageName="hums-of-the-soul"></div>
     </div>
-
-    <p>
-        Hums of the Soul is 2D game that lets you build your own music just as you like it to fight your worst enemies!
-    </p>
-
-    <p>
-        The game has a dedicated DAW to enable your to make your own music just like you want it. Sound effects, like reverb or bass boost add unique and powerful effects to your attacks!
-    </p>
-    <div name="single-project-card" pageName="hums-of-the-soul"></div>
 
 </section>
