@@ -195,3 +195,25 @@ function initScrollables() {
       }
   })
 }
+
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a');
+
+  if (link) {
+    const href = link.getAttribute('href');
+
+    if (e.button === 0 && !e.ctrlKey && !e.shiftKey && !e.metaKey) {
+      const destination = href.startsWith('/') ? href.substring(1) : href;
+
+      if (doesDestinationExist(destination)) {
+        e.preventDefault();
+        
+        if (link.closest('#header-menu-dropdown')) {
+          toggleHeaderMenuDropdown();
+        }
+        
+        navigate(destination);
+      }
+    }
+  }
+});

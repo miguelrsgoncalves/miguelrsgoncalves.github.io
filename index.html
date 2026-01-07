@@ -46,22 +46,22 @@
       </span>
       <nav>
         <ul>
-          <li name="home"class="clickable" onclick="navigate(tabsEnum.home)"><span>Home</span></li>
-          <li name="projects" class="adaptable-extended clickable" onclick="navigate(tabsEnum.projects)"><span>Projects</span></li>
-          <li name="about" class="clickable" onclick="navigate(tabsEnum.about)"><span>About</span></li>
+          <a name="home"class="clickable"href="/home"><span>Home</span></a>
+          <a name="projects" class="adaptable-extended clickable" href="/projects"><span>Projects</span></a>
+          <a name="about" class="clickable" href="/about"><span>About</span></a>
         </ul>
       </nav>
       <nav>
         <ul>
-          <li id="page-title" class="page-title clickable" onclick="scrollToTheTop()"><span id="page-title-text"></span></li>
+          <a id="page-title" class="page-title clickable" onclick="scrollToTheTop()"><span id="page-title-text"></span></a>
         </ul>
       </nav>
       <i id="header-menu-button" class="icon-menu header-menu-button clickable" onclick="toggleHeaderMenuDropdown()"></i>
 
       <div id="header-menu-dropdown" class="header-menu-dropdown">
         <ul>
-          <li name="projects" class="adaptable-shrinked clickable" onclick="navigate(tabsEnum.projects); toggleHeaderMenuDropdown()"><span>Projects</span></li>
-          <li name="portfolio" class="clickable" onclick="navigate('portfolio'); toggleHeaderMenuDropdown()"><span>Portfolio</span></li>
+          <a name="projects" class="adaptable-shrinked clickable" href="/projects">Projects</span></a>
+          <a name="portfolio" class="clickable" href="/portfolio">Portfolio</span></a>
         </ul>
       </div>
     </header>

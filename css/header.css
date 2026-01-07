@@ -61,7 +61,7 @@ header {
     gap: 5%;
   }
 
-  li {
+  a {
     position: relative;
     transition: color 0.3s ease;
 
@@ -71,11 +71,11 @@ header {
     }
   }
 
-  li:hover span {
+  a:hover span {
     transform: translateY(-4px);
   }
   
-  li::after {
+  a::after {
     content: "";
     position: absolute;
     bottom: -2px;
@@ -86,25 +86,25 @@ header {
     transition: width 0.3s ease, left 0.3s ease;
   }
   
-  li:hover {
+  a:hover {
     color: var(--primary-color);
   }
 
-  li:hover::after {
+  a:hover::after {
     width: 25%;
     left: 37.5%;
   }
 
-  li.active {
+  a.active {
     color: var(--primary-color);
   }
 
-  li.active::after {
+  a.active::after {
     width: 100%;
     left: 0;
   }
 
-  li.active:hover::after {
+  a.active:hover::after {
     width: 75%;
     left: 12.5%;
   }
@@ -144,7 +144,7 @@ header {
       width: 100%;
     }
 
-    li {
+    a {
       display: block;
       transition: color 0.3s ease;
       text-align: start;
@@ -155,11 +155,11 @@ header {
       }
     }
 
-    li:hover span {
+    a:hover span {
       transform: translateY(-4px);
     }
     
-    li::after {
+    a::after {
       content: "";
       position: absolute;
       bottom: -2px;
@@ -169,25 +169,25 @@ header {
       transition: width 0.3s ease, left 0.3s ease;
     }
     
-    li:hover {
+    a:hover {
       color: var(--primary-color);
     }
 
-    li:hover::after {
+    a:hover::after {
       width: 75%;
       left: 0;
     }
 
-    li.active {
+    a.active {
       color: var(--primary-color);
     }
 
-    li.active::after {
+    a.active::after {
       width: 100%;
       left: 0;
     }
 
-    li.active:hover::after {
+    a.active:hover::after {
       width: 75%;
       left: 0;
     }
