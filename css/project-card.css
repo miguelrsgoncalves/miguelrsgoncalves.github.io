@@ -143,6 +143,7 @@
     text-wrap: wrap;
     color: var(--text-muted);
     font-weight: var(--font-weight-regular);
+    text-align: start;
   }
 
   @media screen and (max-width: 1600px) {

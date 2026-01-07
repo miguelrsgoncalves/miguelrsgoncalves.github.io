@@ -2,7 +2,7 @@
     {
         "image": "../assets/images/hums_of_the_soul_first_light_thumbnail",
         "title": "Hums of the Soul",
-        "year": "2024",
+        "year": "2026",
         "roleCategory": ["Solo Dev"],
         "software": ["Godot", "Krita", "Reaper"],
         "description": "MAKE YOUR OWN MUSIC AND FIGHT WITH YOUR OWN MUSIC! Gather all your friends and make your own music to guide you through all your troubles and defeat your enemies!",
@@ -65,7 +65,7 @@
         "year": "2024",
         "roleCategory": ["Solo Dev"],
         "software": ["Godot", "Krita"],
-        "description": "",
+        "description": "Pigment is a mystery.",
         "misc": ["Game Dev", "Development"],
         "pageName": "pigment"
     },
