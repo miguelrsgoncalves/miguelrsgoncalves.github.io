@@ -100,8 +100,8 @@
         "pageName": "hums-of-the-soul-first-light"
     },
     {
-        "image": "../assets/images/stylized_grass_field_thumbnail",
-        "title": "Sea Above Water",
+        "image": "../assets/projects/grass-field/images/thumbnail",
+        "title": "Grass Field",
         "year": "2024",
         "roleCategory": ["Technical Art"],
         "software": ["Unreal Engine 5", "Blender"],
