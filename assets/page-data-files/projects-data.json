@@ -180,7 +180,7 @@
         "pageName": "hand-of-god"
     },
     {
-        "image": "../assets/images/webgl_bird_game_thumbnail",
+        "image": "../assets/projects/egg-hunt/images/thumbnail",
         "title": "Egg Hunt",
         "year": "2023",
         "roleCategory": ["Graphics Programming", "Prototype Game"],
@@ -190,7 +190,7 @@
         "pageName": "egg-hunt"
     },
     {
-        "image": "../assets/images/webgl_train_game_thumbnail",
+        "image": "../assets/projects/webgl-train/images/thumbnail",
         "title": "WebGL Train",
         "year": "2022",
         "roleCategory": ["Graphics Programming"],
