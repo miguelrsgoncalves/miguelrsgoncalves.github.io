@@ -160,7 +160,7 @@
         "pageName": "play-with-me"
     },
     {
-        "image": "../assets/images/well_of_wandering_thumbnail",
+        "image": "../assets/projects/well-of-wandering/images/thumbnail",
         "title": "Well of Wandering",
         "year": "2023",
         "roleCategory": ["Sound Design"],
