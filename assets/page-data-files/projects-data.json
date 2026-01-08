@@ -1,6 +1,6 @@
 [
     {
-        "image": "../assets/images/hums_of_the_soul_first_light_thumbnail",
+        "image": "../assets/projects/hums-of-the-soul/images/thumbnail",
         "title": "Hums of the Soul",
         "year": "2026",
         "roleCategory": ["Solo Dev"],
@@ -10,7 +10,7 @@
         "pageName": "hums-of-the-soul"
     },
     {
-        "image": "../assets/images/tileset_padder_thumbnail",
+        "image": "../assets/projects/tileset-padder/images/thumbnail",
         "title": "Tileset Padder",
         "year": "2025",
         "roleCategory": ["Krita Plugin"],
@@ -20,7 +20,7 @@
         "pageName": "tileset-padder"
     },
     {
-        "image": "../assets/images/cglf_thumbnail",
+        "image": "../assets/projects/cglf/images/thumbnail",
         "title": "CGLF — Custom Global Light Function",
         "year": "2025",
         "roleCategory": ["Godot Plugin"],
@@ -50,7 +50,7 @@
         "pageName": "the-player-eye"
     },
     {
-        "image": "../assets/images/chat95_thumbnail",
+        "image": "../assets/projects/chat95/images/thumbnail",
         "title": "Chat95",
         "year": "2025",
         "roleCategory": ["Sound Design"],
@@ -90,7 +90,7 @@
         "pageName": "sisyphus-climb"
     },
     {
-        "image": "../assets/images/hums_of_the_soul_first_light_thumbnail",
+        "image": "../assets/projects/hums-of-the-soul-first-light/images/thumbnail",
         "title": "Hums of the Soul: First Light",
         "year": "2024",
         "roleCategory": ["Solo Dev"],
