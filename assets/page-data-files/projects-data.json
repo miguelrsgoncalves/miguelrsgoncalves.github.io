@@ -30,7 +30,7 @@
         "pageName": "cglf-custom-global-light-function"
     },
     {
-        "image": "../assets/images/limbo_gaol_thumbnail",
+        "image": "../assets/projects/limbo-gaol/images/thumbnail",
         "title": "Limbo's Gaol",
         "year": "2025",
         "roleCategory": ["Solo Dev"],
