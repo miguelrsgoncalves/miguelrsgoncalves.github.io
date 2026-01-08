@@ -70,7 +70,7 @@
         "pageName": "pigment"
     },
     {
-        "image": "../assets/images/personal_website_thumbnail",
+        "image": "../assets/projects/personal-website/images/thumbnail",
         "title": "Personal Website",
         "year": "2025",
         "roleCategory": ["Programming"],
