@@ -110,7 +110,7 @@
         "pageName": "grass-field"
     },
     {
-        "image": "../assets/images/abyssal_descent_thumbnail",
+        "image": "../assets/projects/abyssal-descent/images/thumbnail",
         "title": "Abyssal Descent: SCP-455",
         "year": "2024",
         "roleCategory": ["Sound Design"],
@@ -140,7 +140,7 @@
         "pageName": "paranoia"
     },
     {
-        "image": "../assets/images/papers_please_the_short_film_spatial_audio_only_adaptation_thumbnail",
+        "image": "../assets/projects/papers-please-the-short-film-spatial-audio-only-adaptation/images/thumbnail",
         "title": "PAPERS, PLEASE - The Short Film | Spatial Audio-Only Adaptation",
         "year": "2024",
         "roleCategory": ["Sound Design"],
