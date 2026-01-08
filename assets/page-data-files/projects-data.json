@@ -60,7 +60,7 @@
         "pageName": "chat95"
     },
     {
-        "image": "../assets/images/pigment_thumbnail",
+        "image": "../assets/projects/pigment/images/thumbnail",
         "title": "Pigment",
         "year": "2024",
         "roleCategory": ["Solo Dev"],
