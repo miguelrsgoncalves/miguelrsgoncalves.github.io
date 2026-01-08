@@ -120,7 +120,7 @@
         "pageName": "abyssal-descent"
     },
     {
-        "image": "../assets/images/narrow_escape_thumbnail",
+        "image": "../assets/projects/narrow-escape/images/thumbnail",
         "title": "Narrow Escape",
         "year": "2024",
         "roleCategory": ["Animation"],
@@ -170,7 +170,7 @@
         "pageName": "well-of-wandering"
     },
     {
-        "image": "../assets/images/god_simulator_thumbnail",
+        "image": "../assets/projects/hand-of-god/images/thumbnail",
         "title": "Hand of God",
         "year": "2023",
         "roleCategory": ["Prototype Game"],
