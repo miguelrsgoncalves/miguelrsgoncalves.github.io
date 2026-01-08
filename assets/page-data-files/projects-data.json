@@ -80,7 +80,7 @@
         "pageName": "personal-website"
     },
     {
-        "image": "../assets/images/sisyphus_climb_thumbnail",
+        "image": "../assets/projects/sisyphus-climb/images/thumbnail",
         "title": "Sisyphus Climb",
         "year": "2024",
         "roleCategory": ["Game Art"],
@@ -177,7 +177,7 @@
         "software": ["P5"],
         "description": "Step into the shoes of God and watch over and aid a civilization in their survival... Or their demise...",
         "misc": ["University Project"],
-        "pageName": "god-simulator"
+        "pageName": "hand-of-god"
     },
     {
         "image": "../assets/images/webgl_bird_game_thumbnail",
@@ -187,7 +187,7 @@
         "software": ["WebGL"],
         "description": "Prototype game where you play as a bird tasked with gathering eggs and dropping them on a nest.",
         "misc": ["University Project"],
-        "pageName": "webgl-bird-game"
+        "pageName": "egg-hunt"
     },
     {
         "image": "../assets/images/webgl_train_game_thumbnail",
@@ -197,6 +197,6 @@
         "software": ["WebGL"],
         "description": "Prototype game where you can watch a train locomotive go around a circle train track, stopping at the various train stations along the way.",
         "misc": ["University Project"],
-        "pageName": "webgl-train-game"
+        "pageName": "webgl-train"
     }
 ]

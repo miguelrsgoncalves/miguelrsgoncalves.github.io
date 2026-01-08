@@ -84,8 +84,17 @@ function loadPage(pageName, isWindowPop = false) {
     const path = `${folder}${pageName}.html`
 
     fetch(path)
-    .then(response => response.text())
+    .then(response => {
+        if (!response.ok) throw new Error("HTTP error " + response.status);
+        return response.text();
+    })
     .then(data => {
+      if (data.includes("<!DOCTYPE html>") || data.includes("<title>MRSG</title>")) {
+          console.error("Error: Page not found. Path was:", path);
+          // TODO: Load a dedicated 404 page here
+          return;
+      }
+
       pageTitleText.innerHTML = currEnum; pageTitle.classList.add('active')
       if(!isWindowPop) history.pushState({page: pageName}, pageName, pageName)
       updateMainContent(data)

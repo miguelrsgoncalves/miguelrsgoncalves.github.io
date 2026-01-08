@@ -17,7 +17,8 @@ const projectsEnum = new Map([
     ["abyssal-descent", "Abyssal Descent: SCP-455"],
     ["chat95", "Chat95"],
     ["cglf-custom-global-light-function", "CGLF — Custom Global Light Function"],
-    ["god-simulator", "Hand of God"],
+    ["egg-hunt", "Egg Hunt"],
+    ["hand-of-god", "Hand of God"],
     ["grass-field", "Sea Above Water"],
     ["hums-of-the-soul", "Hums of the Soul"],
     ["hums-of-the-soul-first-light", "Hums of the Soul: First Light"],
@@ -31,8 +32,7 @@ const projectsEnum = new Map([
     ["sisyphus-climb", "Sisyphus Climb"],
     ["the-player-eye", "The Player's Eye"],
     ["tileset-padder", "Tileset Padder"],
-    ["webgl-bird-game", "Egg Hunt"],
-    ["webgl-train-game", "WebGL Train"],
+    ["webgl-train", "WebGL Train"],
     ["well-of-wandering", "Well of Wandering"],
 ]);
 
