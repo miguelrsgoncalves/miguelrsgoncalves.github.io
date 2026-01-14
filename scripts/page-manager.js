@@ -31,7 +31,8 @@ function updateMainContent(data) {
  */
 function navigate(destination, isBrowserHistory = false) {
   if(!doesDestinationExist(destination)) {
-    loadPage(tabsEnum.home)
+    //loadPage(tabsEnum.home)
+    loadPage(tabsEnum.projects)
     return
   }
 
@@ -163,7 +164,8 @@ window.onpopstate = function(event) {
   if (Object.values(tabsEnum).includes(page) || pagesEnum.has(page) || projectsEnum.has(page)) {
     loadPage(page, true)
   } else {
-    loadPage(tabsEnum.home, true)
+    //loadPage(tabsEnum.home, true)
+    loadPage(tabsEnum.projects, true)
   }
 };
 

@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
         history.replaceState({}, '', '/' + path)
         loadPage(path)
     } else {
-        loadPage(tabsEnum.home)
+        //loadPage(tabsEnum.home)
+        loadPage(tabsEnum.projects)
     }
 })
