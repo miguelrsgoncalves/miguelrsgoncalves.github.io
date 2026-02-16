@@ -31,7 +31,7 @@ const projectsEnum = new Map([
     ["play-with-me", "PLAY WITH ME"],
     ["sisyphus-climb", "Sisyphus Climb"],
     ["the-player-eye", "The Player's Eye"],
-    ["tileset-padder", "Tileset Padder"],
+    ["sprite-sheet-padder", "Sprite Sheet Padder"],
     ["webgl-train", "WebGL Train"],
     ["well-of-wandering", "Well of Wandering"],
 ]);
