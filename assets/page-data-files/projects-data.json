@@ -1,5 +1,15 @@
 [
     {
+        "image": "../assets/projects/godot-engine/images/thumbnail",
+        "title": "Godot Engine",
+        "year": "2026",
+        "roleCategory": ["Engine Programming", "Programming"],
+        "software": ["C++", "Godot"],
+        "description": "Helping one of the best Open Source projects one step at a time!",
+        "misc": ["Game Dev", "Open Source"],
+        "pageName": "godot-engine"
+    },
+    {
         "image": "../assets/projects/hums-of-the-soul/images/thumbnail",
         "title": "Hums of the Soul",
         "year": "2026",
@@ -16,7 +26,7 @@
         "roleCategory": ["Krita Plugin"],
         "software": ["Krita", "Python"],
         "description": "A Krita plugin that allows to add padding and anti-bleeding pixels to any sprite sheet!",
-        "misc": [""],
+        "misc": ["Open Source"],
         "pageName": "sprite-sheet-padder"
     },
     {
@@ -26,7 +36,7 @@
         "roleCategory": ["Godot Plugin"],
         "software": ["Godot"],
         "description": "Provides a manager to define and customize a single centralized custom global light() function shared across all or chosen shaders in the project.",
-        "misc": [""],
+        "misc": ["Open Source"],
         "pageName": "cglf-custom-global-light-function"
     },
     {

@@ -20,6 +20,7 @@ const projectsEnum = new Map([
     ["egg-hunt", "Egg Hunt"],
     ["hand-of-god", "Hand of God"],
     ["grass-field", "Grass Field"],
+    ["godot-engine", "Godot Engine"],
     ["hums-of-the-soul", "Hums of the Soul"],
     ["hums-of-the-soul-first-light", "Hums of the Soul: First Light"],
     ["limbo-gaol", "Limbo's Gaol"],
