@@ -487,7 +487,7 @@ audio {
 
 /* ========== CREDITS ========== */
 
-.credits {
+credits {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -495,7 +495,7 @@ audio {
   margin: 0;
   padding: 0;
   
-  .name-row {
+  name-row {
     display: flex;
     flex-direction: row;
     align-items: end;
@@ -511,7 +511,7 @@ audio {
     font-size: var(--font-size-base);
   }
 
-  .title {
+  title {
     font-size: var(--font-size-xxlarge);
     margin: 0;
     margin-top: 50px;
