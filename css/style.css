@@ -119,7 +119,7 @@ main {
 }
 
 tab-content {
-  display: none;
+  display: block;
   margin: 0;
   animation: slideIn 0.5s ease;
 }
@@ -153,10 +153,6 @@ tab-page-content {
     color: var(--primary-color);
     font-size: var(--font-size-base);
   }
-}
-
-tab-content.active {
-  display: block;
 }
 
 .page-content {
