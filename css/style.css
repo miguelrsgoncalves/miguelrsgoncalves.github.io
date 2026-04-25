@@ -118,13 +118,13 @@ main {
   }
 }
 
-.tab-content {
+tab-content {
   display: none;
   margin: 0;
   animation: slideIn 0.5s ease;
 }
 
-.tab-page-content {
+tab-page-content {
   display: flex;
   flex-direction: column;
   max-width: 1024px;
@@ -155,7 +155,7 @@ main {
   }
 }
 
-.tab-content.active {
+tab-content.active {
   display: block;
 }
 
