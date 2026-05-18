@@ -21,7 +21,7 @@ async function getProjectsData() {
         try {
             const response = await fetch(dataSourcePath)
             const projectsDataJSON = await response.json()
-            const templateResponse = await fetch('assets/templates/project-card.html')
+            const templateResponse = await fetch('assets/components/project-card.html')
             const templateText = await templateResponse.text()
             const parser = new DOMParser()
             const templateDoc = parser.parseFromString(templateText, 'text/html')
