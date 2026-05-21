@@ -528,6 +528,7 @@ link {
     display: block;
     font-weight: normal;
     font-size: var(--font-size-large);
+    color: var(--text-muted);
     margin: 0;
     margin-bottom: 0px;
   }
