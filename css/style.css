@@ -118,13 +118,13 @@ main {
   }
 }
 
-tab-content {
+.tab-content {
   display: block;
   margin: 0;
   animation: slideIn 0.5s ease;
 }
 
-tab-page-content {
+.tab-page-content {
   display: flex;
   flex-direction: column;
   max-width: 1024px;
@@ -155,7 +155,7 @@ tab-page-content {
   }
 }
 
-page-content {
+.page-content {
   display: flex;
   flex-direction: column;
   max-width: 1024px;
@@ -483,7 +483,7 @@ link {
 
 /* ========== CREDITS ========== */
 
-credits {
+.credits {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -491,7 +491,7 @@ credits {
   margin: 0;
   padding: 0;
   
-  title {
+  .title {
     display: block;
     font-size: var(--font-size-xxlarge);
     font-weight: bold;
@@ -500,7 +500,7 @@ credits {
     margin-top: 50px;
   }
 
-  subtitle {
+  .subtitle {
     display: block;
     font-size: var(--font-size-base);
     font-weight: bold;
@@ -510,21 +510,21 @@ credits {
     margin-bottom: 10px;
   }
   
-  entry {
+  .entry {
     display: flex;
     flex-direction: row;
     align-items: end;
     gap: 20px;
   }
 
-  name {
+  .name {
     display: block;
     font-weight: bold;
     font-size: var(--font-size-large);
     color: var(--text-base);
   }
 
-  role {
+  .role {
     display: block;
     font-weight: normal;
     font-size: var(--font-size-large);
