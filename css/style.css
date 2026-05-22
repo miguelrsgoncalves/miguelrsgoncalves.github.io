@@ -432,7 +432,7 @@ video {
   box-shadow: none;
 }
 
-[video-player] {
+.video-player {
   width: 100%;
   aspect-ratio: 16/9;
   border: none;
@@ -449,7 +449,7 @@ audio {
   background-color: var(--secondary-bg);
 }
 
-[pdf] {
+.pdf {
   aspect-ratio: 4/3;
   width: 100%;
   border-radius: var(--border-radius);
