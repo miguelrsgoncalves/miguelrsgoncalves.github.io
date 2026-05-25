@@ -1,10 +1,7 @@
 <!-- project-card-template.html -->
 <template id="project-card">
     <a class="project-card clickable" href="/{{pageName}}">
-        <picture>
-            <source srcset="{{image}}.webp" type="image/webp">
-            <img src="{{image}}.png" alt="{{title}} Thumbnail" loading="lazy">
-        </picture>
+        <img src="{{image}}.png" alt="{{title}} Thumbnail" loading="lazy">
         <div class="project-metadata">
             <div class="title">
                 <h1 class="h-scrollable">{{title}}</h1>
