@@ -1,5 +1,6 @@
 var currentTab = ''
 var isInProjectWindow = false
+const DEFAULT_PAGE = tabsEnum.projects
 
 tabs = ([
   document.getElementsByName(tabsEnum.home),
@@ -27,21 +28,22 @@ function updateMainContent(data) {
 /**
  * Starts the navigation process
  * @param {string} destination Name of the destination page
- * @param {boolean} browserHistory If the navigation is done by using the browser history feature
+ * @param {boolean} browserHistory If the navigation is done by using the browser history
  */
 function navigate(destination, isBrowserHistory = false) {
-  if(!doesDestinationExist(destination)) {
-    //loadPage(tabsEnum.home)
-    loadPage(tabsEnum.projects)
-    return
+  if (!doesRouteExist(destination)) {
+    loadPage(DEFAULT_PAGE);
+    return;
   }
 
-  loadPage(destination, isBrowserHistory)
+  if (isTabRoute(destination) && currentPage === destination) {
+    scrollToTheTop();
+    return;
+  }
+  
+  loadPage(destination, isBrowserHistory);
 }
 
-/**
- * Load selected page
- */
 function loadPage(pageName, isWindowPop = false) {
   if(Object.values(tabsEnum).includes(pageName)) {
     tabName = pageName
@@ -136,7 +138,7 @@ function toggleHeaderMenuDropdown() {
  * @returns true if the page exists
  * @returns false if page does not exist
  */
-function doesDestinationExist(destination) {
+function doesRouteExist(destination) {
   if(
     Object.values(tabsEnum).includes(destination) ||
     pagesEnum.has(destination) ||
