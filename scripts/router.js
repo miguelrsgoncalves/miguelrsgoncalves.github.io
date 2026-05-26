@@ -230,3 +230,33 @@ document.addEventListener('click', (e) => {
     }
   }
 });
+
+//#region routes
+
+const routeRegistry = new Map();
+
+function registerRoute({ pageName, title = null, tab, folder }) {
+  routeRegistry.set(pageName, { pageName, title, tab, folder });
+}
+
+const getRoute = (name) => routeRegistry.get(name) ?? null;
+const doesRouteExist = (name) => routeRegistry.has(name);
+const isTabRoute = (name) => getRoute(name)?.folder === 'tabs';
+
+function initStaticRoutes() {
+  [
+    { pageName: 'home',      title: null,        tab: 'home',     folder: 'tabs'  },
+    { pageName: 'projects',  title: null,        tab: 'projects', folder: 'tabs'  },
+    { pageName: 'about',     title: null,        tab: 'about',    folder: 'tabs'  },
+
+    { pageName: 'portfolio', title: 'Portfolio', tab: 'projects', folder: 'pages' },
+  ].forEach(registerRoute);
+}
+
+function registerProjectRoutes(projects) {
+  projects.forEach(({ pageName, title }) =>
+    registerRoute({ pageName, title, tab: 'projects', folder: 'project-pages' })
+  );
+}
+
+//#endregion
