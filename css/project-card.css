@@ -31,6 +31,8 @@
 }
 
 .project-card img {
+  display: block;
+  flex-shrink: 0;
   width: 100%;
   height: 250px;
   object-fit: cover;
@@ -53,33 +55,61 @@
   margin-top: 0;
   gap: 0.5em;
   
-  h1, h2, h3, h4 {
+  .title, .category, .year, .misc {
     margin: 0;
     padding: 0;
   }
 
-  h1 {
+  .title {
     text-align: center;
     font-size: var(--font-size-xlarge);
+    color: var(--primary-color);
+    font-weight: bold;
     padding: 0 0 0.25em 0;
   }
   
-  h2 {
+  .category {
     font-size: var(--font-size-large);
+    font-weight: bold;
+    color: var(--text-base);
+    display: flex;
+    flex-direction: column;
+    text-align: start;
   }
-  
-  h3 {
+
+  .year {
+    display: flex;
+    font-weight: bold;
+    color: var(--text-base);
+    flex-direction: column;
     font-size: var(--font-size-base);
     color: var(--text-base);
   }
 
-  h4 {
+  .misc {
     font-size: var(--font-size-small);
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    color: var(--text-muted);
+    overflow: hidden;
+    text-align: start;
   }
 
-  p, span {
-    margin: 0;
-    padding: 0;
+  .software {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    font-weight: bold;
+    color: var(--text-base);
+    gap: 1em;
+    }
+
+  .description {
+    text-wrap: wrap;
+    color: var(--text-muted);
+    font-weight: var(--font-weight-regular);
+    text-align: start;
   }
 
   .project-metadata-container {
@@ -97,7 +127,7 @@
     gap: 0 1em;
   }
 
-  .title {
+  .title-container {
     overflow: hidden;
     text-wrap: nowrap;
   }
@@ -107,43 +137,10 @@
     flex-direction: column;
     overflow: hidden;
   }
-
-  .category {
-    display: flex;
-    flex-direction: column;
-    text-align: start;
-  }
-
-  .misc {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    text-align: start;
-  }
-
-  .year {
-    display: flex;
-    flex-direction: column;
-  }
   
-  .software {
+  .software-container {
     text-overflow: clip;
     overflow: hidden;
-    
-    h3 {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      gap: 1em;
-
-    }
-  }
-  
-  .description {
-    text-wrap: wrap;
-    color: var(--text-muted);
-    font-weight: var(--font-weight-regular);
-    text-align: start;
   }
 
   @media screen and (max-width: 1600px) {

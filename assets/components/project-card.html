@@ -3,24 +3,24 @@
     <a class="project-card clickable" href="/{{pageName}}">
         <img src="{{image}}.png" alt="{{title}} Thumbnail" loading="lazy">
         <div class="project-metadata">
-            <div class="title">
-                <h1 class="h-scrollable">{{title}}</h1>
+            <div class="title-container">
+                <div class="title h-scrollable">{{title}}</div>
             </div>
             <div class="project-metadata-container">
                 <div class="project-metadata-grid">
                     <div class="category-misc-container">
-                        <h2 class="category">{{roleCategory}}</h2>
-                        <h4 class="misc">{{misc}}</h4>
+                        <div class="category">{{roleCategory}}</div>
+                        <div class="misc">{{misc}}</div>
                     </div>
                     <div class="vl-thin"></div>
-                    <h3 class="year">{{year}}</h3>
+                    <div class="year">{{year}}</div>
                     <div class="vl-thin"></div>
-                    <div class="software">
-                        <h3 class="h-scrollable">{{software}}</h3>
+                    <div class="software-container">
+                        <div class="software h-scrollable">{{software}}</div>
                     </div>
                 </div>
-                <p class="description">{{description}}</p>
+                <div class="description">{{description}}</div>
             </div>
         </div>
-    </div>
+    </a>
 </template>
