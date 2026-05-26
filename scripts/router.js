@@ -1,6 +1,40 @@
 var currentTab = ''
 var isInProjectWindow = false
+
+const tabsEnum = {
+  home: "home",
+  projects: "projects",
+  about: "about"
+}
 const DEFAULT_PAGE = tabsEnum.projects
+
+const pagesEnum = new Map([
+    ["portfolio", "Portfolio"],
+]);
+
+const projectsEnum = new Map([
+    ["abyssal-descent", "Abyssal Descent: SCP-455"],
+    ["chat95", "Chat95"],
+    ["cglf-custom-global-light-function", "CGLF — Custom Global Light Function"],
+    ["egg-hunt", "Egg Hunt"],
+    ["hand-of-god", "Hand of God"],
+    ["grass-field", "Grass Field"],
+    ["godot-engine", "Godot Engine"],
+    ["hums-of-the-soul", "Hums of the Soul"],
+    ["hums-of-the-soul-first-light", "Hums of the Soul: First Light"],
+    ["limbo-gaol", "Limbo's Gaol"],
+    ["narrow-escape", "Narrow Escape"],
+    ["papers-please-the-short-film-spatial-audio-only-adaptation", "PAPERS, PLEASE - The Short Film | Spatial Audio-Only Adaptation"],
+    ["paranoia", "Paranoia"],
+    ["personal-website", "Personal Website"],
+    ["pigment", "Pigment"],
+    ["play-with-me", "PLAY WITH ME"],
+    ["sisyphus-climb", "Sisyphus Climb"],
+    ["the-player-eye", "The Player's Eye"],
+    ["sprite-sheet-padder", "Sprite Sheet Padder"],
+    ["webgl-train", "WebGL Train"],
+    ["well-of-wandering", "Well of Wandering"],
+]);
 
 tabs = ([
   document.getElementsByName(tabsEnum.home),
@@ -230,33 +264,3 @@ document.addEventListener('click', (e) => {
     }
   }
 });
-
-//#region routes
-
-const routeRegistry = new Map();
-
-function registerRoute({ pageName, title = null, tab, folder }) {
-  routeRegistry.set(pageName, { pageName, title, tab, folder });
-}
-
-const getRoute = (name) => routeRegistry.get(name) ?? null;
-const doesRouteExist = (name) => routeRegistry.has(name);
-const isTabRoute = (name) => getRoute(name)?.folder === 'tabs';
-
-function initStaticRoutes() {
-  [
-    { pageName: 'home', title: null, tab: 'home', folder: 'tabs'},
-    { pageName: 'projects', title: null, tab: 'projects', folder: 'tabs'},
-    { pageName: 'about', title: null, tab: 'about', folder: 'tabs'},
-
-    { pageName: 'portfolio', title: 'Portfolio', tab: 'projects', folder: 'pages'},
-  ].forEach(registerRoute);
-}
-
-function registerProjectRoutes(projects) {
-  projects.forEach(({ pageName, title }) =>
-    registerRoute({ pageName, title, tab: 'projects', folder: 'project-pages' })
-  );
-}
-
-//#endregion
