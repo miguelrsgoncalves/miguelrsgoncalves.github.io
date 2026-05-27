@@ -64,7 +64,7 @@ function updateMainContent(data) {
  * @param {string} destination Name of the destination page
  * @param {boolean} browserHistory If the navigation is done by using the browser history
  */
-function navigate(destination, folder, isBrowserHistory = false) {
+function navigate(destination, folder = "", isBrowserHistory = false) {
   if (!doesRouteExist(destination, folder)) {
     loadPage(DEFAULT_PAGE);
     return;
@@ -118,7 +118,7 @@ function loadPage(pageName, folder, isWindowPop = false) {
       currEnum = projectsEnum.get(pageName)
     }
 
-    const path = `${folder}${pageName}.html`
+    const path = `${pageName}.html`
 
     fetch(path)
     .then(response => {
@@ -255,7 +255,7 @@ document.addEventListener('click', (e) => {
     if (e.button === 0 && !e.ctrlKey && !e.shiftKey && !e.metaKey) {
       const destination = href.startsWith('/') ? href.substring(1) : href;
 
-      if (doesDestinationExist(destination)) {
+      if (doesRouteExist(destination)) {
         e.preventDefault();
         
         if (link.closest('#header-menu-dropdown')) {
