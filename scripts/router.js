@@ -64,8 +64,8 @@ function updateMainContent(data) {
  * @param {string} destination Name of the destination page
  * @param {boolean} browserHistory If the navigation is done by using the browser history
  */
-function navigate(destination, isBrowserHistory = false) {
-  if (!doesRouteExist(destination)) {
+function navigate(destination, folder, isBrowserHistory = false) {
+  if (!doesRouteExist(destination, folder)) {
     loadPage(DEFAULT_PAGE);
     return;
   }
@@ -78,7 +78,7 @@ function navigate(destination, isBrowserHistory = false) {
   loadPage(destination, isBrowserHistory);
 }
 
-function loadPage(pageName, isWindowPop = false) {
+function loadPage(pageName, folder, isWindowPop = false) {
   if(Object.values(tabsEnum).includes(pageName)) {
     tabName = pageName
 
@@ -167,18 +167,21 @@ function toggleHeaderMenuDropdown() {
 }
 
 /**
- * Find if destination exists in database of destination names.
- * @param {String} destination 
- * @returns true if the page exists
- * @returns false if page does not exist
+ * Find if destination file exists.
+ * @param {String} destination
+ * @param {String} folder
+ * @returns {boolean}
  */
-function doesRouteExist(destination) {
-  if(
-    Object.values(tabsEnum).includes(destination) ||
-    pagesEnum.has(destination) ||
-    projectsEnum.has(destination)
-  ) return true
-  return false
+function doesRouteExist(destination, folder) {
+  const url = folder + destination
+
+  fetch(url)
+      .then(response => {
+        return true ? response.ok : false
+      })
+      .catch(err => {
+        return false
+      });
 }
 
 function updateTabPageNav(tabPageName) {
