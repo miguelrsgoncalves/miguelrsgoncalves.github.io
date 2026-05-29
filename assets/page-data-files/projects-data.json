@@ -20,14 +20,14 @@
         "pageName": "hums-of-the-soul"
     },
     {
-        "image": "../assets/projects/sprite-sheet-padder/images/thumbnail",
-        "title": "Sprite Sheet Padder",
+        "image": "../assets/projects/spritesheet-manager/images/thumbnail",
+        "title": "Spritesheet Manager",
         "year": "2025",
         "roleCategory": ["Krita Plugin"],
         "software": ["Krita", "Python"],
         "description": "A Krita plugin that allows to add padding and anti-bleeding pixels to any sprite sheet!",
         "misc": ["Open Source"],
-        "pageName": "sprite-sheet-padder"
+        "pageName": "spritesheet-manager"
     },
     {
         "image": "../assets/projects/cglf/images/thumbnail",
