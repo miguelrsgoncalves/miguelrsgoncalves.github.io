@@ -1,6 +1,6 @@
 const mainContent = document.getElementById('main-content');
-const pageTitle = document.getElementById('page-title');
-const pageTitleText = document.getElementById('page-title-text');
+const routeTitle = document.getElementById('route-title');
+const routeTitleText = document.getElementById('route-title-text');
 const headerMenuButton = document.getElementById('header-menu-button');
 const headerMenuDropdown = document.getElementById('header-menu-dropdown');
 
@@ -50,11 +50,11 @@ function render(route, segments, html, isWindowPop) {
 
   const title = extractTitle(html);
   if (title) {
-    pageTitleText.innerHTML = title;
-    pageTitle.classList.add('active');
+    routeTitleText.innerHTML = title;
+    routeTitle.classList.add('active');
   } else {
-    pageTitleText.innerHTML = '';
-    pageTitle.classList.remove('active');
+    routeTitleText.innerHTML = '';
+    routeTitle.classList.remove('active');
   }
 
   document.title = title ? `MRSG | ${title}` : 'MRSG';

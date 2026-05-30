@@ -109,12 +109,12 @@ header {
     left: 12.5%;
   }
 
-  .page-title {
+  .route-title {
     display: none;
     animation: slideOut 0.3s ease;
   }
   
-  .page-title.active {
+  .route-title.active {
     display: block;
     margin-top: 10px;
     animation: slideIn 0.3s ease;
