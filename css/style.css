@@ -128,7 +128,7 @@ main {
   animation: slideIn 0.5s ease;
 }
 
-.tab-page-content {
+.tab-narrow-page {
   display: flex;
   flex-direction: column;
   max-width: 1024px;
@@ -159,7 +159,7 @@ main {
   }
 }
 
-.page-content {
+.narrow-page {
   display: flex;
   flex-direction: column;
   max-width: 1024px;
