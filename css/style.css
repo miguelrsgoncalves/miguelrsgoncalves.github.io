@@ -146,6 +146,7 @@ main {
   flex-direction: column;
   width: 100%;
   margin: 0;
+  animation: slideIn 0.5s ease;
 }
 
 .narrow-page {
@@ -154,6 +155,7 @@ main {
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
+  animation: slideIn 0.5s ease;
 }
 
 .vl {
