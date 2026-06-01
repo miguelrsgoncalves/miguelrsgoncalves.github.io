@@ -1,15 +1,11 @@
 <script defer>
-  filterInit()
+  filterInit(['year', 'roleCategory', 'software', 'misc'])
   projectManagerInit('assets/registries/project-registry.json')
   populateProjects('card-container')
 </script>
 
 <div id="projects" class="full-page">
-
-  <div data-include="assets/components/filter-header.html"></div>
-
-  <div data-include="assets/components/projects-filter-dropdown.html"></div>
+  <div data-include="assets/components/project-filter.html"></div>
 
   <div id="card-container" class="projects-grid"></div>
-
 </div>
