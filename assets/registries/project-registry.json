@@ -1,5 +1,15 @@
 [
     {
+        "image": "",
+        "title": "Mammon's Awakening",
+        "year": "2026",
+        "roleCategory": ["Solo Dev"],
+        "software": ["Godot", "Aseprite"],
+        "description": "Greed",
+        "misc": ["Game Dev", "Development"],
+        "pageName": "mammon-awakening"
+    },
+    {
         "image": "../assets/projects/godot-engine/images/thumbnail",
         "title": "Godot Engine",
         "year": "2026",
