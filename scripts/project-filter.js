@@ -1,13 +1,6 @@
 var filterConfig = null
 var filterGroups = {}
 
-const FILTER_LABELS = {
-  year: 'Year',
-  roleCategory: 'Category',
-  software: 'Software',
-  misc: 'Misc',
-}
-
 function filterInit(fields) {
   filterConfig = fields
   cleanupSignal.subscribe(filterCleanup)
@@ -50,7 +43,7 @@ function buildFilter(allProjectsData) {
       </div>`).join('')
     return `
       <div class="filter-column">
-        <h4 class="filter-title">${FILTER_LABELS[field] ?? field}</h4>
+        <h4 class="filter-title">${field}</h4>
         <div class="filter-checkbox">
           <input type="checkbox" id="all-${field}" class="clickable" checked onchange="toggleAll('${field}', true)">
           <label class="clickable" onclick="toggleAll('${field}', false)">All</label>
