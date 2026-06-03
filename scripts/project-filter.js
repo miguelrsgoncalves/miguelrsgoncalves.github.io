@@ -43,7 +43,7 @@ function buildFilter(allProjectsData) {
       </div>`).join('')
     return `
       <div class="filter-column">
-        <h4 class="filter-title">${field}</h4>
+        <h4 class="filter-title">${field.capitalize()}</h4>
         <div class="filter-checkbox">
           <input type="checkbox" id="all-${field}" class="clickable" checked onchange="toggleAll('${field}', true)">
           <label class="clickable" onclick="toggleAll('${field}', false)">All</label>
