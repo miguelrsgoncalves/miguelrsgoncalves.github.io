@@ -114,6 +114,8 @@
 }
 
 .indented-checkboxes {
+  max-height: 192px;
+  overflow-y: auto;
   margin-left: 32px;
 }
 
