@@ -114,9 +114,10 @@
 }
 
 .indented-checkboxes {
-  max-height: 192px;
-  overflow-y: auto;
+  max-height: 200px;
+  overflow-y: scroll;
   margin-left: 32px;
+  scrollbar-color: var(--primary-color) var(--background-color);
 }
 
 .filter-checkbox input[type="checkbox"] {
