@@ -103,7 +103,13 @@ function resetFilter() {
     document.getElementById(filterGroups[group].all).checked = true
     toggleAll(group, true)
   })
+  searchText = ""
   refreshProjects(false)
+}
+
+function handleProjectSearchInput(value) {
+  searchText = value.toLowerCase().trim();
+  filterProjects();
 }
 
 function filterCleanup() {

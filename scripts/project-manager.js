@@ -55,15 +55,24 @@ async function insertProjects() {
 }
 
 function matchesFilter(project, filter) {
-  return Object.keys(filter).every(field => {
-    const val = project.data[field]
-    const selected = filter[field]
-    if(Array.isArray(val)) {
-      const effective = val.filter(Boolean)
-      return (effective.length ? effective : ['']).some(v => selected.includes(v))
+  if (searchText) {
+    const title = (project.data.title || '').toLowerCase();
+    if (!title.includes(searchText)) {
+      return false;
     }
-    return selected.includes(String(val ?? ''))
-  })
+  }
+
+  if (!filter) return true;
+
+  return Object.keys(filter).every(field => {
+    const val = project.data[field];
+    const selected = filter[field];
+    if (Array.isArray(val)) {
+      const effective = val.filter(Boolean);
+      return (effective.length ? effective : ['']).some(v => selected.includes(v));
+    }
+    return selected.includes(String(val ?? ''));
+  });
 }
 
 function renderProjects() {
