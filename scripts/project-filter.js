@@ -1,5 +1,6 @@
 var filterConfig = null
 var filterGroups = {}
+var searchText = ''
 
 function filterInit(fields) {
   filterConfig = fields
@@ -107,4 +108,5 @@ function resetFilter() {
 
 function filterCleanup() {
   filterGroups = {}
+  searchText = ""
 }
