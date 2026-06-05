@@ -1,8 +1,9 @@
-/* ========== Filter Header ========== */
+/*#region header*/
 
 .filter-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-weight: bold;
   color: var(--primary-color);
   margin-bottom: 20px;
@@ -10,7 +11,7 @@
   background-color: var(--secondary-bg);
   animation: slideIn 0.5s ease;
 
-  i, p, .filter-search-bar, .filter-reset-button{
+  icon, p{
     display: inline-flex;
     vertical-align: middle;
     margin: 0;
@@ -18,19 +19,63 @@
     font-size: var(--font-size-base);
   }
 
-  .filter-button {
+  .button {
     flex-grow: 1;
-    text-align: start;
+    display: inline-flex;
+    vertical-align: middle;
+    margin: 0;
+    padding: 4px 8px;
+    font-size: var(--font-size-base);
     border: 4px solid var(--secondary-bg);
-    border-right: none;
-    border-radius: var(--border-radius);
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
     transition: border-color 0.3s ease;
+
+    &.left {
+      text-align: start;
+      border-right: none;
+      border-radius: var(--border-radius);
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+
+      &.sub-button {
+      }
+    }
+
+    &.right {
+      text-align: end;
+      border-radius: var(--border-radius);
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &.middle {
+      text-align: center;
+      border-radius: 0;
+    }
+
+    &.sub-button {
+      flex-grow: 0;
+      border-left: none;
+      border-right: none;
+      border-radius: 0;
+    }
   }
 
-  .filter-button:hover {
+  .button:hover {
     border-color: var(--primary-color);
+  }
+
+  .vl {
+    border-left: 4px solid var(--primary-color);
+    border-radius: 0;
+    width: 0;
+    height: auto;
+  }
+
+  .vl-thin {
+    border-left: 2px solid var(--primary-color);
+    border-radius: 0;
+    width: 0;
+    height: auto;
   }
 
   .filter-search-bar {
@@ -59,15 +104,11 @@
   .filter-reset-button:hover {
     border-color: var(--primary-color);
   }
-
-  @media (max-width: 1024px) {
-    .filter-icon, .filter-search-bar, .filter-reset-button {
-      flex-grow: 1;
-    }
-  }
 }
 
-/* ========== Filter Dropdown ========== */
+/*#endregion*/
+
+/*#filter-dropdown*/
 
 .filter-dropdown {
   display: none;
@@ -147,3 +188,5 @@
 .filter-checkbox label:hover {
   color: var(--primary-color);
 }
+
+/*#endregion*/

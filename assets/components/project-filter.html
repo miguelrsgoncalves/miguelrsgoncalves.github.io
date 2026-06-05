@@ -3,18 +3,23 @@
 </script>
 
 <div class="filter-header">
-    <div class="filter-button clickable" onclick="toggleDropdown('card-container')">
-        <i class="icon-list-filter"></i>
-        <p>Filters</p>
+    <div class="button left clickable" onclick="toggleDropdown('card-container')">
+        <icon class="icon-list-filter"></icon>
+        <p>Filter</p>
     </div>
+    <div class="separator vertical semi thin"></div>
+    <div class="button left sub-button clickable" onclick="resetFilter()"><p>Reset</p></div>
 
-    <div class="vl"></div>
+    <div class="separator vertical"></div>
 
     <input name="search" class="filter-search-bar" type="search" placeholder="Search" oninput="handleProjectSearchInput(this.value)"></input>
 
-    <div class="vl"></div>
+    <div class="separator vertical"></div>
 
-    <div class="filter-reset-button clickable" onclick="resetFilter()">Reset</div>
+    <div class="button right sub-button clickable" onclick="resetFilter()"><p>Reset</p></div>
+    <div class="separator vertical semi thin"></div>
+    <div class="button right clickable" onclick="resetFilter()"><p>Sort</p></div>
+
 </div>
 
 <div id="filter-dropdown" class="filter-dropdown"></div>

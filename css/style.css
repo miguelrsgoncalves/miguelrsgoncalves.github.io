@@ -158,6 +158,57 @@ main {
   animation: slideIn 0.5s ease;
 }
 
+.separator {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+  --thickness: 4px; 
+
+  &.thin {
+    --thickness: 2px;
+  }
+
+  &.vertical {
+    display: inline-flex;
+    align-self: stretch;
+    justify-content: center;
+    align-items: center;
+    width: var(--thickness);
+    min-height: 1.2em;
+
+    &::before {
+      content: "";
+      background-color: var(--primary-color);
+      width: 100%;
+      height: 100%;
+    }
+
+    &.semi::before {
+      height: 50%;
+    }
+  }
+
+  &.horizontal {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: var(--thickness);
+
+    &::before {
+      content: "";
+      background-color: var(--primary-color);
+      width: 100%;
+      height: 100%;
+    }
+
+    &.semi::before {
+      width: 50%;
+    }
+  }
+}
+
 .vl {
   border-left: 4px solid var(--primary-color);
   border-radius: 0;
