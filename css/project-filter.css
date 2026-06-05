@@ -15,12 +15,14 @@
     display: inline-flex;
     vertical-align: middle;
     margin: 0;
+    height: 100%;
     padding: 4px 8px;
     font-size: var(--font-size-base);
   }
 
   .button {
     flex-grow: 1;
+    align-self: stretch;
     display: inline-flex;
     vertical-align: middle;
     margin: 0;
@@ -35,13 +37,11 @@
       border-radius: var(--border-radius);
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
-
-      &.sub-button {
-      }
     }
 
     &.right {
       text-align: end;
+      border-left: none;
       border-radius: var(--border-radius);
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
@@ -53,6 +53,7 @@
     }
 
     &.sub-button {
+      font-size: var(--font-size-small);
       flex-grow: 0;
       border-left: none;
       border-right: none;
@@ -64,22 +65,9 @@
     border-color: var(--primary-color);
   }
 
-  .vl {
-    border-left: 4px solid var(--primary-color);
-    border-radius: 0;
-    width: 0;
-    height: auto;
-  }
-
-  .vl-thin {
-    border-left: 2px solid var(--primary-color);
-    border-radius: 0;
-    width: 0;
-    height: auto;
-  }
-
   .filter-search-bar {
     flex-grow: 8;
+    align-self: stretch;
     border: 4px solid var(--secondary-bg);
     border-left: none;
     border-right: none;
