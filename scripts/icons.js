@@ -28,7 +28,6 @@ async function createIcons() {
         svgElement = doc.querySelector('svg');
         
         if (svgElement) {
-          svgElement.setAttribute('class', 'lucide');
           iconCache.set(iconName, svgElement);
         }
       } catch (err) {
@@ -39,7 +38,7 @@ async function createIcons() {
 
     if (svgElement) {
       groups[iconName].forEach(element => {
-        element.replaceWith(svgElement.cloneNode(true));
+        element.replaceChildren(svgElement.cloneNode(true));
       });
     }
   });

@@ -12,7 +12,7 @@
   background-color: var(--secondary-bg);
   animation: slideIn 0.5s ease;
 
-  .lucide, p{
+  icon, p{
     display: inline-flex;
     vertical-align: middle;
     align-items: center;
@@ -21,8 +21,8 @@
     padding: 4px 8px;
   }
 
-  .lucide {
-    font-size: var(--font-size-base);
+  icon {
+    font-size: var(--font-size-xxlarge);
   }
 
   .button {
@@ -69,8 +69,8 @@
       border-radius: 0;
       font-size: var(--font-size-small);
 
-      .lucide{
-        font-size: var(--font-size-small);
+      icon{
+        font-size: var(--font-size-base);
       }
     }
   }
