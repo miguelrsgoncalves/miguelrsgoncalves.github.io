@@ -10,4 +10,6 @@ window.addEventListener('DOMContentLoaded', () => {
   const route = (path && path !== 'index.html') ? path : DEFAULT_ROUTE;
   history.replaceState({ route }, '', `/${route}`);
   navigate(route, true);
+
+  createIcons()
 });

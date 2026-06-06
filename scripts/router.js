@@ -81,20 +81,31 @@ function updateNav(segments) {
   );
 }
 
-function updateContent(html) {
+async function updateContent(html) {
   scrollToTheTop(true);
   cleanupSignal.cleanup();
   mainContent.replaceChildren(document.createRange().createContextualFragment(html));
-  loadIncludes();
+  
+  await loadIncludes();
+  
   requestAnimationFrame(initScrollables);
+  createIcons()
 }
 
-function loadIncludes() {
-  mainContent.querySelectorAll('[data-include]').forEach(async el => {
+async function loadIncludes() {
+  const includes = mainContent.querySelectorAll('[data-include]');
+  const promises = Array.from(includes).map(async el => {
     const file = el.getAttribute('data-include');
-    const html = await fetch(file).then(r => r.text());
-    el.outerHTML = html;
+    try {
+      const response = await fetch(file);
+      const text = await response.text();
+      el.outerHTML = text;
+    } catch (err) {
+      console.error('Failed to load include:', file, err);
+    }
   });
+  
+  await Promise.all(promises);
 }
 
 function scrollToTheTop(instant = false) {
