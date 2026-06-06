@@ -14,12 +14,15 @@
 
   icon, p{
     display: inline-flex;
-    font-size: var(--font-size-base);
     vertical-align: middle;
     align-items: center;
     margin: 0;
     height: 100%;
     padding: 4px 8px;
+  }
+
+  icon {
+    font-size: var(--font-size-base);
   }
 
   .button {
@@ -61,8 +64,9 @@
       border-left: none;
       border-right: none;
       border-radius: 0;
+      font-size: var(--font-size-small);
 
-      icon, p{
+      icon{
         font-size: var(--font-size-small);
       }
     }
