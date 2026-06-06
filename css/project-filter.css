@@ -50,6 +50,8 @@
     &.middle {
       text-align: center;
       border-radius: 0;
+      border-left: none;
+      border-right: none;
     }
 
     &.sub-button {
@@ -65,16 +67,36 @@
     border-color: var(--primary-color);
   }
 
-  .filter-search-bar {
+  .search-bar {
     flex-grow: 8;
     align-self: stretch;
     border: 4px solid var(--secondary-bg);
-    border-left: none;
-    border-right: none;
+    text-align: start;
+    padding: 4px 8px;
     transition: border-color 0.3s ease;
+
+    &.left {
+      border-right: none;
+      border-radius: var(--border-radius);
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    
+    &.right {
+      border-left: none;
+      border-radius: var(--border-radius);
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    
+    &.middle {
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
+    }
   }
 
-  .filter-search-bar:hover {
+  .search-bar:hover {
     border-color: var(--primary-color);
   }
 }
