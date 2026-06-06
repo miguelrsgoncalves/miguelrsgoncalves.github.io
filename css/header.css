@@ -38,9 +38,13 @@ header {
 
   .header-menu-button {
     position: absolute;
+    font-size: xx-large;
     right: var(--padding-main);
     display: flex;
+    align-items: center;
     top: 0;
+    bottom: 0;
+    height: auto;
     transition: transform 0.3s ease;
   }
 
