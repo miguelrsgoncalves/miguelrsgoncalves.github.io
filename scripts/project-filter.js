@@ -5,6 +5,7 @@ var searchText = ''
 function filterInit(fields) {
   filterConfig = fields
   cleanupSignal.subscribe(filterCleanup)
+  hasFilterHeader = true
 }
 
 function buildFilter(allProjectsData) {
@@ -115,4 +116,5 @@ function handleProjectSearchInput(value) {
 function filterCleanup() {
   filterGroups = {}
   searchText = ""
+  hasFilterHeader = false
 }
