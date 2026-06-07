@@ -10,7 +10,7 @@ function filterInit(fields) {
 
 function buildFilter(allProjectsData) {
   if(!filterConfig) return
-  const dropdown = document.getElementById('filter-dropdown')
+  const dropdown = document.getElementById('filter-panel')
   if(!dropdown) return
 
   const rawData = allProjectsData.map(p => p.data ?? p)
@@ -39,18 +39,18 @@ function buildFilter(allProjectsData) {
 
   dropdown.innerHTML = filterConfig.map(field => {
     const checkboxes = uniqueValues[field].map(v => `
-      <div class="filter-checkbox">
+      <div class="panel-checkbox">
         <input name="${v || 'None'}" type="checkbox" class="${field}-checkbox clickable" checked onchange="updateGroup('${field}')">
         <label class="clickable" onclick="toggleOnly('${field}', this)">${v || 'None'}</label>
       </div>`).join('')
     return `
-      <div class="filter-column">
-        <h4 class="filter-title">${field.capitalize()}</h4>
-        <div class="filter-checkbox">
+      <div class="panel-column">
+        <h4 class="panel-title">${field.capitalize()}</h4>
+        <div class="panel-checkbox">
           <input type="checkbox" id="all-${field}" class="clickable" checked onchange="toggleAll('${field}', true)">
           <label class="clickable" onclick="toggleAll('${field}', false)">All</label>
         </div>
-        <div class="indented-checkboxes">${checkboxes}</div>
+        <div class="panel-indent-group">${checkboxes}</div>
       </div>`
   }).join('')
 }
@@ -64,11 +64,11 @@ function getSelected(group) {
 }
 
 function toggleDropdown(containerId) {
-  document.getElementById('filter-dropdown').classList.toggle('active')
+  document.getElementById('filter-panel').classList.toggle('active')
 }
 
 function closeDropdown() {
-  document.getElementById('filter-dropdown').classList.remove('active')
+  document.getElementById('filter-panel').classList.remove('active')
 }
 
 function toggleAll(group, isCheckbox) {

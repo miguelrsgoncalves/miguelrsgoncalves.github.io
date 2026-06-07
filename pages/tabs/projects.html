@@ -5,8 +5,8 @@
 </script>
 
 <div id="projects" class="full-page">
-  <div class="filter-header">
-    <div class="button left clickable" onclick="toggleDropdown('card-container')">
+  <div class="control-bar">
+    <div class="button left clickable" onclick="toggleDropdown('control-bar-panel')">
         <icon icon-name="list-filter"></icon>
         <p>Filter</p>
     </div>
@@ -15,7 +15,7 @@
 
     <div class="separator vertical"></div>
 
-    <input name="search" class="search-bar middle" type="search" placeholder="Search" oninput="handleProjectSearchInput(this.value)"></input>
+    <input name="search" class="search-bar middle" type="search" placeholder="Search" oninput="handleProjectSearchInput(this.value)">
 
     <div class="separator vertical"></div>
 
@@ -25,10 +25,9 @@
         <p>Sort</p>
         <icon icon-name="arrow-down-wide-narrow"></icon>
     </div>
-
   </div>
 
-  <div id="filter-dropdown" class="filter-dropdown"></div>
+  <div id="filter-panel" class="control-panel"></div>
 
   <div id="card-container" class="projects-grid"></div>
 </div>
