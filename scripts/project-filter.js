@@ -39,16 +39,16 @@ function buildFilter(allProjectsData) {
 
   dropdown.innerHTML = filterConfig.map(field => {
     const checkboxes = uniqueValues[field].map(v => `
-      <div class="panel-checkbox">
+      <div class="panel-checkbox no-select">
         <input name="${v || 'None'}" type="checkbox" class="${field}-checkbox clickable" checked onchange="updateGroup('${field}')">
         <label class="clickable" onclick="toggleOnly('${field}', this)">${v || 'None'}</label>
       </div>`).join('')
     return `
       <div class="panel-column">
-        <h4 class="panel-title">${field.capitalize()}</h4>
+        <h4 class="panel-title no-select">${field.capitalize()}</h4>
         <div class="panel-checkbox">
           <input type="checkbox" id="all-${field}" class="clickable" checked onchange="toggleAll('${field}', true)">
-          <label class="clickable" onclick="toggleAll('${field}', false)">All</label>
+          <label class="clickable no-select" onclick="toggleAll('${field}', false)">All</label>
         </div>
         <div class="panel-indent-group">${checkboxes}</div>
       </div>`
