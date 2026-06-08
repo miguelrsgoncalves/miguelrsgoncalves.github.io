@@ -83,6 +83,24 @@
   }
 }
 
+.loading-screen {
+  visibility: hidden;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+  .loading-spinner {
+    border: 8px solid;
+    border-color: var(--primary-color) transparent var(--primary-color) transparent;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    animation: spin 1s ease infinite;
+  }
+}
+
 .embedded-project-controls-menu {
   display: flex;
   position: relative;

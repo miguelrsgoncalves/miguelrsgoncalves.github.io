@@ -156,7 +156,7 @@
     max-height: 200px;
     overflow-y: scroll;
     margin-left: 32px;
-    scrollbar-color: var(--primary-color) var(--background-color);
+    scrollbar-color: var(--primary-color) var(--background-primary-color);
   }
   
   .panel-checkbox {
