@@ -4,7 +4,7 @@ header {
   position: sticky;
   top: 0;
   width: 100%;
-  background-color: var(--secondary-bg);
+  background-color: var(--background-secondary-color);
   font-weight: bold;
   text-align: center;
   align-items: center;
@@ -129,7 +129,7 @@ header {
     display: flex;
     top: 2.5em;
     right: 0;
-    background: var(--secondary-bg);
+    background: var(--background-secondary-color);
     padding: var(--padding-main);
     display: none;
     width: 15%;

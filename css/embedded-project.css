@@ -2,7 +2,7 @@
 
 .embedded-project-card {
   border-radius: var(--border-radius);
-  background-color: var(--secondary-bg);
+  background-color: var(--background-secondary-color);
   padding: 20px;
   margin: auto;
   margin-bottom: 20px;
@@ -26,7 +26,7 @@
   color: var(--primary-color);
   margin-bottom: 20px;
   border-radius: var(--border-radius);
-  background-color: var(--secondary-bg);
+  background-color: var(--background-secondary-color);
   animation: slideIn 0.5s ease;
 
   .start-button, .restart-button, .button{
@@ -42,7 +42,7 @@
   .start-button {
     flex-grow: 1;
     text-align: start;
-    border: 4px solid var(--secondary-bg);
+    border: 4px solid var(--background-secondary-color);
     border-right: none;
     border-radius: var(--border-radius);
     border-top-right-radius: 0;
@@ -57,7 +57,7 @@
   .button {
     flex-grow: 1;
     text-align: center;
-    border: 4px solid var(--secondary-bg);
+    border: 4px solid var(--background-secondary-color);
     border-right: none;
     border-left: none;
     transition: border-color 0.3s ease;
@@ -70,7 +70,7 @@
   .restart-button {
     flex-grow: 1;
     text-align: end;
-    border: 4px solid var(--secondary-bg);
+    border: 4px solid var(--background-secondary-color);
     border-left: none;
     border-radius: var(--border-radius);
     border-top-left-radius: 0;
@@ -87,7 +87,7 @@
   display: flex;
   position: relative;
   border-radius: var(--border-radius);
-  background-color: var(--secondary-bg);
+  background-color: var(--background-secondary-color);
   padding: 20px;
   margin-bottom: 20px;
   gap: 20px;
@@ -100,7 +100,7 @@
     margin: 0;
 
     h3 {
-      color: var(--text-muted);
+      color: var(--font-color-muted);
     }
   }
 
@@ -124,7 +124,7 @@
   h3 {
     margin: 0;
     margin-top: 10px;
-    color: var(--text-base);
+    color: var(--font-color-normal);
   }
 
   p {

@@ -2,30 +2,31 @@
 :root {
   /* Colors */
   --primary-color: #ff4a46;
+  --secondary-color: #00d2b2;
   --background-color: #1e1e2f;
-  --secondary-bg: #2a2a40;
-  --text-base: #fff;
-  --text-muted: #ccc;
+  --background-secondary-color: #2a2a40;
   --shadow-light: rgba(0, 0, 0, 0.1);
   --shadow-dark: rgba(0, 0, 0, 0.75);
-
+  
   /* Typography */
   --font-family: 'Poppins', sans-serif;
+  --font-color-normal: #fff;
+  --font-color-muted: #ccc;
   --font-size-small: 0.75em;
   --font-size-base: 1em;
   --font-size-large: 1.15em;
   --font-size-xlarge: 1.25em;
   --font-size-xxlarge: 1.5em;
   --font-size-website-title: 1em;
-  --font-weight-regular: 400;
+  --font-weight-base: 400;
   --font-weight-bold: 600;
 
   /* Spacing */
-  --margin-main: 24px;
-  --padding-main: 24px;
-  --border-radius: 24px;
-  --border-radius-inner: 16.5px;
-  --gap: 16px;
+  --margin-main: 16px;
+  --padding-main: 16px;
+  --border-radius: 16px;
+  --border-radius-inner: 12px;
+  --gap: 8px;
 
   /* Sizes */
   --medium-screen: 1600px;
@@ -36,11 +37,10 @@
 
 body {
   font-family: var(--font-family);
+  background-color: var(--background-color);
   margin: 0;
   padding: 0;
-  background-color: var(--background-color);
-  color: var(--text-base);
-  line-height: 1.6;
+  color: var(--font-color-normal);
 }
 
 route-data {
@@ -76,7 +76,7 @@ a {
 
 input {
   color: var(--primary-color);
-  background-color: var(--secondary-bg);
+  background-color: var(--background-secondary-color);
 }
 
 input:focus {
@@ -90,7 +90,7 @@ main {
   padding: var(--padding-main);
   width: 100%;
   box-sizing: border-box;
-  color: var(--text-muted);
+  color: var(--font-color-muted);
   animation: slideIn 0.5s ease;
 
   img {
@@ -125,19 +125,19 @@ main {
 
   h2 {
     font-size: var(--font-size-large);
-    color: var(--text-base);
+    color: var(--font-color-normal);
     margin-top: 36px;
   }
 
   h3 {
     font-size: var(--font-size-base);
-    color: var(--text-muted);
+    color: var(--font-color-muted);
     margin-top: 24px;
   }
 
   h4 {
     font-size: var(--font-size-small);
-    color: var(--text-muted);
+    color: var(--font-color-muted);
     margin-top: 8px;
   }
 }
@@ -309,7 +309,7 @@ main {
 }
 
 .text-image-section .image-content.in-card::before {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 75%, var(--secondary-bg) 100%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 75%, var(--background-secondary-color) 100%);
 }
 
 .text-image-section.reverse .image-content::before {
@@ -317,7 +317,7 @@ main {
 }
 
 .text-image-section.reverse .image-content.in-card::before {
-  background: linear-gradient(-90deg, rgba(255, 255, 255, 0) 75%, var(--secondary-bg) 100%);
+  background: linear-gradient(-90deg, rgba(255, 255, 255, 0) 75%, var(--background-secondary-color) 100%);
 }
 
 @media (max-width: 1024px) {
@@ -392,12 +392,12 @@ main {
     color: var(--primary-color);
     padding: 4px 8px;
     font-weight: var(--font-weight-bold);
-    background-color: var(--secondary-bg);
+    background-color: var(--background-secondary-color);
     border-radius: var(--border-radius);
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
     text-align: center;
-    border: 4px solid var(--secondary-bg);
+    border: 4px solid var(--background-secondary-color);
     border-bottom-color: var(--primary-color);
     transition: border-color 0.3s ease;
   }
@@ -425,7 +425,7 @@ main {
   }
 
   .content {
-    background-color: var(--secondary-bg);
+    background-color: var(--background-secondary-color);
     border-bottom-right-radius: var(--border-radius);
     border-bottom-left-radius: var(--border-radius);
     padding: var(--padding-main);
@@ -448,7 +448,7 @@ video {
   width: 100%;
   border-radius: var(--border-radius);
   margin: 8px 0;
-  background-color: var(--secondary-bg);
+  background-color: var(--background-secondary-color);
   box-shadow: none;
 }
 
@@ -458,7 +458,7 @@ video {
   border: none;
   border-radius: var(--border-radius);
   margin: 8px 0;
-  background-color: var(--secondary-bg);
+  background-color: var(--background-secondary-color);
   box-shadow: 0 8px 8px var(--shadow-dark);
 }
 
@@ -466,7 +466,7 @@ audio {
   width: 100%;
   border-radius: var(--border-radius);
   box-shadow: 0 8px 8px var(--shadow-dark);
-  background-color: var(--secondary-bg);
+  background-color: var(--background-secondary-color);
 }
 
 .pdf {
@@ -541,14 +541,14 @@ link {
     display: block;
     font-weight: bold;
     font-size: var(--font-size-large);
-    color: var(--text-base);
+    color: var(--font-color-normal);
   }
 
   .role {
     display: block;
     font-weight: normal;
     font-size: var(--font-size-large);
-    color: var(--text-muted);
+    color: var(--font-color-muted);
     margin: 0;
     margin-bottom: 0px;
   }
@@ -574,24 +574,24 @@ link {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--secondary-bg);
+  background: var(--background-secondary-color);
   border-radius: var(--border-radius);
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--primary-color);
   border-radius: var(--border-radius);
-  border: 2px solid var(--secondary-bg);
+  border: 2px solid var(--background-secondary-color);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-base);
+  background: var(--font-color-normal);
 }
   */
 
 * {
   scrollbar-width: auto;
-  scrollbar-color: var(--primary-color) var(--secondary-bg);
+  scrollbar-color: var(--primary-color) var(--background-secondary-color);
   scroll-behavior: smooth;
 }
 
