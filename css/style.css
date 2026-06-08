@@ -21,10 +21,11 @@
   --font-weight-bold: 600;
 
   /* Spacing */
-  --margin-main: 20px;
-  --padding-main: 20px;
-  --border-radius: 20px;
+  --margin-main: 24px;
+  --padding-main: 24px;
+  --border-radius: 24px;
   --border-radius-inner: 16.5px;
+  --gap: 16px;
 
   /* Sizes */
   --medium-screen: 1600px;
@@ -141,21 +142,21 @@ main {
   }
 }
 
-.full-page {
+.page {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin: 0;
+  gap: var(--gap);
   animation: slideIn 0.5s ease;
-}
 
-.narrow-page {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 1024px;
-  margin: 0 auto;
-  animation: slideIn 0.5s ease;
+  &.full {
+  }
+
+  &.narrow {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
 }
 
 .separator {

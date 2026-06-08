@@ -7,7 +7,6 @@
   font-weight: bold;
   color: var(--primary-color);
   font-size: var(--font-size-base);
-  margin-bottom: 20px;
   border-radius: var(--border-radius);
   background-color: var(--secondary-bg);
   animation: slideIn 0.5s ease;
@@ -128,7 +127,6 @@
   font-weight: bold;
   width: auto;
   padding: 20px;
-  margin-bottom: 20px;
   border: 8px solid var(--secondary-bg);
   border-radius: var(--border-radius);
   background-color: var(--secondary-bg);
