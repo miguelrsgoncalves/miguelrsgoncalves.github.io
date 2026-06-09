@@ -65,6 +65,7 @@ header {
 
   a {
     position: relative;
+    color: var(--font-color-base);
     transition: color 0.3s ease;
 
     span{
