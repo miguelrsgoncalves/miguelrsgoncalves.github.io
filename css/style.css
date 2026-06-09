@@ -35,7 +35,7 @@
 
 /*#endregion*/
 
-/*#region general_styles*/
+/*#region general-styles*/
 
 body {
   font-family: var(--font-family);
@@ -113,7 +113,7 @@ input:focus {
 
 /*#endregion*/
 
-/*#region window_size*/
+/*#region window-size*/
 
 /* On WIDE screens (1600px and up): Hide narrow and medium elements */
 @media screen and (min-width: 1600px) {

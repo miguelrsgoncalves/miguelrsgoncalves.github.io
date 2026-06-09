@@ -44,13 +44,168 @@ audio {
 
 /*#endregion*/
 
-/*#pdf*/
+/*#region pdf*/
 
 .pdf {
     width: 100%;
     aspect-ratio: 4/3;
     border: none;
     border-radius: var(--border-radius);
+}
+
+/*#endregion*/
+
+/*#region embedded-project*/
+
+.embedded-project-card {
+  border-radius: var(--border-radius);
+  background-color: var(--background-secondary-color);
+  padding: 20px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.embedded-project-frame {
+  position: relative;
+  max-width: 1024px;
+  width: 100%;
+  height: 576px;
+  border-radius: var(--border-radius-inner);
+  justify-content: center;
+  border: none;
+  z-index: 2;
+}
+
+.embedded-project-controls-menu-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  border-radius: var(--border-radius);
+  background-color: var(--background-secondary-color);
+  animation: slideIn 0.5s ease;
+
+  .start-button, .restart-button, .button{
+    flex: 1;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0;
+    padding: 4px 8px;
+    font-size: var(--font-size-base);
+  }
+
+  .start-button {
+    flex-grow: 1;
+    text-align: start;
+    border: 4px solid var(--background-secondary-color);
+    border-right: none;
+    border-radius: var(--border-radius);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    transition: border-color 0.3s ease;
+  }
+
+  .start-button:hover {
+    border-color: var(--primary-color);
+  }
+
+  .button {
+    flex-grow: 1;
+    text-align: center;
+    border: 4px solid var(--background-secondary-color);
+    border-right: none;
+    border-left: none;
+    transition: border-color 0.3s ease;
+  }
+
+  .button:hover {
+    border-color: var(--primary-color);
+  }
+
+  .restart-button {
+    flex-grow: 1;
+    text-align: end;
+    border: 4px solid var(--background-secondary-color);
+    border-left: none;
+    border-radius: var(--border-radius);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    transition: border-color 0.3s ease;
+  }
+
+  .restart-button:hover {
+    border-color: var(--primary-color);
+  }
+}
+
+.loading-screen {
+  visibility: hidden;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+  .loading-spinner {
+    border: 8px solid;
+    border-color: var(--primary-color) transparent var(--primary-color) transparent;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    animation: spin 1s ease infinite;
+  }
+}
+
+.embedded-project-controls-menu {
+  display: flex;
+  position: relative;
+  border-radius: var(--border-radius);
+  background-color: var(--background-secondary-color);
+  padding: 20px;
+  margin-bottom: 20px;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  span {
+    flex: 1;
+    padding: 0;
+    margin: 0;
+
+    h3 {
+      color: var(--font-color-muted);
+    }
+  }
+
+  section {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  h1, h2, h3 {
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    flex: 0 0 100%;
+  }
+
+  h3 {
+    margin: 0;
+    margin-top: 10px;
+    color: var(--font-color-normal);
+  }
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
 }
 
 /*#endregion*/
