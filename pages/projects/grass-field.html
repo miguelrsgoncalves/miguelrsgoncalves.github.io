@@ -33,13 +33,13 @@
 
     <h1>The Grass Clump</h1>
 
-    <section class="text-image-section reverse">
-        <div class="text-content">
+    <section class="text-wrap-image reverse">
+        <div class="text">
             <p>The next step was to work on the grass assets themselves. I created in Blender a grass clump that would contain around 20 grass blades each, making them taller and more grass shape, although I did make them with no curvature. I also created 2 LOD levels that would help with performance.</p>
             <p>I made the normals of the grass blades look straight up, giving them a more cell shading look and implemented a basic wind system that allowed me to easily control the intensity and angle of the wind.</p>
             <p>The problem I faced was that when the intensity was too high the grass blades would almost lay flat on the ground, and I wanted a more natural bending to their animation.</p>
         </div>
-        <div class="image-content">
+        <div class="image">
             <img src="../assets/projects/grass-field/images/grass_clump_test1.png" alt="Grass Clump Test 1." loading="lazy">
         </div>
     </section>
@@ -48,8 +48,8 @@
 
     <h2>Vertex Paint</h2>
 
-    <section class="text-image-section">
-        <div class="text-content">
+    <section class="text-wrap-image">
+        <div class="text">
             <p>
                 The next step was to add vertex painting to the individual grass blades, making the values 0 at the bottom and interpolating them to 1 on the end of the blade. I then made it so the wind influence would be affected by the vertex paint values, having 0 influence at the bottom of the blades and the strongest influence at the end.
             </p>
@@ -57,7 +57,7 @@
                 his showed better results and the movement was looking more natural.
             </p>
         </div>
-        <div class="image-content">
+        <div class="image">
             <img src="../assets/projects/grass-field/images/grass_vertex_paint.png" alt="Grass Blade Vertex Paint." loading="lazy">
         </div>
     </section>
@@ -79,8 +79,8 @@
     
     <h1>Better Grass Clumps</h1>
 
-    <section class="text-image-section reverse">
-        <div class="text-content">
+    <section class="text-wrap-image reverse">
+        <div class="text">
             <p>
                 The blades on the current grass clumps were too straight and made it so the wind animation would break at high wind intensities. The blades would also be invisible when viewed from the side, which would mean the grass field would lose density and cohesion when looking from different angles and during the wind animation. The vertical normals also made it so it was difficult to distinguish the grass blades from one another unless they were under high intensity light sources.
             </p>
@@ -88,7 +88,7 @@
                 I worked on new grass clumps that had a curvature to the blades, not only vertically but also when viewed from the sides, giving a better density to the field and also distinction between the blades, making it easier to see the clumps oscillating with the wind. I also pointed the normals facing perpendicular to the faces, making it so the grass blades would be shaded according to the lighting sources correctly. It did lose the more 2D look, but made it so they were more perceivable and their movement more readable.
             </p>
         </div>
-        <div class="image-content">
+        <div class="image">
             <img src="../assets/projects/grass-field/images/better_grass_clump.png" alt="Better Grass Clump." loading="lazy">
         </div>
     </section>

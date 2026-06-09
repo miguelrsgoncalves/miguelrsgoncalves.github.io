@@ -25,6 +25,7 @@
         "tilesets",
         "Tonemap",
         "Toon",
-        "webgl"
+        "webgl",
+        "xxlarge"
     ]
 }

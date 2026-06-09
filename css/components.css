@@ -1,0 +1,206 @@
+/* ========== TEXT & IMAGE SECTION ========== */
+
+.text-wrap-image {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  flex-direction: row-reverse;
+  flex: 1;
+  gap: var(--gap);
+  content: '';
+
+  .text {
+    flex: 1;
+  }
+
+  .image {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    display: block;
+
+    img {
+        width: 100%;
+        height: auto;
+        max-height: 500px;
+        display: block;
+        object-fit: cover;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+  }
+
+  .image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 75%, var(--background-primary-color) 100%);
+  }
+}
+
+.text-wrap-image.reverse {
+  flex-direction: row;
+  .image::before {
+    background: linear-gradient(-90deg, rgba(255, 255, 255, 0) 75%, var(--background-primary-color) 100%);
+  }
+  
+  img {
+    border-radius: var(--border-radius);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.text-wrap-image .image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 75%, var(--background-primary-color) 100%);
+}
+
+.text-wrap-image .image.in-card::before {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 75%, var(--background-secondary-color) 100%);
+}
+
+.text-wrap-image.reverse .image::before {
+  background: linear-gradient(-90deg, rgba(255, 255, 255, 0) 75%, var(--background-primary-color) 100%);
+}
+
+.text-wrap-image.reverse .image.in-card::before {
+  background: linear-gradient(-90deg, rgba(255, 255, 255, 0) 75%, var(--background-secondary-color) 100%);
+}
+
+@media (max-width: 1024px) {
+  .text-wrap-image {
+    flex-direction: column;
+    border-radius: var(--border-radius);
+
+    .image {
+      border-radius: var(--border-radius);
+    }
+
+    .image img {
+      border-radius: var(--border-radius) !important;
+    }
+
+    .image::before {
+      display: none;
+    }
+  }
+
+  .text-wrap-image.reverse {
+    flex-direction: column;
+    border-radius: var(--border-radius);
+
+    .image {
+      border-radius: var(--border-radius);
+    }
+
+    .image img {
+      border-radius: var(--border-radius) !important;
+    }
+  }
+}
+
+/*#region side_by_side_images*/
+
+.multiple-image {
+  display: flex;
+  position: relative;
+  gap: var(--gap);
+
+  .image {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image img {
+    width: 100%;
+    height: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+/*#endregion*/
+
+/*#region credits*/
+
+.credits {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  
+  .title {
+    display: block;
+    font-size: var(--font-size-xxlarge);
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 0;
+    margin-top: 50px;
+  }
+
+  .subtitle {
+    display: block;
+    font-size: var(--font-size-base);
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 0;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  
+  .entry {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    gap: 20px;
+  }
+
+  .name {
+    display: block;
+    font-weight: bold;
+    font-size: var(--font-size-large);
+    color: var(--font-color-normal);
+  }
+
+  .role {
+    display: block;
+    font-weight: normal;
+    font-size: var(--font-size-large);
+    color: var(--font-color-muted);
+    margin: 0;
+    margin-bottom: 0px;
+  }
+
+  link {
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: var(--font-size-base);
+  }
+
+  p {
+    margin: 10px 0;
+  }
+}
+
+/*#endregion*/
