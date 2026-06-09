@@ -1,4 +1,4 @@
-/* ========== GLOBAL VARIABLES ========== */
+/*#region variables*/
 :root {
   /* Colors */
   --primary-color: #ff4a46;
@@ -33,7 +33,9 @@
   --narrow-screen: 800px;
 }
 
-/* ========== GENERAL STYLES ========== */
+/*#endregion*/
+
+/*#region general_styles*/
 
 body {
   font-family: var(--font-family);
@@ -67,122 +69,6 @@ input:focus {
   outline: none;
   border-color: var(--primary-color);
 }
-
-/* ========== MAIN CONTENT ========== */
-
-main {
-  padding: var(--padding-main);
-  width: 100%;
-  box-sizing: border-box;
-
-  h1, h2, h3, h4 {
-    text-align: center;
-    margin: 48px;
-    margin-bottom: 24px;
-    font-weight: var(--font-weight-bold);
-  }
-
-  h1 {
-    font-size: var(--font-size-xxlarge);
-    color: var(--primary-color);
-    margin-top: 48px;
-  }
-
-  h2 {
-    font-size: var(--font-size-large);
-    color: var(--font-color-normal);
-    margin-top: 36px;
-  }
-
-  h3 {
-    font-size: var(--font-size-base);
-    color: var(--font-color-muted);
-    margin-top: 24px;
-  }
-
-  h4 {
-    font-size: var(--font-size-small);
-    color: var(--font-color-muted);
-    margin-top: 8px;
-  }
-}
-
-.page {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  width: 100%;
-  gap: var(--gap);
-  animation: slideIn 0.5s ease;
-
-  &.full {
-  }
-
-  &.narrow {
-    max-width: 1024px;
-    margin: 0 auto;
-  }
-}
-
-/* ========== Project Info Section ========== */
-
-.project-info-section {
-  .header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .tab {
-    flex: 1;
-    color: var(--primary-color);
-    padding: 4px 8px;
-    font-weight: var(--font-weight-bold);
-    background-color: var(--background-secondary-color);
-    border-radius: var(--border-radius);
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-    text-align: center;
-    border: 4px solid var(--background-secondary-color);
-    border-bottom-color: var(--primary-color);
-    transition: border-color 0.3s ease;
-  }
-
-  .tab:hover {
-    border-color: var(--primary-color);
-  }
-  
-  .tab.left {
-    border-right: 0;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
-  .tab.center {
-    border-right: 0;
-    border-left: 0;
-    border-radius: 0;
-  }
-
-  .tab.right {
-    border-left: 0;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-
-  .content {
-    background-color: var(--background-secondary-color);
-    border-bottom-right-radius: var(--border-radius);
-    border-bottom-left-radius: var(--border-radius);
-    padding: var(--padding-main);
-
-    p {
-      margin: 0;
-    }
-  }
-}
-
-/* ========== CUSTOM SCROLLBAR ========== */
 
 /*
 ::-webkit-scrollbar {
@@ -225,7 +111,9 @@ main {
   -ms-user-select: none;
 }
 
-/* ========== WINDOW SIZE ADAPTATION ========== */
+/*#endregion*/
+
+/*#region window_size*/
 
 /* On WIDE screens (1600px and up): Hide narrow and medium elements */
 @media screen and (min-width: 1600px) {
@@ -247,3 +135,5 @@ main {
     display: none !important;
   }
 }
+
+/*#endregion*/
