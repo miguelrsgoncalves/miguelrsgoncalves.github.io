@@ -50,6 +50,8 @@ route-data {
 a {
   text-decoration: none;
   color: inherit;
+  font-weight: bold;
+  color: var(--primary-color);
 }
 
 .clickable {
@@ -72,25 +74,6 @@ main {
   padding: var(--padding-main);
   width: 100%;
   box-sizing: border-box;
-  color: var(--font-color-muted);
-  animation: slideIn 0.5s ease;
-
-  img {
-    height: auto;
-    width: 100%;
-    border-radius: var(--border-radius);
-  }
-
-  p {
-    margin: 20px;
-  }
-
-  a {
-    text-decoration: none;
-    font-weight: bold;
-    color: var(--primary-color);
-    font-size: var(--font-size-base);
-  }
 
   h1, h2, h3, h4 {
     text-align: center;
@@ -127,8 +110,8 @@ main {
 .page {
   display: flex;
   flex-direction: column;
-  width: 100%;
   margin: 0;
+  width: 100%;
   gap: var(--gap);
   animation: slideIn 0.5s ease;
 
@@ -416,46 +399,6 @@ main {
       margin: 0;
     }
   }
-}
-
-/* ========== MEDIA ELEMENTS ========== */
-
-picture {
-  margin: 0;
-  padding: 0;
-  line-height: 0;
-}
-
-video {
-  width: 100%;
-  border-radius: var(--border-radius);
-  margin: 8px 0;
-  background-color: var(--background-secondary-color);
-  box-shadow: none;
-}
-
-.video-player {
-  width: 100%;
-  aspect-ratio: 16/9;
-  border: none;
-  border-radius: var(--border-radius);
-  margin: 8px 0;
-  background-color: var(--background-secondary-color);
-  box-shadow: 0 8px 8px var(--shadow-dark);
-}
-
-audio {
-  width: 100%;
-  border-radius: var(--border-radius);
-  box-shadow: 0 8px 8px var(--shadow-dark);
-  background-color: var(--background-secondary-color);
-}
-
-.pdf {
-  aspect-ratio: 4/3;
-  width: 100%;
-  border-radius: var(--border-radius);
-  border: none;
 }
 
 /* ========== LINKS ============ */
