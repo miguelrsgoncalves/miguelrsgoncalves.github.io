@@ -35,6 +35,36 @@ main {
   }
 }
 
+.multi-page {
+  display: flex;
+  flex-direction: row;
+  gap: var(--gap);
+  
+  .page {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    gap: var(--gap);
+    animation: slideIn 0.5s ease;
+    min-width: 0;
+
+    &.main {
+      flex: 10;
+    }
+
+    &.banner {
+      flex: 2;
+
+      &.dynamic {
+        position: sticky;
+        align-self: flex-start;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+    }
+  }
+}
+
 .page {
   display: flex;
   flex-direction: column;
@@ -42,9 +72,6 @@ main {
   width: 100%;
   gap: var(--gap);
   animation: slideIn 0.5s ease;
-
-  &.full {
-  }
 
   &.narrow {
     max-width: 1024px;
