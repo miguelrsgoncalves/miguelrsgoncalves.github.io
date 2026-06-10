@@ -2,67 +2,6 @@ main {
   padding: var(--padding-main);
   width: 100%;
   box-sizing: border-box;
-
-  h1, h2, h3, h4 {
-    text-align: center;
-    margin: 48px;
-    margin-bottom: 24px;
-    font-weight: var(--font-weight-bold);
-  }
-
-  h1 {
-    font-size: var(--font-size-xxlarge);
-    color: var(--primary-color);
-    margin-top: 48px;
-  }
-
-  h2 {
-    font-size: var(--font-size-large);
-    color: var(--font-color-normal);
-    margin-top: 36px;
-  }
-
-  h3 {
-    font-size: var(--font-size-base);
-    color: var(--font-color-muted);
-    margin-top: 24px;
-  }
-
-  h4 {
-    font-size: var(--font-size-small);
-    color: var(--font-color-muted);
-    margin-top: 8px;
-  }
-}
-
-.multi-page {
-  display: flex;
-  flex-direction: row;
-  gap: var(--gap);
-  
-  .page {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    gap: var(--gap);
-    animation: slideIn 0.5s ease;
-    min-width: 0;
-
-    &.main {
-      flex: 10;
-    }
-
-    &.banner {
-      flex: 2;
-
-      &.dynamic {
-        position: sticky;
-        align-self: flex-start;
-        overflow-y: auto;
-        overflow-x: hidden;
-      }
-    }
-  }
 }
 
 .page {
@@ -76,5 +15,80 @@ main {
   &.narrow {
     max-width: 1024px;
     margin: 0 auto;
+  }
+  
+  h1, h2, h3, h4 {
+    text-align: center;
+    font-weight: var(--font-weight-bold);
+  }
+
+  h1 {
+    font-size: var(--font-size-xxlarge);
+    color: var(--primary-color);
+  }
+
+  h2 {
+    font-size: var(--font-size-large);
+    color: var(--font-color-normal);
+  }
+
+  h3 {
+    font-size: var(--font-size-base);
+    color: var(--font-color-muted);
+  }
+
+  h4 {
+    font-size: var(--font-size-small);
+    color: var(--font-color-muted);
+  }
+}
+
+.multi-page {
+  display: flex;
+  flex-direction: row;
+  gap: var(--gap);
+  align-items: flex-start;
+  
+  .page {
+    min-width: 0;
+
+    &.main {
+      flex: 10;
+    }
+
+    &.banner {
+      flex: 2;
+      min-width: 0;
+
+      &.left {
+        align-items: flex-start;
+        text-align: left;
+      }
+
+      &.right {
+        align-items: flex-end;
+        text-align: right;
+      }
+
+      &.dynamic {
+        position: sticky;
+        align-self: flex-start;
+        overflow-y: auto;
+        overflow-x: hidden;
+        top: 80px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .multi-page {
+    flex-direction: column;
+  }
+  
+  .page.banner.dynamic {
+    position: relative; 
+    max-height: none;
+    align-self: stretch;
   }
 }
