@@ -13,3 +13,18 @@ window.addEventListener('DOMContentLoaded', () => {
 
   createIcons()
 });
+
+
+const header = document.querySelector('header');
+
+const updateHeaderHeight = () => {
+    const headerHeight = header.offsetHeight;
+    document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
+};
+
+const headerObserver = new ResizeObserver(updateHeaderHeight);
+
+if (header) {
+    headerObserver.observe(header);
+    updateHeaderHeight();
+}
