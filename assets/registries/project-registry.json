@@ -7,7 +7,7 @@
         "software": ["Godot", "Aseprite"],
         "description": "Greed",
         "misc": ["Solo Dev", "Development"],
-        "pageName": "mammon-awakening"
+        "page-name": "mammon-awakening"
     },
     {
         "image": "../assets/projects/godot-engine/images/thumbnail",
@@ -17,7 +17,7 @@
         "software": ["C++", "Godot"],
         "description": "Helping one of the best Open Source projects one step at a time!",
         "misc": ["Open Source"],
-        "pageName": "godot-engine"
+        "page-name": "godot-engine"
     },
     {
         "image": "../assets/projects/hums-of-the-soul/images/thumbnail",
@@ -27,7 +27,7 @@
         "software": ["Godot", "Krita", "Reaper"],
         "description": "MAKE YOUR OWN MUSIC AND FIGHT WITH YOUR OWN MUSIC! Gather all your friends and make your own music to guide you through all your troubles and defeat your enemies!",
         "misc": ["Solo Dev", "On Hold"],
-        "pageName": "hums-of-the-soul"
+        "page-name": "hums-of-the-soul"
     },
     {
         "image": "../assets/projects/spritesheet-manager/images/thumbnail",
@@ -37,7 +37,7 @@
         "software": ["Krita", "Python"],
         "description": "A Krita plugin that allows to add padding and anti-bleeding pixels to any sprite sheet!",
         "misc": ["Krita Plugin", "Open Source"],
-        "pageName": "spritesheet-manager"
+        "page-name": "spritesheet-manager"
     },
     {
         "image": "../assets/projects/cglf/images/thumbnail",
@@ -47,17 +47,19 @@
         "software": ["Godot"],
         "description": "Provides a manager to define and customize a single centralized custom global light() function shared across all or chosen shaders in the project.",
         "misc": ["Godot Plugin", "Open Source"],
-        "pageName": "cglf-custom-global-light-function"
+        "page-name": "cglf-custom-global-light-function"
     },
     {
         "image": "",
         "title": "Throwin' Hands",
         "year": "2025",
+        "dateStart": "2025-09-03",
+        "dateEnd": "2025-10-05",
         "category": ["Game Dev"],
         "software": ["Godot"],
         "description": "Highly competitive online Rock, Paper, Scissors! game.",
         "misc": ["Solo Dev", "Abandoned"],
-        "pageName": ""
+        "page-name": ""
     },
     {
         "image": "../assets/projects/limbo-gaol/images/thumbnail",
@@ -67,7 +69,7 @@
         "software": ["Godot", "Blender", "Reaper"],
         "description": "Explore the Limbo's Gaol in an experimental narrative, unraveling the prison's mysteries through the eyes of one of four protagonists.",
         "misc": ["Master Thesis"],
-        "pageName": "limbo-gaol"
+        "page-name": "limbo-gaol"
     },
     {
         "image": "../assets/projects/the-player-eye/images/thumbnail",
@@ -77,7 +79,7 @@
         "software": ["LaTeX"],
         "description": "How narrative structures and gameplay elements influence the perspective of players on video game narratives.",
         "misc": ["Master Thesis"],
-        "pageName": "the-player-eye"
+        "page-name": "the-player-eye"
     },
     {
         "image": "../assets/projects/chat95/images/thumbnail",
@@ -87,7 +89,7 @@
         "software": ["Reaper", "FL Studio"],
         "description": "You are ChatGPT. Talk with a set of weird costumers and take care of their crazy ordeals!",
         "misc": ["Game Jam"],
-        "pageName": "chat95"
+        "page-name": "chat95"
     },
     {
         "image": "../assets/projects/pigment/images/thumbnail",
@@ -97,7 +99,7 @@
         "software": ["Godot", "Krita"],
         "description": "Pigment is a mystery.",
         "misc": ["Solo Dev", "On Hold"],
-        "pageName": "pigment"
+        "page-name": "pigment"
     },
     {
         "image": "../assets/projects/personal-website/images/thumbnail",
@@ -107,7 +109,7 @@
         "software": ["HTML", "CSS", "Javascript"],
         "description": "The best website ever created!",
         "misc": [],
-        "pageName": "personal-website"
+        "page-name": "personal-website"
     },
     {
         "image": "../assets/projects/sisyphus-climb/images/thumbnail",
@@ -117,7 +119,7 @@
         "software": ["Unity", "Blender"],
         "description": "Fight for your right to be the true Sisyphus and carry the boulder to the top in a legendary duel!",
         "misc": ["University Project"],
-        "pageName": "sisyphus-climb"
+        "page-name": "sisyphus-climb"
     },
     {
         "image": "../assets/projects/hums-of-the-soul-first-light/images/thumbnail",
@@ -127,7 +129,7 @@
         "software": ["Unreal Engine", "Krita", "Reaper"],
         "description": "This project was created to be a 14 day challenge. It was abandoned and never released, but still its a nice look into the past. Maybe even a start to something in the future.",
         "misc": ["Solo Dev", "Abandoned"],
-        "pageName": "hums-of-the-soul-first-light"
+        "page-name": "hums-of-the-soul-first-light"
     },
     {
         "image": "../assets/projects/grass-field/images/thumbnail",
@@ -137,7 +139,7 @@
         "software": ["Unreal Engine", "Blender"],
         "description": "Vast Stylized grass field made inside Unreal Engine 5, designed to be performant and dense.",
         "misc": [],
-        "pageName": "grass-field"
+        "page-name": "grass-field"
     },
     {
         "image": "../assets/projects/abyssal-descent/images/thumbnail",
@@ -147,7 +149,7 @@
         "software": ["Reaper", "FMOD"],
         "description": "You are part of a rescue team which mission is to extract a previous team from a cargo ship. Be careful though, the lost souls are uneasy.",
         "misc": ["University Project"],
-        "pageName": "abyssal-descent"
+        "page-name": "abyssal-descent"
     },
     {
         "image": "../assets/projects/narrow-escape/images/thumbnail",
@@ -157,7 +159,7 @@
         "software": ["Maya"],
         "description": "Follow Anya as she escapes a trio of relentless goons, Oscar, Manuel and Joseph, finding her way through a weird and confusing system of sewer pipes.",
         "misc": ["University Project"],
-        "pageName": "narrow-escape"
+        "page-name": "narrow-escape"
     },
     {
         "image": "../assets/projects/paranoia/images/thumbnail",
@@ -167,7 +169,7 @@
         "software": ["FL Studio"],
         "description": "Play through an unusual dungeon while trying to not lose your own mind. Things might change.",
         "misc": ["Game Jam"],
-        "pageName": "paranoia"
+        "page-name": "paranoia"
     },
     {
         "image": "../assets/projects/papers-please-the-short-film-spatial-audio-only-adaptation/images/thumbnail",
@@ -177,7 +179,7 @@
         "software": ["Reaper"],
         "description": "A spatial audio-only adaptation of the PAPERS, PLEASE - The Short Film by Nikita Ordynskiy. Experience a day of an Arstotzka's border officer's life.",
         "misc": ["University Project"],
-        "pageName": "papers-please-the-short-film-spatial-audio-only-adaptation"
+        "page-name": "papers-please-the-short-film-spatial-audio-only-adaptation"
     },
     {
         "image": "../assets/projects/play-with-me/images/thumbnail",
@@ -187,7 +189,7 @@
         "software": ["Unreal Engine"],
         "description": "You are a little toy soldier. You find yourself imprisoned inside the baby's bedroom. Survive your demonic company until it's mother comes home. ",
         "misc": ["Game Jam"],
-        "pageName": "play-with-me"
+        "page-name": "play-with-me"
     },
     {
         "image": "../assets/projects/well-of-wandering/images/thumbnail",
@@ -197,7 +199,7 @@
         "software": ["P5"],
         "description": "Let the Well of Wandering take you on a journey down the vibes of generative music.",
         "misc": ["University Project"],
-        "pageName": "well-of-wandering"
+        "page-name": "well-of-wandering"
     },
     {
         "image": "../assets/projects/hand-of-god/images/thumbnail",
@@ -207,7 +209,7 @@
         "software": ["P5"],
         "description": "Step into the shoes of God and watch over and aid a civilization in their survival... Or their demise...",
         "misc": ["University Project"],
-        "pageName": "hand-of-god"
+        "page-name": "hand-of-god"
     },
     {
         "image": "../assets/projects/egg-hunt/images/thumbnail",
@@ -217,7 +219,7 @@
         "software": ["WebGL"],
         "description": "Prototype game where you play as a bird tasked with gathering eggs and dropping them on a nest.",
         "misc": ["University Project"],
-        "pageName": "egg-hunt"
+        "page-name": "egg-hunt"
     },
     {
         "image": "../assets/projects/webgl-train/images/thumbnail",
@@ -227,6 +229,6 @@
         "software": ["WebGL"],
         "description": "Prototype game where you can watch a train locomotive go around a circle train track, stopping at the various train stations along the way.",
         "misc": ["University Project"],
-        "pageName": "webgl-train"
+        "page-name": "webgl-train"
     }
 ]
