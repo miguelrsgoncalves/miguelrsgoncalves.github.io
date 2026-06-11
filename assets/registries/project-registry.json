@@ -50,6 +50,16 @@
         "pageName": "cglf-custom-global-light-function"
     },
     {
+        "image": "",
+        "title": "Throwin' Hands",
+        "year": "2025",
+        "category": ["Game Dev"],
+        "software": ["Godot"],
+        "description": "Highly competitive online Rock, Paper, Scissors! game.",
+        "misc": ["Solo Dev", "Abandoned"],
+        "pageName": ""
+    },
+    {
         "image": "../assets/projects/limbo-gaol/images/thumbnail",
         "title": "Limbo's Gaol",
         "year": "2025",
