@@ -3,11 +3,20 @@
         "image": "",
         "title": "Mammon's Awakening",
         "year": "2026",
+        "dateStart": "2026-02-17",
+        "dateEnd": "Present",
         "category": ["Game Dev"],
         "software": ["Godot", "Aseprite"],
         "description": "Greed",
         "misc": ["Solo Dev", "Development"],
-        "page-name": "mammon-awakening"
+        "page-name": "mammon-awakening",
+        "milestones": [
+            {
+                "date": "2026-06-18",
+                "title": "Godot 4.7 Release",
+                "description": "Look, Mom, I'm on the TV! Got mentioned on the credits for a Godot release for the first time."
+            }
+        ]
     },
     {
         "image": "../assets/projects/godot-engine/images/thumbnail",
