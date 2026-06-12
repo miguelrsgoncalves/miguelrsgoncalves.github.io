@@ -118,8 +118,8 @@ function buildTimeline(data) {
   const end = endObject.getTime();
   
   const totalDurationMs = end - start;
-  const displayEndDate = formatDate(data.dateEnd);
-  const displayStartDate = formatDate(data.dateStart);
+  const displaydateEnd = formatDate(data.dateEnd);
+  const displaydateStart = formatDate(data.dateStart);
 
   const totalDays = Math.max(0, Math.round(totalDurationMs / (1000 * 60 * 60 * 24)));
 
@@ -127,7 +127,7 @@ function buildTimeline(data) {
     return `
       <div class="timeline single-day">
         <div class="label">
-          <span class="center-date">${displayStartDate}</span>
+          <span class="center-date">${displaydateStart}</span>
         </div>
       </div>
     `;
@@ -160,9 +160,9 @@ function buildTimeline(data) {
         ${milestones}
       </div>
       <div class="label">
-        <div class="date-start">${displayStartDate}</div>
+        <div class="date-start">${displaydateStart}</div>
         <div class="duration">${durationText}</div>
-        <div class="date-end">${displayEndDate}</div>
+        <div class="date-end">${displaydateEnd}</div>
       </div>
     </div>
   `;
@@ -182,21 +182,21 @@ function formatDate(dateString) {
   });
 }
 
-function getDateDuration(startDateString, endDateString) {
-  const startDate = new Date(startDateString);
-  let endDate = new Date(endDateString);
+function getDateDuration(dateStartString, dateEndString) {
+  const dateStart = new Date(dateStartString);
+  let dateEnd = new Date(dateEndString);
   
-  if (endDateString.toLowerCase() === 'present' || isNaN(endDate.getTime())) {
-    endDate = new Date();
+  if (dateEndString.toLowerCase() === 'present' || isNaN(dateEnd.getTime())) {
+    dateEnd = new Date();
   }
 
-  let yearsDiff = endDate.getFullYear() - startDate.getFullYear();
-  let monthsDiff = endDate.getMonth() - startDate.getMonth();
-  let daysDiff = endDate.getDate() - startDate.getDate();
+  let yearsDiff = dateEnd.getFullYear() - dateStart.getFullYear();
+  let monthsDiff = dateEnd.getMonth() - dateStart.getMonth();
+  let daysDiff = dateEnd.getDate() - dateStart.getDate();
 
   if (daysDiff < 0) {
     monthsDiff--;
-    const previousMonth = new Date(endDate.getFullYear(), endDate.getMonth(), 0);
+    const previousMonth = new Date(dateEnd.getFullYear(), dateEnd.getMonth(), 0);
     daysDiff += previousMonth.getDate(); 
   }
 
@@ -205,7 +205,7 @@ function getDateDuration(startDateString, endDateString) {
     monthsDiff += 12;
   }
 
-  const totalDurationMs = endDate.getTime() - startDate.getTime();
+  const totalDurationMs = dateEnd.getTime() - dateStart.getTime();
   const totalDays = Math.max(0, Math.round(totalDurationMs / (1000 * 60 * 60 * 24)));
 
   if (yearsDiff > 0) {
