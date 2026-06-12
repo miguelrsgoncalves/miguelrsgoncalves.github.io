@@ -3,6 +3,8 @@
         "image": "",
         "title": "Mammon's Awakening",
         "year": "2026",
+        "dateStart": "2026-02-17",
+        "dateEnd": "present",
         "category": ["Game Dev"],
         "software": ["Godot", "Aseprite"],
         "description": "Greed",
@@ -113,7 +115,8 @@
     {
         "image": "../assets/projects/personal-website/images/thumbnail",
         "title": "Personal Website",
-        "year": "2024",
+        "dateStart": "2025-02-02",
+        "dateEnd": "present",
         "category": ["Programming"],
         "software": ["HTML", "CSS", "Javascript"],
         "description": "The best website ever created!",
