@@ -20,10 +20,12 @@
   --font-size-website-title: 1em;
   --font-weight-base: 400;
   --font-weight-bold: 600;
+  --line-height: 1.25em;
 
   /* Spacing */
   --margin-main: 16px;
   --padding-main: 16px;
+  --padding: 12px 24px;
   --border-radius: 16px;
   --border-radius-inner: 12px;
   --gap: 8px;
@@ -39,10 +41,11 @@
 
 body {
   font-family: var(--font-family);
+  color: var(--font-color-normal);
+  line-height: var(--line-height);
   background-color: var(--background-primary-color);
   margin: 0;
   padding: 0;
-  color: var(--font-color-normal);
 }
 
 route-data {

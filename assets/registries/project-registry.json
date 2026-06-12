@@ -3,30 +3,30 @@
         "image": "",
         "title": "Mammon's Awakening",
         "year": "2026",
-        "dateStart": "2026-02-17",
-        "dateEnd": "Present",
         "category": ["Game Dev"],
         "software": ["Godot", "Aseprite"],
         "description": "Greed",
         "misc": ["Solo Dev", "Development"],
-        "page-name": "mammon-awakening",
-        "milestones": [
-            {
-                "date": "2026-06-18",
-                "title": "Godot 4.7 Release",
-                "description": "Look, Mom, I'm on the TV! Got mentioned on the credits for a Godot release for the first time."
-            }
-        ]
+        "page-name": "mammon-awakening"
     },
     {
         "image": "../assets/projects/godot-engine/images/thumbnail",
         "title": "Godot Engine",
         "year": "2026",
+        "dateStart": "2026-02-17",
+        "dateEnd": "present",
         "category": ["Game Engine", "Game Dev"],
         "software": ["C++", "Godot"],
         "description": "Helping one of the best Open Source projects one step at a time!",
         "misc": ["Open Source"],
-        "page-name": "godot-engine"
+        "page-name": "godot-engine",
+        "milestones": [
+            {
+                "date": "2026-06-18",
+                "title": "Godot 4.7 Release",
+                "description": "Look, Mom, I'm on the TV!<br><i>Got mentioned on the credits for a Godot release for the first time.</i>"
+            }
+        ]
     },
     {
         "image": "../assets/projects/hums-of-the-soul/images/thumbnail",

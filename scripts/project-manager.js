@@ -96,6 +96,7 @@ function refreshProjects(filters) {
 }
 
 function replacePlaceholders(template, data) {
+  data.timeline = buildTimeline(data)
   return template.replace(/{{(.*?)}}/g, (match, p1) => {
     const key = p1.trim()
     if((key === 'software' || key === 'category' || key === 'misc') && Array.isArray(data[key])) {
@@ -103,6 +104,127 @@ function replacePlaceholders(template, data) {
     }
     return data[key] || ''
   })
+}
+
+function buildTimeline(data) {
+  if (!data.dateStart || !data.dateEnd) return '';
+
+  const start = new Date(data.dateStart).getTime();
+  
+  let endObject = new Date(data.dateEnd);
+  if (data.dateEnd.toLowerCase() === 'present' || isNaN(endObject.getTime())) {
+    endObject = new Date(); 
+  }
+  const end = endObject.getTime();
+  
+  const totalDurationMs = end - start;
+  const displayEndDate = formatDate(data.dateEnd);
+  const displayStartDate = formatDate(data.dateStart);
+
+  const totalDays = Math.max(0, Math.round(totalDurationMs / (1000 * 60 * 60 * 24)));
+
+  if (totalDays <= 1) {
+    return `
+      <div class="timeline single-day">
+        <div class="label">
+          <span class="center-date">${displayStartDate}</span>
+        </div>
+      </div>
+    `;
+  }
+
+  let durationText = getDateDuration(data.dateStart, data.dateEnd);
+
+  let milestones = '';
+  if (data.milestones && Array.isArray(data.milestones)) {
+    data.milestones.forEach(milestone => {
+      const milestoneTime = new Date(milestone.date).getTime();
+      let percentage = ((milestoneTime - start) / totalDurationMs) * 100;
+      percentage = Math.max(0, Math.min(100, percentage));
+
+      milestones += `
+        <div class="milestone-dot" style="left: ${percentage}%;">
+          <div class="milestone-tooltip">
+            <div class="title">${milestone.title}</div>
+            <div class="date">${formatDate(milestone.date)}</div>
+            <div class="description">${milestone.description}</div>
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  return `
+    <div class="timeline">
+      <div class="timeline-bar">
+        ${milestones}
+      </div>
+      <div class="label">
+        <div class="date-start">${displayStartDate}</div>
+        <div class="duration">${durationText}</div>
+        <div class="date-end">${displayEndDate}</div>
+      </div>
+    </div>
+  `;
+}
+
+function formatDate(dateString) {
+  if (!dateString) return '';
+  if (dateString.toLowerCase() === 'present') return 'Present';
+  
+  const dateObject = new Date(dateString);
+  if (isNaN(dateObject.getTime())) return dateString;
+
+  return dateObject.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  });
+}
+
+function getDateDuration(startDateString, endDateString) {
+  const startDate = new Date(startDateString);
+  let endDate = new Date(endDateString);
+  
+  if (endDateString.toLowerCase() === 'present' || isNaN(endDate.getTime())) {
+    endDate = new Date();
+  }
+
+  let yearsDiff = endDate.getFullYear() - startDate.getFullYear();
+  let monthsDiff = endDate.getMonth() - startDate.getMonth();
+  let daysDiff = endDate.getDate() - startDate.getDate();
+
+  if (daysDiff < 0) {
+    monthsDiff--;
+    const previousMonth = new Date(endDate.getFullYear(), endDate.getMonth(), 0);
+    daysDiff += previousMonth.getDate(); 
+  }
+
+  if (monthsDiff < 0) {
+    yearsDiff--;
+    monthsDiff += 12;
+  }
+
+  const totalDurationMs = endDate.getTime() - startDate.getTime();
+  const totalDays = Math.max(0, Math.round(totalDurationMs / (1000 * 60 * 60 * 24)));
+
+  if (yearsDiff > 0) {
+    let displayYears = yearsDiff;
+    if (monthsDiff >= 6) displayYears++;
+    return `${displayYears} ${displayYears === 1 ? 'year' : 'years'}`;
+  } 
+  
+  if (monthsDiff > 0) {
+    let displayMonths = monthsDiff;
+    if (daysDiff >= 15) displayMonths++;
+    
+    if (displayMonths === 12) {
+      return `1 year`;
+    }
+    return `${displayMonths} ${displayMonths === 1 ? 'month' : 'months'}`;
+  } 
+  
+  return `${totalDays} ${totalDays === 1 ? 'day' : 'days'}`;
 }
 
 function handleScroll() {
