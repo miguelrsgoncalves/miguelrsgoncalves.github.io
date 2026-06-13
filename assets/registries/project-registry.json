@@ -2,8 +2,7 @@
     {
         "image": "",
         "title": "Mammon's Awakening",
-        "year": "2026",
-        "dateStart": "2026-02-17",
+        "dateStart": "2026-04-17",
         "dateEnd": "present",
         "category": ["Game Dev"],
         "software": ["Godot", "Aseprite"],
