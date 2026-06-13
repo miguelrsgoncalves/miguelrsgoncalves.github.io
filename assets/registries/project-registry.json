@@ -43,7 +43,8 @@
     {
         "image": "../assets/projects/spritesheet-manager/images/thumbnail",
         "title": "Spritesheet Manager",
-        "year": "2025",
+        "dateStart": "2025-12-02",
+        "dateEnd": "present",
         "category": ["Tool"],
         "software": ["Krita", "Python"],
         "description": "A Krita plugin that allows to add padding and anti-bleeding pixels to any sprite sheet!",
