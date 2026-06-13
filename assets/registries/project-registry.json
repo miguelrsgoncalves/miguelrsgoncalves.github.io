@@ -32,7 +32,8 @@
     {
         "image": "../assets/projects/hums-of-the-soul/images/thumbnail",
         "title": "Hums of the Soul",
-        "year": "2026",
+        "dateStart": "2025-10-06",
+        "dateEnd": "2026-04-12",
         "category": ["Game Dev"],
         "software": ["Godot", "Krita", "Reaper"],
         "description": "MAKE YOUR OWN MUSIC AND FIGHT WITH YOUR OWN MUSIC! Gather all your friends and make your own music to guide you through all your troubles and defeat your enemies!",
