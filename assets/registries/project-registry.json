@@ -76,7 +76,8 @@
     {
         "image": "../assets/projects/limbo-gaol/images/thumbnail",
         "title": "Limbo's Gaol",
-        "year": "2025",
+        "dateStart": "2025-03-24",
+        "dateEnd": "2025-05-20",
         "category": ["Research", "Game Dev"],
         "software": ["Godot", "Blender", "Reaper"],
         "description": "Explore the Limbo's Gaol in an experimental narrative, unraveling the prison's mysteries through the eyes of one of four protagonists.",
