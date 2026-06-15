@@ -98,7 +98,8 @@
     {
         "image": "../assets/projects/chat95/images/thumbnail",
         "title": "Chat95",
-        "year": "2025",
+        "dateStart": "2025-04-05",
+        "dateEnd": "2025-04-07",
         "category": ["Game Dev", "Sound Design"],
         "software": ["Reaper", "FL Studio"],
         "description": "You are ChatGPT. Talk with a set of weird costumers and take care of their crazy ordeals!",
