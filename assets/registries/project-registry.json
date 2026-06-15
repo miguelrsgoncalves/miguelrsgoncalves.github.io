@@ -87,7 +87,8 @@
     {
         "image": "../assets/projects/the-player-eye/images/thumbnail",
         "title": "The Player's Eye",
-        "year": "2025",
+        "dateStart": "2025-03-24",
+        "dateEnd": "2025-07-29",
         "category": ["Research", "Game Dev"],
         "software": ["LaTeX"],
         "description": "How narrative structures and gameplay elements influence the perspective of players on video game narratives.",
