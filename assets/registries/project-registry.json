@@ -186,7 +186,8 @@
     {
         "image": "../assets/projects/paranoia/images/thumbnail",
         "title": "Paranoia",
-        "year": "2024",
+        "dateStart": "2024-03-02",
+        "dateEnd": "2024-03-04",
         "category": ["Game Dev"],
         "software": ["FL Studio"],
         "description": "Play through an unusual dungeon while trying to not lose your own mind. Things might change.",
