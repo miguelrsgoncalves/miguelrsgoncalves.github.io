@@ -164,7 +164,8 @@
     {
         "image": "../assets/projects/abyssal-descent/images/thumbnail",
         "title": "Abyssal Descent: SCP-455",
-        "year": "2024",
+        "dateStart": "2024-02-03",
+        "dateEnd": "2024-06-08",
         "category": ["Game Dev"],
         "software": ["Reaper", "FMOD"],
         "description": "You are part of a rescue team which mission is to extract a previous team from a cargo ship. Be careful though, the lost souls are uneasy.",
