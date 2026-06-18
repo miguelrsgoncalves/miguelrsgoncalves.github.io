@@ -131,8 +131,8 @@
     {
         "image": "../assets/projects/sisyphus-climb/images/thumbnail",
         "title": "Sisyphus Climb",
-        "dateStart": "2024-11-15",
-        "dateEnd": "2025-01-15",
+        "dateStart": "2024-09-16",
+        "dateEnd": "2024-10-25",
         "category": ["Game Dev", "Technical Art"],
         "software": ["Unity", "Blender"],
         "description": "Fight for your right to be the true Sisyphus and carry the boulder to the top in a legendary duel!",
