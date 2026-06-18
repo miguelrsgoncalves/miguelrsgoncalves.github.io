@@ -164,7 +164,7 @@
     {
         "image": "../assets/projects/abyssal-descent/images/thumbnail",
         "title": "Abyssal Descent: SCP-455",
-        "dateStart": "2024-02-03",
+        "dateStart": "2024-05-07",
         "dateEnd": "2024-06-08",
         "category": ["Game Dev"],
         "software": ["Reaper", "FMOD"],
@@ -184,6 +184,17 @@
         "page-name": "narrow-escape"
     },
     {
+        "image": "../assets/projects/papers-please-the-short-film-spatial-audio-only-adaptation/images/thumbnail",
+        "title": "PAPERS, PLEASE - The Short Film | Spatial Audio-Only Adaptation",
+        "dateStart": "2024-03-09",
+        "dateEnd": "2024-05-07",
+        "category": ["Sound Design"],
+        "software": ["Reaper"],
+        "description": "A spatial audio-only adaptation of the PAPERS, PLEASE - The Short Film by Nikita Ordynskiy. Experience a day of an Arstotzka's border officer's life.",
+        "misc": ["University Project"],
+        "page-name": "papers-please-the-short-film-spatial-audio-only-adaptation"
+    },
+    {
         "image": "../assets/projects/paranoia/images/thumbnail",
         "title": "Paranoia",
         "dateStart": "2024-03-02",
@@ -193,16 +204,6 @@
         "description": "Play through an unusual dungeon while trying to not lose your own mind. Things might change.",
         "misc": ["Game Jam"],
         "page-name": "paranoia"
-    },
-    {
-        "image": "../assets/projects/papers-please-the-short-film-spatial-audio-only-adaptation/images/thumbnail",
-        "title": "PAPERS, PLEASE - The Short Film | Spatial Audio-Only Adaptation",
-        "year": "2024",
-        "category": ["Sound Design"],
-        "software": ["Reaper"],
-        "description": "A spatial audio-only adaptation of the PAPERS, PLEASE - The Short Film by Nikita Ordynskiy. Experience a day of an Arstotzka's border officer's life.",
-        "misc": ["University Project"],
-        "page-name": "papers-please-the-short-film-spatial-audio-only-adaptation"
     },
     {
         "image": "../assets/projects/play-with-me/images/thumbnail",
