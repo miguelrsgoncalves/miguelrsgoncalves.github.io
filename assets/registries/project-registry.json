@@ -241,7 +241,8 @@
     {
         "image": "../assets/projects/egg-hunt/images/thumbnail",
         "title": "Egg Hunt",
-        "year": "2023",
+        "dateStart": "2023-04-23",
+        "dateEnd": "2023-05-24",
         "category": ["Graphics Programming"],
         "software": ["WebGL"],
         "description": "Prototype game where you play as a bird tasked with gathering eggs and dropping them on a nest.",
