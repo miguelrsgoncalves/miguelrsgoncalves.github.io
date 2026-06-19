@@ -252,7 +252,8 @@
     {
         "image": "../assets/projects/webgl-train/images/thumbnail",
         "title": "WebGL Train",
-        "year": "2022",
+        "dateStart": "2022-04-27",
+        "dateEnd": "2022-06-08",
         "category": ["Graphics Programming"],
         "software": ["WebGL"],
         "description": "Prototype game where you can watch a train locomotive go around a circle train track, stopping at the various train stations along the way.",
