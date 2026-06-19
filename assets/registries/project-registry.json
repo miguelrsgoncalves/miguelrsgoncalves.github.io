@@ -219,7 +219,8 @@
     {
         "image": "../assets/projects/well-of-wandering/images/thumbnail",
         "title": "Well of Wandering",
-        "year": "2023",
+        "dateStart": "2023-10-31",
+        "dateEnd": "2023-11-20",
         "category": ["Sound Design"],
         "software": ["P5"],
         "description": "Let the Well of Wandering take you on a journey down the vibes of generative music.",
