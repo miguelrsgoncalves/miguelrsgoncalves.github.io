@@ -230,7 +230,8 @@
     {
         "image": "../assets/projects/hand-of-god/images/thumbnail",
         "title": "Hand of God",
-        "year": "2023",
+        "dateStart": "2023-10-16",
+        "dateEnd": "2023-10-28",
         "category": ["Game Dev"],
         "software": ["P5"],
         "description": "Step into the shoes of God and watch over and aid a civilization in their survival... Or their demise...",
