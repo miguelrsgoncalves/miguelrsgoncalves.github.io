@@ -586,18 +586,21 @@
       max-width: 256px;
       box-sizing: border-box;
 
-      text-align: left;
+      text-align: start;
       align-items: start;
   
       .title {
+        text-align: start;
         color: var(--primary-color);
-        font-size: var(--font-size-base);
+        font-size: var(--font-size-small);
         font-weight: bold;
+
       }
-  
+      
       .date {
         color: var(--font-color-normal);
         font-size: var(--font-size-small);
+        margin-bottom: var(--gap);
       }
   
       .description { 
