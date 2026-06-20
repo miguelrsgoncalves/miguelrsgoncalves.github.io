@@ -448,6 +448,8 @@
   }
 
   .description {
+    margin-top: auto;
+    margin-bottom: auto;
     text-wrap: wrap;
     color: var(--font-color-muted);
     font-weight: var(--font-weight-base);
@@ -496,7 +498,6 @@
   }
   
   .timeline {
-    margin-top: auto;
 
     &.single-day {
       .timeline-bar {
