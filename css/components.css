@@ -514,6 +514,26 @@
       border-radius: var(--border-radius);
       position: relative;
     }
+
+    .timeline-bar::before,
+    .timeline-bar::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 16px;
+      background-color: var(--background-primary-color);
+      border-radius: var(--border-radius);
+    }
+
+    .timeline-bar::before {
+      left: 0;
+    }
+
+    .timeline-bar::after {
+      right: 0;
+    }
     
     .label {
       display: grid;
