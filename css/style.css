@@ -52,7 +52,7 @@ route-data {
   display: none;
 }
 
-a {
+a, .link {
   text-decoration: none;
   color: inherit;
   font-weight: bold;

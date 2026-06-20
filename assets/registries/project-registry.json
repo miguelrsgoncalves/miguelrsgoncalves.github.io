@@ -24,8 +24,8 @@
         "milestones": [
             {
                 "date": "2026-06-18",
-                "title": "Godot 4.7 Release",
-                "description": "Look, Mom, I'm on the TV!<br><i>Got mentioned on the credits for a Godot release for the first time.</i>"
+                "title": "First Release Contribution Mention: Godot 4.7",
+                "description": "Look, Mom, I'm on the TV!<br><i>Got mentioned as a contributor on a Godot release for the first time, which was for <span class='clickable link' onclick=\"window.open('https://godotengine.org/releases/4.7/', '_blank')\">Godot 4.7</span>!</i>"
             }
         ]
     },
