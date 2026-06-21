@@ -13,7 +13,6 @@
     {
         "image": "../assets/projects/godot-engine/images/thumbnail",
         "title": "Godot Engine",
-        "year": "2026",
         "dateStart": "2026-02-17",
         "dateEnd": "present",
         "category": ["Game Engine", "Game Dev"],
