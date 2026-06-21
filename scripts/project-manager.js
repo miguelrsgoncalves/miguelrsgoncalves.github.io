@@ -144,7 +144,7 @@ function buildTimeline(data) {
 
       milestones += `
         <div class="milestone-dot" style="left: ${percentage}%;">
-          <div class="milestone-tooltip no-select" onclick="event.preventDefault(); event.stopPropagation();">
+          <div class="milestone-tooltip no-select">
             <div class="title">${milestone.title}</div>
             <div class="date">${formatDate(milestone.date)}</div>
             <div class="description">${milestone.description}</div>

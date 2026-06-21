@@ -24,7 +24,7 @@
             {
                 "date": "2026-06-18",
                 "title": "First Release Contribution Mention: Godot 4.7",
-                "description": "Look, Mom, I'm on the TV!<br><i>Got mentioned as a contributor on a Godot release for the first time, which was for <span class='clickable link' onclick=\"window.open('https://godotengine.org/releases/4.7/', '_blank')\">Godot 4.7</span>!</i>"
+                "description": "Look, Mom, I'm on the TV!<br><i>Got mentioned as a contributor on a Godot release for the first time, which was for <a href='https://godotengine.org/releases/4.7/' target='_blank'>Godot 4.7</a>!</i>"
             }
         ]
     },
