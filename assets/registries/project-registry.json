@@ -244,7 +244,7 @@
         "dateEnd": "2023-05-24",
         "category": ["Graphics Programming"],
         "software": ["WebGL"],
-        "description": "Prototype game where you play as a bird tasked with gathering eggs and dropping them on a nest.",
+        "description": "Play as a bird tasked with gathering eggs and dropping them on a nest.",
         "misc": ["University Project"],
         "page-name": "egg-hunt"
     },
@@ -255,7 +255,7 @@
         "dateEnd": "2022-06-08",
         "category": ["Graphics Programming"],
         "software": ["WebGL"],
-        "description": "Prototype game where you can watch a train locomotive go around a circle train track, stopping at the various train stations along the way.",
+        "description": "Watch a train locomotive go around a circle train track, stopping at the various train stations along the way.",
         "misc": ["University Project"],
         "page-name": "webgl-train"
     }
