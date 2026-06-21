@@ -48,7 +48,11 @@ function navigate(route, isWindowPop = false) {
 function render(route, segments, html, isWindowPop) {
   currentRoute = route;
 
-  const title = extractTitle(html);
+  const {
+    title,
+    description
+  } = getRouteMetadata(html)
+
   if (title) {
     routeTitleText.innerHTML = title;
     routeTitle.classList.add('active');
@@ -56,8 +60,25 @@ function render(route, segments, html, isWindowPop) {
     routeTitleText.innerHTML = '';
     routeTitle.classList.remove('active');
   }
-
+  
   document.title = title ? `MRSG | ${title}` : 'MRSG';
+  
+  const metaDescription = document.querySelector('meta[name="description"]');
+  if (metaDescription) {
+    metaDescription.setAttribute('content', description);
+  }
+
+  updateOgTag('og:title', title ? `MRSG | ${title}` : 'MRSG');
+  updateOgTag('og:description', description);
+  updateOgTag('og:url', `${window.location.origin}/${route}`);
+
+  let canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement('link');
+    canonical.setAttribute('rel', 'canonical');
+    document.head.appendChild(canonical);
+  }
+  canonical.setAttribute('href', `${window.location.origin}/${route}`);
 
   updateNav(segments);
 
@@ -68,10 +89,25 @@ function render(route, segments, html, isWindowPop) {
   updateContent(html);
 }
 
-function extractTitle(html) {
+function getRouteMetadata(html) {
   const scratch = document.createElement('div');
   scratch.innerHTML = html;
-  return scratch.querySelector('route-data')?.getAttribute('title') ?? null;
+  const meta = scratch.querySelector('route-data');
+  
+  return {
+    title: meta?.getAttribute("title") ?? null,
+    description: meta?.getAttribute("description") ?? ""
+  };
+}
+
+function updateOgTag(property, content) {
+  let tag = document.querySelector(`meta[property="${property}"]`);
+  if (!tag) {
+    tag = document.createElement('meta');
+    tag.setAttribute('property', property);
+    document.head.appendChild(tag);
+  }
+  tag.setAttribute('content', content);
 }
 
 function updateNav(segments) {
