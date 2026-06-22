@@ -131,9 +131,8 @@
   gap: 20px;
 
   .panel-column {
-    flex: 1 1 calc(25% - 20px);
+    flex: 1;
     margin-right: 0;
-    min-width: 250px;
   }
   
   .panel-column:last-child {
@@ -151,6 +150,7 @@
   .panel-indent-group {
     max-height: 200px;
     overflow-y: scroll;
+    overscroll-behavior: contain;
     margin-left: 32px;
     scrollbar-color: var(--primary-color) var(--background-primary-color);
   }
