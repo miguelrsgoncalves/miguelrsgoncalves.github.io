@@ -46,6 +46,10 @@ body {
   background-color: var(--background-primary-color);
   margin: 0;
   padding: 0;
+  
+  * {
+    overscroll-behavior: contain;
+  }
 }
 
 route-data {
