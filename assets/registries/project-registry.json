@@ -8,7 +8,7 @@
         "category": ["Game Dev"],
         "software": ["Godot", "Aseprite"],
         "description": "Greed",
-        "misc": ["Solo Dev", "Development"],
+        "misc": ["Solo Dev"],
         "page-name": "mammon-awakening"
     },
     {
@@ -39,7 +39,7 @@
         "category": ["Game Dev"],
         "software": ["Godot", "Krita", "Reaper"],
         "description": "MAKE YOUR OWN MUSIC AND FIGHT WITH YOUR OWN MUSIC! Gather all your friends and make your own music to guide you through all your troubles and defeat your enemies!",
-        "misc": ["Solo Dev", "On Hold"],
+        "misc": ["Solo Dev"],
         "page-name": "hums-of-the-soul"
     },
     {
@@ -75,7 +75,7 @@
         "category": ["Game Dev"],
         "software": ["Godot"],
         "description": "Highly competitive online Rock, Paper, Scissors! game.",
-        "misc": ["Solo Dev", "Abandoned"],
+        "misc": ["Solo Dev"],
         "page-name": ""
     },
     {
@@ -123,7 +123,7 @@
         "category": ["Game Dev"],
         "software": ["Godot", "Krita"],
         "description": "Pigment is a mystery.",
-        "misc": ["Solo Dev", "On Hold"],
+        "misc": ["Solo Dev"],
         "page-name": "pigment"
     },
     {
@@ -159,7 +159,7 @@
         "category": ["Game Dev"],
         "software": ["Unreal Engine", "Krita", "Reaper"],
         "description": "This project was created to be a 14 day challenge. It was abandoned and never released, but still its a nice look into the past. Maybe even a start to something in the future.",
-        "misc": ["Solo Dev", "Abandoned"],
+        "misc": ["Solo Dev"],
         "page-name": "hums-of-the-soul-first-light"
     },
     {
