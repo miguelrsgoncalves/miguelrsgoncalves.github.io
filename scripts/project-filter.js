@@ -1,6 +1,6 @@
 var filterConfig = null
 var filterGroups = {}
-var searchText = ''
+var searchText = ""
 
 function filterInit(fields) {
   filterConfig = fields
@@ -10,26 +10,36 @@ function filterInit(fields) {
 
 function buildFilter(allProjectsData) {
   if(!filterConfig) return
-  const dropdown = document.getElementById('filter-panel')
+  const dropdown = document.getElementById("filter-panel")
   if(!dropdown) return
 
   const rawData = allProjectsData.map(p => p.data ?? p)
-
   const uniqueValues = {}
+
   filterConfig.forEach(field => {
     const values = new Set()
     rawData.forEach(project => {
       const val = project[field]
       if(Array.isArray(val)) {
         const nonEmpty = val.filter(Boolean)
-        nonEmpty.length ? nonEmpty.forEach(v => values.add(v)) : values.add('')
-      } else if(val != null) {
+        nonEmpty.length ? nonEmpty.forEach(v => values.add(v)) : values.add("None")
+      } else if(val != null && val !== "") {
         values.add(String(val))
+      } else {
+        values.add("Unknown")
       }
     })
-    uniqueValues[field] = [...values].sort((a, b) =>
-      field === 'year' ? b.localeCompare(a) : a.localeCompare(b)
-    )
+
+    uniqueValues[field] = [...values].sort((a, b) => {
+      if (field === "startYear" || field === "endYear") {
+        if (a === "Present") return -1;
+        if (b === "Present") return 1;
+        if (a === "Unknown") return 1;
+        if (b === "Unknown") return -1;
+        return b.localeCompare(a); 
+      }
+      return a.localeCompare(b);
+    })
   })
 
   filterGroups = {}
@@ -40,12 +50,15 @@ function buildFilter(allProjectsData) {
   dropdown.innerHTML = filterConfig.map(field => {
     const checkboxes = uniqueValues[field].map(v => `
       <div class="panel-checkbox no-select">
-        <input name="${v || 'None'}" type="checkbox" class="${field}-checkbox clickable" checked onchange="updateGroup('${field}')">
-        <label class="clickable" onclick="toggleOnly('${field}', this)">${v || 'None'}</label>
+        <input name="${v}" type="checkbox" class="${field}-checkbox clickable" checked onchange="updateGroup('${field}')">
+        <label class="clickable" onclick="toggleOnly('${field}', this)">${v}</label>
       </div>`).join('')
+      
+    const titleText = field.replace(/([A-Z])/g, ' $1').trim().capitalize();
+
     return `
       <div class="panel-column">
-        <h4 class="panel-title no-select">${field.capitalize()}</h4>
+        <h4 class="panel-title no-select">${titleText}</h4>
         <div class="panel-checkbox">
           <input type="checkbox" id="all-${field}" class="clickable" checked onchange="toggleAll('${field}', true)">
           <label class="clickable no-select" onclick="toggleAll('${field}', false)">All</label>
@@ -58,17 +71,17 @@ function buildFilter(allProjectsData) {
 function getSelected(group) {
   const selected = []
   document.querySelectorAll(filterGroups[group].checkboxes).forEach(el => {
-    if(el.checked) selected.push(el.name === 'None' ? '' : el.name)
+    if(el.checked) selected.push(el.name === "None" ? "" : el.name)
   })
   return selected
 }
 
 function toggleDropdown(containerId) {
-  document.getElementById('filter-panel').classList.toggle('active')
+  document.getElementById("filter-panel").classList.toggle("active")
 }
 
 function closeDropdown() {
-  document.getElementById('filter-panel').classList.remove('active')
+  document.getElementById("filter-panel").classList.remove("active")
 }
 
 function toggleAll(group, isCheckbox) {

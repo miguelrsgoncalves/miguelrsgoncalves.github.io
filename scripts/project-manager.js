@@ -21,19 +21,41 @@ async function getProjectsData() {
     try {
       const response = await fetch(dataSourcePath)
       const projectsDataJSON = await response.json()
-      const templateResponse = await fetch('assets/components/project-card.html')
+      const templateResponse = await fetch("assets/components/project-card.html")
       const templateText = await templateResponse.text()
       const parser = new DOMParser()
-      const templateDoc = parser.parseFromString(templateText, 'text/html')
-      const template = templateDoc.getElementById('project-card').innerHTML
+      const templateDoc = parser.parseFromString(templateText, "text/html")
+      const template = templateDoc.getElementById("project-card").innerHTML
+      
       projectsDataJSON.forEach(project => {
+        project.status = project.status || "Completed";
+
+        if (project.startDate) {
+          const date = new Date(project.startDate);
+          project.startYear = isNaN(date.getTime()) ? "Unknown" : String(date.getFullYear());
+        } else {
+          project.endDate = ""
+          project.startYear = "Unknown";
+        }
+
+        if (project.status === "Active") {
+          project.endDate = "Present";
+          project.endYear = "Present";
+        } else if (project.endDate) {
+          const date = new Date(project.endDate);
+          project.endYear = isNaN(date.getTime()) ? "Unknown" : String(date.getFullYear());
+        } else {
+          project.endDate = "";
+          project.endYear = "Unknown";
+        }
+
         const cardHTML = replacePlaceholders(template, project)
         projectsData.push({data: project, html: cardHTML})
       })
     } catch (error) {
-      console.error('Error loading projects:', error)
+      console.error("Error loading projects:", error)
     }
-  } else return
+  }
 }
 
 async function populateProjects(containerId) {
@@ -56,22 +78,22 @@ async function insertProjects() {
 
 function matchesFilter(project, filter) {
   if (searchText) {
-    const title = (project.data.title || '').toLowerCase();
-    if (!title.includes(searchText)) {
-      return false;
-    }
+    const title = (project.data.title || "").toLowerCase();
+    if (!title.includes(searchText)) return false;
   }
 
   if (!filter) return true;
 
   return Object.keys(filter).every(field => {
-    const val = project.data[field];
+    const value = project.data[field];
     const selected = filter[field];
-    if (Array.isArray(val)) {
-      const effective = val.filter(Boolean);
-      return (effective.length ? effective : ['']).some(v => selected.includes(v));
+    
+    if (Array.isArray(value)) {
+      const effective = value.filter(Boolean);
+      return (effective.length ? effective : ["None"]).some(v => selected.includes(v));
     }
-    return selected.includes(String(val ?? ''));
+    
+    return selected.includes(String(value ?? "Unknown"));
   });
 }
 
@@ -107,62 +129,65 @@ function replacePlaceholders(template, data) {
 }
 
 function buildTimeline(data) {
-  if (!data.dateStart || !data.dateEnd) return '';
-
-  const start = new Date(data.dateStart).getTime();
+  const start = data.startDate ? new Date(data.startDate).getTime() : NaN;
+  let endObject = data.endDate ? new Date(data.endDate) : null;
   
-  let endObject = new Date(data.dateEnd);
-  if (data.dateEnd.toLowerCase() === 'present' || isNaN(endObject.getTime())) {
-    endObject = new Date(); 
+  if (data.endDate && data.endDate.toLowerCase() === 'present') {
+    endObject = new Date();
   }
-  const end = endObject.getTime();
   
-  const totalDurationMs = end - start;
-  const displaydateEnd = formatDate(data.dateEnd);
-  const displaydateStart = formatDate(data.dateStart);
-
-  const totalDays = Math.max(0, Math.round(totalDurationMs / (1000 * 60 * 60 * 24)));
-
-  if (totalDays <= 1) {
-    return `
-      <div class="timeline single-day">
-        <div class="label">
-          <span class="center-date">${displaydateStart}</span>
-        </div>
-      </div>
-    `;
-  }
-
-  let durationText = getDateDuration(data.dateStart, data.dateEnd);
-
+  const end = (endObject && !isNaN(endObject.getTime())) ? endObject.getTime() : NaN;
+  const hasValidTimelineRange = !isNaN(start) && !isNaN(end);
+  
+  const displayDateStart = !isNaN(start) ? formatDate(data.startDate) : 'Unknown';
+  const displayDateEnd = data.status === 'active' ? 'Present' : (!isNaN(end) ? formatDate(data.endDate) : 'Unknown');
+  
+  let durationText = '';
   let milestones = '';
-  if (data.milestones && Array.isArray(data.milestones)) {
-    data.milestones.forEach(milestone => {
-      const milestoneTime = new Date(milestone.date).getTime();
-      let percentage = ((milestoneTime - start) / totalDurationMs) * 100;
-      percentage = Math.max(0, Math.min(100, percentage));
 
-      milestones += `
-        <div class="milestone-dot" style="left: ${percentage}%;">
-          <div class="milestone-tooltip no-select">
-            <div class="title">${milestone.title}</div>
-            <div class="date">${formatDate(milestone.date)}</div>
-            <div class="description">${milestone.description}</div>
+  if (hasValidTimelineRange) {
+    durationText = getDateDuration(data.startDate, data.endDate);
+    const totalDurationMs = end - start;
+
+    if (data.milestones && Array.isArray(data.milestones) && totalDurationMs > 0) {
+      data.milestones.forEach(milestone => {
+        const milestoneTime = new Date(milestone.date).getTime();
+        if (!isNaN(milestoneTime)) {
+          let percentage = ((milestoneTime - start) / totalDurationMs) * 100;
+          percentage = Math.max(0, Math.min(100, percentage));
+
+          milestones += `
+            <div class="milestone-dot" style="left: ${percentage}%;">
+              <div class="milestone-tooltip no-select">
+                <div class="title">${milestone.title}</div>
+                <div class="date">${formatDate(milestone.date)}</div>
+                <div class="description">${milestone.description}</div>
+              </div>
+            </div>
+          `;
+        }
+      });
+    }
+
+    const totalDays = Math.max(0, Math.round(totalDurationMs / (1000 * 60 * 60 * 24)));
+    if (totalDays <= 1) {
+      return `
+        <div class="timeline single-day">
+          <div class="label">
+            <span class="center-date">${displayDateStart}</span>
           </div>
         </div>
       `;
-    });
+    }
   }
 
   return `
     <div class="timeline">
-      <div class="timeline-bar">
-        ${milestones}
-      </div>
+      <div class="timeline-bar">${milestones}</div>
       <div class="label">
-        <div class="date-start">${displaydateStart}</div>
-        <div class="duration">${durationText}</div>
-        <div class="date-end">${displaydateEnd}</div>
+        <div class="date-start">${displayDateStart}</div>
+        ${durationText ? `<div class="duration">${durationText}</div>` : '<div class="duration empty"></div>'}
+        <div class="date-end">${displayDateEnd}</div>
       </div>
     </div>
   `;
@@ -183,20 +208,20 @@ function formatDate(dateString) {
 }
 
 function getDateDuration(dateStartString, dateEndString) {
-  const dateStart = new Date(dateStartString);
-  let dateEnd = new Date(dateEndString);
+  const startDate = new Date(dateStartString);
+  let endDate = new Date(dateEndString);
   
-  if (dateEndString.toLowerCase() === 'present' || isNaN(dateEnd.getTime())) {
-    dateEnd = new Date();
+  if (dateEndString.toLowerCase() === 'present' || isNaN(endDate.getTime())) {
+    endDate = new Date();
   }
 
-  let yearsDiff = dateEnd.getFullYear() - dateStart.getFullYear();
-  let monthsDiff = dateEnd.getMonth() - dateStart.getMonth();
-  let daysDiff = dateEnd.getDate() - dateStart.getDate();
+  let yearsDiff = endDate.getFullYear() - startDate.getFullYear();
+  let monthsDiff = endDate.getMonth() - startDate.getMonth();
+  let daysDiff = endDate.getDate() - startDate.getDate();
 
   if (daysDiff < 0) {
     monthsDiff--;
-    const previousMonth = new Date(dateEnd.getFullYear(), dateEnd.getMonth(), 0);
+    const previousMonth = new Date(endDate.getFullYear(), endDate.getMonth(), 0);
     daysDiff += previousMonth.getDate(); 
   }
 
@@ -205,7 +230,7 @@ function getDateDuration(dateStartString, dateEndString) {
     monthsDiff += 12;
   }
 
-  const totalDurationMs = dateEnd.getTime() - dateStart.getTime();
+  const totalDurationMs = endDate.getTime() - startDate.getTime();
   const totalDays = Math.max(0, Math.round(totalDurationMs / (1000 * 60 * 60 * 24)));
 
   if (yearsDiff > 0) {
