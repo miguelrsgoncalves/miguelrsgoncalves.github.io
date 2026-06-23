@@ -236,7 +236,124 @@
         "software": ["HTML", "CSS", "Javascript"],
         "description": "The best website ever created!",
         "misc": [],
-        "page-name": "personal-website"
+        "page-name": "personal-website",
+        "milestones": [
+            {
+                "date": "2025-09-18",
+                "title": "0.1.0",
+                "description": ""
+            },
+            {
+                "date": "2025-09-21",
+                "title": "1.0.0",
+                "description": ""
+            },
+            {
+                "date": "2025-09-23",
+                "title": "1.1.0",
+                "description": ""
+            },
+            {
+                "date": "2025-09-23",
+                "title": "1.1.1",
+                "description": ""
+            },
+            {
+                "date": "2025-09-23",
+                "title": "1.2.0",
+                "description": ""
+            },
+            {
+                "date": "2025-09-24",
+                "title": "1.3.0",
+                "description": ""
+            },
+            {
+                "date": "2025-09-25",
+                "title": "1.4.0",
+                "description": ""
+            },
+            {
+                "date": "2025-09-25",
+                "title": "1.5.0",
+                "description": ""
+            },
+            {
+                "date": "2025-10-02",
+                "title": "1.6.0",
+                "description": ""
+            },
+            {
+                "date": "2025-10-07",
+                "title": "1.7.0",
+                "description": ""
+            },
+            {
+                "date": "2025-12-14",
+                "title": "1.8.0",
+                "description": ""
+            },
+            {
+                "date": "2026-01-04",
+                "title": "1.8.1",
+                "description": ""
+            },
+            {
+                "date": "2026-01-07",
+                "title": "1.9.0",
+                "description": ""
+            },
+            {
+                "date": "2026-01-07",
+                "title": "1.9.0",
+                "description": ""
+            },
+            {
+                "date": "2026-01-08",
+                "title": "1.10.0",
+                "description": ""
+            },
+            {
+                "date": "2026-01-09",
+                "title": "1.10.1",
+                "description": ""
+            },
+            {
+                "date": "2026-01-14",
+                "title": "1.10.2",
+                "description": ""
+            },
+            {
+                "date": "2026-01-14",
+                "title": "1.10.3",
+                "description": ""
+            },
+            {
+                "date": "2026-01-30",
+                "title": "1.10.4",
+                "description": ""
+            },
+            {
+                "date": "2026-02-16",
+                "title": "1.10.5",
+                "description": ""
+            },
+            {
+                "date": "2026-02-18",
+                "title": "1.10.6",
+                "description": ""
+            },
+            {
+                "date": "2026-03-12",
+                "title": "1.10.7",
+                "description": ""
+            },
+            {
+                "date": "2026-03-17",
+                "title": "1.10.8",
+                "description": ""
+            }
+        ]
     },
     {
         "image": "../assets/projects/sisyphus-climb/images/thumbnail",
