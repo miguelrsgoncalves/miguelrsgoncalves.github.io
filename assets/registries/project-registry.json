@@ -77,13 +77,20 @@
         "image": "../assets/projects/cglf/images/thumbnail",
         "title": "CGLF — Custom Global Light Function",
         "startDate": "2025-08-17",
-        "endDate": "",
-        "status": "Active",
+        "endDate": "present",
+        "status": "Maintenance",
         "category": ["Tool"],
         "software": ["Godot"],
         "description": "Provides a manager to define and customize a single centralized custom global light() function shared across all or chosen shaders in the project.",
         "misc": ["Godot Plugin", "Open Source"],
-        "page-name": "cglf-custom-global-light-function"
+        "page-name": "cglf-custom-global-light-function",
+        "milestones": [
+            {
+                "date": "2025-09-01",
+                "title": "1.0.0",
+                "description": ""
+            }
+        ]
     },
     {
         "image": "",
