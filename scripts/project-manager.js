@@ -132,7 +132,7 @@ function buildTimeline(data) {
   const start = data.startDate ? new Date(data.startDate).getTime() : NaN;
   let endObject = data.endDate ? new Date(data.endDate) : null;
   
-  if (data.endDate && data.endDate.toLowerCase() === 'present') {
+  if ((data.endDate && data.endDate.toLowerCase() === "present") || data.status.toLowerCase() === "maintenance") {
     endObject = new Date();
   }
   
@@ -140,7 +140,7 @@ function buildTimeline(data) {
   const hasValidTimelineRange = !isNaN(start) && !isNaN(end);
   
   const displayDateStart = !isNaN(start) ? formatDate(data.startDate) : 'Unknown';
-  const displayDateEnd = data.status === 'active' ? 'Present' : (!isNaN(end) ? formatDate(data.endDate) : 'Unknown');
+  const displayDateEnd = (data.status.toLowerCase() === 'active' || data.status.toLowerCase() === 'maintenance') ? 'Present' : (!isNaN(end) ? formatDate(data.endDate) : 'Unknown');
   
   let durationText = '';
   let milestones = '';
