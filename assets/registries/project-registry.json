@@ -52,7 +52,14 @@
         "software": ["Godot", "Krita", "Reaper"],
         "description": "MAKE YOUR OWN MUSIC AND FIGHT WITH YOUR OWN MUSIC! Gather all your friends and make your own music to guide you through all your troubles and defeat your enemies!",
         "misc": ["Solo Dev"],
-        "page-name": "hums-of-the-soul"
+        "page-name": "hums-of-the-soul",
+        "milestones": [
+            {
+                "date": "2026-04-12",
+                "title": "Put on Hold",
+                "description": ""
+            }
+        ]
     },
     {
         "image": "../assets/projects/spritesheet-manager/images/thumbnail",
@@ -131,12 +138,19 @@
         "title": "Pigment",
         "startDate": "2025-02-19",
         "endDate": "2025-05-28",
-        "status": "Completed",
+        "status": "On Hold",
         "category": ["Game Dev"],
         "software": ["Godot", "Krita"],
         "description": "Pigment is a mystery.",
         "misc": ["Solo Dev"],
-        "page-name": "pigment"
+        "page-name": "pigment",
+        "milestones": [
+            {
+                "date": "2025-05-28",
+                "title": "Put on Hold",
+                "description": ""
+            }
+        ]
     },
     {
         "image": "../assets/projects/personal-website/images/thumbnail",
