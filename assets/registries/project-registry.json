@@ -121,7 +121,24 @@
         "software": ["Krita", "Python"],
         "description": "A Krita plugin that allows to add padding and anti-bleeding pixels to any sprite sheet!",
         "misc": ["Krita Plugin", "Open Source"],
-        "page-name": "spritesheet-manager"
+        "page-name": "spritesheet-manager",
+        "milestones": [
+            {
+                "date": "2025-12-04",
+                "title": "Tileset Padder v1.0.0",
+                "description": ""
+            },
+            {
+                "date": "2026-04-19",
+                "title": "0.1.0",
+                "description": ""
+            },
+            {
+                "date": "2026-04-21",
+                "title": "0.2.0",
+                "description": ""
+            }
+        ]
     },
     {
         "image": "../assets/projects/cglf/images/thumbnail",
