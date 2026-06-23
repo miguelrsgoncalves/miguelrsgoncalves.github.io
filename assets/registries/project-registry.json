@@ -1,6 +1,18 @@
 [
     {
         "image": "",
+        "title": "IGDA",
+        "startDate": "2026-06-15",
+        "endDate": "",
+        "status": "Active",
+        "category": ["Game Dev"],
+        "software": [],
+        "description": "IGDA Portugal",
+        "misc": ["Association"],
+        "page-name": "igda"
+    },
+    {
+        "image": "",
         "title": "Mammon's Awakening",
         "startDate": "2026-04-08",
         "endDate": "",
