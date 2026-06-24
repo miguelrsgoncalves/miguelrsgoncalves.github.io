@@ -1,14 +1,11 @@
 main {
   padding: var(--padding-main);
-  width: 100%;
   box-sizing: border-box;
 }
 
 .page {
   display: flex;
   flex-direction: column;
-  margin: 0;
-  width: 100%;
   gap: var(--gap);
   animation: slideIn 0.5s ease;
   overscroll-behavior: contain;
@@ -58,13 +55,18 @@ main {
     }
 
     &.banner {
+      display: block;
       flex: 2;
       min-width: 0;
+
+      .banner-inner {
+        display: flex;
+        flex-direction: column;
+      }
 
       &.left {
         align-items: flex-start;
         text-align: left;
-        color: aqua;
       }
 
       &.right {
@@ -75,8 +77,6 @@ main {
       &.dynamic {
         position: sticky;
         align-self: flex-start;
-        overflow-y: auto;
-        overflow-x: hidden;
         top: calc(var(--header-height) + var(--padding-main));
         max-height: calc(100vh - var(--header-height) - (var(--padding-main) * 2));
       }
