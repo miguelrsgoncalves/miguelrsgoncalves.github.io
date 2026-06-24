@@ -338,9 +338,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 30em), 1fr));
   gap: var(--gap);
-  width: auto;
   margin: 0;
-  box-sizing: border-box;
 }
 
 .project-card {
