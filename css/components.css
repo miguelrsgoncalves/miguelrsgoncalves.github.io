@@ -135,10 +135,6 @@
     margin-right: 0;
   }
   
-  .panel-column:last-child {
-    margin-right: 0;
-  }
-  
   .panel-title {
     text-align: start;
     font-size: var(--font-size-large);
@@ -150,6 +146,7 @@
   .panel-indent-group {
     max-height: 200px;
     overflow-y: scroll;
+    overscroll-behavior: contain;
     margin-left: 32px;
     scrollbar-color: var(--primary-color) var(--background-primary-color);
   }

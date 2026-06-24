@@ -11,6 +11,7 @@ main {
   width: 100%;
   gap: var(--gap);
   animation: slideIn 0.5s ease;
+  overscroll-behavior: contain;
 
   &.narrow {
     max-width: 1024px;
