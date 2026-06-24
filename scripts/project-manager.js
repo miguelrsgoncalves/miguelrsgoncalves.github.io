@@ -70,8 +70,8 @@ async function populateProjects(containerId) {
 async function insertProjects() {
   await getProjectsData()
   document.querySelectorAll('[name="single-project-card"]').forEach(el => {
-    const pageName = el.getAttribute("page-name")
-    const projectCard = projectsData.find(element => element?.data?.["page-name"] === pageName)
+    const pageName = el.getAttribute("id")
+    const projectCard = projectsData.find(element => element?.data?.["id"] === pageName)
     el.replaceWith(document.createRange().createContextualFragment(projectCard.html))
   })
 }

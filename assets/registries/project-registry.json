@@ -1,6 +1,6 @@
 [
     {
-        "image": "",
+        "id": "igda",
         "title": "IGDA",
         "startDate": "2026-06-15",
         "endDate": "",
@@ -8,11 +8,10 @@
         "category": ["Game Dev"],
         "software": [],
         "description": "IGDA Portugal",
-        "misc": ["Association"],
-        "page-name": "igda"
+        "misc": ["Association"]
     },
     {
-        "image": "",
+        "id": "mammon-awakening",
         "title": "Mammon's Awakening",
         "startDate": "2026-04-08",
         "endDate": "",
@@ -20,11 +19,10 @@
         "category": ["Game Dev"],
         "software": ["Godot", "Aseprite"],
         "description": "Greed",
-        "misc": ["Solo Dev"],
-        "page-name": "mammon-awakening"
+        "misc": ["Solo Dev"]
     },
     {
-        "image": "",
+        "id": "gdd-latex-template",
         "title": "GDD LaTeX Template",
         "startDate": "2026-04-07",
         "endDate": "",
@@ -33,7 +31,6 @@
         "software": ["LaTeX"],
         "description": "",
         "misc": ["Open Source"],
-        "page-name": "",
         "milestones": [
             {
                 "date": "2026-04-09",
@@ -74,7 +71,7 @@
         ]
     },
     {
-        "image": "../assets/projects/godot-engine/images/thumbnail",
+        "id": "godot-engine",
         "title": "Godot Engine",
         "startDate": "2026-02-17",
         "endDate": "",
@@ -83,7 +80,6 @@
         "software": ["C++", "Godot"],
         "description": "Helping one of the best Open Source projects one step at a time!",
         "misc": ["Open Source"],
-        "page-name": "godot-engine",
         "milestones": [
             {
                 "date": "2026-06-18",
@@ -93,7 +89,7 @@
         ]
     },
     {
-        "image": "../assets/projects/hums-of-the-soul/images/thumbnail",
+        "id": "hums-of-the-soul",
         "title": "Hums of the Soul",
         "startDate": "2025-10-06",
         "endDate": "2026-04-12",
@@ -102,7 +98,6 @@
         "software": ["Godot", "Krita", "Reaper"],
         "description": "MAKE YOUR OWN MUSIC AND FIGHT WITH YOUR OWN MUSIC! Gather all your friends and make your own music to guide you through all your troubles and defeat your enemies!",
         "misc": ["Solo Dev"],
-        "page-name": "hums-of-the-soul",
         "milestones": [
             {
                 "date": "2026-04-12",
@@ -112,7 +107,7 @@
         ]
     },
     {
-        "image": "../assets/projects/spritesheet-manager/images/thumbnail",
+        "id": "spritesheet-manager",
         "title": "Spritesheet Manager",
         "startDate": "2025-12-02",
         "endDate": "",
@@ -121,7 +116,6 @@
         "software": ["Krita", "Python"],
         "description": "A Krita plugin that allows to add padding and anti-bleeding pixels to any sprite sheet!",
         "misc": ["Krita Plugin", "Open Source"],
-        "page-name": "spritesheet-manager",
         "milestones": [
             {
                 "date": "2025-12-04",
@@ -141,7 +135,7 @@
         ]
     },
     {
-        "image": "../assets/projects/cglf/images/thumbnail",
+        "id": "cglf-custom-global-light-function",
         "title": "CGLF — Custom Global Light Function",
         "startDate": "2025-08-17",
         "endDate": "present",
@@ -150,7 +144,6 @@
         "software": ["Godot"],
         "description": "Provides a manager to define and customize a single centralized custom global light() function shared across all or chosen shaders in the project.",
         "misc": ["Godot Plugin", "Open Source"],
-        "page-name": "cglf-custom-global-light-function",
         "milestones": [
             {
                 "date": "2025-09-01",
@@ -160,7 +153,7 @@
         ]
     },
     {
-        "image": "",
+        "id": "throwin-hands",
         "title": "Throwin' Hands",
         "startDate": "2025-09-03",
         "endDate": "2025-10-05",
@@ -168,11 +161,10 @@
         "category": ["Game Dev"],
         "software": ["Godot"],
         "description": "Highly competitive online Rock, Paper, Scissors! game.",
-        "misc": ["Solo Dev"],
-        "page-name": ""
+        "misc": ["Solo Dev"]
     },
     {
-        "image": "../assets/projects/limbo-gaol/images/thumbnail",
+        "id": "limbo-gaol",
         "title": "Limbo's Gaol",
         "startDate": "2025-03-24",
         "endDate": "2025-05-20",
@@ -180,11 +172,10 @@
         "category": ["Research", "Game Dev"],
         "software": ["Godot", "Blender", "Reaper"],
         "description": "Explore the Limbo's Gaol in an experimental narrative, unraveling the prison's mysteries through the eyes of one of four protagonists.",
-        "misc": ["Master Thesis"],
-        "page-name": "limbo-gaol"
+        "misc": ["Master Thesis"]
     },
     {
-        "image": "../assets/projects/the-player-eye/images/thumbnail",
+        "id": "the-player-eye",
         "title": "The Player's Eye",
         "startDate": "2025-03-24",
         "endDate": "2025-07-29",
@@ -192,11 +183,10 @@
         "category": ["Research", "Game Dev"],
         "software": ["LaTeX"],
         "description": "How narrative structures and gameplay elements influence the perspective of players on video game narratives.",
-        "misc": ["Master Thesis"],
-        "page-name": "the-player-eye"
+        "misc": ["Master Thesis"]
     },
     {
-        "image": "../assets/projects/chat95/images/thumbnail",
+        "id": "chat95",
         "title": "Chat95",
         "startDate": "2025-04-05",
         "endDate": "2025-04-07",
@@ -204,11 +194,10 @@
         "category": ["Game Dev", "Sound Design"],
         "software": ["Reaper", "FL Studio"],
         "description": "You are ChatGPT. Talk with a set of weird costumers and take care of their crazy ordeals!",
-        "misc": ["Game Jam"],
-        "page-name": "chat95"
+        "misc": ["Game Jam"]
     },
     {
-        "image": "../assets/projects/pigment/images/thumbnail",
+        "id": "pigment",
         "title": "Pigment",
         "startDate": "2025-02-19",
         "endDate": "2025-05-28",
@@ -217,7 +206,6 @@
         "software": ["Godot", "Krita"],
         "description": "Pigment is a mystery.",
         "misc": ["Solo Dev"],
-        "page-name": "pigment",
         "milestones": [
             {
                 "date": "2025-05-28",
@@ -227,7 +215,7 @@
         ]
     },
     {
-        "image": "../assets/projects/personal-website/images/thumbnail",
+        "id": "personal-website",
         "title": "Personal Website",
         "startDate": "2025-02-02",
         "endDate": "",
@@ -236,7 +224,6 @@
         "software": ["HTML", "CSS", "Javascript"],
         "description": "The best website ever created!",
         "misc": [],
-        "page-name": "personal-website",
         "milestones": [
             {
                 "date": "2025-09-18",
@@ -356,7 +343,7 @@
         ]
     },
     {
-        "image": "../assets/projects/sisyphus-climb/images/thumbnail",
+        "id": "sisyphus-climb",
         "title": "Sisyphus Climb",
         "startDate": "2024-09-16",
         "endDate": "2024-10-25",
@@ -364,11 +351,10 @@
         "category": ["Game Dev", "Technical Art"],
         "software": ["Unity", "Blender"],
         "description": "Fight for your right to be the true Sisyphus and carry the boulder to the top in a legendary duel!",
-        "misc": ["University Project"],
-        "page-name": "sisyphus-climb"
+        "misc": ["University Project"]
     },
     {
-        "image": "../assets/projects/hums-of-the-soul-first-light/images/thumbnail",
+        "id": "hums-of-the-soul-first-light",
         "title": "Hums of the Soul: First Light",
         "startDate": "2024-08-10",
         "endDate": "2024-09-03",
@@ -376,11 +362,10 @@
         "category": ["Game Dev"],
         "software": ["Unreal Engine", "Krita", "Reaper"],
         "description": "This project was created to be a 14 day challenge. It was abandoned and never released, but still its a nice look into the past. Maybe even a start to something in the future.",
-        "misc": ["Solo Dev"],
-        "page-name": "hums-of-the-soul-first-light"
+        "misc": ["Solo Dev"]
     },
     {
-        "image": "../assets/projects/grass-field/images/thumbnail",
+        "id": "grass-field",
         "title": "Grass Field",
         "startDate": "2024-06-25",
         "endDate": "2024-07-10",
@@ -388,11 +373,10 @@
         "category": ["Technical Art"],
         "software": ["Unreal Engine", "Blender"],
         "description": "Vast Stylized grass field made inside Unreal Engine 5, designed to be performant and dense.",
-        "misc": [],
-        "page-name": "grass-field"
+        "misc": []
     },
     {
-        "image": "../assets/projects/abyssal-descent/images/thumbnail",
+        "id": "abyssal-descent",
         "title": "Abyssal Descent: SCP-455",
         "startDate": "2024-05-07",
         "endDate": "2024-06-08",
@@ -400,11 +384,10 @@
         "category": ["Game Dev"],
         "software": ["Reaper", "FMOD"],
         "description": "You are part of a rescue team which mission is to extract a previous team from a cargo ship. Be careful though, the lost souls are uneasy.",
-        "misc": ["University Project"],
-        "page-name": "abyssal-descent"
+        "misc": ["University Project"]
     },
     {
-        "image": "../assets/projects/narrow-escape/images/thumbnail",
+        "id": "narrow-escape",
         "title": "Narrow Escape",
         "startDate": "2024-02-11",
         "endDate": "2024-05-15",
@@ -412,11 +395,10 @@
         "category": ["Animation"],
         "software": ["Maya"],
         "description": "Follow Anya as she escapes a trio of relentless goons, Oscar, Manuel and Joseph, finding her way through a weird and confusing system of sewer pipes.",
-        "misc": ["University Project"],
-        "page-name": "narrow-escape"
+        "misc": ["University Project"]
     },
     {
-        "image": "../assets/projects/papers-please-the-short-film-spatial-audio-only-adaptation/images/thumbnail",
+        "id": "papers-please-the-short-film-spatial-audio-only-adaptation",
         "title": "PAPERS, PLEASE - The Short Film | Spatial Audio-Only Adaptation",
         "startDate": "2024-03-09",
         "endDate": "2024-05-07",
@@ -424,11 +406,10 @@
         "category": ["Sound Design"],
         "software": ["Reaper"],
         "description": "A spatial audio-only adaptation of the PAPERS, PLEASE - The Short Film by Nikita Ordynskiy. Experience a day of an Arstotzka's border officer's life.",
-        "misc": ["University Project"],
-        "page-name": "papers-please-the-short-film-spatial-audio-only-adaptation"
+        "misc": ["University Project"]
     },
     {
-        "image": "../assets/projects/paranoia/images/thumbnail",
+        "id": "paranoia",
         "title": "Paranoia",
         "startDate": "2024-03-02",
         "endDate": "2024-03-04",
@@ -436,11 +417,10 @@
         "category": ["Game Dev"],
         "software": ["FL Studio"],
         "description": "Play through an unusual dungeon while trying to not lose your own mind. Things might change.",
-        "misc": ["Game Jam"],
-        "page-name": "paranoia"
+        "misc": ["Game Jam"]
     },
     {
-        "image": "../assets/projects/play-with-me/images/thumbnail",
+        "id": "play-with-me",
         "title": "PLAY WITH ME",
         "startDate": "2024-01-27",
         "endDate": "2024-01-29",
@@ -448,11 +428,10 @@
         "category": ["Game Dev"],
         "software": ["Unreal Engine"],
         "description": "You are a little toy soldier. You find yourself imprisoned inside the baby's bedroom. Survive your demonic company until it's mother comes home. ",
-        "misc": ["Game Jam"],
-        "page-name": "play-with-me"
+        "misc": ["Game Jam"]
     },
     {
-        "image": "../assets/projects/well-of-wandering/images/thumbnail",
+        "id": "well-of-wandering",
         "title": "Well of Wandering",
         "startDate": "2023-10-31",
         "endDate": "2023-11-20",
@@ -460,11 +439,10 @@
         "category": ["Sound Design"],
         "software": ["P5"],
         "description": "Let the Well of Wandering take you on a journey down the vibes of generative music.",
-        "misc": ["University Project"],
-        "page-name": "well-of-wandering"
+        "misc": ["University Project"]
     },
     {
-        "image": "../assets/projects/hand-of-god/images/thumbnail",
+        "id": "hand-of-god",
         "title": "Hand of God",
         "startDate": "2023-10-16",
         "endDate": "2023-10-28",
@@ -472,11 +450,10 @@
         "category": ["Game Dev"],
         "software": ["P5"],
         "description": "Step into the shoes of God and watch over and aid a civilization in their survival... Or their demise...",
-        "misc": ["University Project"],
-        "page-name": "hand-of-god"
+        "misc": ["University Project"]
     },
     {
-        "image": "../assets/projects/egg-hunt/images/thumbnail",
+        "id": "egg-hunt",
         "title": "Egg Hunt",
         "startDate": "2023-04-23",
         "endDate": "2023-05-24",
@@ -484,11 +461,10 @@
         "category": ["Graphics Programming"],
         "software": ["WebGL"],
         "description": "Play as a bird tasked with gathering eggs and dropping them on a nest.",
-        "misc": ["University Project"],
-        "page-name": "egg-hunt"
+        "misc": ["University Project"]
     },
     {
-        "image": "../assets/projects/webgl-train/images/thumbnail",
+        "id": "webgl-train",
         "title": "WebGL Train",
         "startDate": "2022-04-27",
         "endDate": "2022-06-08",
@@ -496,7 +472,6 @@
         "category": ["Graphics Programming"],
         "software": ["WebGL"],
         "description": "Watch a train locomotive go around a circle train track, stopping at the various train stations along the way.",
-        "misc": ["University Project"],
-        "page-name": "webgl-train"
+        "misc": ["University Project"]
     }
 ]
