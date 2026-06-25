@@ -6,7 +6,7 @@
         "endDate": "",
         "status": "Active",
         "category": ["Game Dev"],
-        "software": [],
+        "tool": [],
         "description": "IGDA Portugal",
         "misc": ["Association"]
     },
@@ -17,7 +17,7 @@
         "endDate": "",
         "status": "Active",
         "category": ["Game Dev"],
-        "software": ["Godot", "Aseprite"],
+        "tool": ["Godot", "Aseprite"],
         "description": "Greed",
         "misc": ["Solo Dev"]
     },
@@ -28,7 +28,7 @@
         "endDate": "",
         "status": "Maintenance",
         "category": ["Game Dev"],
-        "software": ["LaTeX"],
+        "tool": ["LaTeX"],
         "description": "",
         "misc": ["Open Source"],
         "milestones": [
@@ -77,7 +77,7 @@
         "endDate": "",
         "status": "Active",
         "category": ["Game Engine", "Game Dev"],
-        "software": ["C++", "Godot"],
+        "tool": ["C++", "Godot"],
         "description": "Helping one of the best Open Source projects one step at a time!",
         "misc": ["Open Source"],
         "milestones": [
@@ -95,7 +95,7 @@
         "endDate": "2026-04-12",
         "status": "On Hold",
         "category": ["Game Dev"],
-        "software": ["Godot", "Krita", "Reaper"],
+        "tool": ["Godot", "Krita", "Reaper"],
         "description": "MAKE YOUR OWN MUSIC AND FIGHT WITH YOUR OWN MUSIC! Gather all your friends and make your own music to guide you through all your troubles and defeat your enemies!",
         "misc": ["Solo Dev"],
         "milestones": [
@@ -113,7 +113,7 @@
         "endDate": "",
         "status": "Active",
         "category": ["Tool"],
-        "software": ["Krita", "Python"],
+        "tool": ["Krita", "Python"],
         "description": "A Krita plugin that allows to add padding and anti-bleeding pixels to any sprite sheet!",
         "misc": ["Krita Plugin", "Open Source"],
         "milestones": [
@@ -141,7 +141,7 @@
         "endDate": "present",
         "status": "Maintenance",
         "category": ["Tool"],
-        "software": ["Godot"],
+        "tool": ["Godot"],
         "description": "Provides a manager to define and customize a single centralized custom global light() function shared across all or chosen shaders in the project.",
         "misc": ["Godot Plugin", "Open Source"],
         "milestones": [
@@ -159,7 +159,7 @@
         "endDate": "2025-10-05",
         "status": "Abandoned",
         "category": ["Game Dev"],
-        "software": ["Godot"],
+        "tool": ["Godot"],
         "description": "Highly competitive online Rock, Paper, Scissors! game.",
         "misc": ["Solo Dev"]
     },
@@ -170,7 +170,7 @@
         "endDate": "2025-05-20",
         "status": "Completed",
         "category": ["Research", "Game Dev"],
-        "software": ["Godot", "Blender", "Reaper"],
+        "tool": ["Godot", "Blender", "Reaper"],
         "description": "Explore the Limbo's Gaol in an experimental narrative, unraveling the prison's mysteries through the eyes of one of four protagonists.",
         "misc": ["Master Thesis"]
     },
@@ -181,7 +181,7 @@
         "endDate": "2025-07-29",
         "status": "Completed",
         "category": ["Research", "Game Dev"],
-        "software": ["LaTeX"],
+        "tool": ["LaTeX"],
         "description": "How narrative structures and gameplay elements influence the perspective of players on video game narratives.",
         "misc": ["Master Thesis"]
     },
@@ -192,7 +192,7 @@
         "endDate": "2025-04-07",
         "status": "Completed",
         "category": ["Game Dev", "Sound Design"],
-        "software": ["Reaper", "FL Studio"],
+        "tool": ["Reaper", "FL Studio"],
         "description": "You are ChatGPT. Talk with a set of weird costumers and take care of their crazy ordeals!",
         "misc": ["Game Jam"]
     },
@@ -203,7 +203,7 @@
         "endDate": "2025-05-28",
         "status": "On Hold",
         "category": ["Game Dev"],
-        "software": ["Godot", "Krita"],
+        "tool": ["Godot", "Krita"],
         "description": "Pigment is a mystery.",
         "misc": ["Solo Dev"],
         "milestones": [
@@ -221,7 +221,7 @@
         "endDate": "",
         "status": "Active",
         "category": ["Programming"],
-        "software": ["HTML", "CSS", "Javascript"],
+        "tool": ["HTML", "CSS", "Javascript"],
         "description": "The best website ever created!",
         "misc": [],
         "milestones": [
@@ -349,7 +349,7 @@
         "endDate": "2024-10-25",
         "status": "Completed",
         "category": ["Game Dev", "Technical Art"],
-        "software": ["Unity", "Blender"],
+        "tool": ["Unity", "Blender"],
         "description": "Fight for your right to be the true Sisyphus and carry the boulder to the top in a legendary duel!",
         "misc": ["University Project"]
     },
@@ -360,7 +360,7 @@
         "endDate": "2024-09-03",
         "status": "Abandoned",
         "category": ["Game Dev"],
-        "software": ["Unreal Engine", "Krita", "Reaper"],
+        "tool": ["Unreal Engine", "Krita", "Reaper"],
         "description": "This project was created to be a 14 day challenge. It was abandoned and never released, but still its a nice look into the past. Maybe even a start to something in the future.",
         "misc": ["Solo Dev"]
     },
@@ -371,7 +371,7 @@
         "endDate": "2024-07-10",
         "status": "Completed",
         "category": ["Technical Art"],
-        "software": ["Unreal Engine", "Blender"],
+        "tool": ["Unreal Engine", "Blender"],
         "description": "Vast Stylized grass field made inside Unreal Engine 5, designed to be performant and dense.",
         "misc": []
     },
@@ -382,7 +382,7 @@
         "endDate": "2024-06-08",
         "status": "Completed",
         "category": ["Game Dev"],
-        "software": ["Reaper", "FMOD"],
+        "tool": ["Reaper", "FMOD"],
         "description": "You are part of a rescue team which mission is to extract a previous team from a cargo ship. Be careful though, the lost souls are uneasy.",
         "misc": ["University Project"]
     },
@@ -393,7 +393,7 @@
         "endDate": "2024-05-15",
         "status": "Completed",
         "category": ["Animation"],
-        "software": ["Maya"],
+        "tool": ["Maya"],
         "description": "Follow Anya as she escapes a trio of relentless goons, Oscar, Manuel and Joseph, finding her way through a weird and confusing system of sewer pipes.",
         "misc": ["University Project"]
     },
@@ -404,7 +404,7 @@
         "endDate": "2024-05-07",
         "status": "Completed",
         "category": ["Sound Design"],
-        "software": ["Reaper"],
+        "tool": ["Reaper"],
         "description": "A spatial audio-only adaptation of the PAPERS, PLEASE - The Short Film by Nikita Ordynskiy. Experience a day of an Arstotzka's border officer's life.",
         "misc": ["University Project"]
     },
@@ -415,7 +415,7 @@
         "endDate": "2024-03-04",
         "status": "Completed",
         "category": ["Game Dev"],
-        "software": ["FL Studio"],
+        "tool": ["FL Studio"],
         "description": "Play through an unusual dungeon while trying to not lose your own mind. Things might change.",
         "misc": ["Game Jam"]
     },
@@ -426,7 +426,7 @@
         "endDate": "2024-01-29",
         "status": "Completed",
         "category": ["Game Dev"],
-        "software": ["Unreal Engine"],
+        "tool": ["Unreal Engine"],
         "description": "You are a little toy soldier. You find yourself imprisoned inside the baby's bedroom. Survive your demonic company until it's mother comes home. ",
         "misc": ["Game Jam"]
     },
@@ -437,7 +437,7 @@
         "endDate": "2023-11-20",
         "status": "Completed",
         "category": ["Sound Design"],
-        "software": ["P5"],
+        "tool": ["P5"],
         "description": "Let the Well of Wandering take you on a journey down the vibes of generative music.",
         "misc": ["University Project"]
     },
@@ -448,7 +448,7 @@
         "endDate": "2023-10-28",
         "status": "Completed",
         "category": ["Game Dev"],
-        "software": ["P5"],
+        "tool": ["P5"],
         "description": "Step into the shoes of God and watch over and aid a civilization in their survival... Or their demise...",
         "misc": ["University Project"]
     },
@@ -459,7 +459,7 @@
         "endDate": "2023-05-24",
         "status": "Completed",
         "category": ["Graphics Programming"],
-        "software": ["WebGL"],
+        "tool": ["WebGL"],
         "description": "Play as a bird tasked with gathering eggs and dropping them on a nest.",
         "misc": ["University Project"]
     },
@@ -470,7 +470,7 @@
         "endDate": "2022-06-08",
         "status": "Completed",
         "category": ["Graphics Programming"],
-        "software": ["WebGL"],
+        "tool": ["WebGL"],
         "description": "Watch a train locomotive go around a circle train track, stopping at the various train stations along the way.",
         "misc": ["University Project"]
     }

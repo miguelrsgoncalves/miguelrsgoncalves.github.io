@@ -442,7 +442,7 @@
     text-align: start;
   }
 
-  .software {
+  .tool {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -486,7 +486,7 @@
     overflow: hidden;
   }
   
-  .software-container {
+  .tool-container {
     text-overflow: clip;
     overflow: hidden;
   }
