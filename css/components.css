@@ -401,7 +401,7 @@
   margin-top: 0;
   gap: var(--gap);
   
-  .title, .category, .year, .misc {
+  .title, .category, .year, .tag {
     margin: 0;
     padding: 0;
   }
@@ -432,7 +432,7 @@
     color: var(--font-color-normal);
   }
 
-  .misc {
+  .tag {
     font-size: var(--font-size-small);
     display: flex;
     flex-direction: column;
@@ -480,7 +480,7 @@
     text-wrap: nowrap;
   }
 
-  .category-misc-container {
+  .category-tag-container {
     display: flex;
     flex-direction: column;
     overflow: hidden;

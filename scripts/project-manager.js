@@ -121,7 +121,7 @@ function replacePlaceholders(template, data) {
   data.timeline = buildTimeline(data)
   return template.replace(/{{(.*?)}}/g, (match, p1) => {
     const key = p1.trim()
-    if((key === 'tool' || key === 'category' || key === 'misc') && Array.isArray(data[key])) {
+    if((key === 'tool' || key === 'category' || key === 'tag') && Array.isArray(data[key])) {
       return data[key].map(item => `<span class="h-scrollable">${item}</span>`).join('')
     }
     return data[key] || ''
