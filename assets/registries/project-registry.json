@@ -107,6 +107,17 @@
         ]
     },
     {
+        "id": "",
+        "title": "AudioStreamVST",
+        "startDate": "2026-02-20",
+        "endDate": "2026-05-07",
+        "status": "On Hold",
+        "category": ["Tool"],
+        "tool": ["Godot", "Aseprite"],
+        "description": "A Godot module that adds VST support to AudioStream",
+        "tag": ["Godot Module", "Future Open Source"]
+    },
+    {
         "id": "spritesheet-manager",
         "title": "Spritesheet Manager",
         "startDate": "2025-12-02",
