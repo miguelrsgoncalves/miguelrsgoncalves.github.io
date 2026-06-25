@@ -115,7 +115,14 @@
         "category": ["Tool"],
         "tool": ["Godot", "Aseprite"],
         "description": "A Godot module that adds VST support to AudioStream",
-        "tag": ["Godot Module", "Future Open Source"]
+        "tag": ["Godot Module", "Future Open Source"],
+        "milestones": [
+            {
+                "date": "2026-05-07",
+                "title": "Put on Hold",
+                "description": ""
+            }
+        ]
     },
     {
         "id": "spritesheet-manager",
@@ -154,7 +161,7 @@
         "id": "cglf-custom-global-light-function",
         "title": "CGLF — Custom Global Light Function",
         "startDate": "2025-08-17",
-        "endDate": "present",
+        "endDate": "2025-09-01",
         "status": "Maintenance",
         "category": ["Tool"],
         "tool": ["Godot"],
