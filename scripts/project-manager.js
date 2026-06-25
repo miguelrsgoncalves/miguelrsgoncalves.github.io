@@ -130,17 +130,26 @@ function replacePlaceholders(template, data) {
 
 function buildTimeline(data) {
   const start = data.startDate ? new Date(data.startDate).getTime() : NaN;
-  let endObject = data.endDate ? new Date(data.endDate) : null;
   
-  if ((data.endDate && data.endDate.toLowerCase() === "present") || data.status.toLowerCase() === "maintenance") {
+  let endObject = null;
+  let isPresent = false;
+
+  if (
+    (data.endDate && data.endDate.toLowerCase() === "present")
+    || (!data.endDate && data.status && (data.status.toLowerCase() === "active" || data.status.toLowerCase() === "maintenance"))
+  ) {
     endObject = new Date();
+    isPresent = true;
+  } 
+  else if (data.endDate) {
+    endObject = new Date(data.endDate);
   }
   
-  const end = (endObject && !isNaN(endObject.getTime())) ? endObject.getTime() : NaN;
+  const end = endObject ? endObject.getTime() : NaN;
   const hasValidTimelineRange = !isNaN(start) && !isNaN(end);
   
   const displayDateStart = !isNaN(start) ? formatDate(data.startDate) : 'Unknown';
-  const displayDateEnd = (data.status.toLowerCase() === 'active' || data.status.toLowerCase() === 'maintenance') ? 'Present' : (!isNaN(end) ? formatDate(data.endDate) : 'Unknown');
+  const displayDateEnd = isPresent ? 'Present' : (!isNaN(end) ? formatDate(data.endDate) : 'Unknown');
   
   let durationText = '';
   let milestones = '';
