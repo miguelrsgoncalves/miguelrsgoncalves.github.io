@@ -25,7 +25,7 @@
   }
 
   .button {
-    flex-grow: 1;
+    flex: 1 1 0;
     align-self: stretch;
     display: inline-flex;
     vertical-align: middle;
