@@ -197,4 +197,4 @@ document.addEventListener('click', e => {
 
 window.addEventListener('resize', initScrollables);
 
-//#endregion
+/*#endregion*/
