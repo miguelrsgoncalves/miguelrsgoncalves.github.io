@@ -7,16 +7,28 @@
     <div id="embedded-project-frame" class="frame"></div>
 
     <div class="control-bar">
-      <div id="start-button" class="button left clickable" onclick="loadEmbeddedProject(this, 'embedded-project-frame', '../assets/projects/webgl-train/project/webgl-train-embedded.html', 'loading-screen')">Start</div>
+      <div id="start-button" class="button left clickable" onclick="loadEmbeddedProject(this, 'embedded-project-frame', '../assets/projects/webgl-train/project/webgl-train-embedded.html', 'loading-screen')">
+        <icon icon-name="play"></icon>
+        <p>Start</p>
+      </div>
       <div class="separator vertical"></div>
-      <div class="button right clickable" onclick="restartEmbeddedProject('start-button', 'embedded-project-frame', '../assets/projects/webgl-train/project/webgl-train-embedded.html', 'loading-screen')">Restart</div>
+      <div class="button right clickable" onclick="restartEmbeddedProject('start-button', 'embedded-project-frame', '../assets/projects/webgl-train/project/webgl-train-embedded.html', 'loading-screen')">
+        <p>Restart</p>
+        <icon icon-name="refresh-ccw"></icon>
+      </div>
     </div>
   </div>
 
   <div class="control-bar">
-    <div class="button left clickable">Controls</div>
+    <div class="button left clickable">
+      <icon icon-name="gamepad-2"></icon>
+      <p>Controls</p>
+    </div>
     <div class="separator vertical"></div>
-    <div class="button right clickable">How to Play</div>
+    <div class="button right clickable">
+      <p>How to Play</p>
+      <icon icon-name="info"></icon>
+    </div>
   </div>
 
   <div class="control-panel" style="display: block;">
