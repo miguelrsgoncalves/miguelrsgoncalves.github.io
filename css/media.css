@@ -58,92 +58,27 @@ audio {
 /*#region embedded-project*/
 
 .embedded-project {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap);
+  aspect-ratio: 16 / 9;
+  background-color: var(--background-secondary-color);
+  border-radius: var(--border-radius);
+  position: relative;
 
   .frame {
-    border-radius: var(--border-radius);
-    background-color: var(--background-secondary-color);
-    padding: var(--border-size);
-    margin: auto;
+    display: block;
     position: relative;
-    max-width: 1024px;
     width: 100%;
-    height: 576px;
-    border-radius: var(--border-radius-inner);
+    height: 100%;
+    border-radius: var(--border-radius);
     justify-content: center;
+    overflow: hidden;
     border: none;
-    z-index: 2;
-  }
-}
 
-
-.loading-screen {
-  visibility: hidden;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-
-  .spinner {
-    border: 8px solid;
-    border-color: var(--primary-color) transparent var(--primary-color) transparent;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    animation: spin 1s ease infinite;
-  }
-}
-
-.embedded-project-controls-menu {
-  display: flex;
-  position: relative;
-  border-radius: var(--border-radius);
-  background-color: var(--background-secondary-color);
-  padding: 20px;
-  margin-bottom: 20px;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-
-  span {
-    flex: 1;
-    padding: 0;
-    margin: 0;
-
-    h3 {
-      color: var(--font-color-muted);
+    > * {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
-  }
-
-  section {
-    padding: 0;
-    margin: 0;
-    margin-bottom: 20px;
-  }
-
-  h1, h2, h3 {
-    padding: 0;
-    margin: 0;
-    margin-top: 20px;
-    margin-bottom: 10px;
-  }
-
-  h1 {
-    flex: 0 0 100%;
-  }
-
-  h3 {
-    margin: 0;
-    margin-top: 10px;
-    color: var(--font-color-normal);
-  }
-
-  p {
-    padding: 0;
-    margin: 0;
   }
 }
 

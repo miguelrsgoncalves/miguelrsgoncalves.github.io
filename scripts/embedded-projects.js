@@ -1,43 +1,32 @@
-function loadEmbeddedProject(startButton, container, embeddedProjectHTML, loadingScreen) {
-  const embeddedProjectContent = document.getElementById(container);
-  const loadingScreenElement = document.getElementById(loadingScreen);
+function loadEmbeddedProject(frameID, project, loadingScreenID) {
+  const frame = document.getElementById(frameID);
+  const loader = document.getElementById(loadingScreenID);
+  
+  const isRunning = frame.hasAttribute("running");
 
-  if(startButton.innerHTML == 'Start') {
-    loadingScreenElement.style.visibility = 'visible';
-    fetch(embeddedProjectHTML)
-    .then(response => response.text())
-    .then(data => {
-      startButton.innerHTML = "Stop"
-      embeddedProjectContent.replaceChildren(document.createRange().createContextualFragment(data));
-    })
-    .catch(error => {
-      loadingScreenElement.style.visibility = 'hidden';
-      console.error("Error loading embedded project:", error);
-      embeddedProjectContent.replaceChildren(document.createRange().createContextualFragment("<p>Error loading project. Please try again.</p>"));
-    });
+  if (!isRunning) {
+    loader.style.visibility = 'visible';
+    
+    fetch(project)
+      .then(r => r.text())
+      .then(data => {
+        frame.setAttribute("running", "true");
+        frame.replaceChildren(document.createRange().createContextualFragment(data));
+      });
   } else {
-    loadingScreenElement.style.visibility = 'hidden';
-    startButton.innerHTML = "Start"
-    embeddedProjectContent.replaceChildren(document.createRange().createContextualFragment(""));
+    loader.style.visibility = 'hidden';
+    frame.removeAttribute("running");
+    frame.replaceChildren();
   }
 }
 
-function restartEmbeddedProject(startButton, container, embeddedProjectHTML, loadingScreen) {
-  const embeddedProjectContent = document.getElementById(container);
-  const startButtonElement = document.getElementById(startButton);
-  const loadingScreenElement = document.getElementById(loadingScreen);
+function restartEmbeddedProject(frameID, project, loadingScreenID) {
+  const frame = document.getElementById(frameID);
+  const isRunning = frame.hasAttribute("running");
 
-  if(startButtonElement.innerHTML == 'Stop') {
-    loadingScreenElement.style.visibility = 'visible';
-    fetch(embeddedProjectHTML)
-    .then(response => response.text())
-    .then(data => {
-      embeddedProjectContent.replaceChildren(document.createRange().createContextualFragment(data));
-    })
-    .catch(error => {
-      loadingScreenElement.style.visibility = 'hidden';
-      console.error("Error loading embedded project:", error);
-      embeddedProjectContent.replaceChildren(document.createRange().createContextualFragment("<p>Error loading project. Please try again.</p>"));
-    });
+  if (isRunning) {
+    frame.removeAttribute("running");
+    frame.replaceChildren();
+    loadEmbeddedProject(frameID, project, loadingScreenID);
   }
 }
