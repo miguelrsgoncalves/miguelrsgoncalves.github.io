@@ -10,13 +10,15 @@ function toggleControlGroupPanel(source, panelName) {
 
   const controlBar = group.querySelector('.control-bar');
   const targetPanel = group.querySelector(`[panel-data="${panelName}"]`);
-  const isAlreadyActive = targetPanel.querySelector('.active')
+  
+  const isAlreadyActive = targetPanel ? targetPanel.classList.contains('active') : false;
+  console.log(isAlreadyActive)
 
   group.querySelectorAll('.control-panel').forEach(panel => {
     panel.classList.remove('active');
   });
 
-  if (targetPanel) {
+  if (targetPanel && !isAlreadyActive) {
     targetPanel.classList.add('active');
     controlBar.classList.add('active');
   } else {
