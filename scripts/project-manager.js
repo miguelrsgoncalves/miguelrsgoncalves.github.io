@@ -293,7 +293,7 @@ function filterInit(fields) {
 
 function buildFilter(allProjectsData) {
   if(!filterConfig) return
-  const dropdown = document.getElementById("filter-panel")
+  const dropdown = document.getElementById("project-filter")
   if(!dropdown) return
 
   const rawData = allProjectsData.map(p => p.data ?? p)

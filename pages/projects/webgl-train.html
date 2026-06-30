@@ -23,36 +23,39 @@
     </div>
   </div>
 
-  <div class="control-bar">
-    <div class="button left clickable">
-      <icon icon-name="gamepad-2"></icon>
-      <p>Controls</p>
+  <div class="control-group">
+    <div class="control-bar embedded">
+      <div class="button left clickable" onclick="toggleControlGroupPanel(this, 'controls')">
+        <icon icon-name="gamepad-2"></icon>
+        <p>Controls</p>
+      </div>
+      
+      <div class="separator vertical"></div>
+      
+      <div class="button right clickable" onclick="toggleControlGroupPanel(this, 'how-to-play')">
+        <p>How to Play</p>
+        <icon icon-name="info"></icon>
+      </div>
     </div>
-    <div class="separator vertical"></div>
-    <div class="button right clickable">
-      <p>How to Play</p>
-      <icon icon-name="info"></icon>
+
+    <div class="control-panel embedded" panel-data="controls">
+      <div>
+        <h1>Controls</h1>
+        <span><h2>Rotate</h2><h3>Left Mouse Button Drag</h3></span>
+        <span><h2>Move</h2><h3>Right Mouse Button Drag</h3></span>
+        <span><h2>Zoom</h2><h3>Middle Mouse Button Drag</h3></span>
+      </div>
+    </div>
+
+    <div class="control-panel embedded" panel-data="how-to-play">
+      <div>
+        <h1>How to play</h1>
+        <p>Simply watch the train go around the track, stopping on the various train stations.</p>
+        <p>There are some controls to influence the speed of the train...</p>
+      </div>
     </div>
   </div>
 
-  <div class="control-panel" style="display: block;">
-    <div>
-      <h1>Controls</h1>
-      <span><h2>Rotate</h2><h3>Left Mouse Button Drag</h3></span>
-      <span><h2>Move</h2><h3>Right Mouse Button Drag</h3></span>
-      <span><h2>Zoom</h2><h3>Middle Mouse Button Drag</h3></span>
-    </div>
-
-    <div>
-      <h1>How to play</h1>
-      <p>
-        Simply watch the train go around the track, stopping on the various train stations.
-      </p>
-      <p>
-        There are some controls to influence the speed of the train and enable or disable some aspects of the 3D world, but the main experience is just sitting back and watching the train.
-      </p>
-    </div>
-  </div>
 
   <h1>The Models</h1>
 

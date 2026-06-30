@@ -5,29 +5,30 @@
 </script>
 
 <div class="page full">
-  <div class="control-bar">
-    <div class="button left clickable" onclick="toggleDropdown('filter-panel')">
+
+  <div class="control-group">
+    <div class="control-bar">
+      <div class="button left clickable" onclick="toggleControlGroupPanel(this, 'filter')">
         <icon icon-name="list-filter"></icon>
         <p>Filter</p>
-    </div>
-    <div class="separator vertical semi thin"></div>
-    <div class="button left sub-button clickable" onclick="resetFilter()"><p>Reset</p></div>
+      </div>
+      <div class="separator vertical semi thin"></div>
+      <div class="button left sub-button clickable" onclick="resetFilter()"><p>Reset</p></div>
 
-    <div class="separator vertical"></div>
+      <div class="separator vertical"></div>
+      <input name="search" class="search-bar middle" type="search" placeholder="Search" oninput="handleProjectSearchInput(this.value)">
+      <div class="separator vertical"></div>
 
-    <input name="search" class="search-bar middle" type="search" placeholder="Search" oninput="handleProjectSearchInput(this.value)">
-
-    <div class="separator vertical"></div>
-
-    <div class="button right sub-button clickable" onclick="resetFilter()"><p>Reset</p></div>
-    <div class="separator vertical semi thin"></div>
-    <div class="button right clickable" onclick="resetFilter()">
+      <div class="button right sub-button clickable" onclick="resetFilter()"><p>Reset</p></div>
+      <div class="separator vertical semi thin"></div>
+      <div class="button right clickable" onclick="toggleControlGroupPanel(this, '')">
         <p>Sort</p>
         <icon icon-name="arrow-down-wide-narrow"></icon>
+      </div>
     </div>
-  </div>
 
-  <div id="filter-panel" class="control-panel"></div>
+    <div id="project-filter" class="control-panel" panel-data="filter"></div>
+  </div>
 
   <div id="card-container" class="projects-grid"></div>
 </div>

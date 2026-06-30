@@ -1,5 +1,15 @@
 /*#region control-bar*/
 
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+
+  &.embedded {
+    gap: 0;
+  }
+}
+
 .control-bar {
   display: flex;
   justify-content: space-between;
@@ -22,6 +32,13 @@
 
   icon {
     font-size: var(--font-size-xxlarge);
+  }
+
+  &.embedded {
+    &.open {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
   }
 
   .button {
@@ -122,13 +139,13 @@
   justify-content: space-between;
   font-weight: bold;
   width: auto;
-  padding: 20px;
+  padding: var(--padding);
   border: 8px solid var(--background-secondary-color);
   border-radius: var(--border-radius);
   background-color: var(--background-secondary-color);
   color: var(--font-color-normal);
+  gap: var(--gap);
   animation: slideIn 0.5s ease;
-  gap: 20px;
 
   .panel-column {
     flex: 1;
