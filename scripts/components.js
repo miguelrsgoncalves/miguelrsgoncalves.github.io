@@ -1,15 +1,15 @@
 //#region control-bar
 
 function toggleControlPanel(source, panelName) {
-  const group = source.closest(".control-group");
+  const group = source.closest('.control-group');
   
   if (!group) {
     console.error("toggleControlPanel needs a parent control-group in order to work.");
     return;
   }
 
-  const bar = group.querySelector(".control-bar");
-  const panels = group.querySelectorAll(".control-panel");
+  const bar = group.querySelector('.control-bar');
+  const panels = group.querySelectorAll('.control-panel');
   
   const targetPanel = Array.from(panels).find(panel => 
     panel.dataset.panelName === panelName

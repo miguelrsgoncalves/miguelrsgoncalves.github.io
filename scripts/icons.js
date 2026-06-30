@@ -1,14 +1,14 @@
 const iconCache = new Map();
 
 async function createIcons() {
-  const iconElements = document.querySelectorAll('icon[icon-name]');
+  const iconElements = Array.from(document.getElementsByTagName('icon'));
   
   const groups = {};
-  iconElements.forEach(el => {
-    const name = el.getAttribute('icon-name');
+  iconElements.forEach(element => {
+    const name = element.dataset.iconName;
     if (name) {
       if (!groups[name]) groups[name] = [];
-      groups[name].push(el);
+      groups[name].push(element);
     }
   });
 

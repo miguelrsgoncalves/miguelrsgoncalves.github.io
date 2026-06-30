@@ -1,4 +1,4 @@
-<route-data title="WebGL Train"></route-data>
+<route-data data-title="WebGL Train" data-description="Interactive 3D train model in WebGL"></route-data>
 
 <div class="page narrow">
   <div class="embedded-project">
@@ -8,25 +8,25 @@
 
   <div class="control-bar">
     <div class="button left clickable" onclick="loadEmbeddedProject('embedded-project-frame', '../assets/projects/webgl-train/project/webgl-train-embedded.html', 'loading-screen')">
-      <icon icon-name="play"></icon>
+      <icon data-icon-name="play"></icon>
       <p>Start</p>
     </div>
     <div class="separator vertical"></div>
     <a id="start-button" class="button middle clickable" href="/assets/projects/webgl-train/project/project/index.html" target="_blank">
-      <icon icon-name="fullscreen"></icon>
+      <icon data-icon-name="fullscreen"></icon>
       <p>Fullscreen</p>
     </a>
     <div class="separator vertical"></div>
     <div class="button right clickable" onclick="restartEmbeddedProject('embedded-project-frame', '../assets/projects/webgl-train/project/webgl-train-embedded.html', 'loading-screen')">
       <p>Restart</p>
-      <icon icon-name="refresh-ccw"></icon>
+      <icon data-icon-name="refresh-ccw"></icon>
     </div>
   </div>
 
   <div class="control-group embedded">
     <div class="control-bar embedded">
       <div class="button left clickable" onclick="toggleControlPanel(this, 'controls')">
-        <icon icon-name="gamepad-2"></icon>
+        <icon data-icon-name="gamepad-2"></icon>
         <p>Controls</p>
       </div>
       
@@ -34,7 +34,7 @@
       
       <div class="button right clickable" onclick="toggleControlPanel(this, 'how-to-play')">
         <p>How to Play</p>
-        <icon icon-name="info"></icon>
+        <icon data-icon-name="info"></icon>
       </div>
     </div>
 
