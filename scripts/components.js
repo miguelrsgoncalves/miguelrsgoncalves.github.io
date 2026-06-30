@@ -1,28 +1,29 @@
 //#region control-bar
 
-function toggleControlGroupPanel(source, panelName) {
-  const group = source.closest('.control-group');
+function toggleControlPanel(source, panelName) {
+  const group = source.closest(".control-group");
   
   if (!group) {
-    console.error('toggleGroupPanel needs a .control-group wrapper to work properly.');
+    console.error("toggleControlPanel needs a parent control-group in order to work.");
     return;
   }
 
-  const controlBar = group.querySelector('.control-bar');
-  const targetPanel = group.querySelector(`[panel-data="${panelName}"]`);
+  const bar = group.querySelector(".control-bar");
+  const panels = group.querySelectorAll(".control-panel");
   
-  const isAlreadyActive = targetPanel ? targetPanel.classList.contains('active') : false;
-  console.log(isAlreadyActive)
+  const targetPanel = Array.from(panels).find(panel => 
+    panel.dataset.panelName === panelName
+  );
+  
+  const isAlreadyActive = targetPanel?.classList.contains('active');
 
-  group.querySelectorAll('.control-panel').forEach(panel => {
-    panel.classList.remove('active');
-  });
+  panels.forEach(panel => panel.classList.remove('active'));
 
   if (targetPanel && !isAlreadyActive) {
     targetPanel.classList.add('active');
-    controlBar.classList.add('active');
+    bar.classList.add('active');
   } else {
-    controlBar.classList.remove('active');
+    bar.classList.remove('active');
   }
 }
 

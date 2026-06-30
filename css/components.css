@@ -56,7 +56,8 @@
     margin: 0;
     padding: 4px 8px;
     border: 4px solid var(--background-secondary-color);
-    transition: border-color 0.3s ease;
+    border-radius: var(--border-radius);
+    transition: border-color 0.3s ease border-radius 0.3 ease;
 
     &.left {
       justify-content: flex-start;
@@ -153,13 +154,6 @@
   gap: var(--gap);
   animation: slideIn 0.5s ease;
 
-  &.embedded {
-    &.active {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-    }
-  }
-
   .panel-column {
     flex: 1;
     margin-right: 0;
@@ -218,6 +212,11 @@
 
 .control-panel.active {
   display: flex;
+
+  &.embedded {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
 }
 
 /*#endregion*/
