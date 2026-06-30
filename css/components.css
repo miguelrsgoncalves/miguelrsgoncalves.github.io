@@ -35,9 +35,15 @@
   }
 
   &.embedded {
-    &.open {
+    &.active {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
+
+      .button {
+        border-bottom: 4px solid var(--primary-color);
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
     }
   }
 
@@ -146,6 +152,13 @@
   color: var(--font-color-normal);
   gap: var(--gap);
   animation: slideIn 0.5s ease;
+
+  &.embedded {
+    &.active {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
 
   .panel-column {
     flex: 1;

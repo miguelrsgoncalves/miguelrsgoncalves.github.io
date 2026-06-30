@@ -1,22 +1,26 @@
 //#region control-bar
 
-function toggleControlGroupPanel(button, panelName) {
-  const group = button.closest('.control-group');
+function toggleControlGroupPanel(source, panelName) {
+  const group = source.closest('.control-group');
   
   if (!group) {
     console.error('toggleGroupPanel needs a .control-group wrapper to work properly.');
     return;
   }
 
+  const controlBar = group.querySelector('.control-bar');
   const targetPanel = group.querySelector(`[panel-data="${panelName}"]`);
-  const isCurrentlyActive = button.classList.contains('active');
+  const isAlreadyActive = targetPanel.querySelector('.active')
 
   group.querySelectorAll('.control-panel').forEach(panel => {
     panel.classList.remove('active');
   });
 
-  if (!isCurrentlyActive && targetPanel) {
+  if (targetPanel) {
     targetPanel.classList.add('active');
+    controlBar.classList.add('active');
+  } else {
+    controlBar.classList.remove('active');
   }
 }
 
