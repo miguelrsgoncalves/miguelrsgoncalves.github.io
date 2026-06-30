@@ -1,7 +1,7 @@
 const iconCache = new Map();
 
 async function createIcons() {
-  const iconElements = Array.from(document.getElementsByTagName('icon'));
+  const iconElements = document.querySelectorAll('icon[data-icon-name]');
   
   const groups = {};
   iconElements.forEach(element => {
