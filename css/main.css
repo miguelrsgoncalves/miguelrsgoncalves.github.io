@@ -7,7 +7,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: var(--gap);
-  animation: slideIn 0.5s ease;
+  animation: slideIn 0.3s ease;
   overscroll-behavior: contain;
 
   &.narrow {

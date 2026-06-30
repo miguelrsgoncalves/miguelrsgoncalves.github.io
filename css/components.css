@@ -19,7 +19,6 @@
   font-size: var(--font-size-base);
   border-radius: var(--border-radius);
   background-color: var(--background-secondary-color);
-  animation: slideIn 0.5s ease;
 
   icon, p{
     display: inline-flex;
@@ -57,7 +56,7 @@
     padding: 4px 8px;
     border: 4px solid var(--background-secondary-color);
     border-radius: var(--border-radius);
-    transition: border-color 0.3s ease border-radius 0.3 ease;
+    transition: border-color 0.3s ease, border-radius 0.3s ease;
 
     &.left {
       justify-content: flex-start;
@@ -152,7 +151,7 @@
   background-color: var(--background-secondary-color);
   color: var(--font-color-normal);
   gap: var(--gap);
-  animation: slideIn 0.5s ease;
+  animation: slideIn 0.3s ease;
 
   .panel-column {
     flex: 1;
@@ -379,7 +378,7 @@
   border-radius: var(--border-radius);
   background-color: var(--background-secondary-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  animation: slideIn 0.5s ease;
+  animation: slideIn 0.3s ease;
   z-index: 1;
 }
 
