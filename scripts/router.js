@@ -37,7 +37,8 @@ function navigate(route, isWindowPop = false) {
         navigate(DEFAULT_ROUTE);
         return;
       }
-      render(route, segments, html, isWindowPop);
+      const fragment = document.createRange().createContextualFragment(html);
+      render(route, segments, fragment, isWindowPop);
     })
     .catch(err => {
       console.error('Failed to load:', filePath, err);
@@ -45,13 +46,10 @@ function navigate(route, isWindowPop = false) {
     });
 }
 
-function render(route, segments, html, isWindowPop) {
+function render(route, segments, fragment, isWindowPop) {
   currentRoute = route;
 
-  const {
-    title,
-    description
-  } = getRouteMetadata(html)
+  const { title, description } = getRouteMetadata(fragment);
 
   if (title) {
     routeTitleText.innerHTML = title;
@@ -86,17 +84,15 @@ function render(route, segments, html, isWindowPop) {
     history.pushState({ route }, '', `/${route}`);
   }
 
-  updateContent(html);
+  updateContent(fragment);
 }
 
-function getRouteMetadata(html) {
-  const scratch = document.createElement('div');
-  scratch.innerHTML = html;
-  const meta = scratch.querySelector('route-data');
+function getRouteMetadata(fragment) {  
+  const meta = fragment.querySelector('route-data');
   
   return {
-    title: meta?.getAttribute("title") ?? null,
-    description: meta?.getAttribute("description") ?? ""
+    title: meta?.dataset.title ?? null,
+    description: meta?.dataset.description ?? ""
   };
 }
 
@@ -117,10 +113,10 @@ function updateNav(segments) {
   );
 }
 
-async function updateContent(html) {
+async function updateContent(fragment) {
   scrollToTheTop(true);
   cleanupSignal.cleanup();
-  mainContent.replaceChildren(document.createRange().createContextualFragment(html));
+  mainContent.replaceChildren(fragment);
   
   await loadIncludes();
   
