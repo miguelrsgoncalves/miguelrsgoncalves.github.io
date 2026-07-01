@@ -5,33 +5,60 @@
 
     .title {
         color: var(--primary-color);
-        font-size: x-large;
+        font-size: var(--font-size-xxlarge);
+        font-weight: var(--font-weight-bold);
     }
 
     .subtitle {
         color: var(--font-color-normal);
-        font-size: var(--font-size-large);
+        font-size: var(--font-size-xlarge);
+        font-weight: var(--font-weight-bold);
     }
 
     .group {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        gap: 1em;
+        gap: 2em;
     }
 
     .entry {
         .name {
             color: var(--font-color-normal);
             font-size: var(--font-size-large);
+            font-weight: var(--font-weight-bold);
         }
 
         .control {
+            color: var(--font-color-normal);
             font-size: var(--font-size-medium);
         }
 
         .description {
             color: var(--font-color-muted);
+            font-size: var(--font-size-medium);
         }
+    }
+}
+
+.how-to-play{
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+
+    .title {
+        color: var(--primary-color);
+        font-size: var(--font-size-xxlarge);
+        font-weight: var(--font-weight-bold);
+    }
+
+    .subtitle {
+        color: var(--font-color-normal);
+        font-size: var(--font-size-xlarge);
+        font-weight: var(--font-weight-bold);
+    }
+
+    p {
+        
     }
 }

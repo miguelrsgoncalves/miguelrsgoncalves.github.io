@@ -10,8 +10,9 @@
   
   /* Typography */
   --font-family: 'Poppins', sans-serif;
-  --font-color-normal: #fff;
-  --font-color-muted: #ccc;
+  --font-color-normal: #ffffff;
+  --font-color-muted: #cccccc;
+  --font-size-xsmall: 0.50rem;
   --font-size-small: 0.75rem;
   --font-size-medium: 1rem;
   --font-size-large: 1.15rem;
