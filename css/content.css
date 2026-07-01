@@ -1,18 +1,18 @@
 .game-controls{
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap);
-
     .title {
         color: var(--primary-color);
         font-size: var(--font-size-xxlarge);
         font-weight: var(--font-weight-bold);
+        margin-top: 2em;
+        margin-bottom: 1em;
     }
 
     .subtitle {
         color: var(--font-color-normal);
         font-size: var(--font-size-xlarge);
         font-weight: var(--font-weight-bold);
+        margin-top: 1.5em;
+        margin-bottom: 0.75em;
     }
 
     .group {
@@ -23,15 +23,19 @@
     }
 
     .entry {
+        flex: 1 1 0;
+        
         .name {
             color: var(--font-color-normal);
             font-size: var(--font-size-large);
             font-weight: var(--font-weight-bold);
+            margin-bottom: 0.5em;
         }
 
         .control {
             color: var(--font-color-normal);
             font-size: var(--font-size-medium);
+            font-weight: var(--font-weight-bold);
         }
 
         .description {
@@ -44,7 +48,7 @@
 .how-to-play{
     display: flex;
     flex-direction: column;
-    gap: var(--gap);
+    gap: 1em;
 
     .title {
         color: var(--primary-color);
@@ -56,9 +60,5 @@
         color: var(--font-color-normal);
         font-size: var(--font-size-xlarge);
         font-weight: var(--font-weight-bold);
-    }
-
-    p {
-        
     }
 }
