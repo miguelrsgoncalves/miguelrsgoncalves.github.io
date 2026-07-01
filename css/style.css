@@ -12,15 +12,15 @@
   --font-family: 'Poppins', sans-serif;
   --font-color-normal: #fff;
   --font-color-muted: #ccc;
-  --font-size-small: 0.75em;
-  --font-size-base: 1em;
-  --font-size-large: 1.15em;
-  --font-size-xlarge: 1.25em;
-  --font-size-xxlarge: 1.5em;
-  --font-size-website-title: 1em;
-  --font-weight-base: 400;
+  --font-size-small: 0.75rem;
+  --font-size-medium: 1rem;
+  --font-size-large: 1.15rem;
+  --font-size-xlarge: 1.25rem;
+  --font-size-xxlarge: 1.5rem;
+  --font-size-website-title: 1rem;
+  --font-weight-normal: 400;
   --font-weight-bold: 600;
-  --line-height: 1.25em;
+  --line-height: 1.25rem;
 
   /* Spacing */
   --margin-main: 16px;
@@ -38,16 +38,20 @@
 
 /*#endregion*/
 
-/*#region general-styles*/
-
-body {
+html {
   font-family: var(--font-family);
+  font-size: 16px;
   color: var(--font-color-normal);
   line-height: var(--line-height);
+}
+
+body {
   background-color: var(--background-primary-color);
   margin: 0;
   padding: 0;
 }
+
+/*#region general-styles*/
 
 route-data {
   display: none;

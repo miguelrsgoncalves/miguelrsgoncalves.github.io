@@ -16,7 +16,7 @@
   align-items: center;
   font-weight: bold;
   color: var(--primary-color);
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-medium);
   border-radius: var(--border-radius);
   background-color: var(--background-secondary-color);
 
@@ -92,7 +92,7 @@
       font-size: var(--font-size-small);
 
       icon{
-        font-size: var(--font-size-base);
+        font-size: var(--font-size-medium);
       }
     }
   }
@@ -198,7 +198,7 @@
   }
   
   .panel-checkbox label {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-medium);
     margin-left: 10px;
     color: var(--font-color-normal);
     transition: color 0.3s ease;
@@ -456,7 +456,7 @@
     font-weight: bold;
     color: var(--font-color-normal);
     flex-direction: column;
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-medium);
     color: var(--font-color-normal);
   }
 
@@ -484,7 +484,7 @@
     margin-bottom: auto;
     text-wrap: wrap;
     color: var(--font-color-muted);
-    font-weight: var(--font-weight-base);
+    font-weight: var(--font-weight-normal);
     text-align: start;
   }
 
@@ -756,7 +756,7 @@
 
   .subtitle {
     display: block;
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-medium);
     font-weight: bold;
     color: var(--primary-color);
     margin: 0;
@@ -792,7 +792,7 @@
     text-decoration: none;
     font-weight: bold;
     color: var(--primary-color);
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-medium);
   }
 
   p {
