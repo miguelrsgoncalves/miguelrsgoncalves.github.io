@@ -101,10 +101,16 @@ function matchesFilter(project, filter) {
 
 function renderProjects() {
   let renderCount = 0
+
   while(renderIndex < projectsData.length && renderCount < renderStep) {
     const project = projectsData[renderIndex]
+
     if(!filter || matchesFilter(project, filter)) {
       container.insertAdjacentHTML('beforeend', project.html)
+
+      const delay = renderCount * 0.075;
+      container.lastElementChild.style.animationDelay = `${delay}s`;
+
       renderCount++
     }
     renderIndex++
