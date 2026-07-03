@@ -26,7 +26,6 @@
     </p>
     <p>
         The systems worked, however, the results were very far away from satisfying. But it was a starting point.
-
     </p>
     
     <video autoplay controls muted loop preload="metadata" playsinline controlsList="nodownload" disablePictureInPicture data-src="../assets/projects/grass-field/videos/grass_field_test1.mp4"></video>
@@ -35,13 +34,18 @@
 
     <section class="text-wrap-image reverse">
         <div class="text">
-            <p>The next step was to work on the grass assets themselves. I created in Blender a grass clump that would contain around 20 grass blades each, making them taller and more grass shape, although I did make them with no curvature. I also created 2 LOD levels that would help with performance.</p>
-            <p>I made the normals of the grass blades look straight up, giving them a more cell shading look and implemented a basic wind system that allowed me to easily control the intensity and angle of the wind.</p>
-            <p>The problem I faced was that when the intensity was too high the grass blades would almost lay flat on the ground, and I wanted a more natural bending to their animation.</p>
+            <p>
+                The next step was to work on the grass assets themselves. I created in Blender a grass clump that would contain around 20 grass blades each, making them taller and more grass shape, although I did make them with no curvature. I also created 2 LOD levels that would help with performance.
+                
+            </p>
+            <p>
+                I made the normals of the grass blades look straight up, giving them a more cell shading look and implemented a basic wind system that allowed me to easily control the intensity and angle of the wind.
+            </p>
+            <p>
+                The problem I faced was that when the intensity was too high the grass blades would almost lay flat on the ground, and I wanted a more natural bending to their animation.
+            </p>
         </div>
-        <div class="image">
-            <img src="../assets/projects/grass-field/images/grass_clump_test1.png" alt="Grass Clump Test 1." loading="lazy">
-        </div>
+        <img src="/assets/projects/grass-field/images/grass_clump_test1.png" alt="Grass Clump Test 1." loading="lazy">
     </section>
 
     <video autoplay controls muted loop preload="metadata" playsinline controlsList="nodownload" disablePictureInPicture data-src="../assets/projects/grass-field/videos/grass_field_test2.mp4"></video>
@@ -53,13 +57,11 @@
             <p>
                 The next step was to add vertex painting to the individual grass blades, making the values 0 at the bottom and interpolating them to 1 on the end of the blade. I then made it so the wind influence would be affected by the vertex paint values, having 0 influence at the bottom of the blades and the strongest influence at the end.
             </p>
-            <p>T
-                his showed better results and the movement was looking more natural.
+            <p>
+                This showed better results and the movement was looking more natural.
             </p>
         </div>
-        <div class="image">
-            <img src="../assets/projects/grass-field/images/grass_vertex_paint.png" alt="Grass Blade Vertex Paint." loading="lazy">
-        </div>
+        <img src="/assets/projects/grass-field/images/grass_vertex_paint.png" alt="Grass Blade Vertex Paint." loading="lazy">
     </section>
 
     <video autoplay controls muted loop preload="metadata" playsinline controlsList="nodownload" data-src="../assets/projects/grass-field/videos/grass_field_test3.mp4"></video>
@@ -88,9 +90,7 @@
                 I worked on new grass clumps that had a curvature to the blades, not only vertically but also when viewed from the sides, giving a better density to the field and also distinction between the blades, making it easier to see the clumps oscillating with the wind. I also pointed the normals facing perpendicular to the faces, making it so the grass blades would be shaded according to the lighting sources correctly. It did lose the more 2D look, but made it so they were more perceivable and their movement more readable.
             </p>
         </div>
-        <div class="image">
-            <img src="../assets/projects/grass-field/images/better_grass_clump.png" alt="Better Grass Clump." loading="lazy">
-        </div>
+        <img src="/assets/projects/grass-field/images/better_grass_clump.png" alt="Better Grass Clump." loading="lazy">
     </section>
 
     <h1>Final Result</h1>
