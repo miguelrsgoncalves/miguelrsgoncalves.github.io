@@ -1,4 +1,3 @@
-<!-- project-card-template.html -->
 <template id="project-card">
     <div class="project-card clickable no-select">
         <a href="/projects/{{id}}" class="project-link"></a>
@@ -7,22 +6,26 @@
             <div class="title-container">
                 <div class="title h-scrollable">{{title}}</div>
             </div>
-            <div class="project-metadata-container">
-                <div class="project-metadata-grid">
-                    <div class="category">{{category}}</div>
-                    <div class="separator vertical thin"></div>
-                    <div class="tag">{{tag}}</div>
-                    <div class="separator vertical thin"></div>
-                    <div class="tool">{{status}}</div>
-                    <div class="separator vertical thin"></div>
-                    <div class="tool-container">
-                        <div class="tool h-scrollable">{{tool}}</div>
+            <div class="project-metadata-grid">
+                <div class="row">
+                    <div class="cell">
+                        <div class="category left h-scrollable">{{category}}</div>
+                    </div>
+                    <div class="cell">
+                        <div class="status right h-scrollable">{{status}}</div>
                     </div>
                 </div>
-                <div class="description">{{description}}</div>
-
-                {{timeline}}
+                <div class="row">
+                    <div class="cell">
+                        <div class="tag left h-scrollable">{{tag}}</div>
+                    </div>
+                    <div class="cell">
+                        <div class="tool right h-scrollable">{{tool}}</div>
+                    </div>
+                </div>
             </div>
+            <div class="description">{{description}}</div>
+            {{timeline}}
         </div>
     </div>
 </template>
