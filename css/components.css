@@ -366,8 +366,6 @@
   flex-direction: column;
   height: 100%;
   padding: var(--padding);
-  padding-top: 0;
-  margin-top: 0;
   gap: 1em;
   
   .title, .category, .year, .tag {
@@ -380,7 +378,13 @@
     font-size: var(--font-size-xlarge);
     color: var(--primary-color);
     font-weight: bold;
-    line-height: 2em;
+    line-height: 1.5;
+  }
+
+  .title-container {
+    overflow-x: hidden;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
   
   .category {
@@ -388,6 +392,7 @@
     flex-direction: row;
     color: var(--font-color-normal);
     font-size: var(--font-size-large);
+    line-height: 1.5;
     font-weight: bold;
     gap: 1em;
   }
@@ -398,6 +403,7 @@
     font-weight: bold;
     color: var(--font-color-muted);
     font-size: var(--font-size-small);
+    line-height: 1.5;
     gap: 1em;
   }
 
@@ -406,6 +412,7 @@
     flex-direction: row;
     color: var(--font-color-muted);
     font-size: var(--font-size-small);
+    line-height: 1.5;
     font-weight: bold;
     gap: 1em;
   }
@@ -415,6 +422,7 @@
     flex-direction: row;
     font-weight: bold;
     color: var(--font-color-normal);
+    line-height: 1.5;
     gap: 1em;
   }
 
@@ -443,6 +451,7 @@
         min-width: 0;
         overflow-x: hidden;
         white-space: nowrap;
+        flex-shrink: 0;
 
         .left {
           text-align: start;
@@ -455,11 +464,6 @@
         }
       }
     }
-  }
-
-  .title-container {
-    overflow: hidden;
-    text-wrap: nowrap;
   }
 
   @media screen and (max-width: 1600px) {
