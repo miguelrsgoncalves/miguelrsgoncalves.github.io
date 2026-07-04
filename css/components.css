@@ -366,8 +366,9 @@
   flex-direction: column;
   height: 100%;
   padding: var(--padding);
+  padding-top: 0;
   margin-top: 0;
-  gap: var(--gap);
+  gap: 1em;
   
   .title, .category, .year, .tag {
     margin: 0;
@@ -383,36 +384,34 @@
   }
   
   .category {
+    display: flex;
+    flex-direction: row;
+    color: var(--font-color-normal);
     font-size: var(--font-size-large);
     font-weight: bold;
-    color: var(--font-color-normal);
-    display: flex;
-    flex-direction: column;
-    text-align: start;
+    gap: 1em;
   }
 
-  .year {
+  .status {
     display: flex;
+    flex-direction: row;
     font-weight: bold;
-    color: var(--font-color-normal);
-    flex-direction: column;
-    font-size: var(--font-size-medium);
-    color: var(--font-color-normal);
+    color: var(--font-color-muted);
+    font-size: var(--font-size-small);
+    gap: 1em;
   }
 
   .tag {
-    font-size: var(--font-size-small);
     display: flex;
-    flex-direction: column;
-    font-weight: bold;
+    flex-direction: row;
     color: var(--font-color-muted);
-    overflow: hidden;
-    text-align: start;
+    font-size: var(--font-size-small);
+    font-weight: bold;
+    gap: 1em;
   }
 
   .tool {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
     font-weight: bold;
     color: var(--font-color-normal);
@@ -422,41 +421,45 @@
   .description {
     margin-top: auto;
     margin-bottom: auto;
-    text-wrap: wrap;
     color: var(--font-color-muted);
     font-weight: var(--font-weight-normal);
-    text-align: start;
-  }
-
-  .project-metadata-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    gap: 0.5em;
   }
   
   .project-metadata-grid {
     display: flex;
-    text-wrap: nowrap;
-    flex-wrap: nowrap;
-    gap: 0 1em;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 5rem;
+      width: 100%;
+
+      .cell {
+        flex: 1;
+        min-width: 0;
+        overflow-x: hidden;
+        white-space: nowrap;
+
+        .left {
+          text-align: start;
+          justify-content: start;
+        }
+
+        .right {
+          text-align: end;
+          justify-content: safe flex-end;
+        }
+      }
+    }
   }
 
   .title-container {
     overflow: hidden;
     text-wrap: nowrap;
-  }
-
-  .category-tag-container {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-  
-  .tool-container {
-    text-overflow: clip;
-    overflow: hidden;
   }
 
   @media screen and (max-width: 1600px) {
@@ -488,8 +491,7 @@
       position: relative;
     }
 
-    .timeline-bar::before,
-    .timeline-bar::after {
+    .timeline-bar::before, .timeline-bar::after {
       content: '';
       position: absolute;
       top: 50%;
