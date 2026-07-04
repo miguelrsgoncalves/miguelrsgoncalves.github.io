@@ -556,12 +556,19 @@
     }
     
     .milestone-tooltip {
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      
+      background-color: var(--background-secondary-color);
+      border-radius: var(--border-radius);
+      box-shadow: 0 6px 16px var(--shadow-dark);
+      border: 2px solid var(--primary-color);
+      z-index: 100;
+      
       position: absolute;
       visibility: hidden;
       opacity: 0;
-      display: flex;
-      flex-direction: column;
-      
       bottom: 12px;
       left: 50%;
       
@@ -569,41 +576,39 @@
       transform-origin: bottom center;
       
       transition: transform 0.3s ease-in-out, opacity 0.2s ease, visibility 0s linear 0.3s;
-      
-      background-color: var(--background-secondary-color);
-      padding: var(--padding);
-      border-radius: var(--border-radius);
-      box-shadow: 0 6px 16px var(--shadow-dark);
-      border: 2px solid var(--primary-color);
-      z-index: 100;
-      
-      width: max-content;
-      max-width: 256px;
-      box-sizing: border-box;
 
-      text-align: start;
-      align-items: start;
-  
-      .title {
+      .content {
+        width: max-content;
+        height: max-content;
         text-align: start;
-        color: var(--primary-color);
-        font-size: var(--font-size-small);
-        font-weight: bold;
-
-      }
-      
-      .date {
-        color: var(--font-color-normal);
-        font-size: var(--font-size-small);
-        font-weight: bold;
-        margin-bottom: var(--gap);
-      }
-  
-      .description { 
-        color: var(--font-color-muted);
-        font-size: var(--font-size-small);
-        max-height: 128px;
+        align-items: start;
+        padding: var(--padding);
+        max-width: 512px;
+        max-height: 512px;
         overflow-y: scroll;
+        overscroll-behavior: contain;
+
+        .title {
+          text-align: start;
+          color: var(--primary-color);
+          font-size: var(--font-size-small);
+          font-weight: bold;
+  
+        }
+        
+        .date {
+          color: var(--font-color-normal);
+          font-size: var(--font-size-small);
+          font-weight: bold;
+          margin-bottom: var(--gap);
+        }
+    
+        .description { 
+          color: var(--font-color-muted);
+          font-size: var(--font-size-small);
+          max-height: 128px;
+          overflow-y: scroll;
+        }
       }
     }
 

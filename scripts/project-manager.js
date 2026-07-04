@@ -201,7 +201,9 @@ function buildTimeline(data) {
         milestones += `
           <div class="milestone-dot" style="left: ${group.percentage}%;">
             <div class="milestone-tooltip no-select">
-              ${tooltipContent}
+              <div class="content">
+                ${tooltipContent}
+              </div>
             </div>
           </div>
         `;
