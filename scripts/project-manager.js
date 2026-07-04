@@ -130,7 +130,7 @@ function replacePlaceholders(template, data) {
   return template.replace(/{{(.*?)}}/g, (match, p1) => {
     const key = p1.trim()
     if((key === 'tool' || key === 'category' || key === 'tag') && Array.isArray(data[key])) {
-      return data[key].map(item => `<span class="h-scrollable">${item}</span>`).join('')
+      return data[key].map(item => `<div>${item}</div>`).join('')
     }
     return data[key] || ''
   })
@@ -167,22 +167,44 @@ function buildTimeline(data) {
     const totalDurationMs = end - start;
 
     if (data.milestones && Array.isArray(data.milestones) && totalDurationMs > 0) {
-      data.milestones.forEach(milestone => {
-        const milestoneTime = new Date(milestone.date).getTime();
-        if (!isNaN(milestoneTime)) {
-          let percentage = ((milestoneTime - start) / totalDurationMs) * 100;
+      let processedMilestones = data.milestones
+        .map(milestone => {
+          const time = new Date(milestone.date).getTime();
+          let percentage = ((time - start) / totalDurationMs) * 100;
           percentage = Math.max(0, Math.min(100, percentage));
+          return { ...milestone, time: time, percentage: percentage };
+        })
+        .filter(milestone => !isNaN(milestone.time))
+        .sort((a, b) => a.percentage - b.percentage);
 
-          milestones += `
-            <div class="milestone-dot" style="left: ${percentage}%;">
-              <div class="milestone-tooltip no-select">
-                <div class="title">${milestone.title}</div>
-                <div class="date">${formatDate(milestone.date)}</div>
-                <div class="description">${milestone.description}</div>
-              </div>
-            </div>
-          `;
+      let groupedMilestones = [];
+      processedMilestones.forEach(milestone => {
+        if (groupedMilestones.length === 0) {
+          groupedMilestones.push({ percentage: milestone.percentage, items: [milestone] });
+        } else {
+          let lastGroup = groupedMilestones[groupedMilestones.length - 1];
+          if (milestone.percentage - lastGroup.percentage <= 2.5) {
+            lastGroup.items.push(milestone);
+          } else {
+            groupedMilestones.push({ percentage: milestone.percentage, items: [milestone] });
+          }
         }
+      });
+
+      groupedMilestones.forEach(group => {
+        const tooltipContent = group.items.map(milestone => `
+          <div class="title">${milestone.title}</div>
+          <div class="date">${formatDate(milestone.date)}</div>
+          <div class="description">${milestone.description}</div>
+        `).join('<div class="separator horizontal thin"></div>');
+
+        milestones += `
+          <div class="milestone-dot" style="left: ${group.percentage}%;">
+            <div class="milestone-tooltip no-select">
+              ${tooltipContent}
+            </div>
+          </div>
+        `;
       });
     }
 
