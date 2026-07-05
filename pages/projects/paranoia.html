@@ -2,22 +2,63 @@
 
 <div class="page narrow">
 
-  <img src="../assets/images/paranoia_thumbnail.png" alt="Paranoia Thumbnail." loading="lazy">
+  <img src="/assets/projects/paranoia/images/thumbnail.png" alt="Paranoia Thumbnail." loading="lazy">
 
-  <h1>Download</h1>
-  The game can be downloaded and played through it's the itch.io page.
-  <span class="link">
-      <h2>Itch.io Page:</h2>
-      <a href="https://miguelrsgoncalves.itch.io/paranoia" target="_blank">Link</a>
-  </span>
+  <div class="control-group embedded">
+    <div class="control-bar embedded">
+      <div class="button left clickable" onclick="toggleControlPanel(this, 'controls')">
+        <icon data-icon-name="gamepad-2"></icon>
+        <p>Controls</p>
+      </div>
+      
+      <div class="separator vertical"></div>
 
-  <div class="embedded-project-controls-menu">
-    <h1 style="flex: 0 0 100%;">How to play</h1>
-    <span><h2>Movement</h2><h3>WASD</h3></span>
-    <span><h2>Jump</h2><h3>Space</h3></span>
-    <span><h2>Switch Dimension</h2><h3>F</h3></span>
-    <span><h2>Attack</h2><h3>Left Mouse Click</h3></span>
-  </div>
+      <div class="separator vertical"></div>
+      
+      <div class="button right clickable" onclick="toggleControlPanel(this, 'download')">
+        <p>Download</p>
+        <icon data-icon-name="download"></icon>
+      </div>
+    </div>
+
+    <div class="control-panel embedded" data-panel-name="controls">
+      <div class="game-controls">
+        <div class="title">Movement</div>
+        <div class="group">
+          <div class="entry">
+            <div class="name">Walk</div>
+            <div class="control">WASD</div>
+          </div>
+          <div class="entry">
+            <div class="name">Jump</div>
+            <div class="control">Space</div>
+          </div>
+        </div>
+
+        <div class="title">Actions</div>
+        <div class="group">
+          <div class="entry">
+            <div class="name">Switch Dimension</div>
+            <div class="control">F</div>
+          </div>
+          <div class="entry">
+            <div class="name">Attack</div>
+            <div class="control">Left Mouse Click</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-panel embedded" data-panel-name="download">
+      <div class="how-to-play">
+          <p>
+            The game can be downloaded and played through it's itch.io page.
+          </p>
+          <a href="https://miguelrsgoncalves.itch.io/paranoia" download>
+            <icon data-icon-name="download"></icon> Itch.io
+          </a>
+      </div>
+    </div>
 
   <div class="credits">
       <div class="title">Credits</div>
