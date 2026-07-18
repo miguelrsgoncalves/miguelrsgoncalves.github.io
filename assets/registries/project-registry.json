@@ -29,7 +29,7 @@
         "status": "Maintenance",
         "category": ["Game Dev"],
         "tool": ["LaTeX"],
-        "description": "",
+        "description": "GDD LaTeX Template is the open source template for your Game Design Documents (GDD)! This template was built to stay out of your way while providing you with all the tools, formatting and project structure needed out of the box.",
         "tag": ["Open Source"],
         "milestones": [
             {
