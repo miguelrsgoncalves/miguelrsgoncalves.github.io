@@ -70,6 +70,7 @@ audio {
     height: 100%;
     border-radius: var(--border-radius);
     justify-content: center;
+    align-content: center;
     overflow: hidden;
     border: none;
 
