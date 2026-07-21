@@ -1,23 +1,12 @@
 main {
   padding: var(--padding-main);
   box-sizing: border-box;
-}
 
-.page {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap);
-  animation: slideIn 0.3s ease;
-  overscroll-behavior: contain;
-
-  &.narrow {
-    max-width: 1024px;
-    margin: 0 auto;
-  }
-  
   h1, h2, h3, h4 {
     text-align: center;
     font-weight: var(--font-weight-bold);
+    margin-top: 2em;
+    margin-bottom: 1em;
   }
 
   h1 {
@@ -38,6 +27,19 @@ main {
   h4 {
     font-size: var(--font-size-small);
     color: var(--font-color-muted);
+  }
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  animation: slideIn 0.3s ease;
+  overscroll-behavior: contain;
+
+  &.narrow {
+    max-width: 1024px;
+    margin: 0 auto;
   }
 }
 
