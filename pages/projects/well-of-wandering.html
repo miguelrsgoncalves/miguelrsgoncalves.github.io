@@ -22,86 +22,213 @@
       <icon data-icon-name="refresh-ccw"></icon>
     </div>
   </div>
-  
-  <div class="embedded-project-controls-menu">
-    <h1>Controls</h1>
-    <span><h2>Rotate Camera</h2><h3>Left Mouse Button Drag</h3></span>
-    <span><h2>Move Camera</h2><h3>Right Mouse Button Drag</h3></span>
-    <span><h2>Zoom Camera</h2><h3>Middle Mouse Button Scroll</h3></span>
-    <span style="flex: 0 0 100%;"><h3>The next controls relate to the UI elements under the canvas and will be explained from the top left to the bottom right in the way they appear.</h3></span>
-    <span><h2>Sound sphere Selector</h2><h3>Select the sphere to manipulate</h3><h3>Lower Numbers = Lower Frequency</h3><h3>Higher Numbers = Higher Frequency</h3></span>
-    <span><h2>Speed</h2><h3>Changes the speed at which the sphere plays sound</h3></span>
-    <span><h2>Waveform Selector</h2><h3>Selects the type of wave the sphere has</h3></span>
-    <span style="flex: 0 0 100%;"></span>
-    <span><h2>All Waveforms Selector</h2><h3>Changes all sphere's waveforms to the already selected waveform in the previous selector</h3></span>
-    <span><h2>Number of spheres Changer</h2><h3>Changes the number of spheres present</h3></span>
-    <span><h2>All Values Randomizer</h2><h3>Randomizes all values, except the number of spheres</h3></span>
-    <span style="flex: 0 0 100%;"></span>
-    <span><h2>Spatial Audio Toggle</h2><h3>Toggles between normal audio and spatial audio (Stereo Headphones Recommended)</h3></span>
-    <span><h2>Speech sphere Recorder</h2><h3>Starts the recording for the speech sphere (HAVE AT LEAST ONE SOUND sphere MOVING BEFORE ACTIVATING THE SPEECH sphere)</h3></span>
-  </div>
 
-  <div class="embedded-project-controls-menu">
-    <h1 style="flex: 0 0 100%;">How to Play</h1>
-
-    <h2 style="flex: 0 0 100%;">Sound sphere</h2>
-    <section class="text-wrap-image">
-      <div class="text">
-          <p>Each Sound sphere has a speed, which is represented by the radius of their trajectory. The bigger the radius the faster the sphere.</p>
-          <p>Sound spheres make a sound each time the pass through their initial position, represented by a ghostly stationary grey sphere.</p>
-          <p>The higher a sphere is in the Well of Wandering the lower the frequency of it's sound, the lower it is the higher the frequency is.</p>
+  <div class="control-group embedded">
+    <div class="control-bar embedded">
+      <div class="button left clickable" onclick="toggleControlPanel(this, 'controls')">
+        <icon data-icon-name="gamepad-2"></icon>
+        <p>Controls</p>
       </div>
-      <div class="image in-card">
-        <img src="../assets/projects/well-of-wandering/images/sound_ball.png" alt="Sound sphere." loading="lazy">
+      
+      <div class="separator vertical"></div>
+      
+      <div class="button middle clickable" onclick="toggleControlPanel(this, 'how-to-play')">
+        <icon data-icon-name="info"></icon>
+        <p>How to Play</p>
       </div>
-    </section>
 
-    <h2 style="flex: 0 0 100%;">Waveforms</h2>
-    <section class="text-wrap-image reverse">
-      <div class="text">
-          <p>There are 4 waveforms to choose from.</p>
-          <h3 style="margin-bottom: 10px;">Sine, Triangle, Square, Sawtooth</h3>
-          <p>Each type of waveform has a unique sound, making different arrangements of different types of waveforms fun!</p>
+      <div class="separator vertical"></div>
+
+      <div class="button right clickable" onclick="toggleControlPanel(this, 'tips-and-tricks')">
+        <p>Tips and Tricks</p>
+        <icon data-icon-name="badge-info"></icon>
       </div>
-      <div class="image in-card">
-        <img src="../assets/projects/well-of-wandering/images/waveforms.png" alt="Waveforms." loading="lazy">
+    </div>
+
+    <div class="control-panel embedded" data-panel-name="controls">
+      <div class="game-controls">
+        <div class="title">Camera</div>
+        <div class="group">
+          <div class="entry">
+            <div class="name">Rotate</div>
+            <div class="control">Left Mouse Button Drag</div>
+          </div>
+          <div class="entry">
+            <div class="name">Move</div>
+            <div class="control">Right Mouse Button Drag</div>
+          </div>
+          <div class="entry">
+            <div class="name">Zoom</div>
+            <div class="control">Middle Mouse Button Scroll</div>
+          </div>
+        </div>
+
+        <div class="title">Well and Spheres</div>
+        <p>
+          The next controls relate to the UI elements and will be explained from the top left to the bottom right in the way they appear.
+        </p>
+        <div class="group">
+          <div class="entry">
+            <div class="name">Sound Sphere Selector</div>
+            <p>
+              Selects the sphere to manipulate
+            </p>
+            <p>
+              Lower the number the lower the frequency is. Higher the number the higher the frequency is
+            </p>
+          </div>
+          <div class="entry">
+            <div class="name">Speed</div>
+            <div class="control"></div>
+            <p>
+              Changes the speed at which the sphere plays sound
+            </p>
+          </div>
+          <div class="entry">
+            <div class="name">Waveform Selector</div>
+            <div class="control"></div>
+            <p>
+              Selects the type of the sphere's sound wave
+            </p>
+          </div>
+          <div class="entry">
+            <div class="name">All Waveforms Selector</div>
+            <div class="control"></div>
+            <p>
+              Changes all sphere's waveforms to the selected waveform in the previous selector
+            </p>
+          </div>
+        </div>
+
+        <div class="group">
+          <div class="entry">
+            <div class="name">Number of Spheres Selector</div>
+            <div class="control"></div>
+            <p>
+              Changes the number of spheres present. This resets all of the spheres' settings
+            </p>
+          </div>
+          <div class="entry">
+            <div class="name">All Values Randomizer</div>
+            <div class="control"></div>
+            <p>
+              Randomizes all values, except the number of spheres
+            </p>
+          </div>
+          <div class="entry">
+            <div class="name">Spatial Audio Toggle</div>
+            <div class="control"></div>
+            <p>
+              Toggles between normal audio and spatial audio (Stereo Headphones Recommended)
+            </p>
+          </div>
+          <div class="entry">
+            <div class="name">Speech sphere Recorder</div>
+            <div class="control"></div>
+            <p>
+              Starts the recording for the speech sphere (HAVE AT LEAST ONE Sound Sphere MOVING BEFORE ACTIVATING THE SPEECH SPHERE)
+            </p>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
 
-    <h2 style="flex: 0 0 100%;">Speech sphere</h2>
-    <section class="text-wrap-image">
-      <div class="text">
-          <p>Press record and do a short sound.</p>
-          <p>It works better when the sound is made right after pressing record and stopping the recording right after the sound is finished.</p>
-          <p>The Speech sphere will then bounce around the Well of Wandering and each time it collides with a Sound sphere it will play the recorded sound with a high reverb modifier.</p>
-          <h3>IMPORTANT! Have at least one Sound sphere moving before activating the Speech sphere as having no moving Sound spheres tends to crash it!</h3>
-          <h3>The Speech sphere is very temperamental and will crash the Well of Wandering most of the time its used. Its unfortunate :(</h3>
-          <h3>If it does not work on your browser, try Google Chrome, as it worked on my tests.</h3>
+    <div class="control-panel embedded" data-panel-name="how-to-play">
+      <div class="how-to-play">
+        <section class="text-wrap-image">
+          <div class="text">
+            <h2>Sound Sphere</h2>
+            <p>
+              Each Sound Sphere has a speed, which is represented by the radius of their trajectory. The bigger the radius the faster the sphere.
+            </p>
+            <p>
+              Sound Spheres make a sound each time the pass through their initial position, represented by a ghostly stationary grey sphere.
+            </p>
+            <p>
+              The higher a sphere is in the Well of Wandering the lower the frequency of it's sound, the lower it is the higher the frequency is.
+            </p>
+          </div>
+          <img src="/assets/projects/well-of-wandering/images/sound_ball.png" alt="Sound Sphere." loading="lazy">
+        </section>
+
+        <section class="text-wrap-image reverse">
+          <div class="text">
+            <h2>Waveforms</h2>
+            <p>
+              There are 4 waveforms to choose from: <b>Sine, Triangle, Square, Sawtooth</b>
+            </p>
+            <p>
+              Each type of waveform has a unique sound, making different arrangements of different types of waveforms fun!
+            </p>
+          </div>
+          <img src="/assets/projects/well-of-wandering/images/waveforms.png" alt="Waveforms." loading="lazy">
+        </section>
+
+        <section class="text-wrap-image">
+          <div class="text">
+            <h2>Speech sphere</h2>
+            <p>
+              Press record and do a short sound.
+            </p>
+            <p>
+              The Speech sphere will then bounce around the Well of Wandering and each time it collides with a Sound Sphere it will play the recorded sound with a high reverb modifier.
+            </p>
+            <p>
+              It works better when the sound is made right after pressing record and stopping the recording right after the sound is finished.
+            </p>
+            <p>
+              <b>
+                IMPORTANT CRASH INFO!
+              </b>
+            </p>
+            <p>
+              Have at least one Sound Sphere moving before activating the Speech sphere as having no moving Sound Spheres tends to crash it!
+            </p>
+            <p>
+              The Speech sphere is very temperamental and will crash the Well of Wandering most of the time its used. Its unfortunate :(
+            </p>
+            <p>
+              If it does not work on your browser, try Google Chrome, as it worked the best on my tests.
+            </p>
+          </div>
+          <img src="/assets/projects/well-of-wandering/images/speech_ball.png" alt="Speech sphere." loading="lazy">
+        </section>
+
+        <p>
+          Play around with the values of the controls and find sounds you enjoy!
+        </p>
+        <p>
+          As a generative music tool, the Well of Wandering is meant to be learned through experimentation, so go find your unique music!
+        </p>
       </div>
-      <div class="image in-card">
-        <img src="../assets/projects/well-of-wandering/images/speech_ball.png" alt="Speech sphere." loading="lazy">
+    </div>
+
+    <div class="control-panel embedded" data-panel-name="tips-and-tricks">
+      <div class="how-to-play">
+          <h1>Fresh Start</h2>
+          <p>
+            Try a full fresh start from the beginning, adjusting each value individually and try to build a sound you enjoy! This will help you understand what each sphere and control does, while also letting you build you own music of choice! It's also the best way to start if you want to be in control of what you are building, not only for a first time.
+          </p>
+          <p>
+            For the first time I recommend going with a low amount of spheres, either 5 or 10.
+          </p>
+
+          <h1>Change all Waveforms to Sine or Triangle</h1>
+          <p>
+            Randomizing all values and changing all waveforms to sine or triangle is a great way to get a quick start into a nice and unique base sound. Then you can adjust individually other values, and choosing some specific spheres to have a squared or sawtooth waveform for specific lead notes.
+          </p>
+
+          <h1>Psychedelic</h1>
+          <p>
+            Select 25 or 50 spheres, turn Spatial Audio on and press randomize. Quickly change all waveforms to either sine or triangle before the square and sawtooth waveforms destroy your hearing capabilities. Close your eyes and let the Well of Wandering take you on a journey.
+          </p>
+          
+          <h1>Chaos</h1>
+          <p>
+            Select 50 spheres, turn Spatial Audio on and press randomize. Change all waveforms to either square or sawtooth. Prepare your noise receptors as it will be a direct attack to your hears and soul. I whole heartily don't recommend having the volume too high. I HOLD NO RESPONSIBILITY FOR WHAT MIGHT COME!
+          </p>
       </div>
-    </section>
-
-    <p style="flex: 0 0 100%;">Play around with the values of the controls and find sounds you enjoy!</p>
-    <p style="flex: 0 0 100%;">As a generative music tool, the Well of Wandering is meant to be learned through experimentation, so go find your unique music!</p>
-  </div>
-
-  <div class="embedded-project-controls-menu">
-    <h1 style="flex: 0 0 100%;">Tips and Tricks</h1>
-
-    <h2 style="flex: 0 0 100%;">Fresh Start</h2>
-    <p style="flex: 0 0 100%;">Try a full fresh start from the beginning, adjusting each value individually and try to build a sound you enjoy! This will help you understand what each sphere and control does, while also letting you build you own music of choice! It's also the best way to start if you want to be in control of what you are building, not only for a first time.</p>
-    <p>For the first time I recommend going with a low amount of spheres, either 5 or 10.</p>
-
-    <h2 style="flex: 0 0 100%;">Change All Waveforms to Sine / Triangle</h2>
-    <p style="flex: 0 0 100%;">Randomizing all values and changing all waveforms to sine or triangle is a great way to get a quick start into a nice and unique base sound. Then you can adjust individually other values, and choosing some specific spheres to have a squared or sawtooth waveform for specific lead notes.</p>
-
-    <h2 style="flex: 0 0 100%;">Psychedelic</h2>
-    <p style="flex: 0 0 100%;">Select 25 or 50 spheres, turn Spatial Audio on and press randomize. Quickly change all waveforms to either sine or triangle before the square and sawtooth waveforms destroy your hearing capabilities. Close your eyes and let the Well of Wandering take you on a journey.</p>
-    
-    <h2 style="flex: 0 0 100%;">Chaos</h2>
-    <p style="flex: 0 0 100%;">Select 50 spheres, turn Spatial Audio on and press randomize. Change all waveforms to either square or sawtooth. Prepare your noise receptors as it will be a direct attack to your hears and soul. I whole heartily don't recommend having the volume too high. I HOLD NO RESPONSIBILITY FOR WHAT MIGHT COME!</p>
+    </div>
   </div>
   
   <div class="credits">
