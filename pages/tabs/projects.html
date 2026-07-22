@@ -16,15 +16,18 @@
       <div class="button left sub-button clickable" onclick="resetFilter()"><p>Reset</p></div>
 
       <div class="separator vertical"></div>
+      <input name="search" class="search-bar right" type="search" placeholder="Search" oninput="handleProjectSearchInput(this.value)">
+      
+      <!--
       <input name="search" class="search-bar middle" type="search" placeholder="Search" oninput="handleProjectSearchInput(this.value)">
       <div class="separator vertical"></div>
-
       <div class="button right sub-button clickable" onclick="resetFilter()"><p>Reset</p></div>
       <div class="separator vertical semi thin"></div>
       <div class="button right clickable" onclick="toggleControlPanel(this, '')">
         <p>Sort</p>
         <icon data-icon-name="arrow-down-wide-narrow"></icon>
       </div>
+      -->
     </div>
 
     <div id="project-filter" class="control-panel" data-panel-name="filter"></div>
