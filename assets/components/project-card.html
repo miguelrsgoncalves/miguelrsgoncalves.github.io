@@ -1,29 +1,31 @@
-<!-- project-card-template.html -->
 <template id="project-card">
-    <a class="project-card clickable" href="/{{pageName}}">
-        <picture>
-            <source srcset="{{image}}.webp" type="image/webp">
-            <img src="{{image}}.png" alt="{{title}} Thumbnail" loading="lazy">
-        </picture>
+    <div class="project-card clickable no-select">
+        <a href="/projects/{{id}}" class="project-link"></a>
+        <img src="/assets/projects/{{id}}/images/thumbnail.png" alt="{{title}} Thumbnail" loading="lazy">
         <div class="project-metadata">
-            <div class="title">
-                <h1 class="h-scrollable">{{title}}</h1>
+            <div class="title-container">
+                <div class="title h-scrollable">{{title}}</div>
             </div>
-            <div class="project-metadata-container">
-                <div class="project-metadata-grid">
-                    <div class="category-misc-container">
-                        <h2 class="category">{{roleCategory}}</h2>
-                        <h4 class="misc">{{misc}}</h4>
+            <div class="project-metadata-grid">
+                <div class="row">
+                    <div class="cell">
+                        <div class="category left h-scrollable">{{category}}</div>
                     </div>
-                    <div class="vl-thin"></div>
-                    <h3 class="year">{{year}}</h3>
-                    <div class="vl-thin"></div>
-                    <div class="software">
-                        <h3 class="h-scrollable">{{software}}</h3>
+                    <div class="cell">
+                        <div class="status right h-scrollable">{{status}}</div>
                     </div>
                 </div>
-                <p class="description">{{description}}</p>
+                <div class="row">
+                    <div class="cell">
+                        <div class="tag left h-scrollable">{{tag}}</div>
+                    </div>
+                    <div class="cell">
+                        <div class="tool right h-scrollable">{{tool}}</div>
+                    </div>
+                </div>
             </div>
+            <div class="description">{{description}}</div>
+            {{timeline}}
         </div>
     </div>
 </template>

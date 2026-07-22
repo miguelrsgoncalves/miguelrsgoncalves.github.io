@@ -1,0 +1,96 @@
+<route-data data-title="WebGL Train" data-description="Watch a train locomotive go around a circle train track, stopping at the various train stations along the way."></route-data>
+
+<div class="page narrow">
+  <div class="embedded-project">
+    <div id="loading-screen" class="loading-screen"><div class="spinner"></div></div>
+    <div id="embedded-project-frame" class="frame"></div>
+  </div>
+
+  <div class="control-bar">
+    <div class="button left clickable" onclick="loadEmbeddedProject('embedded-project-frame', '/assets/projects/webgl-train/project/webgl-train-embedded.html', 'loading-screen')">
+      <icon data-icon-name="play"></icon>
+      <p>Start</p>
+    </div>
+    <div class="separator vertical"></div>
+    <a id="start-button" class="button middle clickable" href="/assets/projects/webgl-train/project/project/index.html" target="_blank">
+      <icon data-icon-name="fullscreen"></icon>
+      <p>Fullscreen</p>
+    </a>
+    <div class="separator vertical"></div>
+    <div class="button right clickable" onclick="restartEmbeddedProject('embedded-project-frame', '/assets/projects/webgl-train/project/webgl-train-embedded.html', 'loading-screen')">
+      <p>Restart</p>
+      <icon data-icon-name="refresh-ccw"></icon>
+    </div>
+  </div>
+
+  <div class="control-group embedded">
+    <div class="control-bar embedded">
+      <div class="button left clickable" onclick="toggleControlPanel(this, 'controls')">
+        <icon data-icon-name="gamepad-2"></icon>
+        <p>Controls</p>
+      </div>
+      
+      <div class="separator vertical"></div>
+      
+      <div class="button right clickable" onclick="toggleControlPanel(this, 'how-to-play')">
+        <p>How to Play</p>
+        <icon data-icon-name="info"></icon>
+      </div>
+    </div>
+
+    <div class="control-panel embedded" data-panel-name="controls">
+      <div class="game-controls">
+        <div class="title">Camera</div>
+        <div class="group">
+          <div class="entry">
+            <div class="name">Rotate</div>
+            <div class="control">Left Mouse Button Drag</div>
+          </div>
+          <div class="entry">
+            <div class="name">Move</div>
+            <div class="control">Right Mouse Button Drag</div>
+          </div>
+          <div class="entry">
+            <div class="name">Zoom</div>
+            <div class="control">Middle Mouse Button Drag</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-panel embedded" data-panel-name="how-to-play">
+      <div class="how-to-play">
+        <p>
+          Simply watch the train go around the track, stopping on the various train stations.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <h1>The Models</h1>
+
+  <section class="text-wrap-image">
+    <div class="text">
+      <p>The whole project was done in WebGL using code to place every vertex individually, joining the edges and filling in the faces.</p>
+    </div>
+    <img src="/assets/projects/webgl-train/images/train.png" alt="Train." loading="lazy">
+  </section>
+
+  <h1>The Animations</h1>
+
+  <section class="text-wrap-image reverse">
+    <div class="text">
+      <p>The train animations were done by using anchor points in the tracks, then interpolating the train position along the track sections.</p>
+      <p>The train then stops at the various train stations, accelerating after departure with smooth movement.</p>
+    </div>
+    <img src="/assets/projects/webgl-train/images/train_station.png" alt="Train Station." loading="lazy">
+  </section>
+
+  <div class="credits">
+    <div class="title">Credits</div>
+    <p>
+      This project was part of a group work
+    </p>
+  </div>
+</div>

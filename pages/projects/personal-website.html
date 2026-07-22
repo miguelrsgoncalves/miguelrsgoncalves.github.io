@@ -1,0 +1,24 @@
+<route-data data-title="Personal Website" data-description="The best website ever created!"></route-data>
+
+<div class="page narrow">
+  <div class="embedded-project">
+    <div id="loading-screen" class="loading-screen"><div class="spinner"></div></div>
+    <div id="embedded-project-frame" class="frame"></div>
+  </div>
+
+  <div class="control-bar">
+    <div class="button left clickable" onclick="loadEmbeddedProject('embedded-project-frame', '/assets/projects/personal-website/personal-website-embedded.html', 'loading-screen')">
+      <icon data-icon-name="play"></icon>
+      <p>Start</p>
+    </div>
+    <div class="separator vertical"></div>
+    <div class="button right clickable" onclick="restartEmbeddedProject('embedded-project-frame', '/assets/projects/personal-website/personal-website-embedded.html', 'loading-screen')">
+      <p>Restart</p>
+      <icon data-icon-name="refresh-ccw"></icon>
+    </div>
+  </div>
+
+  <p>
+    Some say its quite self-explanatory. And some might say this is the best website ever. But I would never be so self-indulgent.
+  </p>
+</div>

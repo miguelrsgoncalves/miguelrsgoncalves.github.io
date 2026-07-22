@@ -4,20 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MRSG</title>
-
-    <!-- CSS Stylesheets -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/project-card.css">
-    <link rel="stylesheet" href="css/filter.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/embedded-project.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <!--------------------->
-
-    <!------- Font -------->
-    <link rel="stylesheet" href="css/font.css">
-    <link rel="stylesheet" href="css/icons.css">
-    <!--------------------->
+    <meta name="description" content="All there is about MRSG">
 
     <!------ Favicon ------>
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/favicon/apple-touch-icon.png">
@@ -26,12 +13,28 @@
     <link rel="manifest" href="/assets/logo/favicon/site.webmanifest">
     <!--------------------->
 
+    <!------- Font -------->
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <!--------------------->
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="css/content.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <!--------------------->
+
     <!------ Scripts ------>
-    <script src="scripts/enums.js" defer></script>
+    <script src="scripts/globals.js" defer></script>
+    <script src="scripts/icons.js" defer></script>
     <script src="scripts/signals.js" defer></script>
     <script src="scripts/router.js" defer></script>
+    <script src="scripts/components.js" defer></script>
     <script src="scripts/project-manager.js" defer></script>
-    <script src="scripts/filter.js" defer></script>
     <script src="scripts/video-observer.js" defer></script>
     <script src="scripts/embedded-projects.js" defer></script>
     <script src="scripts/setup-script.js" defer></script>
@@ -41,7 +44,7 @@
   <body>
     <header>
       <span class="website-logo">
-        <img class="logo" src="assets/logo/mrsg_logo.png">
+        <icon><img class="logo" src="assets/logo/mrsg_logo.png"></icon>
         <h1 class="website-name">MRSG</h1>
       </span>
       <nav>
@@ -55,10 +58,10 @@
       </nav>
       <nav>
         <ul>
-          <a id="page-title" class="page-title clickable" onclick="scrollToTheTop()"><span id="page-title-text"></span></a>
+          <a id="route-title" class="route-title clickable" onclick="scrollToTheTop()"><span id="route-title-text"></span></a>
         </ul>
       </nav>
-      <i id="header-menu-button" class="icon-menu header-menu-button clickable" onclick="toggleHeaderMenuDropdown()"></i>
+      <icon id="header-menu-button" data-icon-name="menu" class="header-menu-button clickable" onclick="toggleHeaderMenuDropdown()"></icon>
 
       <div id="header-menu-dropdown" class="header-menu-dropdown">
         <ul>

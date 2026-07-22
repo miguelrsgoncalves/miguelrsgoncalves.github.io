@@ -1,0 +1,64 @@
+.game-controls{
+    .title {
+        color: var(--primary-color);
+        font-size: var(--font-size-xxlarge);
+        font-weight: var(--font-weight-bold);
+        margin-top: 2em;
+        margin-bottom: 1em;
+    }
+
+    .subtitle {
+        color: var(--font-color-normal);
+        font-size: var(--font-size-xlarge);
+        font-weight: var(--font-weight-bold);
+        margin-top: 1.5em;
+        margin-bottom: 0.75em;
+    }
+
+    .group {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 2em;
+    }
+
+    .entry {
+        flex: 1 1 0;
+        
+        .name {
+            color: var(--font-color-normal);
+            font-size: var(--font-size-large);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 0.5em;
+        }
+
+        .control {
+            color: var(--font-color-normal);
+            font-size: var(--font-size-medium);
+            font-weight: var(--font-weight-bold);
+        }
+
+        .description {
+            color: var(--font-color-muted);
+            font-size: var(--font-size-medium);
+        }
+    }
+}
+
+.how-to-play{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    .title {
+        color: var(--primary-color);
+        font-size: var(--font-size-xxlarge);
+        font-weight: var(--font-weight-bold);
+    }
+
+    .subtitle {
+        color: var(--font-color-normal);
+        font-size: var(--font-size-xlarge);
+        font-weight: var(--font-weight-bold);
+    }
+}

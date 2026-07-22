@@ -1,0 +1,163 @@
+<route-data data-title="Portfolio"></route-data>
+
+<script defer>
+    videoObserver.init()
+    projectManagerInit('assets/registries/project-registry.json')
+    insertProjects()
+</script>
+
+<div class="multi-page">
+    <div class="page banner left dynamic">
+        <h1>Contacts</h1>
+
+        <section>
+            <icon data-icon-name="mail"></icon>
+            <a href="mailto:hire@miguelrsgoncalves.com" target="_blank">Hire E-mail</a>
+        </section>
+        
+
+        <h1>Social Media & Others</h1>
+        <section>
+            <icon data-icon-name="globe"></icon>
+            <a href="https://www.linkedin.com/in/miguelrsgoncalves/" target="_blank">LinkedIn</a>
+        </section>
+        <section>
+            <icon data-icon-name="globe"></icon>
+            <a href="https://github.com/miguelrsgoncalves" target="_blank">GitHub</a>
+        </section>
+        <section>
+            <icon data-icon-name="globe"></icon>
+            <a href="https://www.devuego.pt/bd/fdesenvolvedor/miguel-gonccedilalves-miguel-rs-gonccedilalves" target="_blank">DeVuego</a>
+        </section>
+    </div>
+    
+    <div class="page main narrow">    
+        <h1>Godot Engine</h1>
+    
+        <p><b>Godot Repository: </b><icon data-icon-name="git-pull-request"></icon> <a href="https://github.com/godotengine/godot/pulls?q=author%3Amiguelrsgoncalves" target="_blank">my Pull Requests</a> & <icon data-icon-name="circle-dot"></icon> <a href="https://github.com/godotengine/godot/issues?q=author%3Amiguelrsgoncalves" target="_blank">my Issues</a></p>
+    
+        <p>
+            My contributions have been focused on resolving open issues, where I have worked on the Engine Core and Editor, improving errors and implementing QOL updates to the engine.
+        </p>
+        <p>
+            It is great to take part on such a big project and to learn how the engine works on the inside, while also improving my C++ skills! It's been an amazing side-project to improve my coding skills and to learn the ins and outs of working in big projects, mainly in the open source world.
+        </p>
+    
+        <img src="/assets/projects/godot-engine/images/thumbnail.png" alt="Godot Engine Thumbnail." loading="lazy">
+    
+        <h1>Hums of the Soul</h1>
+    
+        <video autoplay controls muted loop preload="metadata" playsinline controlsList="nodownload" disablePictureInPicture data-src="/assets/projects/hums-of-the-soul/videos/showcase_2.mp4"></video>
+    
+        <p>
+            Hums of the Soul is my main Game Dev project in development. It's a game about creating music and using that music for combat! The game features a in-game DAW, programmed from scratch in C++, that allows the player to create music by hand-placing notes and using pre-done patterns to cater the music to their own style and taste. This music is then used in combat, where each character, who act as instruments, plays their own attacks according to the notes they played. Special effects, like reverb, will add unique effects to the attacks.
+        </p>
+        
+        <h1>Pigment</h1>
+    
+        <video autoplay controls muted loop preload="metadata" playsinline controlsList="nodownload" disablePictureInPicture data-src="/assets/projects/pigment/videos/pigment_shader_showcase_1.mp4"></video>
+    
+        <p>
+            A work in progress of a shader system that allows to fully paint all meshes, instantiated or not, in a full game scene. The objective is to have a fully transformative game, where you can partially paint the world. The system supports a transformation between a 2D stylized look and a fully rendered 3D that blends seamlessly. The system doesn't use any Render Targets, saving up on memory and enabling it to scale indefinitely.
+        </p>
+        
+        <h1>Grass Field</h1>
+    
+        <video autoplay controls muted loop preload="metadata" playsinline controlsList="nodownload" disablePictureInPicture data-src="/assets/projects/grass-field/videos/grass_field.mp4"></video>
+        
+        <p>
+            A grass system made using Unreal Engine 5 grass system tools, focused on performance and fluidity. This project uses grass clumps and is able to achieve a high density of grass, filling the landscape with a fluffy carpet. The lighting is done in a stylized cell shader to create a soothing and calm moonlit night.
+        </p>
+        
+        <h3>More info on the Project Page</h3>
+        <div name="single-project-card" id="grass-field"></div>
+    
+        <h1>Limbo's Gaol</h1>
+        
+        <video autoplay controls muted loop preload="metadata" playsinline controlsList="nodownload" disablePictureInPicture data-src="/assets/projects/limbo-gaol/videos/vfx_art_showcase.mp4"></video>
+    
+        <p>
+            A project developed for my Master's Thesis, where it was used to gather data on how people perceive stories in games depending on the protagonist they play as. The research was a success, reaching interesting conclusions on how the narrative elements affected the player's take on the story. The game has 4 different narratives, where the player seems the same story in different perspectives.
+        </p>
+    
+        <h3>More info on the Project Page</h3>
+        <div name="single-project-card" id="limbo-gaol"></div>
+    
+        <h3>Thesis Page</h3>
+        <div name="single-project-card" id="the-player-eye"></div>
+    
+        <h1>Sisyphus Climb</h1>
+        
+        <video autoplay controls muted loop preload="metadata" playsinline controlsList="nodownload" disablePictureInPicture data-src="/assets/projects/sisyphus-climb/videos/gameplay_showcase.mp4"></video>
+    
+        <p>
+            My work in this game was focused on the shaders and modeling using Unity and Blender and was inspired by Greek Pottery. In this project I created all main visual elements (character models, animations and shaders, sky, landscape and boulder shaders), keeping in mind the necessity of visual harmony and readability while making a heavily stylized visual identity for the game.
+        </p>
+    
+        <h3>More info on the Project Page</h3>
+        <div name="single-project-card" id="sisyphus-climb"></div>
+    
+    
+        <h1>Plugins</h1>
+    
+        <p>
+            I have created some tools to help me on my Game Dev journey. These tools speed up the development by automating tasks that would take a long time if done by hand. I then decided to open source these tools, so they can help someone on their own journey.
+        </p>
+    
+        <h2>Spritesheet Manager</h2>
+    
+        <section class="text-wrap-image reverse">
+            <div class="text">
+                <p>
+                    <icon data-icon-name="book-marked"></icon>
+                    <a href="https://github.com/miguelrsgoncalves/spritesheet_manager" target="_blank">Repository</a>
+                </p>
+                <p>
+                    Spritesheet Manager is a Krita plugin that allows to automatically add padding to tilesets and render spritesheet animations.
+                </p>
+                <p>
+                    The idea stemmed from the need to facilitate the creation of tilesets for <a href="/projects/hums-of-the-soul">Hums of the Soul</a>.
+                </p>
+            </div>
+            <img src="/assets/projects/spritesheet-manager/images/thumbnail.png" alt="SpriteSheet Manager Thumbnail." loading="lazy">
+        </section>
+    
+        <h2>CGLF — Custom Global Light Function</h2>
+    
+        <section class="text-wrap-image">
+            <div class="text">
+                <p>
+                    <icon data-icon-name="book-marked"></icon>
+                    <a href="https://github.com/miguelrsgoncalves/cglf_custom_global_light_function" target="_blank">Repository</a>
+                </p>
+                <p>
+                    A Godot plugin that provides a manager to define and customize a single centralized custom global light() function shared across all or chosen shaders in the project.
+                </p>
+            </div>
+            <img src="/assets/projects/cglf-custom-global-light-function/images/thumbnail.png" alt="CGLF Thumbnail." loading="lazy">
+        </section>
+    
+        <h1>Bonus</h1>
+    
+        <p>
+            Although these projects aren't directly related to the portfolio, they either require skills that are transferable, like creativity or artistic style, or they are a good representation of the quality and effort put into my work.
+        </p>
+    
+        <h2>Narrow Escape</h2>
+    
+        <p>
+            A 3D animation done entirely in Maya, including shader work and modeling. A good representation of experimentation with my art style.
+        </p>
+    
+        <iframe controlsList="nodownload" class="video-player"
+            src="https://www.youtube.com/embed/oWDkU97lckc?controls=1&rel=0"
+            allowfullscreen
+        ></iframe> 
+    
+        <h3>More info on the Project Page</h3>
+        <div name="single-project-card" id="narrow-escape"></div>
+    </div>
+
+    <div class="page banner"></div>
+
+</div>

@@ -1,10 +1,8 @@
-/* ========== HEADER & NAVIGATION ========== */
-
 header {
   position: sticky;
   top: 0;
   width: 100%;
-  background-color: var(--secondary-bg);
+  background-color: var(--background-secondary-color);
   font-weight: bold;
   text-align: center;
   align-items: center;
@@ -26,7 +24,7 @@ header {
   }
 
   .logo {
-    height: 2em;
+    height: 1.5em;
   }
 
   .website-name {
@@ -38,9 +36,13 @@ header {
 
   .header-menu-button {
     position: absolute;
+    font-size: xx-large;
     right: var(--padding-main);
     display: flex;
+    align-items: center;
     top: 0;
+    bottom: 0;
+    height: auto;
     transition: transform 0.3s ease;
   }
 
@@ -63,6 +65,7 @@ header {
 
   a {
     position: relative;
+    color: var(--font-color-base);
     transition: color 0.3s ease;
 
     span{
@@ -109,12 +112,12 @@ header {
     left: 12.5%;
   }
 
-  .page-title {
+  .route-title {
     display: none;
     animation: slideOut 0.3s ease;
   }
   
-  .page-title.active {
+  .route-title.active {
     display: block;
     margin-top: 10px;
     animation: slideIn 0.3s ease;
@@ -125,7 +128,7 @@ header {
     display: flex;
     top: 2.5em;
     right: 0;
-    background: var(--secondary-bg);
+    background: var(--background-secondary-color);
     padding: var(--padding-main);
     display: none;
     width: 15%;

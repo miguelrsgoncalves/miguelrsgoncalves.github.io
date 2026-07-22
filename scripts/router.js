@@ -1,230 +1,196 @@
-var currentTab = ''
-var isInProjectWindow = false
+const mainContent = document.getElementById('main-content');
+const routeTitle = document.getElementById('route-title');
+const routeTitleText = document.getElementById('route-title-text');
+const headerMenuButton = document.getElementById('header-menu-button');
+const headerMenuDropdown = document.getElementById('header-menu-dropdown');
 
-tabs = ([
-  document.getElementsByName(tabsEnum.home),
-  document.getElementsByName(tabsEnum.projects),
-  document.getElementsByName(tabsEnum.about)
-]);
-
-pages = ([
-  document.getElementsByName(pagesEnum.keys().next().value),
-])
-
-var mainContent = document.getElementById("main-content")
-var pageTitle = document.getElementById('page-title')
-var pageTitleText = document.getElementById('page-title-text')
-var headerMenuButton = document.getElementById('header-menu-button')
-var headerMenuDropdown = document.getElementById('header-menu-dropdown')
-
-function updateMainContent(data) {
-  scrollToTheTop(true)
-  cleanupSignal.cleanup()
-  mainContent.replaceChildren(document.createRange().createContextualFragment(data))
-  loadIncludes()
-}
+const ROOT_ROUTE = "/pages/"
+const DEFAULT_ROUTE = 'projects';
+let currentRoute = null;
 
 /**
- * Starts the navigation process
- * @param {string} destination Name of the destination page
- * @param {boolean} browserHistory If the navigation is done by using the browser history feature
+ * Navigate to a route.
+ *
+ * @param {string}  route
+ * @param {boolean} isWindowPop true when called from browser history
  */
-function navigate(destination, isBrowserHistory = false) {
-  if(!doesDestinationExist(destination)) {
-    //loadPage(tabsEnum.home)
-    loadPage(tabsEnum.projects)
-    return
+function navigate(route, isWindowPop = false) {
+  if (!route) { navigate(DEFAULT_ROUTE, isWindowPop); return; }
+
+  const segments = route.split('/').filter(Boolean);
+
+  if (!isWindowPop && route === currentRoute) {
+    scrollToTheTop();
+    return;
   }
 
-  loadPage(destination, isBrowserHistory)
-}
+  const filePath = segments.length === 1 ? `${ROOT_ROUTE}tabs/${route}` : ROOT_ROUTE + route;
 
-/**
- * Load selected page
- */
-function loadPage(pageName, isWindowPop = false) {
-  if(Object.values(tabsEnum).includes(pageName)) {
-    tabName = pageName
-
-    if (tabName === currentTab && !isInProjectWindow) {
-      scrollToTheTop()
-      return
-    } else {
-      currentTab = tabName
-    }
-
-    const path = `tabs/${tabName}.html`
-
-    fetch(path)
-      .then(response => response.text())
-      .then(data => {
-        isInProjectWindow = false
-        pageTitleText.innerHTML = ""
-        pageTitle.classList.remove('active')
-        if(!isWindowPop) history.pushState({page: tabName}, tabName, tabName)
-        updateMainContent(data)
-        updateTabPageNav(tabName)
-      })
-      .catch(err => {
-        console.error("Error loading the content: ", err)
-      });
-  } else {
-    var folder = ''
-    var currEnum = null
-
-    if(pagesEnum.has(pageName)) {
-      folder = 'pages/'
-      updateTabPageNav(pagesEnum.keys().next().value)
-      currEnum = pagesEnum.get(pageName)
-    } else if (projectsEnum.has(pageName)) {
-      folder = 'project-pages/'
-      updateTabPageNav(tabsEnum.projects)
-      currEnum = projectsEnum.get(pageName)
-    }
-
-    const path = `${folder}${pageName}.html`
-
-    fetch(path)
+  fetch(`${filePath}.html`)
     .then(response => {
-        if (!response.ok) throw new Error("HTTP error " + response.status);
-        return response.text();
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return response.text();
     })
-    .then(data => {
-      if (data.includes("<!DOCTYPE html>") || data.includes("<title>MRSG</title>")) {
-          console.error("Error: Page not found. Path was:", path);
-          // TODO: Load a dedicated 404 page here
-          return;
+    .then(html => {
+      if (html.includes('<!DOCTYPE html>')) {
+        console.error('Page not found:', filePath);
+        navigate(DEFAULT_ROUTE);
+        return;
       }
-
-      pageTitleText.innerHTML = currEnum; pageTitle.classList.add('active')
-      if(!isWindowPop) history.pushState({page: pageName}, pageName, pageName)
-      updateMainContent(data)
-      isInProjectWindow = true
+      const fragment = document.createRange().createContextualFragment(html);
+      render(route, segments, fragment, isWindowPop);
     })
-    .catch(error => {
-      console.error("Error loading project:", error)
+    .catch(err => {
+      console.error('Failed to load:', filePath, err);
+      if (route !== DEFAULT_ROUTE) navigate(DEFAULT_ROUTE);
     });
-  }
 }
 
-/**
- * Scrolls the page to the top
- * @param {*} instant true if the scroll should be instant
- */
-function scrollToTheTop(instant) {
-  if(instant) {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "instant"
-    })
-  } else window.scrollTo(0, 0)
+function render(route, segments, fragment, isWindowPop) {
+  currentRoute = route;
+
+  const { title, description } = getRouteMetadata(fragment);
+
+  if (title) {
+    routeTitleText.innerHTML = title;
+    routeTitle.classList.add('active');
+  } else {
+    routeTitleText.innerHTML = '';
+    routeTitle.classList.remove('active');
+  }
+  
+  document.title = title ? `MRSG | ${title}` : 'MRSG';
+  
+  const metaDescription = document.querySelector('meta[name="description"]');
+  if (metaDescription) {
+    metaDescription.setAttribute('content', description);
+  }
+
+  updateOgTag('og:title', title ? `MRSG | ${title}` : 'MRSG');
+  updateOgTag('og:description', description);
+  updateOgTag('og:url', `${window.location.origin}/${route}`);
+
+  let canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement('link');
+    canonical.setAttribute('rel', 'canonical');
+    document.head.appendChild(canonical);
+  }
+  canonical.setAttribute('href', `${window.location.origin}/${route}`);
+
+  updateNav(segments);
+
+  if (!isWindowPop) {
+    history.pushState({ route }, '', `/${route}`);
+  }
+
+  updateContent(fragment);
+}
+
+function getRouteMetadata(fragment) {  
+  const meta = fragment.querySelector('route-data');
+  
+  return {
+    title: meta?.dataset.title ?? null,
+    description: meta?.dataset.description ?? ""
+  };
+}
+
+function updateOgTag(property, content) {
+  let tag = document.querySelector(`meta[property="${property}"]`);
+  if (!tag) {
+    tag = document.createElement('meta');
+    tag.setAttribute('property', property);
+    document.head.appendChild(tag);
+  }
+  tag.setAttribute('content', content);
+}
+
+function updateNav(segments) {
+  const active = new Set(segments);
+  document.querySelectorAll('a[name]').forEach(a =>
+    a.classList.toggle('active', active.has(a.getAttribute('name')))
+  );
+}
+
+async function updateContent(fragment) {
+  scrollToTheTop(true);
+  cleanupSignal.cleanup();
+  mainContent.replaceChildren(fragment);
+  
+  await loadIncludes();
+  
+  requestAnimationFrame(initScrollables);
+  createIcons()
+}
+
+async function loadIncludes() {
+  const includes = mainContent.querySelectorAll('[data-include]');
+  const promises = Array.from(includes).map(async el => {
+    const file = el.getAttribute('data-include');
+    try {
+      const response = await fetch(file);
+      const text = await response.text();
+      el.outerHTML = text;
+    } catch (err) {
+      console.error('Failed to load include:', file, err);
+    }
+  });
+  
+  await Promise.all(promises);
+}
+
+function scrollToTheTop(instant = false) {
+  window.scrollTo({ top: 0, left: 0, behavior: instant ? 'instant' : 'smooth' });
 }
 
 function toggleHeaderMenuDropdown() {
-  if(headerMenuDropdown.classList.contains('show')) {
-    headerMenuDropdown.classList.remove('show')
-  }
-  else {
-    headerMenuDropdown.classList.add('show')
-  }
+  headerMenuDropdown.classList.toggle('show');
 }
-
-/**
- * Find if destination exists in database of destination names.
- * @param {String} destination 
- * @returns true if the page exists
- * @returns false if page does not exist
- */
-function doesDestinationExist(destination) {
-  if(
-    Object.values(tabsEnum).includes(destination) ||
-    pagesEnum.has(destination) ||
-    projectsEnum.has(destination)
-  ) return true
-  return false
-}
-
-function updateTabPageNav(tabPageName) {
-  tabs.forEach(t => t.forEach(y => y.classList.remove("active")))
-  pages.forEach(p => p.forEach(y => y.classList.remove("active")))
-  document.getElementsByName(tabPageName).forEach(e => e.classList.add("active"))
-}
-
-function loadIncludes() {
-  mainContent.querySelectorAll("[data-include]").forEach(async (element) => {
-    const file = element.getAttribute("data-include")
-    const html = await fetch(file).then(template => template.text())
-    element.outerHTML = html
-  });
-}
-
-window.onpopstate = function(event) {
-  const page = event.state.page
-  if (Object.values(tabsEnum).includes(page) || pagesEnum.has(page) || projectsEnum.has(page)) {
-    loadPage(page, true)
-  } else {
-    //loadPage(tabsEnum.home, true)
-    loadPage(tabsEnum.projects, true)
-  }
-};
-
-document.addEventListener('click', (e) => {
-  if (headerMenuDropdown.classList.contains('show') &&
-      !headerMenuDropdown.contains(e.target) &&
-      !headerMenuButton.contains(e.target)) {
-    toggleHeaderMenuDropdown();
-  }
-});
-
-window.addEventListener("resize", () => {
-  initScrollables()
-})
 
 function initScrollables() {
-  document.querySelectorAll(".h-scrollable").forEach(el => {
-      let overflow = el.scrollWidth - el.clientWidth
-      if(overflow > 0) {
-        el.style.setProperty("--scroll-distance", `-${overflow}px`)
-        el.classList.add("h-scroll")
+  [
+    { sel: '.h-scrollable', fn: el => el.scrollWidth  - el.clientWidth,  cls: 'h-scroll' },
+    { sel: '.v-scrollable', fn: el => el.scrollHeight - el.clientHeight, cls: 'v-scroll' },
+  ].forEach(({ sel, fn, cls }) =>
+    document.querySelectorAll(sel).forEach(el => {
+      const px = fn(el);
+      if (px > 0) {
+        el.style.setProperty('--scroll-distance', `-${px}px`);
+        el.classList.add(cls);
+      } else {
+        el.classList.remove(cls);
+        el.style.removeProperty('--scroll-distance');
       }
-      else {
-        el.classList.remove("h-scroll")
-        el.style.removeProperty("--scroll-distance")
-      }
-  })
-
-  document.querySelectorAll(".v-scrollable").forEach(el => {
-      let overflow = el.scrollHeight - el.clientHeight
-      if(overflow > 0) {
-        el.style.setProperty("--scroll-distance", `-${overflow}px`)
-        el.classList.add("v-scroll")
-      }
-      else {
-        el.classList.remove("v-scroll")
-        el.style.removeProperty("--scroll-distance")
-      }
-  })
+    })
+  );
 }
 
-document.addEventListener('click', (e) => {
-  const link = e.target.closest('a');
+//#region events
 
-  if (link) {
-    const href = link.getAttribute('href');
+window.onpopstate = ({ state }) => {
+  navigate(state?.route ?? DEFAULT_ROUTE, true);
+};
 
-    if (e.button === 0 && !e.ctrlKey && !e.shiftKey && !e.metaKey) {
-      const destination = href.startsWith('/') ? href.substring(1) : href;
+document.addEventListener('click', e => {
+  if (
+    headerMenuDropdown.classList.contains('show') &&
+    !headerMenuDropdown.contains(e.target) &&
+    !headerMenuButton.contains(e.target)
+  ) toggleHeaderMenuDropdown();
 
-      if (doesDestinationExist(destination)) {
-        e.preventDefault();
-        
-        if (link.closest('#header-menu-dropdown')) {
-          toggleHeaderMenuDropdown();
-        }
-        
-        navigate(destination);
-      }
-    }
-  }
+  const link = e.target.closest('a[href]');
+  if (!link || e.button !== 0 || e.ctrlKey || e.shiftKey || e.metaKey) return;
+
+  const href = link.getAttribute('href');
+  if (!href || !href.startsWith('/')) return;
+  if (href.split('/').pop().includes('.')) return;
+
+  e.preventDefault();
+  if (link.closest('#header-menu-dropdown')) toggleHeaderMenuDropdown();
+  navigate(href.slice(1));
 });
+
+window.addEventListener('resize', initScrollables);
+
+/*#endregion*/

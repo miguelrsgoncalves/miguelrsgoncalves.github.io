@@ -1,0 +1,85 @@
+<route-data data-title="Sisyphus Climb" data-description="Fight for your right to be the true Sisyphus and carry the boulder to the top in a legendary duel!"></route-data>
+
+<script defer>
+  videoObserver.init()
+</script>
+
+<div class="page narrow">
+  <video autoplay controls muted loop preload="metadata" playsinline controlsList="nodownload" disablePictureInPicture data-src="/assets/projects/sisyphus-climb/videos/gameplay_showcase.mp4"></video>
+
+  <div class="control-group embedded">
+    <div class="control-bar embedded">
+      <div class="button left clickable" onclick="toggleControlPanel(this, 'controls')">
+        <icon data-icon-name="gamepad-2"></icon>
+        <p>Controls</p>
+      </div>
+      
+      <div class="separator vertical"></div>
+      
+      <div class="button middle clickable" onclick="toggleControlPanel(this, 'how-to-play')">
+        <icon data-icon-name="info"></icon>
+        <p>How to Play</p>
+      </div>
+
+      <div class="separator vertical"></div>
+      
+      <div class="button right clickable" onclick="toggleControlPanel(this, 'download')">
+        <p>Download</p>
+        <icon data-icon-name="download"></icon>
+      </div>
+    </div>
+
+    <div class="control-panel embedded" data-panel-name="controls">
+      <div class="game-controls">
+        <div class="title">Move</div>
+        <div class="group">
+          <div class="entry">
+            <div class="control">WASD</div>
+          </div>
+        </div>
+
+        <div class="title">Actions</div>
+        <div class="group">
+          <div class="entry">
+            <div class="name">Push</div>
+            <div class="control">F</div>
+          </div>
+          <div class="entry">
+            <div class="name">Push Boulder</div>
+            <div class="control">E</div>
+          </div>
+          <div class="entry">
+            <div class="name">Jump</div>
+            <div class="control">Space</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-panel embedded" data-panel-name="how-to-play">
+      <div class="how-to-play">
+        <p>
+        </p>
+      </div>
+    </div>
+
+    <div class="control-panel embedded" data-panel-name="download">
+      <div class="how-to-play">
+          <a href="/assets/projects/sisyphus-climb/game/Sysiphus Climb.zip" download>
+            <icon data-icon-name="download"></icon> Windows
+          </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="credits">
+      <div class="title">Credits</div>
+      <p>
+        This project was part of a group work
+      </p>
+      <div class="subtitle">Members</h1>
+      <div class="entry">
+        <div class="name">MRSG</div>
+      </div>
+    </div>
+</div>
