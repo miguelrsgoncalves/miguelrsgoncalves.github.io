@@ -24,9 +24,17 @@
     <main>
     </main>
     <script src="sketch.js"></script>
-    <div id="p5_loading" class="loadingclass">
-      <p>World is generating!</p>
-      <p>Wait while we put it together nicely...</p>
+    <div id="p5_loading" style="display: none;"></div>
+    
+    <div id="game_loading_screen" class="loading_screen_container">
+      <div id="loading_spinner" class="loading_spinner"></div>
+      <p id="loading_status_text" class="loading_status_text">Requesting camera permissions</p>
+      <p id="loading_sub_text" class="loading_sub_text">The camera is used purely for gameplay purposes! Your beautiful face won't be sent anywhere :D</p>
+    </div>
+    
+    <div id="world_loading_screen" class="loading_screen_container" style="display: none;">
+      <div class="loading_spinner"></div>
+      <p class="loading_status_text" style="color: #fbbf24;">Generating World...</p>
     </div>
   </body>
 </html>
