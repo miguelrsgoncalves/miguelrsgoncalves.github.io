@@ -31,7 +31,7 @@ class Human {
       }
     } else {
       if (this.work === "woodcuter") {
-        const forestTile = this.checkBiomeInArea("forest", tileSize / 4);
+        const forestTile = this.checkBiomeInArea("forest", 2);
         if (forestTile) {
           this.destination = null;
           if(this.workingTime >= 30) {
@@ -57,7 +57,7 @@ class Human {
           }
         }
       } else if (this.work === "farmer") {
-        const farmTile = this.checkBiomeInArea("farm", tileSize / 4);
+        const farmTile = this.checkBiomeInArea("farm", 2);
         if (farmTile) {
           this.destination = null;
           if(this.workingTime >= 30) {
@@ -122,10 +122,11 @@ class Human {
     const dx = place.x - this.x;
     const dy = place.y - this.y;
     const distance = dist(this.x, this.y, place.x, place.y);
-  
-    let stepSize;
-    if(this.work == "foodCarrier" || this.work == "woodCarrier") stepSize = 2;
-    else stepSize = 1;
+
+    let scaleFactor = 100 / grid_columns;
+    let baseSpeed = (this.work == "foodCarrier" || this.work == "woodCarrier") ? 2.5 : 1.8;
+    let stepSize = baseSpeed * scaleFactor;
+
     if (distance > stepSize) {
       const stepX = (dx / distance) * stepSize;
       const stepY = (dy / distance) * stepSize;
@@ -134,40 +135,37 @@ class Human {
       this.y += stepY;
     }
 
-    this.onBoat = world.tiles[Math.floor(this.x / tileSize)][Math.floor(this.y / tileSize)].type === "water";
+    const currentTileX = Math.floor(this.x / tileSize);
+    const currentTileY = Math.floor(this.y / tileSize);
+
+    if (world.tiles[currentTileX] && world.tiles[currentTileX][currentTileY]) {
+      this.onBoat = world.tiles[currentTileX][currentTileY].type === "water";
+    }
   }
   
   findNearestBiome(biome) {
     let nearestDistance = Infinity;
     let nearestBiome = null;
+    
+    let tileList = (biome === "forest") ? world.forest_tiles : world.farm_tiles;
 
-    for (let i = 0; i < world.tiles.length; i++) {
-      for (let j = 0; j < world.tiles[i].length; j++) {
-        if (world.tiles[i][j].type === biome) {
-          const distance = dist(this.x, this.y, i * tileSize, j * tileSize);
-          if (distance < nearestDistance) {
-            nearestDistance = distance;
-            nearestBiome = createVector(i * tileSize, j * tileSize);
-          }
-        }
+    for (let tile of tileList) {
+      const distance = dist(this.x, this.y, tile.x * tileSize, tile.y * tileSize);
+      if (distance < nearestDistance) {
+        nearestDistance = distance;
+        nearestBiome = createVector(tile.x * tileSize, tile.y * tileSize);
       }
-    }
-
-    if (!nearestBiome) {
-      return;
     }
 
     return nearestBiome;
   }
   
-  checkBiomeInArea(biomeType, areaSize) {
+  checkBiomeInArea(biomeType, tileRadius = 2) {
     const tileX = Math.floor(this.x / tileSize);
     const tileY = Math.floor(this.y / tileSize);
 
-    const halfAreaSize = Math.floor(areaSize / 2);
-
-    for (let i = -halfAreaSize; i <= halfAreaSize; i++) {
-      for (let j = -halfAreaSize; j <= halfAreaSize; j++) {
+    for (let i = -tileRadius; i <= tileRadius; i++) {
+      for (let j = -tileRadius; j <= tileRadius; j++) {
         const checkTileX = tileX + i;
         const checkTileY = tileY + j;
 
@@ -223,12 +221,12 @@ class Human {
   
   isNearbyVillage(village) {
     const distance = dist(this.x, this.y, village.x, village.y);
-    return distance < tileSize / 1.5;
+    return distance < tileSize * 1.2;
   }
 
   isNearbyResource(resource) {
     const distance = dist(this.x, this.y, resource.x, resource.y);
-    return distance < tileSize / 1.5;
+    return distance < tileSize * 1.2;
   }
   
   pickUpResource(resource) {
