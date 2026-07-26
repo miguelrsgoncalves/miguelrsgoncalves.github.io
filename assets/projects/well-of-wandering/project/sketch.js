@@ -34,7 +34,7 @@ function setup() {
   orbitRadius = min(width, height) / 3.5;
 
   uiContainer = createDiv();
-  uiContainer.addClass('p5-ui-overlay');
+  uiContainer.addClass('overlay');
   
   pointSelector = createSelect();
   pointSelector.parent(uiContainer);

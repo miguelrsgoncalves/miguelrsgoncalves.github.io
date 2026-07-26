@@ -11,14 +11,14 @@ canvas {
   display: block;
 }
 
-.p5-ui-overlay {
+.overlay {
   display: flex;
   position: absolute;
   bottom: 8px;
   left: 50%;
   transform: translateX(-50%);
   width: max-content;
-  max-width: 90%;
+  max-width: 95%;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
@@ -32,8 +32,8 @@ canvas {
   z-index: 10;
 }
 
-.p5-ui-overlay button, 
-.p5-ui-overlay select {
+.overlay button, 
+.overlay select {
   background-color: #272738;
   color: #f1f1f5;
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -45,13 +45,13 @@ canvas {
   transition: all 0.3s ease;
 }
 
-.p5-ui-overlay button:hover, 
-.p5-ui-overlay select:hover {
+.overlay button:hover, 
+.overlay select:hover {
   background-color: #383850;
   border-color: rgba(255, 255, 255, 0.3);
 }
 
-.p5-ui-overlay input[type=range] {
+.overlay input[type=range] {
   accent-color: #670cdd;
   cursor: pointer;
   height: 14px;
