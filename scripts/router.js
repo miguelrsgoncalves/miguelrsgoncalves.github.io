@@ -95,7 +95,7 @@ async function render(route, segments, html, isPopstate) {
   if (descEl) descEl.setAttribute('content', description);
   setMeta('og:title', title ? 'MRSG | ' + title : 'MRSG');
   setMeta('og:description', description);
-  setMeta('og:url', window.location.origin + '/' + route);
+  setMeta('og:url', window.location.origin + '/' + route + '/');
 
   var canonical = document.querySelector('link[rel="canonical"]');
   if (!canonical) {
@@ -103,7 +103,7 @@ async function render(route, segments, html, isPopstate) {
     canonical.setAttribute('rel', 'canonical');
     document.head.appendChild(canonical);
   }
-  canonical.setAttribute('href', window.location.origin + '/' + route);
+  canonical.setAttribute('href', window.location.origin + '/' + route + '/');
 
   updateNav(segments);
   if (!isPopstate) history.pushState({ route: route }, '', '/' + route);

@@ -147,7 +147,7 @@ def build_page(
     )
 
     # OG / Twitter / canonical
-    route_url = f"{domain}/{route}" if route else f"{domain}/"
+    route_url = f"{domain}/{route}/" if route else f"{domain}/"
     og_image_url = (
         f"{domain}{og_image_path}"
         if og_image_path
