@@ -1,6 +1,13 @@
-<script defer>
+<route-data
+	data-title="Projects"
+	data-description="All of MRSG's projects in one place"
+	data-js='["/scripts/components.js","/scripts/project-manager.js"]'
+	data-hide-route-title>
+</route-data>
+
+<script>
   filterInit(["startYear", "endYear", "status", "category", "tool", "tag"])
-  projectManagerInit('assets/registries/project-registry.json')
+  projectManagerInit('/assets/registries/project-registry.json')
   populateProjects('card-container')
 </script>
 
@@ -17,17 +24,6 @@
 
       <div class="separator vertical"></div>
       <input name="search" class="search-bar right" type="search" placeholder="Search" oninput="handleProjectSearchInput(this.value)">
-      
-      <!--
-      <input name="search" class="search-bar middle" type="search" placeholder="Search" oninput="handleProjectSearchInput(this.value)">
-      <div class="separator vertical"></div>
-      <div class="button right sub-button clickable" onclick="resetFilter()"><p>Reset</p></div>
-      <div class="separator vertical semi thin"></div>
-      <div class="button right clickable" onclick="toggleControlPanel(this, '')">
-        <p>Sort</p>
-        <icon data-icon-name="arrow-down-wide-narrow"></icon>
-      </div>
-      -->
     </div>
 
     <div id="project-filter" class="control-panel" data-panel-name="filter"></div>

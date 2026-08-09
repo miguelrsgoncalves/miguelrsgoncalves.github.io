@@ -1,9 +1,12 @@
-<route-data data-title="Portfolio"></route-data>
+<route-data
+	data-title="Portfolio"
+	data-description="MRSG's portfolio"
+	data-js='["/scripts/project-manager.js","/scripts/video-observer.js"]'>
+</route-data>
 
-<script defer>
-    videoObserver.init()
-    projectManagerInit('assets/registries/project-registry.json')
-    insertProjects()
+<script>
+  projectManagerInit('/assets/registries/project-registry.json')
+  insertProjects()
 </script>
 
 <div class="multi-page">
