@@ -1,0 +1,55 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.error-box {
+  text-align: center;
+
+  .error-code {
+    font-size: 6rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-color);
+  }
+
+  p {
+    color: var(--font-color-muted);
+  }
+
+  .spacer {
+    display: block;
+
+    &.inline {
+      display: inline-block;
+    }
+
+    &.sad-face {
+      width: 1em;
+    }
+
+    &.vertical {
+      height: 4em;
+    }
+
+    &.horizontal {
+      width: 4em;
+    }
+  }
+
+  .home-button {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 4px solid var(--background-secondary-color);
+    border-radius: var(--border-radius);
+    font-weight: var(--font-weight-bold);
+    text-decoration: none;
+    transition: border-color 0.3s ease;
+  }
+
+  .home-button:hover {
+    border-color: var(--primary-color);
+  }
+}
