@@ -77,6 +77,7 @@ async function render(route, segments, html, isPopstate) {
   var description = meta ? (meta.dataset.description || '') : '';
   var hide = meta ? meta.hasAttribute('data-hide-route-title') : false;
   var fileScripts = parseList(meta ? meta.dataset.js : '');
+  var fileStyles = parseList(meta ? meta.dataset.css : '');
 
   var inlineScripts = [];
   fragment.querySelectorAll('script').forEach(function (s) {
@@ -113,6 +114,7 @@ async function render(route, segments, html, isPopstate) {
   scrollToTheTop(true);
   mainContent.replaceChildren(fragment);
 
+  loadPageStyles(fileStyles);
   await loadPageScripts(fileScripts);
 
   inlineScripts.forEach(function (code) {
@@ -152,8 +154,21 @@ async function loadPageScripts(paths) {
   }
 }
 
+function loadPageStyles(paths) {
+  for (var i = 0; i < paths.length; i++) {
+    var href = paths[i];
+    if (document.querySelector('link[data-page][href="' + href + '"]')) continue;
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = href;
+    link.setAttribute('data-page', '');
+    document.head.appendChild(link);
+  }
+}
+
 function unloadPageScripts() {
   document.querySelectorAll('script[data-page]').forEach(function (s) { s.remove(); });
+  document.querySelectorAll('link[data-page]').forEach(function (l) { l.remove(); });
 }
 
 //#endregion

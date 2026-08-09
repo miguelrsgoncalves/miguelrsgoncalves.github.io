@@ -1,5 +1,4 @@
 {
-    "liveServer.settings.file": "404.html",
     "cSpell.words": [
         "Anya",
         "Arstotzka",
@@ -23,6 +22,7 @@
         "Padder",
         "parkouring",
         "Postma",
+        "pycache",
         "Scrollables",
         "Sietse",
         "Spritesheet",
@@ -37,5 +37,6 @@
         "xlarge",
         "xsmall",
         "xxlarge"
-    ]
+    ],
+    "liveServer.settings.port": 5501
 }
