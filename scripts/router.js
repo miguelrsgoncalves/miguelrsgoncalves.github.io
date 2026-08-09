@@ -140,18 +140,20 @@ function parseList(raw) {
 }
 
 async function loadPageScripts(paths) {
+  var promises = [];
   for (var i = 0; i < paths.length; i++) {
     var src = paths[i];
     if (document.querySelector('script[data-page][src="' + src + '"]')) continue;
-    await new Promise(function (resolve, reject) {
+    promises.push(new Promise(function (resolve, reject) {
       var s = document.createElement('script');
       s.src = src;
       s.setAttribute('data-page', '');
       s.onload = resolve;
       s.onerror = reject;
       document.head.appendChild(s);
-    });
+    }));
   }
+  await Promise.all(promises);
 }
 
 function loadPageStyles(paths) {
