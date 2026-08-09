@@ -1,80 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MRSG</title>
-    <meta name="description" content="All there is about MRSG">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>MRSG</title>
+		<meta name="description" content="All there is about MRSG">
 
-    <!------ Favicon ------>
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/logo/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/assets/logo/favicon/site.webmanifest">
-    <!--------------------->
+		<!------ Favicon ------>
+		<link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/assets/logo/favicon/favicon-16x16.png">
+		<link rel="manifest" href="/assets/logo/favicon/site.webmanifest">
+		<!--------------------->
 
-    <!------- Font -------->
-    <link rel="stylesheet" href="css/font.css">
-    <link rel="stylesheet" href="css/icons.css">
-    <!--------------------->
+		<!------- Font -------->
+		<link rel="stylesheet" href="/css/font.css">
+		<link rel="stylesheet" href="/css/icons.css">
+		<!--------------------->
 
-    <!-- CSS Stylesheets -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/media.css">
-    <link rel="stylesheet" href="css/content.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <!--------------------->
+		<!-- CSS Stylesheets -->
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/header.css">
+		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="/css/media.css">
+		<link rel="stylesheet" href="/css/content.css">
+		<link rel="stylesheet" href="/css/components.css">
+		<link rel="stylesheet" href="/css/animations.css">
+		<!--------------------->
 
-    <!------ Scripts ------>
-    <script src="scripts/globals.js" defer></script>
-    <script src="scripts/icons.js" defer></script>
-    <script src="scripts/signals.js" defer></script>
-    <script src="scripts/router.js" defer></script>
-    <script src="scripts/components.js" defer></script>
-    <script src="scripts/project-manager.js" defer></script>
-    <script src="scripts/video-observer.js" defer></script>
-    <script src="scripts/embedded-projects.js" defer></script>
-    <script src="scripts/setup-script.js" defer></script>
-    <!--------------------->
-  </head>
+		<!------ Scripts ------>
+		<script src="/scripts/globals.js" defer></script>
+		<script src="/scripts/icons.js" defer></script>
+		<script src="/scripts/router.js" defer></script>
+		<script src="/scripts/bootstrap.js" defer></script>
+		<!--------------------->
 
-  <body>
-    <header>
-      <span class="website-logo">
-        <icon><img class="logo" src="assets/logo/mrsg_logo.png"></icon>
-        <h1 class="website-name">MRSG</h1>
-      </span>
-      <nav>
-        <ul>
-          <!--
-          <a name="home"class="clickable"href="/home"><span>Home</span></a>
-          -->
-          <a name="projects" class="adaptable-extended clickable" href="/projects"><span>Projects</span></a>
-          <a name="about" class="clickable" href="/about"><span>About</span></a>
-        </ul>
-      </nav>
-      <nav>
-        <ul>
-          <a id="route-title" class="route-title clickable" onclick="scrollToTheTop()"><span id="route-title-text"></span></a>
-        </ul>
-      </nav>
-      <icon id="header-menu-button" data-icon-name="menu" class="header-menu-button clickable" onclick="toggleHeaderMenuDropdown()"></icon>
+		<meta property="og:title" content="MRSG">
+		<meta property="og:description" content="All there is about MRSG">
+		<meta property="og:url" content="https://miguelrsgoncalves.com/">
+		<meta property="og:type" content="website">
+		<meta property="og:image" content="https://miguelrsgoncalves.com/assets/logo/mrsg_logo.png">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content="MRSG">
+		<meta name="twitter:description" content="All there is about MRSG">
+		<meta name="twitter:image" content="https://miguelrsgoncalves.com/assets/logo/mrsg_logo.png">
+		<link rel="canonical" href="https://miguelrsgoncalves.com/">
+	</head>
 
-      <div id="header-menu-dropdown" class="header-menu-dropdown">
-        <ul>
-          <a name="projects" class="adaptable-shrinked clickable" href="/projects">Projects</span></a>
-          <a name="portfolio" class="clickable" href="/portfolio">Portfolio</span></a>
-        </ul>
-      </div>
-    </header>
+	<body>
+		<header>
+			<span class="website-logo">
+				<icon><img class="logo" src="/assets/logo/mrsg_logo.png"></icon>
+				<h1 class="website-name">MRSG</h1>
+			</span>
+			<nav>
+				<ul>
+					<!-- <a name="home" class="adaptable-extended clickable" href="/home"><span>Home</span></a> -->
+					<a name="projects" class="adaptable-extended clickable" href="/projects"><span>Projects</span></a>
+					<a name="about" class="clickable" href="/about"><span>About</span></a>
+				</ul>
+			</nav>
+			<nav>
+				<ul>
+					<a id="route-title" class="route-title clickable" onclick="scrollToTheTop()"><span id="route-title-text"></span></a>
+				</ul>
+			</nav>
+			<icon id="header-menu-button" data-icon-name="menu" class="header-menu-button clickable" onclick="toggleHeaderMenuDropdown()"></icon>
 
-    <main id="main-content"></main>
+			<div id="header-menu-dropdown" class="header-menu-dropdown">
+				<ul>
+					<!-- <a name="home" class="adaptable-shrinked clickable" href="/home">Home</span></a> -->
+					<a name="projects" class="adaptable-shrinked clickable" href="/projects">Projects</span></a>
+					<a name="portfolio" class="clickable" href="/portfolio">Portfolio</span></a>
+				</ul>
+			</div>
+		</header>
 
-    <script>
-      console.log("Wassup nerd! Nothing to see here! GO AWAY!!")
-    </script>
-  </body>
+		<main></main>
+
+		<script>
+			console.log("Wassup nerd! Nothing to see here! GO AWAY!!")
+		</script>
+	</body>
 </html>
