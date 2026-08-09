@@ -1,103 +1,177 @@
-const mainContent = document.getElementById('main-content');
+//#region state
+
+const mainContent = document.querySelector('main');
 const routeTitle = document.getElementById('route-title');
 const routeTitleText = document.getElementById('route-title-text');
 const headerMenuButton = document.getElementById('header-menu-button');
 const headerMenuDropdown = document.getElementById('header-menu-dropdown');
 
-const ROOT_ROUTE = "/pages/"
+const ROOT_ROUTE = '/pages/';
 const DEFAULT_ROUTE = 'projects';
 let currentRoute = null;
+let hydrated = false;
 
-/**
- * Navigate to a route.
- *
- * @param {string}  route
- * @param {boolean} isWindowPop true when called from browser history
- */
-function navigate(route, isWindowPop = false) {
-  if (!route) { navigate(DEFAULT_ROUTE, isWindowPop); return; }
+//#endregion
 
-  const segments = route.split('/').filter(Boolean);
+//#region navigate
 
-  if (!isWindowPop && route === currentRoute) {
+function navigate(route, isPopstate) {
+  if (!route) { navigate(DEFAULT_ROUTE, isPopstate); return; }
+
+  var segments = route.split('/').filter(Boolean);
+
+  if (!isPopstate && route === currentRoute) {
     scrollToTheTop();
     return;
   }
 
-  const filePath = segments.length === 1 ? `${ROOT_ROUTE}tabs/${route}` : ROOT_ROUTE + route;
+  if (!hydrated && isPopstate && mainContent.children.length > 0) {
+    hydrated = true;
+    currentRoute = route;
+    var meta = mainContent.querySelector('route-data');
+    showRouteTitle(
+      meta ? meta.dataset.title : null,
+      meta ? meta.hasAttribute('data-hide-route-title') : false
+    );
+    updateNav(segments);
+    requestAnimationFrame(initScrollables);
+    return;
+  }
 
-  fetch(`${filePath}.html`)
-    .then(response => {
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  hydrated = true;
+
+  var filePath = segments.length === 1
+    ? ROOT_ROUTE + 'tabs/' + route
+    : ROOT_ROUTE + route;
+
+  fetch(filePath + '.html')
+    .then(function (response) {
+      if (!response.ok) throw new Error('HTTP ' + response.status);
       return response.text();
     })
-    .then(html => {
-      if (html.includes('<!DOCTYPE html>')) {
+    .then(function (html) {
+      if (html.indexOf('<!DOCTYPE html>') !== -1) {
         console.error('Page not found:', filePath);
         navigate(DEFAULT_ROUTE);
         return;
       }
-      const fragment = document.createRange().createContextualFragment(html);
-      render(route, segments, fragment, isWindowPop);
+      render(route, segments, html, isPopstate);
     })
-    .catch(err => {
+    .catch(function (err) {
       console.error('Failed to load:', filePath, err);
       if (route !== DEFAULT_ROUTE) navigate(DEFAULT_ROUTE);
     });
 }
 
-function render(route, segments, fragment, isWindowPop) {
+//#endregion
+
+//#region render
+
+async function render(route, segments, html, isPopstate) {
   currentRoute = route;
 
-  const { title, description } = getRouteMetadata(fragment);
+  var fragment = document.createRange().createContextualFragment(html);
 
-  if (title) {
+  var meta = fragment.querySelector('route-data');
+  var title = meta ? meta.dataset.title : null;
+  var description = meta ? (meta.dataset.description || '') : '';
+  var hide = meta ? meta.hasAttribute('data-hide-route-title') : false;
+  var fileScripts = parseList(meta ? meta.dataset.js : '');
+
+  var inlineScripts = [];
+  fragment.querySelectorAll('script').forEach(function (s) {
+    var code = s.textContent.trim();
+    if (code) inlineScripts.push(code);
+    s.remove();
+  });
+
+  var rd = fragment.querySelector('route-data');
+  if (rd) rd.remove();
+
+  showRouteTitle(title, hide);
+  document.title = title ? 'MRSG | ' + title : 'MRSG';
+  var descEl = document.querySelector('meta[name="description"]');
+  if (descEl) descEl.setAttribute('content', description);
+  setMeta('og:title', title ? 'MRSG | ' + title : 'MRSG');
+  setMeta('og:description', description);
+  setMeta('og:url', window.location.origin + '/' + route);
+
+  var canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement('link');
+    canonical.setAttribute('rel', 'canonical');
+    document.head.appendChild(canonical);
+  }
+  canonical.setAttribute('href', window.location.origin + '/' + route);
+
+  updateNav(segments);
+  if (!isPopstate) history.pushState({ route: route }, '', '/' + route);
+
+  unloadPageScripts();
+  pageCleanup.run();
+
+  scrollToTheTop(true);
+  mainContent.replaceChildren(fragment);
+
+  await loadPageScripts(fileScripts);
+
+  inlineScripts.forEach(function (code) {
+    var s = document.createElement('script');
+    s.textContent = code;
+    s.setAttribute('data-page', '');
+    document.head.appendChild(s);
+  });
+
+  loadIncludes().then(function () {
+    requestAnimationFrame(initScrollables);
+    createIcons();
+  });
+}
+
+//#endregion
+
+//#region scripts
+
+function parseList(raw) {
+  if (!raw) return [];
+  try { return JSON.parse(raw); } catch (e) { return []; }
+}
+
+async function loadPageScripts(paths) {
+  for (var i = 0; i < paths.length; i++) {
+    var src = paths[i];
+    if (document.querySelector('script[data-page][src="' + src + '"]')) continue;
+    await new Promise(function (resolve, reject) {
+      var s = document.createElement('script');
+      s.src = src;
+      s.setAttribute('data-page', '');
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+}
+
+function unloadPageScripts() {
+  document.querySelectorAll('script[data-page]').forEach(function (s) { s.remove(); });
+}
+
+//#endregion
+
+//#region helpers
+
+function showRouteTitle(title, hide) {
+  if (title && !hide) {
     routeTitleText.innerHTML = title;
     routeTitle.classList.add('active');
   } else {
     routeTitleText.innerHTML = '';
     routeTitle.classList.remove('active');
   }
-  
-  document.title = title ? `MRSG | ${title}` : 'MRSG';
-  
-  const metaDescription = document.querySelector('meta[name="description"]');
-  if (metaDescription) {
-    metaDescription.setAttribute('content', description);
-  }
-
-  updateOgTag('og:title', title ? `MRSG | ${title}` : 'MRSG');
-  updateOgTag('og:description', description);
-  updateOgTag('og:url', `${window.location.origin}/${route}`);
-
-  let canonical = document.querySelector('link[rel="canonical"]');
-  if (!canonical) {
-    canonical = document.createElement('link');
-    canonical.setAttribute('rel', 'canonical');
-    document.head.appendChild(canonical);
-  }
-  canonical.setAttribute('href', `${window.location.origin}/${route}`);
-
-  updateNav(segments);
-
-  if (!isWindowPop) {
-    history.pushState({ route }, '', `/${route}`);
-  }
-
-  updateContent(fragment);
 }
 
-function getRouteMetadata(fragment) {  
-  const meta = fragment.querySelector('route-data');
-  
-  return {
-    title: meta?.dataset.title ?? null,
-    description: meta?.dataset.description ?? ""
-  };
-}
-
-function updateOgTag(property, content) {
-  let tag = document.querySelector(`meta[property="${property}"]`);
+function setMeta(property, content) {
+  var tag = document.querySelector('meta[property="' + property + '"]');
   if (!tag) {
     tag = document.createElement('meta');
     tag.setAttribute('property', property);
@@ -107,40 +181,29 @@ function updateOgTag(property, content) {
 }
 
 function updateNav(segments) {
-  const active = new Set(segments);
-  document.querySelectorAll('a[name]').forEach(a =>
-    a.classList.toggle('active', active.has(a.getAttribute('name')))
-  );
-}
-
-async function updateContent(fragment) {
-  scrollToTheTop(true);
-  cleanupSignal.cleanup();
-  mainContent.replaceChildren(fragment);
-  
-  await loadIncludes();
-  
-  requestAnimationFrame(initScrollables);
-  createIcons()
+  var active = {};
+  segments.forEach(function (s) { active[s] = true; });
+  document.querySelectorAll('a[name]').forEach(function (a) {
+    a.classList.toggle('active', !!active[a.getAttribute('name')]);
+  });
 }
 
 async function loadIncludes() {
-  const includes = mainContent.querySelectorAll('[data-include]');
-  const promises = Array.from(includes).map(async el => {
-    const file = el.getAttribute('data-include');
-    try {
-      const response = await fetch(file);
-      const text = await response.text();
-      el.outerHTML = text;
-    } catch (err) {
-      console.error('Failed to load include:', file, err);
-    }
+  var includes = mainContent.querySelectorAll('[data-include]');
+  var promises = Array.from(includes).map(function (el) {
+    return fetch(el.getAttribute('data-include'))
+      .then(function (res) { return res.text(); })
+      .then(function (text) { el.outerHTML = text; })
+      .catch(function (err) { console.error('Failed to load include:', err); });
   });
-  
   await Promise.all(promises);
 }
 
-function scrollToTheTop(instant = false) {
+//#endregion
+
+//#region ui
+
+function scrollToTheTop(instant) {
   window.scrollTo({ top: 0, left: 0, behavior: instant ? 'instant' : 'smooth' });
 }
 
@@ -150,41 +213,42 @@ function toggleHeaderMenuDropdown() {
 
 function initScrollables() {
   [
-    { sel: '.h-scrollable', fn: el => el.scrollWidth  - el.clientWidth,  cls: 'h-scroll' },
-    { sel: '.v-scrollable', fn: el => el.scrollHeight - el.clientHeight, cls: 'v-scroll' },
-  ].forEach(({ sel, fn, cls }) =>
-    document.querySelectorAll(sel).forEach(el => {
-      const px = fn(el);
+    { sel: '.h-scrollable', fn: function (el) { return el.scrollWidth - el.clientWidth; }, cls: 'h-scroll' },
+    { sel: '.v-scrollable', fn: function (el) { return el.scrollHeight - el.clientHeight; }, cls: 'v-scroll' }
+  ].forEach(function (spec) {
+    document.querySelectorAll(spec.sel).forEach(function (el) {
+      var px = spec.fn(el);
       if (px > 0) {
-        el.style.setProperty('--scroll-distance', `-${px}px`);
-        el.classList.add(cls);
+        el.style.setProperty('--scroll-distance', '-' + px + 'px');
+        el.classList.add(spec.cls);
       } else {
-        el.classList.remove(cls);
+        el.classList.remove(spec.cls);
         el.style.removeProperty('--scroll-distance');
       }
-    })
-  );
+    });
+  });
 }
+
+//#endregion
 
 //#region events
 
-window.onpopstate = ({ state }) => {
-  navigate(state?.route ?? DEFAULT_ROUTE, true);
+window.onpopstate = function (e) {
+  navigate(e.state ? e.state.route : DEFAULT_ROUTE, true);
 };
 
-document.addEventListener('click', e => {
+document.addEventListener('click', function (e) {
   if (
     headerMenuDropdown.classList.contains('show') &&
     !headerMenuDropdown.contains(e.target) &&
     !headerMenuButton.contains(e.target)
   ) toggleHeaderMenuDropdown();
 
-  const link = e.target.closest('a[href]');
+  var link = e.target.closest('a[href]');
   if (!link || e.button !== 0 || e.ctrlKey || e.shiftKey || e.metaKey) return;
 
-  const href = link.getAttribute('href');
-  if (!href || !href.startsWith('/')) return;
-  if (href.split('/').pop().includes('.')) return;
+  var href = link.getAttribute('href');
+  if (!href || href.charAt(0) !== '/' || href.split('/').pop().indexOf('.') !== -1) return;
 
   e.preventDefault();
   if (link.closest('#header-menu-dropdown')) toggleHeaderMenuDropdown();
@@ -193,4 +257,23 @@ document.addEventListener('click', e => {
 
 window.addEventListener('resize', initScrollables);
 
-/*#endregion*/
+//#endregion
+
+//#region pageCleanup
+
+var pageCleanup = {
+  _callbacks: [],
+
+  register: function (fn) {
+    this._callbacks.push(fn);
+  },
+
+  run: function () {
+    this._callbacks.forEach(function (fn) {
+      try { fn(); } catch (e) {}
+    });
+    this._callbacks = [];
+  }
+};
+
+//#endregion

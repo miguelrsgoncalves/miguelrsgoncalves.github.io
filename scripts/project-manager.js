@@ -8,7 +8,7 @@ var renderStep = undefined
 var filter = undefined
 
 function projectManagerInit(path) {
-  cleanupSignal.subscribe(projectManagerCleanup)
+  pageCleanup.register(projectManagerCleanup)
   renderIndex = 0
   renderStep = 6
   if(dataSourcePath != path) {
@@ -23,12 +23,12 @@ async function getProjectsData() {
     try {
       const response = await fetch(dataSourcePath)
       const projectsDataJSON = await response.json()
-      const templateResponse = await fetch("assets/components/project-card.html")
+      const templateResponse = await fetch("/assets/components/project-card.html")
       const templateText = await templateResponse.text()
       const parser = new DOMParser()
       const templateDoc = parser.parseFromString(templateText, "text/html")
       const template = templateDoc.getElementById("project-card").innerHTML
-      
+
       projectsDataJSON.forEach(project => {
         project.status = project.status || "Completed";
 
@@ -74,7 +74,9 @@ async function insertProjects() {
   document.querySelectorAll('[name="single-project-card"]').forEach(el => {
     const pageName = el.getAttribute("id")
     const projectCard = projectsData.find(element => element?.data?.["id"] === pageName)
-    el.replaceWith(document.createRange().createContextualFragment(projectCard.html))
+    if (projectCard) {
+      el.replaceWith(document.createRange().createContextualFragment(projectCard.html))
+    }
   })
 }
 
@@ -89,12 +91,12 @@ function matchesFilter(project, filter) {
   return Object.keys(filter).every(field => {
     const value = project.data[field];
     const selected = filter[field];
-    
+
     if (Array.isArray(value)) {
       const effective = value.filter(Boolean);
       return (effective.length ? effective : ["None"]).some(v => selected.includes(v));
     }
-    
+
     return selected.includes(String(value ?? "Unknown"));
   });
 }
@@ -138,7 +140,7 @@ function replacePlaceholders(template, data) {
 
 function buildTimeline(data) {
   const start = data.startDate ? new Date(data.startDate).getTime() : NaN;
-  
+
   let endObject = null;
   let isPresent = false;
 
@@ -148,17 +150,17 @@ function buildTimeline(data) {
   ) {
     endObject = new Date();
     isPresent = true;
-  } 
+  }
   else if (data.endDate) {
     endObject = new Date(data.endDate);
   }
-  
+
   const end = endObject ? endObject.getTime() : NaN;
   const hasValidTimelineRange = !isNaN(start) && !isNaN(end);
-  
+
   const displayDateStart = !isNaN(start) ? formatDate(data.startDate) : 'Unknown';
   const displayDateEnd = isPresent ? 'Present' : (!isNaN(end) ? formatDate(data.endDate) : 'Unknown');
-  
+
   let durationText = '';
   let milestones = '';
 
@@ -237,7 +239,7 @@ function buildTimeline(data) {
 function formatDate(dateString) {
   if (!dateString) return '';
   if (dateString.toLowerCase() === 'present') return 'Present';
-  
+
   const dateObject = new Date(dateString);
   if (isNaN(dateObject.getTime())) return dateString;
 
@@ -251,7 +253,7 @@ function formatDate(dateString) {
 function getDateDuration(dateStartString, dateEndString) {
   const startDate = new Date(dateStartString);
   let endDate = new Date(dateEndString);
-  
+
   if (dateEndString.toLowerCase() === 'present' || isNaN(endDate.getTime())) {
     endDate = new Date();
   }
@@ -263,7 +265,7 @@ function getDateDuration(dateStartString, dateEndString) {
   if (daysDiff < 0) {
     monthsDiff--;
     const previousMonth = new Date(endDate.getFullYear(), endDate.getMonth(), 0);
-    daysDiff += previousMonth.getDate(); 
+    daysDiff += previousMonth.getDate();
   }
 
   if (monthsDiff < 0) {
@@ -278,18 +280,18 @@ function getDateDuration(dateStartString, dateEndString) {
     let displayYears = yearsDiff;
     if (monthsDiff >= 6) displayYears++;
     return `${displayYears} ${displayYears === 1 ? 'year' : 'years'}`;
-  } 
-  
+  }
+
   if (monthsDiff > 0) {
     let displayMonths = monthsDiff;
     if (daysDiff >= 15) displayMonths++;
-    
+
     if (displayMonths === 12) {
       return `1 year`;
     }
     return `${displayMonths} ${displayMonths === 1 ? 'month' : 'months'}`;
-  } 
-  
+  }
+
   return `${totalDays} ${totalDays === 1 ? 'day' : 'days'}`;
 }
 
@@ -317,8 +319,7 @@ var searchText = ""
 
 function filterInit(fields) {
   filterConfig = fields
-  cleanupSignal.subscribe(filterCleanup)
-  hasFilterHeader = true
+  pageCleanup.register(filterCleanup)
 }
 
 function buildFilter(allProjectsData) {
@@ -349,7 +350,7 @@ function buildFilter(allProjectsData) {
         if (b === "Present") return 1;
         if (a === "Unknown") return 1;
         if (b === "Unknown") return -1;
-        return b.localeCompare(a); 
+        return b.localeCompare(a);
       }
       return a.localeCompare(b);
     })
@@ -366,7 +367,7 @@ function buildFilter(allProjectsData) {
         <input name="${v}" type="checkbox" class="${field}-checkbox clickable" checked onchange="updateGroup('${field}')">
         <label class="clickable" onclick="toggleOnly('${field}', this)">${v}</label>
       </div>`).join('')
-      
+
     const titleText = field.replace(/([A-Z])/g, ' $1').trim().capitalize();
 
     return `
@@ -442,7 +443,6 @@ function handleProjectSearchInput(value) {
 function filterCleanup() {
   filterGroups = {}
   searchText = ""
-  hasFilterHeader = false
 }
 
 /*#endregion*/

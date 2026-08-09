@@ -1,37 +1,27 @@
-const videoObserver = (() => {
-    const options = {
-        threshold: 0.35,
-    }
-    var observer = null
+const observerOptions = { threshold: 0.35 };
+const videoObserver = new IntersectionObserver(handleIntersection, observerOptions);
 
-    function init() {
-        observer = new IntersectionObserver(handleIntersection, options)
-        cleanupSignal.subscribe(cleanup)
-        document.querySelectorAll('video[autoplay]').forEach(video => {
-            observer.observe(video)
-        })
+function handleIntersection(entries) {
+  entries.forEach(function (entry) {
+    const video = entry.target;
+    if (entry.isIntersecting) {
+      if (!video.src) {
+        video.src = video.dataset.src;
+        video.load();
+      }
+      video.play().catch(function () {});
+    } else {
+      if (!video.paused) {
+        video.pause();
+      }
     }
-    
-    var handleIntersection = (entries) => {
-        entries.forEach(entry => {
-            const video = entry.target
-            if (entry.isIntersecting) {
-                if (!video.src) {
-                    video.src = video.dataset.src
-                    video.load()
-                }
-                video.play().catch(err => {})
-            } else {
-                if (!video.paused) {
-                    video.pause()
-                }
-            }
-        })
-    }
+  });
+}
 
-    function cleanup() {
-        observer.disconnect()
-    }
+document.querySelectorAll('video[autoplay]').forEach(function (video) {
+  videoObserver.observe(video);
+});
 
-    return { init }
-})()
+pageCleanup.register(function () {
+  videoObserver.disconnect();
+});
