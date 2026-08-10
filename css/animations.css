@@ -16,7 +16,7 @@
   }
   to {
       opacity: 0;
-      transform: translateY(-32px);
+      transform: translateY(-24px);
   }
 }
 
@@ -49,8 +49,32 @@
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(180deg);
+    transform: rotate(360deg);
   }
+}
+
+.loading-spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 100;
+  transition: opacity 0.3s ease;
+
+  .ring {
+    border: 8px solid;
+    border-color: var(--primary-color) transparent var(--primary-color) transparent;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    animation: spin 1s linear infinite;
+  }
+}
+
+.loading-spinner.visible {
+  opacity: 1;
 }
 
 .h-scroll {

@@ -11,14 +11,20 @@ const DEFAULT_ROUTE = 'projects';
 let currentRoute = null;
 let hydrated = false;
 
+let navId = 0;
+
+let loadingSpinnerElement = null;
+let spinnerTimer = null;
+const SPINNER_DELAY = 500;
+
 //#endregion
 
 //#region navigate
 
-function navigate(route, isPopstate) {
+async function navigate(route, isPopstate) {
   if (!route) { navigate(DEFAULT_ROUTE, isPopstate); return; }
 
-  var segments = route.split('/').filter(Boolean);
+  const segments = route.split('/').filter(Boolean);
 
   if (!isPopstate && route === currentRoute) {
     scrollToTheTop();
@@ -28,10 +34,10 @@ function navigate(route, isPopstate) {
   if (!hydrated && isPopstate && mainContent.children.length > 0) {
     hydrated = true;
     currentRoute = route;
-    var meta = mainContent.querySelector('route-data');
+    const data = mainContent.querySelector('route-data');
     showRouteTitle(
-      meta ? meta.dataset.title : null,
-      meta ? meta.hasAttribute('data-hide-route-title') : false
+      data ? data.dataset.title : null,
+      data ? data.hasAttribute('data-hide-route-title') : false
     );
     updateNav(segments);
     requestAnimationFrame(initScrollables);
@@ -40,137 +46,189 @@ function navigate(route, isPopstate) {
 
   hydrated = true;
 
-  var filePath = segments.length === 1
-    ? ROOT_ROUTE + 'tabs/' + route
-    : ROOT_ROUTE + route;
+  const id = ++navId;
 
-  fetch(filePath + '.html')
-    .then(function (response) {
-      if (!response.ok) throw new Error('HTTP ' + response.status);
-      return response.text();
-    })
-    .then(function (html) {
-      if (html.indexOf('<!DOCTYPE html>') !== -1) {
-        console.error('Page not found:', filePath);
-        navigate(DEFAULT_ROUTE);
-        return;
-      }
-      render(route, segments, html, isPopstate);
-    })
-    .catch(function (err) {
-      console.error('Failed to load:', filePath, err);
-      if (route !== DEFAULT_ROUTE) navigate(DEFAULT_ROUTE);
+  const currentPages = mainContent.querySelectorAll('.page');
+  let exitDone;
+
+  if (currentPages.length > 0) {
+    currentPages.forEach(page => {
+      page.classList.remove('exiting');
+      void page.offsetWidth;
+      page.classList.add('exiting');
     });
+
+    exitDone = new Promise(resolve => {
+      let remaining = currentPages.length;
+      const fallback = setTimeout(resolve, 250);
+      currentPages.forEach(page => {
+        page.addEventListener('animationend', function handler() {
+          page.removeEventListener('animationend', handler);
+          if (--remaining === 0) {
+            clearTimeout(fallback);
+            resolve();
+          }
+        }, { once: true });
+      });
+    });
+  } else {
+    exitDone = Promise.resolve();
+  }
+
+  const filePath = segments.length === 1 ? `${ROOT_ROUTE}tabs/${route}` : ROOT_ROUTE + route;
+
+  spinnerTimer = setTimeout(showSpinner, SPINNER_DELAY);
+
+  let html;
+  try {
+    const response = await fetch(`${filePath}.html`);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    html = await response.text();
+    if (html.includes('<!DOCTYPE html>')) throw new Error('Page not found');
+
+  } catch (err) {
+    hideSpinner();
+    mainContent.querySelectorAll('.page.exiting').forEach(p => p.classList.remove('exiting'));
+    console.error('Failed to load:', filePath, err);
+    if (route !== DEFAULT_ROUTE) navigate(DEFAULT_ROUTE);
+    return;
+  }
+
+  if (id !== navId) { hideSpinner(); return; }
+
+  hideSpinner();
+
+  await exitDone;
+  if (id !== navId) return;
+
+  render(route, segments, html, isPopstate);
 }
 
 //#endregion
 
 //#region render
 
-async function render(route, segments, html, isPopstate) {
+function render(route, segments, html, isPopstate) {
   currentRoute = route;
 
-  var fragment = document.createRange().createContextualFragment(html);
+  const fragment = document.createRange().createContextualFragment(html);
 
-  var meta = fragment.querySelector('route-data');
-  var title = meta ? meta.dataset.title : null;
-  var description = meta ? (meta.dataset.description || '') : '';
-  var hide = meta ? meta.hasAttribute('data-hide-route-title') : false;
-  var fileScripts = parseList(meta ? meta.dataset.js : '');
-  var fileStyles = parseList(meta ? meta.dataset.css : '');
+  const meta = fragment.querySelector('route-data');
+  const title = meta ? meta.dataset.title : null;
+  const description = meta ? (meta.dataset.description || '') : '';
+  const hide = meta ? meta.hasAttribute('data-hide-route-title') : false;
+  const fileScripts = parseList(meta ? meta.dataset.js : '');
+  const fileStyles = parseList(meta ? meta.dataset.css : '');
 
-  var inlineScripts = [];
-  fragment.querySelectorAll('script').forEach(function (s) {
-    var code = s.textContent.trim();
+  const inlineScripts = [];
+  fragment.querySelectorAll('script').forEach(script => {
+    const code = script.textContent.trim();
     if (code) inlineScripts.push(code);
-    s.remove();
+    script.remove();
   });
 
-  var rd = fragment.querySelector('route-data');
-  if (rd) rd.remove();
+  const route_data = fragment.querySelector('route-data');
+  if (route_data) route_data.remove();
 
   showRouteTitle(title, hide);
-  document.title = title ? 'MRSG | ' + title : 'MRSG';
-  var descEl = document.querySelector('meta[name="description"]');
-  if (descEl) descEl.setAttribute('content', description);
-  setMeta('og:title', title ? 'MRSG | ' + title : 'MRSG');
-  setMeta('og:description', description);
-  setMeta('og:url', window.location.origin + '/' + route + '/');
+  document.title = title ? `MRSG | ${title}` : 'MRSG';
 
-  var canonical = document.querySelector('link[rel="canonical"]');
+  const descEl = document.querySelector('meta[name="description"]');
+  if (descEl) descEl.setAttribute('content', description);
+
+  setMeta('og:title', title ? `MRSG | ${title}` : 'MRSG');
+  setMeta('og:description', description);
+  setMeta('og:url', `${window.location.origin}/${route}/`);
+
+  let canonical = document.querySelector('link[rel="canonical"]');
   if (!canonical) {
     canonical = document.createElement('link');
     canonical.setAttribute('rel', 'canonical');
     document.head.appendChild(canonical);
   }
-  canonical.setAttribute('href', window.location.origin + '/' + route + '/');
+  canonical.setAttribute('href', `${window.location.origin}/${route}/`);
 
   updateNav(segments);
-  if (!isPopstate) history.pushState({ route: route }, '', '/' + route);
+  if (!isPopstate) history.pushState({ route }, '', `/${route}`);
+
+  loadPageStyles(fileStyles);
+  const scriptsPromise = loadPageScripts(fileScripts);
 
   unloadPageScripts();
   pageCleanup.run();
 
   scrollToTheTop(true);
+
   mainContent.replaceChildren(fragment);
 
-  loadPageStyles(fileStyles);
-  await loadPageScripts(fileScripts);
-
-  inlineScripts.forEach(function (code) {
-    var s = document.createElement('script');
-    s.textContent = code;
-    s.setAttribute('data-page', '');
-    document.head.appendChild(s);
-  });
-
-  loadIncludes().then(function () {
+  scriptsPromise.then(() => {
+    inlineScripts.forEach(code => {
+      const script = document.createElement('script');
+      script.textContent = code;
+      script.setAttribute('data-page', '');
+      document.head.appendChild(script);
+    });
+    return loadIncludes();
+  }).then(() => {
     requestAnimationFrame(initScrollables);
     createIcons();
   });
 }
-
-//#endregion
-
-//#region scripts
 
 function parseList(raw) {
   if (!raw) return [];
   try { return JSON.parse(raw); } catch (e) { return []; }
 }
 
-async function loadPageScripts(paths) {
-  var promises = [];
-  for (var i = 0; i < paths.length; i++) {
-    var src = paths[i];
-    if (document.querySelector('script[data-page][src="' + src + '"]')) continue;
-    promises.push(new Promise(function (resolve, reject) {
-      var s = document.createElement('script');
-      s.src = src;
-      s.setAttribute('data-page', '');
-      s.onload = resolve;
-      s.onerror = reject;
-      document.head.appendChild(s);
+function loadPageScripts(paths) {
+  const promises = paths
+    .filter(src => !document.querySelector(`script[data-page][src="${src}"]`))
+    .map(src => new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = src;
+      script.setAttribute('data-page', '');
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
     }));
-  }
-  await Promise.all(promises);
+  return Promise.all(promises);
 }
 
 function loadPageStyles(paths) {
-  for (var i = 0; i < paths.length; i++) {
-    var href = paths[i];
-    if (document.querySelector('link[data-page][href="' + href + '"]')) continue;
-    var link = document.createElement('link');
+  paths.forEach(href => {
+    if (document.querySelector(`link[data-page][href="${href}"]`)) return;
+    const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = href;
     link.setAttribute('data-page', '');
     document.head.appendChild(link);
-  }
+  });
 }
 
 function unloadPageScripts() {
-  document.querySelectorAll('script[data-page]').forEach(function (s) { s.remove(); });
-  document.querySelectorAll('link[data-page]').forEach(function (l) { l.remove(); });
+  document.querySelectorAll('script[data-page], link[data-page]').forEach(element => element.remove());
+}
+
+function getSpinner() {
+  if (!loadingSpinnerElement) {
+    loadingSpinnerElement = document.createElement('div');
+    loadingSpinnerElement.className = 'loading-spinner';
+    loadingSpinnerElement.setAttribute('aria-hidden', 'true');
+    loadingSpinnerElement.innerHTML = '<div class="ring"></div>';
+  }
+  return loadingSpinnerElement;
+}
+
+function showSpinner() {
+  const element = getSpinner();
+  if (!element.parentNode) document.body.appendChild(element);
+  element.classList.add('visible');
+}
+
+function hideSpinner() {
+  clearTimeout(spinnerTimer);
+  spinnerTimer = null;
+  if (loadingSpinnerElement) loadingSpinnerElement.classList.remove('visible');
 }
 
 //#endregion
@@ -188,7 +246,7 @@ function showRouteTitle(title, hide) {
 }
 
 function setMeta(property, content) {
-  var tag = document.querySelector('meta[property="' + property + '"]');
+  let tag = document.querySelector(`meta[property="${property}"]`);
   if (!tag) {
     tag = document.createElement('meta');
     tag.setAttribute('property', property);
@@ -198,22 +256,22 @@ function setMeta(property, content) {
 }
 
 function updateNav(segments) {
-  var active = {};
-  segments.forEach(function (s) { active[s] = true; });
-  document.querySelectorAll('a[name]').forEach(function (a) {
-    a.classList.toggle('active', !!active[a.getAttribute('name')]);
-  });
+  const active = new Set(segments);
+  document.querySelectorAll('a[name]').forEach(a =>
+    a.classList.toggle('active', active.has(a.getAttribute('name')))
+  );
 }
 
 async function loadIncludes() {
-  var includes = mainContent.querySelectorAll('[data-include]');
-  var promises = Array.from(includes).map(function (el) {
-    return fetch(el.getAttribute('data-include'))
-      .then(function (res) { return res.text(); })
-      .then(function (text) { el.outerHTML = text; })
-      .catch(function (err) { console.error('Failed to load include:', err); });
-  });
-  await Promise.all(promises);
+  const includes = mainContent.querySelectorAll('[data-include]');
+  await Promise.all(Array.from(includes).map(async el => {
+    try {
+      const res = await fetch(el.getAttribute('data-include'));
+      el.outerHTML = await res.text();
+    } catch (err) {
+      console.error('Failed to load include:', err);
+    }
+  }));
 }
 
 //#endregion
@@ -230,42 +288,43 @@ function toggleHeaderMenuDropdown() {
 
 function initScrollables() {
   [
-    { sel: '.h-scrollable', fn: function (el) { return el.scrollWidth - el.clientWidth; }, cls: 'h-scroll' },
-    { sel: '.v-scrollable', fn: function (el) { return el.scrollHeight - el.clientHeight; }, cls: 'v-scroll' }
-  ].forEach(function (spec) {
-    document.querySelectorAll(spec.sel).forEach(function (el) {
-      var px = spec.fn(el);
+    { sel: '.h-scrollable', fn: el => el.scrollWidth - el.clientWidth, cls: 'h-scroll' },
+    { sel: '.v-scrollable', fn: el => el.scrollHeight - el.clientHeight, cls: 'v-scroll' }
+  ].forEach(({ sel, fn, cls }) =>
+    document.querySelectorAll(sel).forEach(el => {
+      const px = fn(el);
       if (px > 0) {
-        el.style.setProperty('--scroll-distance', '-' + px + 'px');
-        el.classList.add(spec.cls);
+        el.style.setProperty('--scroll-distance', `-${px}px`);
+        el.classList.add(cls);
       } else {
-        el.classList.remove(spec.cls);
+        el.classList.remove(cls);
         el.style.removeProperty('--scroll-distance');
       }
-    });
-  });
+    })
+  );
 }
 
 //#endregion
 
 //#region events
 
-window.onpopstate = function (e) {
-  navigate(e.state ? e.state.route : DEFAULT_ROUTE, true);
+window.onpopstate = ({ state }) => {
+  navigate(state ? state.route : DEFAULT_ROUTE, true);
 };
 
-document.addEventListener('click', function (e) {
+document.addEventListener('click', e => {
   if (
     headerMenuDropdown.classList.contains('show') &&
     !headerMenuDropdown.contains(e.target) &&
     !headerMenuButton.contains(e.target)
   ) toggleHeaderMenuDropdown();
 
-  var link = e.target.closest('a[href]');
+  const link = e.target.closest('a[href]');
   if (!link || e.button !== 0 || e.ctrlKey || e.shiftKey || e.metaKey) return;
 
-  var href = link.getAttribute('href');
-  if (!href || href.charAt(0) !== '/' || href.split('/').pop().indexOf('.') !== -1) return;
+  const href = link.getAttribute('href');
+  if (!href || !href.startsWith('/')) return;
+  if (href.split('/').pop().includes('.')) return;
 
   e.preventDefault();
   if (link.closest('#header-menu-dropdown')) toggleHeaderMenuDropdown();
@@ -278,17 +337,15 @@ window.addEventListener('resize', initScrollables);
 
 //#region pageCleanup
 
-var pageCleanup = {
+const pageCleanup = {
   _callbacks: [],
 
-  register: function (fn) {
+  register(fn) {
     this._callbacks.push(fn);
   },
 
-  run: function () {
-    this._callbacks.forEach(function (fn) {
-      try { fn(); } catch (e) {}
-    });
+  run() {
+    this._callbacks.forEach(fn => { try { fn(); } catch (e) {} });
     this._callbacks = [];
   }
 };
