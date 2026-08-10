@@ -282,6 +282,10 @@ def build(local_port: int = 0):
         print(f"ERROR: Shell template not found at {SHELL}")
         return
 
+    if MANIFEST_FILE.exists():
+        print("Cleaning previous build...")
+        _clean_from_manifest()
+
     domain = f"http://localhost:{local_port}" if local_port else get_domain()
     shell_html = SHELL.read_text(encoding="utf-8")
 
@@ -381,11 +385,7 @@ def build(local_port: int = 0):
     print(f"\nBuild complete! {len(manifest['files'])} generated files in {ROOT}")
 
 
-def clean():
-    if not MANIFEST_FILE.exists():
-        print("No build manifest found. Nothing else to clean.")
-        return
-
+def _clean_from_manifest():
     manifest = json.loads(MANIFEST_FILE.read_text(encoding="utf-8"))
 
     for f in manifest.get("files", []):
@@ -401,6 +401,14 @@ def clean():
             print(f"  Deleted dir: {d}")
 
     MANIFEST_FILE.unlink()
+
+
+def clean():
+    if not MANIFEST_FILE.exists():
+        print("No build manifest found. Nothing to clean.")
+        return
+
+    _clean_from_manifest()
     print("Clean complete.")
 
 
