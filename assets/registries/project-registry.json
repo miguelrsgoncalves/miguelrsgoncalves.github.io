@@ -1,5 +1,16 @@
 [
     {
+        "id": "godot-portugal",
+        "title": "Godot Portugal",
+        "startDate": "2026-07-29",
+        "endDate": "",
+        "status": "Active",
+        "category": ["Game Dev"],
+        "tool": ["Godot"],
+        "description": "A Portuguese group centered around Godot in Portugal!",
+        "tag": ["Association"]
+    },
+    {
         "id": "igda",
         "title": "IGDA",
         "startDate": "2026-06-15",
