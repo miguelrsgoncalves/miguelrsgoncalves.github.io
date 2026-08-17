@@ -7,7 +7,7 @@
         "status": "Active",
         "category": ["Game Dev"],
         "tool": ["Godot"],
-        "description": "A board game",
+        "description": "A game about the Leafcutters ants.",
         "tag": ["Solo Dev"]
     },
     {
@@ -18,7 +18,7 @@
         "status": "Active",
         "category": ["Board Game", "Game Dev"],
         "tool": ["Brain"],
-        "description": "A board game",
+        "description": "A board game about making layered food and making people happy!",
         "tag": []
     },
     {
