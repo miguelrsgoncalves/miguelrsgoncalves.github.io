@@ -1,5 +1,16 @@
 [
     {
+        "id": "game-of-life",
+        "title": "Game of Life",
+        "startDate": "2026-08-24",
+        "endDate": "",
+        "status": "Active",
+        "category": ["Game Dev"],
+        "tool": ["Godot"],
+        "description": "Game of Life.",
+        "tag": ["Solo Dev"]
+    },
+    {
         "id": "leafcutters",
         "title": "Leafcutters",
         "startDate": "2026-08-16",
