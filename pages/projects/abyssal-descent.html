@@ -1,7 +1,8 @@
 <route-data
 	data-title="Abyssal Descent: SCP-455"
-	data-description="You are part of a rescue team which mission is to extract a previous team from a cargo ship. Be careful though, the lost souls are uneasy.">
-</route-data>
+	data-description="You are part of a rescue team which mission is to extract a previous team from a cargo ship. Be careful though, the lost souls are uneasy."
+	data-js='["/scripts/components.js"]'
+></route-data>
 
 <div class="page narrow">
 
@@ -29,13 +30,42 @@
         </div>
 
         <div class="control-panel embedded" data-panel-name="download">
-            <div class="how-to-play">
-                <p>
-                    The game can be accessed through the following methods:
-                </p>
-                <a href="https://anibalferreira.itch.io/abyssal-descent-scp-455" target="_blank">
-                    <icon data-icon-name="download"></icon> Itch.io
-                </a>
+            <div class="download-options">
+                <div class="download-group">
+                    <div class="header">
+                        <icon data-icon-name="globe"></icon>
+                        <span>External Links</span>
+                    </div>
+                    <div class="items">
+                        <a class="download-option" href="https://anibalferreira.itch.io/abyssal-descent-scp-455" target="_blank" rel="noopener">
+                            <icon data-icon-name="brands/itchdotio"></icon>
+                            <div class="info">
+                                <div class="title">Itch.io</div>
+                            </div>
+                            <icon class="action-icon" data-icon-name="external-link"></icon>
+                        </a>
+                    </div>
+                </div>
+                <div class="download-group">
+                    <div class="header">
+                        <icon data-icon-name="download"></icon>
+                        <span>Downloads</span>
+                    </div>
+                    <div class="items">
+                        <a class="download-option" href="/assets/projects/abyssal-descent/builds/windows/abyssal_descent_scp-455.zip" download>
+                            <icon data-icon-name="monitor"></icon>
+                            <div class="info">
+                                <div class="title">Windows</div>
+                                <div class="subtitle">
+                                    <span>ZIP archive</span>
+                                    <div class="separator vertical thin semi"></div>
+                                    <span>92 MB</span>
+                                </div>
+                            </div>
+                            <icon class="action-icon" data-icon-name="download"></icon>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
