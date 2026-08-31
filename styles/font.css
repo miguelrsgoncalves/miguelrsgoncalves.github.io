@@ -4,7 +4,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/assets/fonts/font-families/Poppins-Regular.ttf');
+  src: url('/assets/fonts/poppins/Poppins-Regular.ttf');
 }
 
 /* Bold 600 */
@@ -13,7 +13,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('/assets/fonts/font-families/Poppins-Bold.ttf');
+  src: url('/assets/fonts/poppins/Poppins-Bold.ttf');
 }
 
 /* Italic 400 */
@@ -22,7 +22,7 @@
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url('/assets/fonts/font-families/Poppins-Italic.ttf');
+  src: url('/assets/fonts/poppins/Poppins-Italic.ttf');
 }
 
 /* Bold Italic 600 */
@@ -31,5 +31,5 @@
   font-style: italic;
   font-weight: 600;
   font-display: swap;
-  src: url('/assets/fonts/font-families/Poppins-BoldItalic.ttf');
+  src: url('/assets/fonts/poppins/Poppins-BoldItalic.ttf');
 }
