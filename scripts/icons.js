@@ -1,5 +1,12 @@
 const iconCache = new Map();
 
+function resolveIconUrl(name) {
+  // Namespaced name, e.g. "brands/itchdotio" -> /assets/icons/brands/itchdotio.svg
+  if (name.includes('/')) return `/assets/icons/${name}.svg`;
+  // Plain name, e.g. "download" -> /assets/icons/lucide/download.svg
+  return `/assets/icons/lucide/${name}.svg`;
+}
+
 async function createIcons() {
   const iconElements = document.querySelectorAll('icon[data-icon-name]');
   
@@ -19,8 +26,8 @@ async function createIcons() {
       svgElement = iconCache.get(iconName);
     } else {
       try {
-        const response = await fetch(`/assets/fonts/icons/lucide-icons/${iconName}.svg`);
-        if (!response.ok) throw new Error(`Local icon "${iconName}.svg" not found.`);
+        const response = await fetch(resolveIconUrl(iconName));
+        if (!response.ok) throw new Error(`Local icon "${iconName}" not found.`);
         const svgText = await response.text();
         
         const parser = new DOMParser();
@@ -28,6 +35,9 @@ async function createIcons() {
         svgElement = doc.querySelector('svg');
         
         if (svgElement) {
+          if (!svgElement.hasAttribute('fill')) {
+            svgElement.setAttribute('fill', 'currentColor');
+          }
           iconCache.set(iconName, svgElement);
         }
       } catch (err) {
