@@ -24,8 +24,12 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Build static pages
-        run: python builder/build.py
+      - name: Run Builder
+        run: python framework/builder.py
+
+      - name: Strip clutter
+        run: |
+          rm -rf .git .github .vscode .version framework pages
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
