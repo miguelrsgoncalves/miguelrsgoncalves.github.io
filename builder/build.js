@@ -13,8 +13,7 @@ const paths = {
 
 function parseArguments(argumentsList) {
   return {
-    clean: argumentsList.includes('clean'),
-    local: argumentsList.includes('--local'),
+    clean: argumentsList[0] === 'clean',
   };
 }
 
@@ -35,32 +34,51 @@ function readBuildInputs() {
 
 function discoverRoutes() {
   const routes = [];
-  const pageEntries = fs.readdirSync(paths.pages, {
+  const routeGroups = fs.readdirSync(paths.pages, {
     withFileTypes: true,
   });
 
-  for (const pageEntry of pageEntries) {
-    if (pageEntry.isDirectory()) {
-      routes.push({
-        name: pageEntry.name,
-        directory: path.join(paths.pages, pageEntry.name),
-      });
+  for (const routeGroup of routeGroups) {
+    if (!routeGroup.isDirectory()) {
       continue;
     }
 
-    if (pageEntry.isFile() && pageEntry.name.endsWith('.html')) {
+    const groupName = routeGroup.name;
+    const groupDirectory = path.join(paths.pages, groupName);
+    const entries = fs.readdirSync(groupDirectory, {
+      withFileTypes: true,
+    });
+
+    for (const entry of entries) {
+      if (!entry.isFile() || !entry.name.endsWith('.html')) {
+        continue;
+      }
+
+      const routeName = entry.name.slice(0, -'.html'.length);
+      const outputPath = getOutputPath(groupName, routeName);
+
       routes.push({
-        name: pageEntry.name.slice(0, -'.html'.length),
-        file: path.join(paths.pages, pageEntry.name),
+        groupName,
+        routeName,
+        sourcePath: path.join(groupDirectory, entry.name),
+        outputPath,
       });
     }
   }
 
   routes.sort((firstRoute, secondRoute) => {
-    return firstRoute.name.localeCompare(secondRoute.name);
+    return firstRoute.outputPath.localeCompare(secondRoute.outputPath);
   });
 
   return routes;
+}
+
+function getOutputPath(groupName, routeName) {
+  if (groupName === 'tabs') {
+    return routeName;
+  }
+
+  return `${groupName}/${routeName}`;
 }
 
 function build(argumentsList) {
@@ -75,11 +93,14 @@ function build(argumentsList) {
 
   console.log('Builder foundation is working.');
   console.log(`Project root: ${paths.projectRoot}`);
+  console.log(`Domain: ${getDomain()}`);
   console.log(`Shell characters: ${inputs.shell.length}`);
   console.log(`Routes discovered: ${inputs.routes.length}`);
 
   for (const route of inputs.routes) {
-    console.log(`- ${route.name}`);
+    console.log(
+      `${route.sourcePath} -> ${route.outputPath}/index.html`,
+    );
   }
 }
 
