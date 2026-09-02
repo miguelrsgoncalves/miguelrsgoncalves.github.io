@@ -3,9 +3,9 @@
   "tasks": [
     {
       "label": "Build",
-      "detail": "Builds all pages from fragments using the shell template.",
+      "detail": "Run Builder",
       "type": "shell",
-      "command": "python builder/build.py",
+      "command": "python3 framework/builder.py",
       "group": {
         "kind": "build",
         "isDefault": true
@@ -17,10 +17,10 @@
       "problemMatcher": []
     },
     {
-      "label": "Clean Build",
-      "detail": "Deletes all generated files and directories created by the builder.",
+      "label": "Clear Build",
+      "detail": "Clear build",
       "type": "shell",
-      "command": "python builder/build.py clean",
+      "command": "python3 framework/builder.py clean",
       "presentation": {
         "reveal": "silent",
         "panel": "dedicated"
