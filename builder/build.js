@@ -17,6 +17,43 @@ function parseArguments(argumentsList) {
   };
 }
 
+function build(argumentsList) {
+  const options = parseArguments(argumentsList);
+
+  if (options.clean) {
+    console.log('Clean mode is not implemented yet.');
+    return;
+  }
+
+  const inputs = readBuildInputs();
+
+  console.log('Builder foundation is working.');
+  console.log(`Project root: ${paths.projectRoot}`);
+  console.log(`Shell characters: ${inputs.shell.length}`);
+  console.log(`Routes discovered: ${inputs.routes.length}`);
+
+  for (const route of inputs.routes) {
+    const fragment = fs.readFileSync(route.sourcePath, 'utf8');
+    const metadata = extractMetadata(fragment);
+    const scriptPaths = extractDataList(fragment, 'data-js');
+    const stylePaths = extractDataList(fragment, 'data-css');
+    const processed = processFragment(fragment);
+
+    console.log(
+      `${route.outputPath} | ${metadata.title ?? '(no title)'} | scripts:${processed.scripts.length} js:${scriptPaths.length} css:${stylePaths.length}`,
+    );
+  }
+}
+
+try {
+  build(process.argv.slice(2));
+} catch (error) {
+  console.error(error.message);
+  process.exitCode = 1;
+}
+
+//#region parser
+
 function readBuildInputs() {
   if (!fs.existsSync(paths.shell)) {
     throw new Error(`Missing shell file: ${paths.shell}`);
@@ -81,32 +118,87 @@ function getOutputPath(groupName, routeName) {
   return `${groupName}/${routeName}`;
 }
 
-function build(argumentsList) {
-  const options = parseArguments(argumentsList);
+function extractMetadata(fragment) {
+  const attributes = getRouteDataAttributes(fragment);
 
-  if (options.clean) {
-    console.log('Clean mode is not implemented yet.');
-    return;
+  return {
+    title: getAttribute(attributes, 'data-title'),
+    description: getAttribute(attributes, 'data-description') ?? '',
+    hideRouteTitle: hasAttribute(attributes, 'data-hide-route-title'),
+  };
+}
+
+function extractDataList(fragment, attributeName) {
+  const attributes = getRouteDataAttributes(fragment);
+  const rawValue = getAttribute(attributes, attributeName);
+
+  if (rawValue === null) {
+    return [];
   }
 
-  const inputs = readBuildInputs();
-
-  console.log('Builder foundation is working.');
-  console.log(`Project root: ${paths.projectRoot}`);
-  console.log(`Domain: ${getDomain()}`);
-  console.log(`Shell characters: ${inputs.shell.length}`);
-  console.log(`Routes discovered: ${inputs.routes.length}`);
-
-  for (const route of inputs.routes) {
-    console.log(
-      `${route.sourcePath} -> ${route.outputPath}/index.html`,
-    );
+  try {
+    const parsed = JSON.parse(rawValue);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
   }
 }
 
-try {
-  build(process.argv.slice(2));
-} catch (error) {
-  console.error(error.message);
-  process.exitCode = 1;
+function processFragment(fragment) {
+  const scripts = [];
+
+  const withoutScripts = fragment.replace(
+    /<script\s*(?:defer\s*)?>([\s\S]*?)<\/script>/g,
+    (innerCode) => {
+      const code = innerCode.trim();
+
+      if (code) {
+        scripts.push(code);
+      }
+
+      return '';
+    },
+  );
+
+  const withoutRouteData = withoutScripts.replace(
+    /<route-data[\s\S]*?<\/route-data>\s*/g,
+    '',
+  );
+
+  return {
+    content: withoutRouteData.trim(),
+    scripts,
+  };
 }
+
+//#endregion
+
+//#region helpers
+
+function getRouteDataAttributes(fragment) {
+  const match = fragment.match(/<route-data\b([^>]*)>/);
+
+  if (!match) {
+    return '';
+  }
+
+  return match[1];
+}
+
+function getAttribute(attributes, name) {
+  const match = attributes.match(
+    new RegExp(`${name}\\s*=\\s*("([^"]*)"|'([^']*)')`),
+  );
+
+  if (!match) {
+    return null;
+  }
+
+  return match[2] ?? match[3];
+}
+
+function hasAttribute(attributes, name) {
+  return attributes.includes(name);
+}
+
+//#endregion
