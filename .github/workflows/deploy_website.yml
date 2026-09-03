@@ -19,13 +19,13 @@ jobs:
         with:
           token: ${{ secrets.DEPLOY_MIGUELRSGONCALVES_COM }}
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Set up Node
+        uses: actions/setup-node@v4
         with:
-          python-version: '3.12'
+          node-version: '22'
 
       - name: Build static pages
-        run: python builder/build.py
+        run: node builder/build.js
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
