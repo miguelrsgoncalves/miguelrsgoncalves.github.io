@@ -33,6 +33,16 @@ function parseArguments(argumentsList) {
   };
 }
 
+function getDomain() {
+  const cnamePath = path.join(projectRoot, 'CNAME');
+
+  if (!fs.existsSync(cnamePath)) {
+    return 'http://localhost:5500';
+  }
+
+  return `https://${fs.readFileSync(cnamePath, 'utf8').trim()}`;
+}
+
 function build(argumentsList) {
   const options = parseArguments(argumentsList);
 
