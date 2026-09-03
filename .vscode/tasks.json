@@ -5,7 +5,7 @@
       "label": "Build",
       "detail": "Builds all pages from fragments using the shell template.",
       "type": "shell",
-      "command": "python builder/build.py",
+      "command": "node builder/build.js",
       "group": {
         "kind": "build",
         "isDefault": true
@@ -20,7 +20,7 @@
       "label": "Clean Build",
       "detail": "Deletes all generated files and directories created by the builder.",
       "type": "shell",
-      "command": "python builder/build.py clean",
+      "command": "node builder/build.js clean",
       "presentation": {
         "reveal": "silent",
         "panel": "dedicated"
