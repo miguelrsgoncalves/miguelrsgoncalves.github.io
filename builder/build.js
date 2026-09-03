@@ -47,31 +47,288 @@ function build(argumentsList) {
   const options = parseArguments(argumentsList);
 
   if (options.clean) {
-    console.log('Clean mode is not implemented yet.');
+    cleanGeneratedFiles();
     return;
   }
 
   const inputs = readBuildInputs();
 
-  console.log('Builder foundation is working.');
-  console.log(`Project root: ${paths.projectRoot}`);
-  console.log(`Shell characters: ${inputs.shell.length}`);
-  console.log(`Routes discovered: ${inputs.routes.length}`);
+  if (fs.existsSync(paths.manifest)) {
+    console.log('Cleaning previous build...');
+    removeGeneratedFiles();
+  }
+
+  const domain = getDomain();
+  const manifest = { files: [], directories: [] };
 
   for (const route of inputs.routes) {
-    const fragment = fs.readFileSync(route.sourcePath, 'utf8');
-    const metadata = extractMetadata(fragment);
-    const scriptPaths = extractDataList(fragment, 'data-js');
-    const stylePaths = extractDataList(fragment, 'data-css');
-    const processed = processFragment(fragment);
+    writeRoutePage(route, inputs.shell, domain, manifest);
+  }
 
-    console.log(
-      `${route.outputPath} | ${metadata.title ?? '(no title)'} | scripts:${processed.scripts.length} js:${scriptPaths.length} css:${stylePaths.length}`,
-    );
+  writeSitemap(inputs.routes, domain, manifest);
+  writeRobots(domain, manifest);
+  updateGitignore(manifest);
+
+  fs.writeFileSync(paths.manifest, JSON.stringify(manifest, null, 2));
+  console.log(`\nBuild complete! ${manifest.files.length} generated files in ${projectRoot}`);
+}
+
+function writeRoutePage(route, shell, domain, manifest) {
+  let fragment;
+  let metadata;
+  let scriptPaths;
+  let stylePaths;
+
+  try {
+    fragment = fs.readFileSync(route.sourcePath, 'utf8');
+    metadata = extractMetadata(fragment);
+    scriptPaths = extractDataList(fragment, 'data-js');
+    stylePaths = extractDataList(fragment, 'data-css');
+  } catch (error) {
+    throw new Error(`Could not process fragment '${route.sourcePath}': ${error.message}`);
+  }
+
+  const processed = processFragment(fragment);
+
+  const page = buildPage({
+    shell,
+    content: processed.content,
+    inlineScripts: processed.scripts,
+    title: metadata.title,
+    description: metadata.description,
+    route: route.outputPath,
+    domain,
+    ogImagePath: getOgImagePath(route),
+    dataJs: scriptPaths,
+    dataCss: stylePaths,
+  });
+
+  const outputDirectory = path.join(projectRoot, route.outputPath);
+  fs.mkdirSync(outputDirectory, { recursive: true });
+  fs.writeFileSync(path.join(outputDirectory, 'index.html'), page);
+
+  manifest.directories.push(route.outputPath);
+  manifest.files.push(`${route.outputPath}/index.html`);
+  console.log(`  Built: ${route.outputPath}/index.html`);
+}
+
+function getOgImagePath(route) {
+  if (route.groupName === 'tabs') {
+    return null;
+  }
+
+  return `/assets/${route.groupName}/${route.routeName}/images/thumbnail.png`;
+}
+
+function writeSitemap(routes, domain, manifest) {
+  const urls = [`  <url>\n    <loc>${domain}/</loc>\n  </url>`];
+
+  for (const route of routes) {
+    urls.push(`  <url>\n    <loc>${domain}/${route.outputPath}/</loc>\n  </url>`);
+  }
+
+  const sitemap = [
+    '<?xml version="1.0" ?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ...urls,
+    '</urlset>',
+    '',
+  ].join('\n');
+
+  fs.writeFileSync(path.join(projectRoot, 'sitemap.xml'), sitemap);
+  manifest.files.push('sitemap.xml');
+  console.log('  Built: sitemap.xml');
+}
+
+function writeRobots(domain, manifest) {
+  const robots = `User-agent: *\nAllow: /\nSitemap: ${domain}/sitemap.xml\n`;
+
+  fs.writeFileSync(path.join(projectRoot, 'robots.txt'), robots);
+  manifest.files.push('robots.txt');
+  console.log('  Built: robots.txt');
+}
+
+function updateGitignore(manifest) {
+  const gitignorePath = path.join(projectRoot, '.gitignore');
+
+  if (!fs.existsSync(gitignorePath)) {
+    return;
+  }
+
+  const content = fs.readFileSync(gitignorePath, 'utf8');
+  const entries = new Set();
+
+  for (const directory of manifest.directories) {
+    entries.add(`/${directory.split('/')[0]}/`);
+  }
+
+  entries.add('/robots.txt');
+  entries.add('/sitemap.xml');
+
+  const generatedBlock = [...entries].sort().join('\n');
+  const newSection = `${gitignoreMarkers.start}\n${generatedBlock}\n${gitignoreMarkers.end}`;
+  const pattern = new RegExp(
+    `${escapeRegExp(gitignoreMarkers.start)}[\\s\\S]*?${escapeRegExp(gitignoreMarkers.end)}`,
+  );
+
+  let newContent;
+
+  if (pattern.test(content)) {
+    newContent = content.replace(pattern, newSection);
+  } else {
+    newContent = `${content.trimEnd()}\n\n${newSection}\n`;
+  }
+
+  if (newContent !== content) {
+    fs.writeFileSync(gitignorePath, newContent);
+    console.log('  Updated: .gitignore');
   }
 }
 
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
+
+function cleanGeneratedFiles() {
+  if (!fs.existsSync(paths.manifest)) {
+    console.log('No build manifest found. Nothing to clean.');
+    return;
+  }
+
+  removeGeneratedFiles();
+  console.log('Clean complete.');
+}
+
+function removeGeneratedFiles() {
+  const manifest = JSON.parse(fs.readFileSync(paths.manifest, 'utf8'));
+
+  for (const file of manifest.files) {
+    const filePath = path.join(projectRoot, file);
+
+    if (fs.existsSync(filePath)) {
+      fs.unlinkSync(filePath);
+      console.log(`  Deleted: ${file}`);
+    }
+  }
+
+  const directories = [...manifest.directories].sort(
+    (first, second) => second.length - first.length,
+  );
+
+  for (const directory of directories) {
+    const directoryPath = path.join(projectRoot, directory);
+
+    if (fs.existsSync(directoryPath) && fs.readdirSync(directoryPath).length === 0) {
+      fs.rmdirSync(directoryPath);
+      console.log(`  Deleted dir: ${directory}`);
+    }
+  }
+
+  fs.unlinkSync(paths.manifest);
+}
+
+//#endregion
+
+//#region page_generation
+
+function buildPage(options) {
+  const { shell, content, inlineScripts, title, description, route, domain, ogImagePath, dataJs, dataCss } = options;
+
+  let page = shell;
+  const fullTitle = title ? `MRSG | ${title}` : 'MRSG';
+  const desc = description || 'All there is about MRSG';
+
+  page = page.replace(/\n\t\t<meta property="og:[^>]*>/g, '');
+  page = page.replace(/\n\t\t<meta name="twitter:[^>]*>/g, '');
+  page = page.replace(/\n\t\t<link rel="canonical"[^>]*>/g, '');
+  page = page.replace(/\n\n\n+/g, '\n\n');
+
+  page = page.replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeAttr(fullTitle)}</title>`);
+  page = page.replace(
+    /<meta name="description" content=".*?">/,
+    `<meta name="description" content="${escapeAttr(desc)}">`,
+  );
+
+  const routeUrl = route ? `${domain}/${route}/` : `${domain}/`;
+  const ogImageUrl = ogImagePath
+    ? `${domain}${ogImagePath}`
+    : `${domain}/assets/logo/mrsg_logo.png`;
+
+  const ogBlock = `\t\t<meta property="og:title" content="${escapeAttr(fullTitle)}">
+\t\t<meta property="og:description" content="${escapeAttr(desc)}">
+\t\t<meta property="og:url" content="${routeUrl}">
+\t\t<meta property="og:type" content="website">
+\t\t<meta property="og:image" content="${ogImageUrl}">
+\t\t<meta name="twitter:card" content="summary_large_image">
+\t\t<meta name="twitter:title" content="${escapeAttr(fullTitle)}">
+\t\t<meta name="twitter:description" content="${escapeAttr(desc)}">
+\t\t<meta name="twitter:image" content="${ogImageUrl}">
+\t\t<link rel="canonical" href="${routeUrl}">`;
+
+  const headParts = [];
+  for (const cssPath of dataCss) {
+    headParts.push(`\t\t<link rel="stylesheet" href="${cssPath}">`);
+  }
+  for (const jsPath of dataJs) {
+    headParts.push(`\t\t<script src="${jsPath}" defer></script>`);
+  }
+
+  let headBlock;
+  if (headParts.length > 0) {
+    headBlock = `\n\t\t<!--- Page Head -->
+${headParts.join('\n')}
+\t\t<!--- End Page Head -->
+
+${ogBlock}
+\t</head>`;
+  } else {
+    headBlock = `${ogBlock}\n\t</head>`;
+  }
+
+  headBlock = headBlock.replace(/\n\n\n+/g, '\n\n');
+  page = page.replace('\n\t</head>', `\n${headBlock}`);
+
+  page = page.replace('<main></main>', `<main>\n${content}\n\t\t</main>`);
+
+  if (inlineScripts.length > 0) {
+    page = page.replace('\t</body>', `${buildScriptBlock(inlineScripts)}\n\t</body>`);
+  }
+
+  return page;
+}
+
+function buildScriptBlock(inlineScripts) {
+  const blocks = [];
+
+  for (const script of inlineScripts) {
+    const lines = [];
+
+    for (const rawLine of script.trim().split('\n')) {
+      const line = rawLine.trim();
+
+      if (line) {
+        lines.push(`\t\t\t\t${line}`);
+      }
+    }
+
+    blocks.push(lines.join('\n'));
+  }
+
+  const combined = blocks.join('\n\n');
+
+  return [
+    '\n\t\t<!-- Page Scripts -->',
+    '\t\t<script>',
+    '\t\t\tdocument.addEventListener("DOMContentLoaded", function() {',
+    combined,
+    '\t\t\t});',
+    '\t\t</script>',
+    '\t\t<!-- End Page Scripts -->',
+    '',
+  ].join('\n');
+}
+
+//#endregion
 
 //#region parser
 
@@ -118,17 +375,44 @@ function discoverRoutes() {
       routes.push({
         groupName,
         routeName,
+        fileName: entry.name,
         sourcePath: path.join(groupDirectory, entry.name),
         outputPath,
       });
     }
   }
 
-  routes.sort((firstRoute, secondRoute) => {
-    return firstRoute.outputPath.localeCompare(secondRoute.outputPath);
-  });
+  routes.sort(compareRoutes);
 
   return routes;
+}
+
+function compareRoutes(firstRoute, secondRoute) {
+  if (firstRoute.groupName !== secondRoute.groupName) {
+    if (firstRoute.groupName === 'tabs') {
+      return -1;
+    }
+
+    if (secondRoute.groupName === 'tabs') {
+      return 1;
+    }
+
+    if (firstRoute.groupName < secondRoute.groupName) {
+      return -1;
+    }
+
+    return 1;
+  }
+
+  if (firstRoute.fileName < secondRoute.fileName) {
+    return -1;
+  }
+
+  if (firstRoute.fileName > secondRoute.fileName) {
+    return 1;
+  }
+
+  return 0;
 }
 
 function getOutputPath(groupName, routeName) {
@@ -159,9 +443,14 @@ function extractDataList(fragment, attributeName) {
 
   try {
     const parsed = JSON.parse(rawValue);
-    return Array.isArray(parsed) ? parsed : [];
-  } catch {
-    return [];
+
+    if (!Array.isArray(parsed)) {
+      throw new Error(`expected a JSON array, got ${typeof parsed}`);
+    }
+
+    return parsed;
+  } catch (error) {
+    throw new Error(`Invalid '${attributeName}' JSON in route-data: ${error.message}`);
   }
 }
 
@@ -170,7 +459,7 @@ function processFragment(fragment) {
 
   const withoutScripts = fragment.replace(
     /<script\s*(?:defer\s*)?>([\s\S]*?)<\/script>/g,
-    (innerCode) => {
+    (match, innerCode) => {
       const code = innerCode.trim();
 
       if (code) {
@@ -207,19 +496,31 @@ function getRouteDataAttributes(fragment) {
 }
 
 function getAttribute(attributes, name) {
-  const match = attributes.match(
-    new RegExp(`${name}\\s*=\\s*("([^"]*)"|'([^']*)')`),
-  );
+  const valuePattern = new RegExp(`${name}\\s*=\\s*("([^"]*)"|'([^']*)')`);
 
-  if (!match) {
-    return null;
+  if (valuePattern.test(attributes)) {
+    const match = attributes.match(valuePattern);
+
+    return match[2] ?? match[3];
   }
 
-  return match[2] ?? match[3];
+  if (new RegExp(`\\b${name}\\s*=`).test(attributes)) {
+    throw new Error(`Malformed '${name}' in route-data: value is missing or unterminated`);
+  }
+
+  return null;
 }
 
 function hasAttribute(attributes, name) {
   return attributes.includes(name);
+}
+
+function escapeAttr(value) {
+  return value
+    .replaceAll('&', '&amp;')
+    .replaceAll('"', '&quot;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;');
 }
 
 //#endregion
