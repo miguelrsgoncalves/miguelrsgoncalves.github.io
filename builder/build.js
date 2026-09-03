@@ -9,6 +9,7 @@ const paths = {
   projectRoot,
   shell: path.join(projectRoot, 'index.html'),
   pages: path.join(projectRoot, 'pages'),
+  manifest: path.join(projectRoot, 'builder', '.build-manifest.json'),
 };
 
 function parseArguments(argumentsList) {
