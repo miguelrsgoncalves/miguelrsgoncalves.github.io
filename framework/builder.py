@@ -11,16 +11,8 @@ from xml.etree.ElementTree import Element, SubElement, tostring
 ROOT = Path(__file__).parent.parent.resolve()
 SHELL = ROOT / "index.html"
 
-CNAME_PATH = ROOT / "CNAME"
-
 BUILDER_DIR = Path(__file__).parent.resolve()
 MANIFEST_FILE = BUILDER_DIR / ".build-manifest.json"
-
-
-def get_domain() -> str:
-    if CNAME_PATH.exists():
-        return f"https://{CNAME_PATH.read_text().strip()}"
-    return "http://localhost:5500"
 
 
 def get_default_route() -> str:
@@ -277,7 +269,7 @@ def update_gitignore(manifest: dict):
 
 #region Main build
 
-def build(local_port: int = 0):
+def build():
     if not SHELL.exists():
         print(f"ERROR: Shell template not found at {SHELL}")
         return
@@ -286,7 +278,7 @@ def build(local_port: int = 0):
         print("Cleaning previous build...")
         _clean_from_manifest()
 
-    domain = f"http://localhost:{local_port}" if local_port else get_domain()
+    domain = f"https://{(ROOT / 'CNAME').read_text(encoding='utf-8').strip()}"
     shell_html = SHELL.read_text(encoding="utf-8")
 
     manifest: dict[str, list[str]] = {"files": [], "directories": []}
@@ -416,10 +408,6 @@ if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "clean":
         clean()
     else:
-        local_port = 0
-        if "--local" in sys.argv:
-            idx = sys.argv.index("--local")
-            local_port = int(sys.argv[idx + 1]) if idx + 1 < len(sys.argv) and sys.argv[idx + 1].isdigit() else 5500
-        build(local_port=local_port)
+        build()
 
 #endregion
