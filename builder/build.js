@@ -2,6 +2,7 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
+const crypto = require('node:crypto');
 
 const projectRoot = path.resolve(__dirname, '..');
 
@@ -523,6 +524,10 @@ function escapeAttr(value) {
     .replaceAll('"', '&quot;')
     .replaceAll('<', '&lt;')
     .replaceAll('>', '&gt;');
+}
+
+function contentHash(parts) {
+  return crypto.createHash('sha256').update(JSON.stringify(parts)).digest('hex');
 }
 
 //#endregion
