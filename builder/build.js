@@ -17,12 +17,14 @@ const gitignoreMarkers = {
   end: '# === End generated ===',
 };
 
-try {
-  build(process.argv.slice(2));
-} catch (error) {
-  console.error(`Build failed: ${error.message}`);
-  console.error(error);
-  process.exitCode = 1;
+if (require.main === module) {
+  try {
+    build(process.argv.slice(2));
+  } catch (error) {
+    console.error(`Build failed: ${error.message}`);
+    console.error(error);
+    process.exitCode = 1;
+  }
 }
 
 //#region build
