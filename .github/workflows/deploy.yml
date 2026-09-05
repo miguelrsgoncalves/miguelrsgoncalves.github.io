@@ -25,7 +25,7 @@ jobs:
           node-version: '22'
 
       - name: Build static pages
-        run: node builder/build.js
+        run: node builder/builder.js
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
