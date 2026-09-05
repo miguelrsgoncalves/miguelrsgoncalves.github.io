@@ -3,9 +3,9 @@
   "tasks": [
     {
       "label": "Build",
-      "detail": "Builds all pages from fragments using the shell template.",
+      "detail": "Builds all pages.",
       "type": "shell",
-      "command": "node builder/build.js",
+      "command": "node builder/builder.js",
       "group": {
         "kind": "build",
         "isDefault": true
@@ -20,7 +20,19 @@
       "label": "Clear Build",
       "detail": "Clears all generated files and directories created by the builder.",
       "type": "shell",
-      "command": "node builder/build.js clear",
+      "command": "node builder/builder.js clear",
+      "presentation": {
+        "reveal": "silent",
+        "panel": "dedicated"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Build & Serve",
+      "detail": "Builds the site, serves it at localhost:5500, and live-reloads.",
+      "type": "shell",
+      "command": "node builder/builder.js serve",
+      "isBackground": true,
       "presentation": {
         "reveal": "silent",
         "panel": "dedicated"
