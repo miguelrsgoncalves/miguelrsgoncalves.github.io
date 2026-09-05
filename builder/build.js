@@ -526,7 +526,7 @@ function escapeAttr(value) {
     .replaceAll('>', '&gt;');
 }
 
-function contentHash(parts) {
+function hashFile(parts) {
   return crypto.createHash('sha256').update(JSON.stringify(parts)).digest('hex');
 }
 
