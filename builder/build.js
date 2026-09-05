@@ -32,7 +32,7 @@ if (require.main === module) {
 
 function parseArguments(argumentsList) {
   return {
-    clean: argumentsList[0] === 'clean',
+    clean: argumentsList[0] === 'clear',
   };
 }
 

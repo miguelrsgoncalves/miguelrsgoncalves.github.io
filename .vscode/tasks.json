@@ -17,10 +17,10 @@
       "problemMatcher": []
     },
     {
-      "label": "Clean Build",
-      "detail": "Deletes all generated files and directories created by the builder.",
+      "label": "Clear Build",
+      "detail": "Clears all generated files and directories created by the builder.",
       "type": "shell",
-      "command": "node builder/build.js clean",
+      "command": "node builder/build.js clear",
       "presentation": {
         "reveal": "silent",
         "panel": "dedicated"
