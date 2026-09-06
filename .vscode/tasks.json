@@ -12,7 +12,9 @@
       },
       "presentation": {
         "reveal": "silent",
-        "panel": "dedicated"
+        "panel": "dedicated",
+        "clear": true,
+        "close": true
       },
       "problemMatcher": []
     },
@@ -23,19 +25,23 @@
       "command": "node builder/builder.js clear",
       "presentation": {
         "reveal": "silent",
-        "panel": "dedicated"
+        "panel": "dedicated",
+        "clear": true,
+        "close": true
       },
       "problemMatcher": []
     },
     {
       "label": "Build & Serve",
-      "detail": "Builds the site, serves it at localhost:5500, and live-reloads.",
+      "detail": "Builds the site, serves it at localhost:5500, and live-reloads. Run again to stop the server.",
       "type": "shell",
       "command": "node builder/builder.js serve",
       "isBackground": true,
       "presentation": {
         "reveal": "silent",
-        "panel": "dedicated"
+        "panel": "dedicated",
+        "clear": true,
+        "close": true
       },
       "problemMatcher": []
     }
