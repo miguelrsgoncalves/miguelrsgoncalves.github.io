@@ -54,10 +54,6 @@ body {
 
 /*#region general-styles*/
 
-route-data {
-  display: none;
-}
-
 a, .link {
   text-decoration: none;
   color: inherit;
