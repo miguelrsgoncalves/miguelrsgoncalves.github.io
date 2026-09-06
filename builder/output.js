@@ -228,6 +228,7 @@ function readManifest() {
 }
 
 function writeManifest(manifest) {
+  fs.mkdirSync(path.dirname(paths.manifest), { recursive: true });
   fs.writeFileSync(paths.manifest, JSON.stringify(manifest, null, 2));
 }
 
@@ -266,6 +267,18 @@ function contentHash(parts) {
   return crypto.createHash('sha256').update(JSON.stringify(parts)).digest('hex');
 }
 
+function builderFingerprint() {
+  const files = fs.readdirSync(paths.builder)
+    .filter((file) => file.endsWith('.js'))
+    .sort();
+
+  const parts = files.map(
+    (file) => `${file}:${fs.readFileSync(path.join(paths.builder, file), 'utf8')}`,
+  );
+
+  return contentHash(parts);
+}
+
 module.exports = {
   createManifest,
   addBuildFile,
@@ -280,4 +293,5 @@ module.exports = {
   writeManifest,
   cleanGeneratedFiles,
   contentHash,
+  builderFingerprint,
 };

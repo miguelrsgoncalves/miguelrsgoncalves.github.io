@@ -165,7 +165,7 @@ function render(route, segments, html, isPopstate) {
     inlineScripts.forEach(code => {
       const script = document.createElement('script');
       script.textContent = code;
-      script.setAttribute('data-page', '');
+      script.setAttribute('route-fragment', '');
       document.head.appendChild(script);
     });
     return loadIncludes();
@@ -182,11 +182,11 @@ function parseList(raw) {
 
 function loadPageScripts(paths) {
   const promises = paths
-    .filter(src => !document.querySelector(`script[data-page][src="${src}"]`))
+    .filter(src => !document.querySelector(`script[route-fragment][src="${src}"]`))
     .map(src => new Promise((resolve, reject) => {
       const script = document.createElement('script');
       script.src = src;
-      script.setAttribute('data-page', '');
+      script.setAttribute('route-fragment', '');
       script.onload = resolve;
       script.onerror = reject;
       document.head.appendChild(script);
@@ -196,17 +196,17 @@ function loadPageScripts(paths) {
 
 function loadPageStyles(paths) {
   paths.forEach(href => {
-    if (document.querySelector(`link[data-page][href="${href}"]`)) return;
+    if (document.querySelector(`link[route-fragment][href="${href}"]`)) return;
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = href;
-    link.setAttribute('data-page', '');
+    link.setAttribute('route-fragment', '');
     document.head.appendChild(link);
   });
 }
 
 function unloadPageScripts() {
-  document.querySelectorAll('script[data-page], link[data-page]').forEach(element => element.remove());
+  document.querySelectorAll('script[route-fragment], link[route-fragment]').forEach(element => element.remove());
 }
 
 function getSpinner() {

@@ -17,6 +17,7 @@ const {
   readManifest,
   writeManifest,
   contentHash,
+  builderFingerprint,
 } = require('./output.js');
 
 function build() {
@@ -29,6 +30,7 @@ function build() {
   );
 
   const domain = getDomain();
+  const builderHash = builderFingerprint();
   const manifest = createManifest();
   let builtCount = 0;
 
@@ -43,7 +45,7 @@ function build() {
 
     addFragment(manifest, route);
 
-    const inputHash = contentHash([inputs.shell, fragment, domain]);
+    const inputHash = contentHash([inputs.shell, fragment, domain, builderHash]);
     const outputFile = `${route.outputPath}/index.html`;
     const outputPath = path.join(paths.projectRoot, outputFile);
 

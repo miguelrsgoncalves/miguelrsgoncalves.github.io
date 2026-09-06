@@ -8,8 +8,8 @@ const projectRoot = path.resolve(__dirname, '..');
 const paths = {
   projectRoot,
   builder: path.join(projectRoot, 'builder'),
-  manifest: path.join(projectRoot, 'builder', '.build-manifest.json'),
-  serverPid: path.join(projectRoot, 'builder', '.build-server.pid'),
+  manifest: path.join(projectRoot, 'builder', 'bin', '.build-manifest.json'),
+  serverPid: path.join(projectRoot, 'builder', 'bin', '.build-server.pid'),
   shell: path.join(projectRoot, 'index.html'),
   pages: path.join(projectRoot, 'pages'),
 };

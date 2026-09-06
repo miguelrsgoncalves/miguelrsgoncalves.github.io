@@ -1,6 +1,5 @@
 # Builder state
-builder/.build-manifest.json
-builder/.build-server.pid
+builder/bin/
 
 # Builder Output
 /about/

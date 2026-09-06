@@ -52,10 +52,10 @@ function buildPage(options) {
 
   const headParts = [];
   for (const cssPath of dataCss) {
-    headParts.push(`\t\t<link data-page rel="stylesheet" href="${cssPath}">`);
+    headParts.push(`\t\t<link route-fragment rel="stylesheet" href="${cssPath}">`);
   }
   for (const jsPath of dataJs) {
-    headParts.push(`\t\t<script data-page src="${jsPath}" defer></script>`);
+    headParts.push(`\t\t<script route-fragment src="${jsPath}" defer></script>`);
   }
 
   let headBlock;
@@ -100,7 +100,7 @@ function buildScriptBlock(inlineScripts) {
   const combined = blocks.join('\n\n');
 
   return [
-    '\n\t\t<script data-page>',
+    '\n\t\t<script route-fragment>',
     '\t\t\tfunction runPageScripts() {',
     combined,
     '\t\t\t}',

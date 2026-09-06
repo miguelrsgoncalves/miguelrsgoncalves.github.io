@@ -37,6 +37,7 @@ function stopRunningServer() {
 }
 
 function recordServerPid() {
+  fs.mkdirSync(path.dirname(serverPidFile), { recursive: true });
   fs.writeFileSync(serverPidFile, String(process.pid));
 }
 
