@@ -12,7 +12,7 @@ const {
   writeRoutePage,
   writeSitemap,
   writeRobots,
-  writeOutputIgnores,
+  updateGitignore,
   removeStaleFiles,
   readManifest,
   writeManifest,
@@ -59,7 +59,7 @@ function build() {
 
   writeSitemap(inputs.routes, domain, manifest, previousHashes);
   writeRobots(domain, manifest, previousHashes);
-  writeOutputIgnores(manifest);
+  updateGitignore(manifest);
 
   removeStaleFiles(previous, manifest);
   writeManifest(manifest);
