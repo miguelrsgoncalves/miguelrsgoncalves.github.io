@@ -52,17 +52,15 @@ function buildPage(options) {
 
   const headParts = [];
   for (const cssPath of dataCss) {
-    headParts.push(`\t\t<link rel="stylesheet" href="${cssPath}">`);
+    headParts.push(`\t\t<link data-page rel="stylesheet" href="${cssPath}">`);
   }
   for (const jsPath of dataJs) {
-    headParts.push(`\t\t<script src="${jsPath}" defer></script>`);
+    headParts.push(`\t\t<script data-page src="${jsPath}" defer></script>`);
   }
 
   let headBlock;
   if (headParts.length > 0) {
-    headBlock = `\n\t\t<!--- Page Head -->
-${headParts.join('\n')}
-\t\t<!--- End Page Head -->
+    headBlock = `\n${headParts.join('\n')}
 
 ${ogBlock}
 \t</head>`;
@@ -102,13 +100,16 @@ function buildScriptBlock(inlineScripts) {
   const combined = blocks.join('\n\n');
 
   return [
-    '\n\t\t<!-- Page Scripts -->',
-    '\t\t<script>',
-    '\t\t\tdocument.addEventListener("DOMContentLoaded", function() {',
+    '\n\t\t<script data-page>',
+    '\t\t\tfunction runPageScripts() {',
     combined,
-    '\t\t\t});',
+    '\t\t\t}',
+    '\t\t\tif (document.readyState === "loading") {',
+    '\t\t\t\tdocument.addEventListener("DOMContentLoaded", runPageScripts);',
+    '\t\t\t} else {',
+    '\t\t\t\trunPageScripts();',
+    '\t\t\t}',
     '\t\t</script>',
-    '\t\t<!-- End Page Scripts -->',
     '',
   ].join('\n');
 }
