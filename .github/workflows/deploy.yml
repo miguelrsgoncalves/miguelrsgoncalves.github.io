@@ -27,6 +27,10 @@ jobs:
       - name: Build static pages
         run: node builder/builder.js
 
+      - name: Strip non-site files from the artifact
+        run: |
+          rm -rf pages builder .vscode .github .gitignore .version
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
