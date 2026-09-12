@@ -55,6 +55,7 @@ function writeRoutePage(route, shell, domain, fragment, inputHash, manifest) {
     inlineScripts: processed.scripts,
     title: metadata.title,
     description: metadata.description,
+    hideRouteTitle: metadata.hideRouteTitle,
     route: route.outputPath,
     domain,
     ogImagePath: getOgImagePath(route),

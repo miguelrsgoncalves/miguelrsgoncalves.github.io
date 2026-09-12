@@ -17,7 +17,7 @@ function getOgImagePath(route) {
 }
 
 function buildPage(options) {
-  const { shell, content, inlineScripts, title, description, route, domain, ogImagePath, dataJs, dataCss } = options;
+  const { shell, content, inlineScripts, title, description, hideRouteTitle, route, domain, ogImagePath, dataJs, dataCss } = options;
 
   let page = shell;
   const fullTitle = title ? `MRSG | ${title}` : 'MRSG';
@@ -71,7 +71,8 @@ ${ogBlock}
   headBlock = headBlock.replace(/\n\n\n+/g, '\n\n');
   page = page.replace('\n\t</head>', `\n${headBlock}`);
 
-  page = page.replace('<main></main>', `<main>\n${content}\n\t\t</main>`);
+  const mainTag = hideRouteTitle ? '<main data-hide-route-title>' : '<main>';
+  page = page.replace('<main></main>', `${mainTag}\n${content}\n\t\t</main>`);
 
   if (inlineScripts.length > 0) {
     page = page.replace('\t</body>', `${buildScriptBlock(inlineScripts)}\n\t</body>`);

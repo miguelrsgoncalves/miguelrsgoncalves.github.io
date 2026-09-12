@@ -6,7 +6,6 @@ const routeTitleText = document.getElementById('route-title-text');
 const headerMenuButton = document.getElementById('header-menu-button');
 const headerMenuDropdown = document.getElementById('header-menu-dropdown');
 
-const ROOT_ROUTE = '/pages/';
 const DEFAULT_ROUTE = 'projects';
 let currentRoute = null;
 let hydrated = false;
@@ -34,10 +33,9 @@ async function navigate(route, isPopstate) {
   if (!hydrated && isPopstate && mainContent.children.length > 0) {
     hydrated = true;
     currentRoute = route;
-    const data = mainContent.querySelector('route-data');
     showRouteTitle(
-      data ? data.dataset.title : null,
-      data ? data.hasAttribute('data-hide-route-title') : false
+      routeTitleFromPageTitle(document.title),
+      mainContent.hasAttribute('data-hide-route-title')
     );
     updateNav(segments);
     requestAnimationFrame(initScrollables);
@@ -75,21 +73,20 @@ async function navigate(route, isPopstate) {
     exitDone = Promise.resolve();
   }
 
-  const filePath = segments.length === 1 ? `${ROOT_ROUTE}tabs/${route}` : ROOT_ROUTE + route;
+  const pageUrl = `/${route}/`;
 
   spinnerTimer = setTimeout(showSpinner, SPINNER_DELAY);
 
-  let html;
+  let page;
   try {
-    const response = await fetch(`${filePath}.html`);
+    const response = await fetch(pageUrl);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    html = await response.text();
-    if (html.includes('<!DOCTYPE html>')) throw new Error('Page not found');
+    page = await response.text();
 
   } catch (err) {
     hideSpinner();
     mainContent.querySelectorAll('.page.exiting').forEach(p => p.classList.remove('exiting'));
-    console.error('Failed to load:', filePath, err);
+    console.error('Failed to load:', pageUrl, err);
     if (route !== DEFAULT_ROUTE) navigate(DEFAULT_ROUTE);
     return;
   }
@@ -101,111 +98,135 @@ async function navigate(route, isPopstate) {
   await exitDone;
   if (id !== navId) return;
 
-  render(route, segments, html, isPopstate);
+  render(id, route, segments, page, isPopstate);
 }
 
 //#endregion
 
 //#region render
 
-function render(route, segments, html, isPopstate) {
+async function render(id, route, segments, page, isPopstate) {
   currentRoute = route;
 
-  const fragment = document.createRange().createContextualFragment(html);
+  const fetched = new DOMParser().parseFromString(page, 'text/html');
+  const fetchedMain = fetched.querySelector('main');
 
-  const meta = fragment.querySelector('route-data');
-  const title = meta ? meta.dataset.title : null;
-  const description = meta ? (meta.dataset.description || '') : '';
-  const hide = meta ? meta.hasAttribute('data-hide-route-title') : false;
-  const fileScripts = parseList(meta ? meta.dataset.js : '');
-  const fileStyles = parseList(meta ? meta.dataset.css : '');
+  syncHead(fetched);
 
-  const inlineScripts = [];
-  fragment.querySelectorAll('script').forEach(script => {
-    const code = script.textContent.trim();
-    if (code) inlineScripts.push(code);
-    script.remove();
-  });
-
-  const route_data = fragment.querySelector('route-data');
-  if (route_data) route_data.remove();
-
-  showRouteTitle(title, hide);
-  document.title = title ? `MRSG | ${title}` : 'MRSG';
-
-  const descEl = document.querySelector('meta[name="description"]');
-  if (descEl) descEl.setAttribute('content', description);
-
-  setMeta('og:title', title ? `MRSG | ${title}` : 'MRSG');
-  setMeta('og:description', description);
-  setMeta('og:url', `${window.location.origin}/${route}/`);
-
-  let canonical = document.querySelector('link[rel="canonical"]');
-  if (!canonical) {
-    canonical = document.createElement('link');
-    canonical.setAttribute('rel', 'canonical');
-    document.head.appendChild(canonical);
-  }
-  canonical.setAttribute('href', `${window.location.origin}/${route}/`);
+  showRouteTitle(
+    routeTitleFromPageTitle(fetched.title),
+    fetchedMain.hasAttribute('data-hide-route-title')
+  );
 
   updateNav(segments);
   if (!isPopstate) history.pushState({ route }, '', `/${route}`);
 
-  loadPageStyles(fileStyles);
-  const scriptsPromise = loadPageScripts(fileScripts);
-
-  unloadPageScripts();
+  unloadRouteAssets();
   pageCleanup.run();
 
   scrollToTheTop(true);
 
-  mainContent.replaceChildren(fragment);
+  mainContent.replaceChildren(...fetchedMain.childNodes);
 
-  scriptsPromise.then(() => {
-    inlineScripts.forEach(code => {
-      const script = document.createElement('script');
-      script.textContent = code;
-      script.setAttribute('route-fragment', '');
-      document.head.appendChild(script);
-    });
-    return loadIncludes();
-  }).then(() => {
-    requestAnimationFrame(initScrollables);
-    createIcons();
-  });
+  await adoptRouteAssets(fetched);
+  if (id !== navId) return;
+
+  adoptRouteScripts(fetched);
+
+  await loadIncludes();
+  if (id !== navId) return;
+
+  requestAnimationFrame(initScrollables);
+  createIcons();
 }
 
-function parseList(raw) {
-  if (!raw) return [];
-  try { return JSON.parse(raw); } catch (e) { return []; }
+function syncHead(fetched) {
+  document.title = fetched.title;
+
+  for (const [selector, attributeName] of HEAD_SYNC) {
+    syncHeadTag(fetched, selector, attributeName);
+  }
+
+  syncHeadTag(fetched, 'link[rel="canonical"]', 'href');
 }
 
-function loadPageScripts(paths) {
-  const promises = paths
-    .filter(src => !document.querySelector(`script[route-fragment][src="${src}"]`))
-    .map(src => new Promise((resolve, reject) => {
-      const script = document.createElement('script');
-      script.src = src;
-      script.setAttribute('route-fragment', '');
-      script.onload = resolve;
-      script.onerror = reject;
-      document.head.appendChild(script);
-    }));
-  return Promise.all(promises);
+const HEAD_SYNC = [
+  ['meta[name="description"]', 'content'],
+  ['meta[property="og:title"]', 'content'],
+  ['meta[property="og:description"]', 'content'],
+  ['meta[property="og:url"]', 'content'],
+  ['meta[property="og:image"]', 'content'],
+  ['meta[name="twitter:card"]', 'content'],
+  ['meta[name="twitter:title"]', 'content'],
+  ['meta[name="twitter:description"]', 'content'],
+  ['meta[name="twitter:image"]', 'content'],
+];
+
+function syncHeadTag(fetched, selector, attributeName) {
+  const fetchedElement = fetched.head.querySelector(selector);
+
+  if (!fetchedElement) return;
+
+  let element = document.head.querySelector(selector);
+
+  if (!element) {
+    element = fetchedElement.cloneNode(false);
+    document.head.appendChild(element);
+  }
+
+  element.setAttribute(attributeName, fetchedElement.getAttribute(attributeName));
 }
 
-function loadPageStyles(paths) {
-  paths.forEach(href => {
-    if (document.querySelector(`link[route-fragment][href="${href}"]`)) return;
+function routeTitleFromPageTitle(pageTitle) {
+  return pageTitle === 'MRSG' ? '' : pageTitle.replace(/^MRSG \| /, '');
+}
+
+function adoptRouteAssets(fetched) {
+  const promises = [];
+
+  for (const element of fetched.head.querySelectorAll('link[route-fragment]')) {
+    const href = element.getAttribute('href');
+
+    if (document.head.querySelector(`link[route-fragment][href="${href}"]`)) continue;
+
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = href;
     link.setAttribute('route-fragment', '');
     document.head.appendChild(link);
-  });
+  }
+
+  for (const element of fetched.head.querySelectorAll('script[route-fragment]')) {
+    const src = element.getAttribute('src');
+
+    if (document.head.querySelector(`script[route-fragment][src="${src}"]`)) continue;
+
+    promises.push(new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = src;
+      script.setAttribute('route-fragment', '');
+      script.onload = resolve;
+      script.onerror = () => {
+        console.warn('Failed to load route script:', src);
+        resolve();
+      };
+      document.head.appendChild(script);
+    }));
+  }
+
+  return Promise.all(promises);
 }
 
-function unloadPageScripts() {
+function adoptRouteScripts(fetched) {
+  for (const element of fetched.body.querySelectorAll('script[route-fragment]')) {
+    const script = document.createElement('script');
+    script.textContent = element.textContent;
+    script.setAttribute('route-fragment', '');
+    document.head.appendChild(script);
+  }
+}
+
+function unloadRouteAssets() {
   document.querySelectorAll('script[route-fragment], link[route-fragment]').forEach(element => element.remove());
 }
 
@@ -243,16 +264,6 @@ function showRouteTitle(title, hide) {
     routeTitleText.innerHTML = '';
     routeTitle.classList.remove('active');
   }
-}
-
-function setMeta(property, content) {
-  let tag = document.querySelector(`meta[property="${property}"]`);
-  if (!tag) {
-    tag = document.createElement('meta');
-    tag.setAttribute('property', property);
-    document.head.appendChild(tag);
-  }
-  tag.setAttribute('content', content);
 }
 
 function updateNav(segments) {
