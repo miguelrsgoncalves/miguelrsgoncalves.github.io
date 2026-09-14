@@ -6,7 +6,9 @@
 </route-data>
 
 <script>
-  projectBrowserInit(["startYear", "endYear", "status", "category", "tool", "tag"])
+  filterInit(["startYear", "endYear", "status", "category", "tool", "tag"])
+  projectManagerInit('/assets/registries/project-registry.json')
+  populateProjects('card-container')
 </script>
 
 <div class="page full">
@@ -18,7 +20,7 @@
         <p>Filter</p>
       </div>
       <div class="separator vertical semi thin"></div>
-      <div class="button left sub-button clickable" onclick="resetProjectFilter()"><p>Reset</p></div>
+      <div class="button left sub-button clickable" onclick="resetFilter()"><p>Reset</p></div>
 
       <div class="separator vertical"></div>
       <input name="search" class="search-bar right" type="search" placeholder="Search" oninput="handleProjectSearchInput(this.value)">
@@ -27,5 +29,5 @@
     <div id="project-filter" class="control-panel" data-panel-name="filter"></div>
   </div>
 
-  <div id="card-container" class="projects-grid"><<project-card project="*" variant="grid">><</project-card>></div>
+  <div id="card-container" class="projects-grid"></div>
 </div>
