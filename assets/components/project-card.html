@@ -1,7 +1,15 @@
 <template id="project-card">
     <div class="project-card clickable no-select">
         <a href="/projects/{{id}}" class="project-link"></a>
-        <img src="/assets/projects/{{id}}/images/thumbnail.png" alt="{{title}} Thumbnail" loading="lazy">
+        <img
+            src="/assets/projects/{{id}}/images/thumbnail.png"
+            alt="{{title}} Thumbnail"
+            loading="lazy"
+            onerror="
+                this.onerror=null;
+                this.src='/assets/images/image_not_found.png'
+            "
+        >
         <div class="project-metadata">
             <div class="title-container">
                 <div class="title h-scrollable">{{title}}</div>
