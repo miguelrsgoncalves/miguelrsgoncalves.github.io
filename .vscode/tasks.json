@@ -20,7 +20,7 @@
       "label": "Clear Build",
       "detail": "Clear build",
       "type": "shell",
-      "command": "python3 framework/builder.py clean",
+      "command": "python3 framework/builder.py clear",
       "presentation": {
         "reveal": "silent",
         "panel": "dedicated"
