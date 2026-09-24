@@ -1,5 +1,7 @@
 const path = require('node:path');
 
+module.exports = { ROOT, BUILDER_DIR, BUILD_DIR, MANIFEST_FILE, SHELL_FILE };
+
 const ROOT = path.resolve(BUILDER_DIR, '..');
 const BUILDER_DIR = __dirname;
 

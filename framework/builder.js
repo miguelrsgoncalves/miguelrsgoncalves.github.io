@@ -1,3 +1,5 @@
+const paths = require('./paths');
+
 var is_build = true
 
 if (process.argv[2] === 'clear') {
@@ -11,5 +13,8 @@ if (is_build) {
 }
 
 function build() {
-  return
+  if (!existsSync(paths.SHELL_FILE)) {
+    console.log(`ERROR: Shell file not found at ${SHELL}`);
+    return;
+  }
 }
