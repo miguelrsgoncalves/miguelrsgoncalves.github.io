@@ -1,4 +1,4 @@
-const { existsSync, readFileSync } = require('node:fs');
+const { readFileSync } = require('node:fs');
 
 const paths = require('./paths');
 
@@ -15,10 +15,18 @@ if (is_build) {
 }
 
 function build() {
-  const domain = `https://${readFileSync(paths.CNAME_FILE, 'utf-8').trim()}`;
-
-  if (!existsSync(paths.SHELL_FILE)) {
-    console.log(`ERROR: Shell file not found at ${paths.SHELL_FILE}`);
+  let cname;
+  try {
+    cname = readFileSync(paths.CNAME_FILE, 'utf-8');
+  } catch (err) {
+    console.log(`ERROR: CNAME unreadable (${err.code})`);
     return;
+  }
+
+  let shell;
+  try {
+    shell = readFileSync(paths.SHELL_FILE, 'utf-8');
+  } catch (err) {
+    console.log(`ERROR: Shell unreadable (${err.code})`);
   }
 }
