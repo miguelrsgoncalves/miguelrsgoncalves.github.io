@@ -11,7 +11,7 @@ if (process.argv[2] === 'clear') {
 if (is_build) {
   build()
 } else {
-  return
+  clear()
 }
 
 function build() {
@@ -29,4 +29,8 @@ function build() {
   } catch (err) {
     console.log(`ERROR: Shell unreadable (${err.code})`);
   }
+}
+
+function clear() {
+  return
 }
