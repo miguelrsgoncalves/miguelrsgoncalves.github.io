@@ -1,6 +1,5 @@
 const path = require('node:path');
 
-module.exports = { ROOT, BUILDER_DIR, BUILD_DIR, MANIFEST_FILE, CNAME_FILE, SHELL_FILE };
 
 const BUILDER_DIR = __dirname;
 const ROOT = path.resolve(BUILDER_DIR, '..');
@@ -28,3 +27,5 @@ const PAGES_DIR = path.join(ROOT, 'pages');
 const WIDGETS_DIR = path.join(ROOT, 'widgets')
 
 //#endregion
+
+module.exports = { ROOT, BUILDER_DIR, BUILD_DIR, MANIFEST_FILE, CNAME_FILE, SHELL_FILE };

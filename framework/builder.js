@@ -28,7 +28,10 @@ function build() {
     shell = readFileSync(paths.SHELL_FILE, 'utf-8');
   } catch (err) {
     console.log(`ERROR: Shell unreadable (${err.code})`);
+    return;
   }
+
+  console.log("Running up until here!")
 }
 
 function clear() {

@@ -5,7 +5,7 @@
       "label": "Build",
       "detail": "Run Builder",
       "type": "shell",
-      "command": "python3 framework/builder.py",
+      "command": "node framework/builder.js",
       "group": {
         "kind": "build",
         "isDefault": true
@@ -20,7 +20,7 @@
       "label": "Clear Build",
       "detail": "Clear build",
       "type": "shell",
-      "command": "python3 framework/builder.py clear",
+      "command": "node framework/builder.js clear",
       "presentation": {
         "reveal": "silent",
         "panel": "dedicated"
