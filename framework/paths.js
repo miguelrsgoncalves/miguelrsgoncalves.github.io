@@ -1,6 +1,5 @@
 const path = require('node:path');
 
-
 const BUILDER_DIR = __dirname;
 const ROOT = path.resolve(BUILDER_DIR, '..');
 
