@@ -1,6 +1,7 @@
 const { readFileSync } = require('node:fs');
 
 const paths = require('./paths');
+const scanner = require('./scanner');
 
 var is_build = true
 
@@ -31,7 +32,9 @@ function build() {
     return;
   }
 
-  console.log("Running up until here!")
+  const routes = scanner.scan_routes(paths.PAGES_DIR)
+
+  console.log(routes)
 }
 
 function clear() {
