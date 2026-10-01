@@ -27,4 +27,4 @@ const WIDGETS_DIR = path.join(ROOT, 'widgets')
 
 //#endregion
 
-module.exports = { ROOT, BUILDER_DIR, BUILD_DIR, MANIFEST_FILE, CNAME_FILE, SHELL_FILE };
+module.exports = { ROOT, BUILDER_DIR, BUILD_DIR, MANIFEST_FILE, CNAME_FILE, SHELL_FILE, PAGES_DIR, WIDGETS_DIR };
