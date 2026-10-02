@@ -17,7 +17,7 @@ const ROBOTS_FILE = path.join(ROOT, 'robots.txt');
 const SITEMAP_FILE = path.join(ROOT, 'sitemap.xml');
 
 const PAGES_DIR = path.join(ROOT, 'pages');
-const WIDGETS_DIR = path.join(ROOT, 'widgets')
+const WIDGETS_DIR = path.join(ROOT, 'widgets');
 
 //#endregion
 
@@ -25,8 +25,8 @@ const WIDGETS_DIR = path.join(ROOT, 'widgets')
 
 const SHELL_FILE = path.join(ROOT, 'index.html');
 
-const HOME_ROUTE = path.join(PAGES_DIR, 'home.html');
+const DEFAULT_ROUTE = 'home';
 
 //#endregion
 
-module.exports = { ROOT, FRAMEWORK, BUILD_DIR, MANIFEST_FILE, CNAME_FILE, ROBOTS_FILE, SITEMAP_FILE, PAGES_DIR, WIDGETS_DIR, SHELL_FILE, HOME_ROUTE };
+module.exports = { ROOT, FRAMEWORK, BUILD_DIR, MANIFEST_FILE, CNAME_FILE, ROBOTS_FILE, SITEMAP_FILE, PAGES_DIR, WIDGETS_DIR, SHELL_FILE, DEFAULT_ROUTE };
