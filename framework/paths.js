@@ -16,15 +16,17 @@ const CNAME_FILE = path.join(ROOT, 'CNAME');
 const ROBOTS_FILE = path.join(ROOT, 'robots.txt');
 const SITEMAP_FILE = path.join(ROOT, 'sitemap.xml');
 
+const PAGES_DIR = path.join(ROOT, 'pages');
+const WIDGETS_DIR = path.join(ROOT, 'widgets')
+
 //#endregion
 
 //#region website
 
 const SHELL_FILE = path.join(ROOT, 'index.html');
 
-const PAGES_DIR = path.join(ROOT, 'pages');
-const WIDGETS_DIR = path.join(ROOT, 'widgets')
+const HOME_ROUTE = path.join(PAGES_DIR, 'home.html');
 
 //#endregion
 
-module.exports = { ROOT, FRAMEWORK, BUILD_DIR, MANIFEST_FILE, CNAME_FILE, ROBOTS_FILE, SITEMAP_FILE, SHELL_FILE, PAGES_DIR, WIDGETS_DIR };
+module.exports = { ROOT, FRAMEWORK, BUILD_DIR, MANIFEST_FILE, CNAME_FILE, ROBOTS_FILE, SITEMAP_FILE, PAGES_DIR, WIDGETS_DIR, SHELL_FILE, HOME_ROUTE };
