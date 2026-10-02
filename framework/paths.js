@@ -1,11 +1,11 @@
 const path = require('node:path');
 
-const BUILDER_DIR = __dirname;
-const ROOT = path.resolve(BUILDER_DIR, '..');
+const FRAMEWORK = __dirname;
+const ROOT = path.resolve(FRAMEWORK, '..');
 
 //#region build
 
-const BUILD_DIR = path.join(BUILDER_DIR, '.build');
+const BUILD_DIR = path.join(FRAMEWORK, '.build');
 const MANIFEST_FILE = path.join(BUILD_DIR, '.build-manifest.json');
 
 //#endregion
@@ -27,4 +27,4 @@ const WIDGETS_DIR = path.join(ROOT, 'widgets')
 
 //#endregion
 
-module.exports = { ROOT, BUILDER_DIR, BUILD_DIR, MANIFEST_FILE, CNAME_FILE, ROBOTS_FILE, SITEMAP_FILE, SHELL_FILE, PAGES_DIR, WIDGETS_DIR };
+module.exports = { ROOT, FRAMEWORK, BUILD_DIR, MANIFEST_FILE, CNAME_FILE, ROBOTS_FILE, SITEMAP_FILE, SHELL_FILE, PAGES_DIR, WIDGETS_DIR };
