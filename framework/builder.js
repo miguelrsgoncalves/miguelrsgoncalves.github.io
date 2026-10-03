@@ -12,10 +12,12 @@ if (process.argv[2] === 'clear') {
 if (is_build) {
   build()
 } else {
-  clear()
+  clear_build()
 }
 
 function build() {
+  clear_build()
+
   let cname;
   try {
     cname = readFileSync(paths.CNAME_FILE, 'utf-8');
@@ -37,6 +39,6 @@ function build() {
   console.log(routes)
 }
 
-function clear() {
+function clear_build() {
   return
 }
