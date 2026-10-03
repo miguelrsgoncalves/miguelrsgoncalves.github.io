@@ -23,7 +23,7 @@ const WIDGETS_DIR = path.join(ROOT, 'widgets');
 
 //#region website
 
-const SHELL_FILE = path.join(ROOT, 'index.html');
+const SHELL_FILE = path.join(ROOT, 'shell.html');
 
 const DEFAULT_ROUTE = 'home';
 
