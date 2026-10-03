@@ -15,14 +15,16 @@ function scan_routes(dir) {
     return routes
         .filter(entry => entry.isFile() && entry.name.endsWith('.html'))
         .map(entry => {
-            let file = path.join(entry.parentPath, entry.name);
-            let extension = path.extname(file)
-            let file_relative = path.relative(dir, file)
-            let route = path.join(path.dirname(file_relative), path.basename(file_relative, extension))
+            let source = path.join(entry.parentPath, entry.name);
+            let extension = path.extname(source)
+            let source_relative = path.relative(dir, source)
+            let route = path.join(path.dirname(source_relative), path.basename(source_relative, extension))
 
-            file, extension, file_relative, route = handle_special_cases(file, extension, file_relative, route)
+            source, extension, source_relative, route = handle_special_cases(source, extension, source_relative, route)
 
-            return { route, file };
+            const output = path.join(route, 'index.html')
+
+            return { route, output, source };
         })
         .sort((a, b) => {
             const depth = a.route.split('/').length - b.route.split('/').length;
@@ -30,10 +32,10 @@ function scan_routes(dir) {
         });
 }
 
-function handle_special_cases(file, extension, file_relative, route) {
+function handle_special_cases(source, extension, source_relative, route) {
     if (route === paths.DEFAULT_ROUTE) route = ''
 
-    return file, extension, file_relative, route
+    return source, extension, source_relative, route
 }
 
 module.exports = { scan_routes };
