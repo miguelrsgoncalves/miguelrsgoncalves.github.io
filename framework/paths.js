@@ -19,14 +19,9 @@ const SITEMAP_FILE = path.join(ROOT, 'sitemap.xml');
 const PAGES_DIR = path.join(ROOT, 'pages');
 const WIDGETS_DIR = path.join(ROOT, 'widgets');
 
-//#endregion
-
-//#region website
-
 const SHELL_FILE = path.join(ROOT, 'shell.html');
-
-const DEFAULT_ROUTE = 'home';
+const ROOT_ROUTE_FILE = path.join(PAGES_DIR, 'index.html');
 
 //#endregion
 
-module.exports = { ROOT, FRAMEWORK, BUILD_DIR, MANIFEST_FILE, CNAME_FILE, ROBOTS_FILE, SITEMAP_FILE, PAGES_DIR, WIDGETS_DIR, SHELL_FILE, DEFAULT_ROUTE };
+module.exports = { ROOT, FRAMEWORK, BUILD_DIR, MANIFEST_FILE, CNAME_FILE, ROBOTS_FILE, SITEMAP_FILE, PAGES_DIR, WIDGETS_DIR, SHELL_FILE, ROOT_ROUTE_FILE };
