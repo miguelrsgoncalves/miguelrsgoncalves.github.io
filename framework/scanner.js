@@ -33,7 +33,7 @@ function scan_routes(dir) {
 }
 
 function handle_special_cases(source, extension, source_relative, route) {
-    if (route === paths.DEFAULT_ROUTE) route = ''
+    if (source === paths.ROOT_ROUTE_FILE) route = ''
 
     return source, extension, source_relative, route
 }
