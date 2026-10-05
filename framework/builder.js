@@ -11,6 +11,8 @@ const logger = require('./logger')
 
 //#region entry_point
 
+const start_time = performance.now()
+
 const args = process.argv.slice(2)
 
 if (args.includes('clear')) {
@@ -21,7 +23,7 @@ if (args.includes('clear')) {
   build()
 }
 
-logger.flush()
+logger.flush(start_time)
 
 //#endregion
 

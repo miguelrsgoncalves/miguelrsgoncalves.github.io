@@ -8,7 +8,7 @@ const is_verbose = args.includes('-v') || args.includes('--verbose')
 let log = {}
 let flushed = false
 
-function flush() {
+function flush(start) {
     if (!is_verbose) return
 
     if (flushed) return
@@ -25,7 +25,7 @@ function flush() {
         ...render(log),
         '\n',
         bar,
-        style.success('✔ Build successful'),
+        style.success('✔ Build successful') + '\tDuration: ' + duration(start),
         '\n',
     ]
 
@@ -93,6 +93,19 @@ function render(node, prefix = '') {
     })
 
     return output
+}
+
+//#endregion
+
+//#region duration
+
+const UNITS = [['h', 36e11], ['m', 6e10], ['s', 1e9], ['ms', 1e6], ['µs', 1e3], ['ns', 1]]
+
+function duration(start_time) {
+    const ns = Math.round((performance.now() - (start_time)) * 1e6)
+    const [unit, scale] = UNITS.find(([, scale]) => ns >= scale) ?? UNITS.at(-1)
+
+    return style.number((ns / scale).toFixed(3)) + style.guide(' ' + unit)
 }
 
 //#endregion
