@@ -1,7 +1,7 @@
-const { readFileSync } = require('node:fs');
+const { readFileSync } = require('node:fs')
 
-const paths = require('./paths');
-const scanner = require('./scanner');
+const paths = require('./paths')
+const scanner = require('./scanner')
 
 var is_build = true
 
@@ -18,20 +18,20 @@ if (is_build) {
 function build() {
   clear_build()
 
-  let cname;
+  let cname
   try {
-    cname = readFileSync(paths.CNAME_FILE, 'utf-8');
+    cname = readFileSync(paths.CNAME_FILE, 'utf-8')
   } catch (err) {
-    console.log(`ERROR: CNAME unreadable (${err.code})`);
-    return;
+    console.log(`ERROR: CNAME unreadable (${err.code})`)
+    return
   }
 
-  let shell;
+  let shell
   try {
-    shell = readFileSync(paths.SHELL_FILE, 'utf-8');
+    shell = readFileSync(paths.SHELL_FILE, 'utf-8')
   } catch (err) {
-    console.log(`ERROR: Shell unreadable (${err.code})`);
-    return;
+    console.log(`ERROR: Shell unreadable (${err.code})`)
+    return
   }
 
   const routes = scanner.scan_routes(paths.PAGES_DIR)
