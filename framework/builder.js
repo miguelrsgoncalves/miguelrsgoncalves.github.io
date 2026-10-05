@@ -2,6 +2,7 @@ const { readFileSync } = require('node:fs')
 
 const paths = require('./paths')
 const scanner = require('./scanner')
+const generator = require('./generator')
 
 var is_build = true
 
@@ -34,7 +35,7 @@ function build() {
     return
   }
 
-  const routes = scanner.scan_routes(paths.PAGES_DIR)
+  const routes = scanner.routes(paths.PAGES_DIR)
 
   console.log(routes)
 }

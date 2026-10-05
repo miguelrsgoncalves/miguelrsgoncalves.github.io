@@ -3,7 +3,7 @@ const path = require('node:path')
 
 const paths = require('./paths')
 
-function scan_routes(dir) {
+function routes(dir) {
     let routes
     try {
         routes = fs.readdirSync(dir, { recursive: true, withFileTypes: true })
@@ -38,4 +38,4 @@ function handle_special_cases(source, extension, source_relative, route) {
     return source, extension, source_relative, route
 }
 
-module.exports = { scan_routes }
+module.exports = { routes }
