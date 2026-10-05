@@ -8,15 +8,7 @@ const paths = require('./paths')
 //#endregion
 
 function routes(dir) {
-    let routes
-    try {
-        routes = fs.readdirSync(dir, { recursive: true, withFileTypes: true })
-    } catch (err) {
-        console.log(`ERROR: Cannot scan ${dir} (${err.code})`)
-    return [];
-    }
-
-    return routes
+    return fs.readdirSync(dir, { recursive: true, withFileTypes: true })
         .filter(entry => entry.isFile() && entry.name.endsWith('.html'))
         .map(entry => {
             let source = path.join(entry.parentPath, entry.name)
