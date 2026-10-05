@@ -14,10 +14,10 @@ const logger = require('./logger')
 const args = process.argv.slice(2)
 
 if (args.includes('clear')) {
-  logger.add('Mode', 'Clear Build')
+  logger.add(['Mode'], 'Clear Build')
   clear_build()
 } else {
-  logger.add('Mode', 'Build')
+  logger.add(['Mode'], 'Build')
   build()
 }
 
@@ -31,13 +31,14 @@ function build() {
   clear_build()
 
   const cname = fs.readFileSync(paths.CNAME_FILE, 'utf-8')
-  logger.add('CNAME', cname)
+  logger.add(['Files', 'CNAME'], cname)
 
   const shell = fs.readFileSync(paths.SHELL_FILE, 'utf-8')
-  logger.add('Shell', shell != null ? 'Success' : 'Failed')
+  logger.add(['Files', 'Shell'], shell != null ? 'Success' : 'Failed' )
 
   const routes = scanner.routes(paths.PAGES_DIR)
-  logger.add('routes', routes)
+  logger.add(['Routes'], routes)
+
 }
 
 //#endregion
