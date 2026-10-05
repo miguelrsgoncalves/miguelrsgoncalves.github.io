@@ -1,8 +1,12 @@
+//#region imports
+
 const { readFileSync } = require('node:fs')
 
 const paths = require('./paths')
 const scanner = require('./scanner')
 const generator = require('./generator')
+
+//#endregion
 
 var is_build = true
 

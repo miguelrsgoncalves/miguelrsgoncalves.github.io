@@ -1,7 +1,11 @@
+//#region imports
+
 const fs = require('node:fs')
 const path = require('node:path')
 
 const paths = require('./paths')
+
+//#endregion
 
 function routes(dir) {
     let routes

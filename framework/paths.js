@@ -1,4 +1,8 @@
+//#region imports
+
 const path = require('node:path')
+
+//#endregion
 
 const FRAMEWORK = __dirname
 const ROOT = path.resolve(FRAMEWORK, '..')
