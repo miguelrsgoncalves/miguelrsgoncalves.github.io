@@ -11,7 +11,19 @@
         "isDefault": true
       },
       "presentation": {
-        "reveal": "silent",
+        "reveal": "never",
+        "panel": "dedicated",
+        "close": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Build (Verbose)",
+      "detail": "Run Builder with the full report",
+      "type": "shell",
+      "command": "node framework/builder.js --verbose",
+      "presentation": {
+        "reveal": "always",
         "panel": "dedicated"
       },
       "problemMatcher": []
@@ -22,7 +34,19 @@
       "type": "shell",
       "command": "node framework/builder.js clear",
       "presentation": {
-        "reveal": "silent",
+        "reveal": "never",
+        "panel": "dedicated",
+        "close": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Clear Build (Verbose)",
+      "detail": "Clear build with the full report",
+      "type": "shell",
+      "command": "node framework/builder.js clear --verbose",
+      "presentation": {
+        "reveal": "always",
         "panel": "dedicated"
       },
       "problemMatcher": []
