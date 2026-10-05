@@ -9,6 +9,7 @@ const generator = require('./generator')
 //#endregion
 
 var is_build = true
+//#region entry_point
 
 if (process.argv[2] === 'clear') {
   is_build = false
@@ -19,6 +20,11 @@ if (is_build) {
 } else {
   clear_build()
 }
+
+
+//#endregion
+
+//#region build
 
 function build() {
   clear_build()
@@ -44,6 +50,12 @@ function build() {
   console.log(routes)
 }
 
+//#endregion
+
+//#region clear_build
+
 function clear_build() {
   return
 }
+
+//#endregion
