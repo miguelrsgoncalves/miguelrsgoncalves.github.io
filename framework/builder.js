@@ -1,26 +1,27 @@
 //#region imports
 
-const { readFileSync } = require('node:fs')
+const fs = require('node:fs')
 
 const paths = require('./paths')
 const scanner = require('./scanner')
 const generator = require('./generator')
+const logger = require('./logger')
 
 //#endregion
 
-var is_build = true
 //#region entry_point
 
-if (process.argv[2] === 'clear') {
-  is_build = false
-}
+const args = process.argv.slice(2)
 
-if (is_build) {
-  build()
-} else {
+if (args.includes('clear')) {
+  logger.add('Mode', 'Clear Build')
   clear_build()
+} else {
+  logger.add('Mode', 'Build')
+  build()
 }
 
+logger.flush()
 
 //#endregion
 
@@ -29,25 +30,14 @@ if (is_build) {
 function build() {
   clear_build()
 
-  let cname
-  try {
-    cname = readFileSync(paths.CNAME_FILE, 'utf-8')
-  } catch (err) {
-    console.log(`ERROR: CNAME unreadable (${err.code})`)
-    return
-  }
+  const cname = fs.readFileSync(paths.CNAME_FILE, 'utf-8')
+  logger.add('CNAME', cname)
 
-  let shell
-  try {
-    shell = readFileSync(paths.SHELL_FILE, 'utf-8')
-  } catch (err) {
-    console.log(`ERROR: Shell unreadable (${err.code})`)
-    return
-  }
+  const shell = fs.readFileSync(paths.SHELL_FILE, 'utf-8')
+  logger.add('Shell', shell != null ? 'Success' : 'Failed')
 
   const routes = scanner.routes(paths.PAGES_DIR)
-
-  console.log(routes)
+  logger.add('routes', routes)
 }
 
 //#endregion
