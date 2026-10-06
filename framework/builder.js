@@ -42,6 +42,9 @@ function build() {
   const routes = scanner.routes(paths.PAGES_DIR)
   logger.add(['Routes'], routes)
 
+  routes.forEach((route) => {
+    parser.route(route)
+  })
 }
 
 //#endregion
