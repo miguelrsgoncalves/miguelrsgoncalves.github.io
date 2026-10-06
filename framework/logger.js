@@ -41,6 +41,7 @@ function add(path, value, override = false) {
     if (override || !(last in parent)) {
         parent[last] = value
     } else {
+        if (!Array.isArray(parent[last])) parent[last] = [parent[last]]
         parent[last].push(...[].concat(value))
     }
 }
