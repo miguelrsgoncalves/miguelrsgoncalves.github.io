@@ -4,6 +4,7 @@ const fs = require('node:fs')
 
 const paths = require('./paths')
 const scanner = require('./scanner')
+const parser = require('./parser')
 const generator = require('./generator')
 const logger = require('./logger')
 
