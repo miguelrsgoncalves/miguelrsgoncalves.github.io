@@ -37,14 +37,19 @@ function build() {
   logger.add(['Files', 'CNAME'], cname)
 
   const shell = fs.readFileSync(paths.SHELL_FILE, 'utf-8')
-  logger.add(['Files', 'Shell'], shell != null ? 'Success' : 'Failed' )
+  logger.add(['Files', 'Shell'], shell != null ? 'Success' : 'Failed')
 
   const routes = scanner.routes(paths.PAGES_DIR)
-  logger.add(['Routes'], routes)
 
-  routes.forEach((route) => {
-    parser.route(route)
-  })
+  for (const route of routes) {
+    logger.add(
+      ['Routes', route.route],
+      {
+        output: route.output,
+        source: route.source
+      }
+    )
+  }
 }
 
 //#endregion
