@@ -14,9 +14,9 @@ function routes(dir) {
             let source = path.join(entry.parentPath, entry.name)
             let extension = path.extname(source)
             let source_relative = path.relative(dir, source)
-            let route = path.join(path.dirname(source_relative), path.basename(source_relative, extension))
+            let route = path.join(path.dirname(source_relative), path.basename(source_relative, extension));
 
-            source, extension, source_relative, route = handle_special_cases(source, extension, source_relative, route)
+            ({ source, extension, source_relative, route } = handle_special_cases(source, extension, source_relative, route))
 
             const output = path.join(route, 'index.html')
 
@@ -31,7 +31,7 @@ function routes(dir) {
 function handle_special_cases(source, extension, source_relative, route) {
     if (source === paths.ROOT_ROUTE_FILE) route = ''
 
-    return source, extension, source_relative, route
+    return { source, extension, source_relative, route }
 }
 
 module.exports = { routes }
