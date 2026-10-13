@@ -1,3 +1,10 @@
+var redirect = null;
+try { redirect = sessionStorage.getItem('redirect'); } catch (e) {}
+if (redirect) {
+  try { sessionStorage.removeItem('redirect'); } catch (e) {}
+  history.replaceState(null, '', redirect);
+}
+
 var path = window.location.pathname.replace(/^\/|\/$/g, '');
 var route = (path && path !== 'index.html') ? path : DEFAULT_ROUTE;
 history.replaceState({ route: route }, '', '/' + route);
