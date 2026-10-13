@@ -34,11 +34,8 @@ async function navigate(route, isPopstate) {
   if (!hydrated && isPopstate && mainContent.children.length > 0) {
     hydrated = true;
     currentRoute = route;
-    const data = mainContent.querySelector('route-data');
-    showRouteTitle(
-      data ? data.dataset.title : null,
-      data ? data.hasAttribute('data-hide-route-title') : false
-    );
+    const meta = readRouteMeta(mainContent);
+    showRouteTitle(meta.title, meta.hideTitle);
     updateNav(segments);
     requestAnimationFrame(initScrollables);
     return;
@@ -75,7 +72,7 @@ async function navigate(route, isPopstate) {
     exitDone = Promise.resolve();
   }
 
-  const filePath = segments.length === 1 ? `${ROOT_ROUTE}tabs/${route}` : ROOT_ROUTE + route;
+  const filePath = ROOT_ROUTE + route;
 
   spinnerTimer = setTimeout(showSpinner, SPINNER_DELAY);
 
@@ -113,12 +110,12 @@ function render(route, segments, html, isPopstate) {
 
   const fragment = document.createRange().createContextualFragment(html);
 
-  const meta = fragment.querySelector('route-data');
-  const title = meta ? meta.dataset.title : null;
-  const description = meta ? (meta.dataset.description || '') : '';
-  const hide = meta ? meta.hasAttribute('data-hide-route-title') : false;
-  const fileScripts = parseList(meta ? meta.dataset.js : '');
-  const fileStyles = parseList(meta ? meta.dataset.css : '');
+  const meta = readRouteMeta(fragment);
+  const title = meta.title;
+  const description = meta.description;
+  const hideTitle = meta.hideTitle;
+  const fileScripts = meta.scripts;
+  const fileStyles = meta.styles;
 
   const inlineScripts = [];
   fragment.querySelectorAll('script').forEach(script => {
@@ -127,10 +124,10 @@ function render(route, segments, html, isPopstate) {
     script.remove();
   });
 
-  const route_data = fragment.querySelector('route-data');
-  if (route_data) route_data.remove();
+  const routeBlock = fragment.querySelector('route');
+  if (routeBlock) routeBlock.replaceWith(...[...routeBlock.childNodes]);
 
-  showRouteTitle(title, hide);
+  showRouteTitle(title, hideTitle);
   document.title = title ? `MRSG | ${title}` : 'MRSG';
 
   const descEl = document.querySelector('meta[name="description"]');
@@ -178,6 +175,20 @@ function render(route, segments, html, isPopstate) {
 function parseList(raw) {
   if (!raw) return [];
   try { return JSON.parse(raw); } catch (e) { return []; }
+}
+
+function readRouteMeta(scope) {
+  const node = scope.querySelector('route');
+
+  if (!node) return { title: null, description: '', hideTitle: false, scripts: [], styles: [] };
+
+  return {
+    title: node.getAttribute('title'),
+    description: node.getAttribute('description') ?? '',
+    hideTitle: node.hasAttribute('hide-title'),
+    scripts: parseList(node.getAttribute('scripts') ?? ''),
+    styles: parseList(node.getAttribute('styles') ?? ''),
+  };
 }
 
 function loadPageScripts(paths) {
