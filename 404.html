@@ -35,5 +35,16 @@
 			<div class="spacer vertical"></div>
 			<a href="/" class="home-button">Back home</a>
 		</div>
+
+		<script>
+			(function () {
+				var path = window.location.pathname + window.location.search;
+
+				if (/\.[a-z0-9]+$/i.test(window.location.pathname)) return;
+
+				try { sessionStorage.setItem('redirect', path); } catch (e) {}
+				window.location.replace('/');
+			})();
+		</script>
 	</body>
 </html>
