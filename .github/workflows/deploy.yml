@@ -24,8 +24,8 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Run Builder
-        run: node framework/builder.js
+      #- name: Run Builder
+      #  run: node framework/builder.js
 
       - name: Strip clutter
         run: |
