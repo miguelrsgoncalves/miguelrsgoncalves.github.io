@@ -24,12 +24,12 @@ const SPINNER_DELAY = 500;
 async function navigate(route, isPopstate) {
   if (!route) { navigate(DEFAULT_ROUTE, isPopstate); return; }
 
-  const segments = route.split('/').filter(Boolean);
-
   if (!isPopstate && route === currentRoute) {
     scrollToTheTop();
     return;
   }
+  
+  const segments = route.split('/').filter(Boolean);
 
   if (!hydrated && isPopstate && mainContent.children.length > 0) {
     hydrated = true;
