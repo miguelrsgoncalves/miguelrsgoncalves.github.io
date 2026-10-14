@@ -11,12 +11,6 @@ const DEFAULT_ROUTE = 'projects';
 let currentRoute = null;
 let hydrated = false;
 
-let navId = 0;
-
-let loadingSpinnerElement = null;
-let spinnerTimer = null;
-const SPINNER_DELAY = 500;
-
 //#endregion
 
 //#region navigate
@@ -43,38 +37,7 @@ async function navigate(route, isPopstate) {
 
   hydrated = true;
 
-  const id = ++navId;
-
-  const currentPages = mainContent.querySelectorAll('.page');
-  let exitDone;
-
-  if (currentPages.length > 0) {
-    currentPages.forEach(page => {
-      page.classList.remove('exiting');
-      void page.offsetWidth;
-      page.classList.add('exiting');
-    });
-
-    exitDone = new Promise(resolve => {
-      let remaining = currentPages.length;
-      const fallback = setTimeout(resolve, 250);
-      currentPages.forEach(page => {
-        page.addEventListener('animationend', function handler() {
-          page.removeEventListener('animationend', handler);
-          if (--remaining === 0) {
-            clearTimeout(fallback);
-            resolve();
-          }
-        }, { once: true });
-      });
-    });
-  } else {
-    exitDone = Promise.resolve();
-  }
-
   const filePath = ROOT_ROUTE + route;
-
-  spinnerTimer = setTimeout(showSpinner, SPINNER_DELAY);
 
   let html;
   try {
@@ -82,21 +45,11 @@ async function navigate(route, isPopstate) {
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     html = await response.text();
     if (html.includes('<!DOCTYPE html>')) throw new Error('Page not found');
-
   } catch (err) {
-    hideSpinner();
-    mainContent.querySelectorAll('.page.exiting').forEach(p => p.classList.remove('exiting'));
     console.error('Failed to load:', filePath, err);
     if (route !== DEFAULT_ROUTE) navigate(DEFAULT_ROUTE);
     return;
   }
-
-  if (id !== navId) { hideSpinner(); return; }
-
-  hideSpinner();
-
-  await exitDone;
-  if (id !== navId) return;
 
   render(route, segments, html, isPopstate);
 }
@@ -107,6 +60,8 @@ async function navigate(route, isPopstate) {
 
 function render(route, segments, html, isPopstate) {
   currentRoute = route;
+
+  mainContent.replaceChildren('');
 
   const fragment = document.createRange().createContextualFragment(html);
 
