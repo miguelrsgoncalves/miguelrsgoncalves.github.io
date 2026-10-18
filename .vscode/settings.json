@@ -41,5 +41,6 @@
         "xsmall",
         "xxlarge"
     ],
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "liveServer.settings.file": "404.html"
 }
