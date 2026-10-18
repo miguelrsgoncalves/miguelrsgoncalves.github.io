@@ -1,11 +1,32 @@
 <route
 	title="Chat95"
 	description="You are ChatGPT. Talk with a set of weird costumers and take care of their crazy ordeals!"
+	scripts='["/scripts/embedded-projects.js", "/scripts/components.js"]'
 ></route>
 
 <div class="page narrow">
 
-    <img src="/assets/projects/chat95/images/thumbnail.png" alt="Chat95 Thumbnail." loading="lazy">
+  <div class="embedded-project">
+    <div id="loading-screen" class="loading-screen"><div class="spinner"></div></div>
+    <div id="embedded-project-frame" class="frame"></div>
+  </div>
+
+  <div class="control-bar">
+    <div class="button left clickable" onclick="loadEmbeddedProject('embedded-project-frame', '/assets/projects/chat95/builds/web/chat95-embedded.html', 'loading-screen')">
+      <icon data-icon-name="play"></icon>
+      <p>Start</p>
+    </div>
+    <div class="separator vertical"></div>
+    <a id="start-button" class="button middle clickable" href="/assets/projects/chat95/builds/web/chat_95_web.html" target="_blank">
+      <icon data-icon-name="fullscreen"></icon>
+      <p>Fullscreen</p>
+    </a>
+    <div class="separator vertical"></div>
+    <div class="button right clickable" onclick="restartEmbeddedProject('embedded-project-frame', '/assets/projects/chat95/builds/web/chat95-embedded.html', 'loading-screen')">
+      <p>Restart</p>
+      <icon data-icon-name="refresh-ccw"></icon>
+    </div>
+  </div>
 
     <div class="control-group embedded">
     <div class="control-bar embedded">
