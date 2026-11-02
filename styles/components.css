@@ -722,18 +722,19 @@
   .entry, .entry-info {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem
+    gap: 0.25rem;
+
+    .name {
+      color: var(--font-color-normal);
+      font-weight: var(--font-weight-bold);
+    }
+  
+    .role, .licence {
+      color: var(--font-color-muted);
+      font-weight: var(--font-weight-bold);
+    }
   }
 
-  .name {
-    color: var(--font-color-normal);
-    font-weight: var(--font-weight-bold);
-  }
-
-  .role, .licence {
-    color: var(--font-color-muted);
-    font-weight: var(--font-weight-bold);
-  }
 }
 
 /*#endregion*/
