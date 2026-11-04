@@ -1,310 +1,308 @@
 <route
-	title="Chat95"
-	description="You are ChatGPT. Talk with a set of weird users and take care of their crazy ordeals!"
-	scripts='["/scripts/embedded-projects.js", "/scripts/components.js"]'
+    title="Chat95"
+    description="You are ChatGPT. Talk with a set of weird users and take care of their crazy ordeals!"
+    scripts='["/scripts/embedded-projects.js", "/scripts/components.js"]'
 ></route>
 
 <div class="page narrow">
-
-  <div class="embedded-project">
-    <div id="loading-screen" class="loading-screen"><div class="spinner"></div></div>
-    <div id="embedded-project-frame" class="embed"></div>
-    <img class="thumbnail" src="/assets/projects/chat-95/images/thumbnail.png" alt="Chat95 Thumbnail." loading="lazy">
-    <div class="frame"></div>
-  </div>
-
-  <div class="control-bar">
-    <div class="button left clickable" onclick="loadEmbeddedProject('embedded-project-frame', '/assets/projects/chat-95/builds/web/chat-95-embedded.html', 'loading-screen')">
-      <icon data-icon-name="play"></icon>
-      <p>Start</p>
-    </div>
-    <div class="separator vertical"></div>
-    <a id="start-button" class="button middle clickable" href="/assets/projects/chat-95/builds/web/chat_95_web.html" target="_blank">
-      <icon data-icon-name="fullscreen"></icon>
-      <p>Fullscreen</p>
-    </a>
-    <div class="separator vertical"></div>
-    <div class="button right clickable" onclick="restartEmbeddedProject('embedded-project-frame', '/assets/projects/chat-95/builds/web/chat-95-embedded.html', 'loading-screen')">
-      <p>Restart</p>
-      <icon data-icon-name="refresh-ccw"></icon>
-    </div>
-  </div>
-
-  <div class="control-group embedded">
-    <div class="control-bar embedded">
-      <div class="button left clickable" onclick="toggleControlPanel(this, 'controls')">
-        <icon data-icon-name="gamepad-2"></icon>
-        <p>Controls</p>
-      </div>
-      
-      <div class="separator vertical"></div>
-      
-      <div class="button middle clickable" onclick="toggleControlPanel(this, 'how-to-play')">
-        <icon data-icon-name="info"></icon>
-        <p>How to Play</p>
-      </div>
-
-      <div class="separator vertical"></div>
-      
-      <div class="button right clickable" onclick="toggleControlPanel(this, 'download')">
-        <p>Download</p>
-        <icon data-icon-name="download"></icon>
-      </div>
+    <div class="embedded-project">
+        <div id="loading-screen" class="loading-screen"><div class="spinner"></div></div>
+        <div id="embedded-project-frame" class="embed"></div>
+        <img class="thumbnail" src="/assets/projects/chat-95/images/thumbnail.png" alt="Chat95 Thumbnail." loading="lazy">
+        <div class="frame"></div>
     </div>
 
-    <div class="control-panel embedded" data-panel-name="controls">
-      <div class="game-controls">
-        <div class="title">Interact</div>
-        <div class="group">
-          <div class="entry">
-            <div class="name">Activate</div>
-            <div class="control">Left Mouse Click</div>
-          </div>
+    <div class="control-bar">
+        <div class="button left clickable" onclick="loadEmbeddedProject('embedded-project-frame', '/assets/projects/chat-95/builds/web/chat-95-embedded.html', 'loading-screen')">
+            <icon data-icon-name="play"></icon>
+            <p>Start</p>
         </div>
-        <div class="group">
-          <div class="entry">
-            <div class="name">Drag</div>
-            <div class="control">Left Mouse Click and Drag</div>
-          </div>
+        <div class="separator vertical"></div>
+        <a id="start-button" class="button middle clickable" href="/assets/projects/chat-95/builds/web/chat_95_web.html" target="_blank">
+            <icon data-icon-name="fullscreen"></icon>
+            <p>Fullscreen</p>
+        </a>
+        <div class="separator vertical"></div>
+        <div class="button right clickable" onclick="restartEmbeddedProject('embedded-project-frame', '/assets/projects/chat-95/builds/web/chat-95-embedded.html', 'loading-screen')">
+            <p>Restart</p>
+            <icon data-icon-name="refresh-ccw"></icon>
         </div>
-      </div>
     </div>
 
-    <div class="control-panel embedded" data-panel-name="how-to-play">
-      <div class="how-to-play">
-        <p>
-          You play as Chat95, the new and classy LLM, where you will need to closely read and observe all of the confusing user's requests and do you best to fullfil them.
-        </p>
-        <p>
-          Use your trusty mouse to progress the conversation and drag your complex data and objects onto the conversation to complete your day of work.
-        </p>
-        <p>
-          You will always have Mr. Totally Not Clippy to aid you whenever you have any difficulties, who you can ask for help with just a press.
-        </p>
-      </div>
+    <div class="control-group embedded">
+        <div class="control-bar embedded">
+            <div class="button left clickable" onclick="toggleControlPanel(this, 'controls')">
+                <icon data-icon-name="gamepad-2"></icon>
+                <p>Controls</p>
+            </div>
+            
+            <div class="separator vertical"></div>
+            
+            <div class="button middle clickable" onclick="toggleControlPanel(this, 'how-to-play')">
+                <icon data-icon-name="info"></icon>
+                <p>How to Play</p>
+            </div>
+
+            <div class="separator vertical"></div>
+            
+            <div class="button right clickable" onclick="toggleControlPanel(this, 'download')">
+                <p>Download</p>
+                <icon data-icon-name="download"></icon>
+            </div>
+        </div>
+
+        <div class="control-panel embedded" data-panel-name="controls">
+            <div class="game-controls">
+                <div class="title">Interact</div>
+                <div class="group">
+                <div class="entry">
+                    <div class="name">Activate</div>
+                    <div class="control">Left Mouse Click</div>
+                </div>
+                </div>
+                <div class="group">
+                <div class="entry">
+                    <div class="name">Drag</div>
+                    <div class="control">Left Mouse Click and Drag</div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-panel embedded" data-panel-name="how-to-play">
+            <div class="how-to-play">
+                <p>
+                You play as Chat95, the new and classy LLM, where you will need to closely read and observe all of the confusing user's requests and do you best to fullfil them.
+                </p>
+                <p>
+                Use your trusty mouse to progress the conversation and drag your complex data and objects onto the conversation to complete your day of work.
+                </p>
+                <p>
+                You will always have Mr. Totally Not Clippy to aid you whenever you have any difficulties, who you can ask for help with just a press.
+                </p>
+            </div>
+        </div>
+
+        <div class="control-panel embedded" data-panel-name="download">
+            <div class="download-options">
+                <div class="download-group">
+                    <div class="header">
+                        <icon data-icon-name="globe"></icon>
+                        <span>External Links</span>
+                    </div>
+                    <div class="items">
+                        <a class="download-option" href="https://kyleagius.itch.io/chat-95" target="_blank" rel="noopener">
+                            <icon data-icon-name="brands/itchdotio"></icon>
+                            <div class="info">
+                                <div class="title">Itch.io</div>
+                            </div>
+                            <icon class="action-icon" data-icon-name="external-link"></icon>
+                        </a>
+                    </div>
+                </div>
+                <div class="download-group">
+                    <div class="header">
+                        <icon data-icon-name="download"></icon>
+                        <span>Downloads</span>
+                    </div>
+                    <div class="items">
+                        <a class="download-option" href="/assets/projects/chat-95/builds/linux/chat_95_linux.zip" download>
+                            <icon data-icon-name="brands/linux"></icon>
+                            <div class="info">
+                                <div class="title">Linux</div>
+                                <div class="subtitle">
+                                    <span>ZIP archive</span>
+                                    <div class="separator vertical thin semi"></div>
+                                    <span>50 MB</span>
+                                </div>
+                            </div>
+                            <icon class="action-icon" data-icon-name="download"></icon>
+                        </a>
+                    </div>
+                    <div class="items">
+                        <a class="download-option" href="/assets/projects/chat-95/builds/windows/chat_95_windows.zip" download>
+                            <icon data-icon-name="monitor"></icon>
+                            <div class="info">
+                                <div class="title">Windows</div>
+                                <div class="subtitle">
+                                    <span>ZIP archive</span>
+                                    <div class="separator vertical thin semi"></div>
+                                    <span>58 MB</span>
+                                </div>
+                            </div>
+                            <icon class="action-icon" data-icon-name="download"></icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="control-panel embedded" data-panel-name="download">
-      <div class="download-options">
-          <div class="download-group">
-              <div class="header">
-                  <icon data-icon-name="globe"></icon>
-                  <span>External Links</span>
-              </div>
-              <div class="items">
-                  <a class="download-option" href="https://kyleagius.itch.io/chat-95" target="_blank" rel="noopener">
-                      <icon data-icon-name="brands/itchdotio"></icon>
-                      <div class="info">
-                          <div class="title">Itch.io</div>
-                      </div>
-                      <icon class="action-icon" data-icon-name="external-link"></icon>
-                  </a>
-              </div>
-          </div>
-          <div class="download-group">
-              <div class="header">
-                  <icon data-icon-name="download"></icon>
-                  <span>Downloads</span>
-              </div>
-              <div class="items">
-                  <a class="download-option" href="/assets/projects/chat-95/builds/linux/chat_95_linux.zip" download>
-                      <icon data-icon-name="brands/linux"></icon>
-                      <div class="info">
-                          <div class="title">Linux</div>
-                          <div class="subtitle">
-                              <span>ZIP archive</span>
-                              <div class="separator vertical thin semi"></div>
-                              <span>50 MB</span>
-                          </div>
-                      </div>
-                      <icon class="action-icon" data-icon-name="download"></icon>
-                  </a>
-              </div>
-              <div class="items">
-                  <a class="download-option" href="/assets/projects/chat-95/builds/windows/chat_95_windows.zip" download>
-                      <icon data-icon-name="monitor"></icon>
-                      <div class="info">
-                          <div class="title">Windows</div>
-                          <div class="subtitle">
-                              <span>ZIP archive</span>
-                              <div class="separator vertical thin semi"></div>
-                              <span>58 MB</span>
-                          </div>
-                      </div>
-                      <icon class="action-icon" data-icon-name="download"></icon>
-                  </a>
-              </div>
-          </div>
-      </div>
-    </div>
-  </div>
-
-  <h1>Chat95</h1>
-  
-  <div class="text-wrap-image reverse">
-    <div class="text">
-      <p>
-        Chat95 was made as part of a game jam, during my stay in Gothenburg, with the theme <i>"Parody"</i>, which gave my team the idea to make a parody of LLMs (Loyal Literate Monkey) set in the 90s. But instead of you using an LLM, you are one instead.
-      </p>
-      <p>
-        In this universe, which is pretty much like any other universe, your users come in various levels of weird and with unusual requests. You must do your best, and your best needs to be the best.
-      </p>
-    </div>
-    <img src="/assets/projects/chat-95/images/environment.png" alt="Chat95 Desk." loading="lazy">
-  </div>
-  
-  <p>
-    Like in a lot of other jams, since I'm the sole member with knowledge in Sound Design, I once again got assigned to this part of the game. We were not really aiming for perfection, far from it, but I was what we had.
-  </p>
-  
-  <h2>Sound Design</h2>
-  
-  <p>
-    For a parody of a chill work session set in the 90s, it had to have a cozy, homy feeling. So all sounds had to fit in together, easily flowing with each other.
-  </p>
-
-  <div class="text-wrap-image">
-    <div class="text">
-      <p>
-        For an old PC, it had to have aggressive and effortful fans whenever it was loading something. So I found the worst possible sounding PC fans sample and mixed them into an audible asset. This would play at the boot time and whenever the PC loads the next user, giving the player the 90s grandma computer experience.
-      </p>
-      <p>
-        The keyboard had to feel weighty but not annoying, so I found an audio of someone spit-firing an old keyboard, spliced individual key presses and mixed the audio for a more suppressed effect.
-      </p>
-      <p>
-        The same philosophy was applied to other SFX, like the file pickup and drop, where I would use office sounds, such as picking up a paper, and mix them into a OS sound cue.
-      </p>
-    </div>
-    <img src="/assets/projects/chat-95/images/zodiac_signs.png" alt="Zodiac Signs screen." loading="lazy">
-  </div>
-
-  Overall, I think the Sound Design came out pretty nice and put together. It is hear catching enough, while having a somewhat Lo-Fi vibe to it and living up to the 90s aesthetic.
-  
-  <h2>Music</h2>
-
-  <p>
-    With the Lo-Fi vibe picked for the game since the very start, Lo-Fi for the music was the only correct choice. It's also one of my favorite genre of music, being a big fan of <i>Nujabes</i> and <i>Marcus D</i>.
-  </p>
-  <p>
-    An important detail to know is that, even though I went into this game jam with strong determination, I might have had somewhat of a <i>distraction</i> during the event, which led me to not have that much time nor focus during the making of the game. This would impact the effort I put onto the creation of the music.
-  </p>
-  <p>
-    One thing I always liked about Lo-Fi is that you can really do anything, as long as the vibe keeps vibing. No words, theme or sounds are out of place if you bring them on the right beat. So I challenged myself with starting the music with the weirdest sound cue or most random idea I could find.
-  </p>
-  
-  <div class="text-wrap-image reverse">
-    <div class="text">
-      <p>
-        That's when I found the <i>"Jello is the most versatile dish in the world"</i> sample. One of the most random things I have ever heard, with a voice that sounded like it comes straight from a old radio microphone, which would blend in perfectly with the theme of the game and the whole vibe around it. So I spliced the sample, left it to run for some time at the start as an entrance and then mixed it with some delay to blend it onto the music we would have coming right next.
-      </p>
-      <p>
-        In the music production part, this is where the lack of effort and time came into play, I didn't feel much inspiration to fully create something. All ideas I tried fumbled hard, not having any place near the finished product. So I resorted to the brilliant tactic of hardcore unashamed stealing. I opened my Lo-Fi playlist and started listening to some of the songs to find the best fit. I swear I worked really hard. I actually ended up making use of two different songs, the first playing behind the <i>"Jello"</i> intro as a backdrop and the other one would make up the rest of the music.
-      </p>
-      <p>
-        The soundtrack behind the <i>"Jello"</i> intro is a splice from <i>"Magic Hoodie"</i> by <i>Jazzinuf</i> which I then mixed onto a muted version to give audible space for the spoken word. Then, after a delay it flows into <i>"Sakura Trees"</i> by <i>Saib</i>.
-      </p>
-      <p>
-        In the second part, there is some editing done. For example, at some point the music cuts for a <i>"a treat"</i> sound cue from the <i>"Jello"</i> sample. Some other things might be inside somewhere, but to be honest I don't remember that well.
-      </p>
-    </div>
-    <img src="/assets/projects/chat-95/images/lo-fi_girl.png" alt="Lo-Fi Girl screen." loading="lazy">
-  </div>
-
-  <p>
-    The fact that this is just a 10 min sound file, which plays throughout the game and will end if you take long enough is kinda dumb, but I pray no one plays the game long enough to see the end of the music.
-  </p>
-
-  <h2>Competition and Results</h2>
-
-  <p>
-    Chat95 got rated pretty well overall, not winning the first place, but winning the hearts of many. People loved the idea and aesthetic, enjoying helping the weirdoes with the out of pocked ordeals.
-  </p>
-  <p>
-    But not winning first place doesn't mean we didn't win anything!
-  </p>
-
-  <div class="text-wrap-image reverse">
-    <div class="text">
-      <p>
-        We did win the Best in Graphics category in the game jam!
-      </p>
-      <p>
-        As the sound guy, this had absolutely zero to do with me, but I will always proudly bloat how my team got this praise!
-      </p>
-    </div>
-    <img src="/assets/projects/chat-95/images/best_in_graphics_medal.png" alt="Best in Graphics medal." loading="lazy">
-  </div>
-
-  <h2>Introspection</h2>
-
-  <p>
-    I am disappointed that I didn't put more effort onto this project. It actually ended up being one I enjoy a lot, and the fact that I always look back and and remember how much to the side I pushed it makes me regret it a little.
-  </p>
-  <p>
-    I think the sound design itself is pretty spot one. Maybe more love could have been put into it, but not only it works but it sounds good. Well, in my biased opinion of course!
-  </p>
-  <p>
-    On the music side, I think the intro came out pretty funny and on theme. And even though the music was fully stolen, at least the mix I gave it did work and flows well enough. Is it repetitive? A lot. But with the game being short and needing so much reading, the players might not notice too much. If I would go back now, I would add more events onto the middle of the song, spicing up some moments with some beat stops and random audio cues.
-  </p>
-  <p>
-    Of course, shout-out out to the team, which was basically composed by the best people I met during my shenanigans in Sweden and with whom I had a great time.
-  </p>
-
-  <div class="credits">
-    <div class="title">Credits</div>
-
-    <div class="subtitle">Licenses</div>
-
-    <div class="entry">
-      <div class="name">Jello is the most versatile dish in the world</div>
-    </div>
-    <div class="entry-info">
-      <div class="name">by Timbre</div>
-      <div class="license">License: Attribution NonCommercial 4.0</div>
-      <a href="https://freesound.org/s/622068/" target="_blank">Sample Source <icon data-icon-name="external-link"></icon></a>
-    </div>
-
-    <div class="subtitle">Members</div>
+    <h1>Chat95</h1>
     
-    <div class="entry">
-      <div class="name">Dimitrios Pokkias</div>
+    <div class="text-wrap-image reverse">
+        <div class="text">
+            <p>
+                Chat95 was made as part of a game jam, during my stay in Gothenburg, with the theme <i>"Parody"</i>, which gave my team the idea to make a parody of LLMs (Loyal Literate Monkey) set in the 90s. But instead of you using an LLM, you are one instead.
+            </p>
+            <p>
+                In this universe, which is pretty much like any other universe, your users come in various levels of weird and with unusual requests. You must do your best, and your best needs to be the best.
+            </p>
+        </div>
+        <img src="/assets/projects/chat-95/images/environment.png" alt="Chat95 Desk." loading="lazy">
     </div>
-    <div class="entry-info">
-      <div class="role">Art, Programming</div>
-      <a href="https://www.linkedin.com/in/dimitris-pokkias-a5311923b/" target="_blank">LinkedIn <icon data-icon-name="external-link"></icon></a>
+    
+    <p>
+        Like in a lot of other jams, since I'm the sole member with knowledge in Sound Design, I once again got assigned to this part of the game. We were not really aiming for perfection, far from it, but I was what we had.
+    </p>
+    
+    <h2>Sound Design</h2>
+    
+    <p>
+        For a parody of a chill work session set in the 90s, it had to have a cozy, homy feeling. So all sounds had to fit in together, easily flowing with each other.
+    </p>
+
+    <div class="text-wrap-image">
+        <div class="text">
+            <p>
+                For an old PC, it had to have aggressive and effortful fans whenever it was loading something. So I found the worst possible sounding PC fans sample and mixed them into an audible asset. This would play at the boot time and whenever the PC loads the next user, giving the player the 90s grandma computer experience.
+            </p>
+            <p>
+                The keyboard had to feel weighty but not annoying, so I found an audio of someone spit-firing an old keyboard, spliced individual key presses and mixed the audio for a more suppressed effect.
+            </p>
+            <p>
+                The same philosophy was applied to other SFX, like the file pickup and drop, where I would use office sounds, such as picking up a paper, and mix them into a OS sound cue.
+            </p>
+        </div>
+        <img src="/assets/projects/chat-95/images/zodiac_signs.png" alt="Zodiac Signs screen." loading="lazy">
     </div>
 
-    <div class="entry">
-      <div class="name">Eduardo Gonçalves</div>
-    </div>
-    <div class="entry-info">
-      <div class="role">Game Design, Narrative</div>
-      <a href="https://www.linkedin.com/in/eduardo-gon%C3%A7alves/" target="_blank">LinkedIn <icon data-icon-name="external-link"></icon></a>
+    Overall, I think the Sound Design came out pretty nice and put together. It is hear catching enough, while having a somewhat Lo-Fi vibe to it and living up to the 90s aesthetic.
+    
+    <h2>Music</h2>
+
+    <p>
+        With the Lo-Fi vibe picked for the game since the very start, Lo-Fi for the music was the only correct choice. It's also one of my favorite genre of music, being a big fan of <i>Nujabes</i> and <i>Marcus D</i>.
+    </p>
+    <p>
+        An important detail to know is that, even though I went into this game jam with strong determination, I might have had somewhat of a <i>distraction</i> during the event, which led me to not have that much time nor focus during the making of the game. This would impact the effort I put onto the creation of the music.
+    </p>
+    <p>
+        One thing I always liked about Lo-Fi is that you can really do anything, as long as the vibe keeps vibing. No words, theme or sounds are out of place if you bring them on the right beat. So I challenged myself with starting the music with the weirdest sound cue or most random idea I could find.
+    </p>
+    
+    <div class="text-wrap-image reverse">
+        <div class="text">
+            <p>
+                That's when I found the <i>"Jello is the most versatile dish in the world"</i> sample. One of the most random things I have ever heard, with a voice that sounded like it comes straight from a old radio microphone, which would blend in perfectly with the theme of the game and the whole vibe around it. So I spliced the sample, left it to run for some time at the start as an entrance and then mixed it with some delay to blend it onto the music we would have coming right next.
+            </p>
+            <p>
+                In the music production part, this is where the lack of effort and time came into play, I didn't feel much inspiration to fully create something. All ideas I tried fumbled hard, not having any place near the finished product. So I resorted to the brilliant tactic of hardcore unashamed stealing. I opened my Lo-Fi playlist and started listening to some of the songs to find the best fit. I swear I worked really hard. I actually ended up making use of two different songs, the first playing behind the <i>"Jello"</i> intro as a backdrop and the other one would make up the rest of the music.
+            </p>
+            <p>
+                The soundtrack behind the <i>"Jello"</i> intro is a splice from <i>"Magic Hoodie"</i> by <i>Jazzinuf</i> which I then mixed onto a muted version to give audible space for the spoken word. Then, after a delay it flows into <i>"Sakura Trees"</i> by <i>Saib</i>.
+            </p>
+            <p>
+                In the second part, there is some editing done. For example, at some point the music cuts for a <i>"a treat"</i> sound cue from the <i>"Jello"</i> sample. Some other things might be inside somewhere, but to be honest I don't remember that well.
+            </p>
+        </div>
+        <img src="/assets/projects/chat-95/images/lo-fi_girl.png" alt="Lo-Fi Girl screen." loading="lazy">
     </div>
 
-    <div class="entry">
-      <div class="name">Kyle Agius</div>
-    </div>
-    <div class="entry-info">
-      <div class="role">Art, Programming</div>
-      <a href="https://www.linkedin.com/in/dimitris-pokkias-a5311923b/" target="_blank">LinkedIn <icon data-icon-name="external-link"></icon></a>
+    <p>
+        The fact that this is just a 10 min sound file, which plays throughout the game and will end if you take long enough is kinda dumb, but I pray no one plays the game long enough to see the end of the music.
+    </p>
+
+    <h2>Competition and Results</h2>
+
+    <p>
+        Chat95 got rated pretty well overall, not winning the first place, but winning the hearts of many. People loved the idea and aesthetic, enjoying helping the weirdoes with the out of pocked ordeals.
+    </p>
+    <p>
+        But not winning first place doesn't mean we didn't win anything!
+    </p>
+
+    <div class="text-wrap-image reverse">
+        <div class="text">
+            <p>
+                We did win the Best in Graphics category in the game jam!
+            </p>
+            <p>
+                As the sound guy, this had absolutely zero to do with me, but I will always proudly bloat how my team got this praise!
+            </p>
+        </div>
+        <img src="/assets/projects/chat-95/images/best_in_graphics_medal.png" alt="Best in Graphics medal." loading="lazy">
     </div>
 
-    <div class="entry">
-      <div class="name">MRSG</div>
-    </div>
-    <div class="entry-info">
-      <div class="role">Sound Design</div>
-      <a href="/about" target="_blank">About</a>
-    </div>
+    <h2>Introspection</h2>
 
-    <div class="entry">
-      <div class="name">Shahd Metwaly</div>
+    <p>
+        I am disappointed that I didn't put more effort onto this project. It actually ended up being one I enjoy a lot, and the fact that I always look back and and remember how much to the side I pushed it makes me regret it a little.
+    </p>
+    <p>
+        I think the sound design itself is pretty spot one. Maybe more love could have been put into it, but not only it works but it sounds good. Well, in my biased opinion of course!
+    </p>
+    <p>
+        On the music side, I think the intro came out pretty funny and on theme. And even though the music was fully stolen, at least the mix I gave it did work and flows well enough. Is it repetitive? A lot. But with the game being short and needing so much reading, the players might not notice too much. If I would go back now, I would add more events onto the middle of the song, spicing up some moments with some beat stops and random audio cues.
+    </p>
+    <p>
+        Of course, shout-out out to the team, which was basically composed by the best people I met during my shenanigans in Sweden and with whom I had a great time.
+    </p>
+
+    <div class="credits">
+        <div class="title">Credits</div>
+
+        <div class="subtitle">Licenses</div>
+
+        <div class="entry">
+            <div class="name">Jello is the most versatile dish in the world</div>
+        </div>
+        <div class="entry-info">
+            <div class="name">by Timbre</div>
+            <div class="license">License: Attribution NonCommercial 4.0</div>
+            <a href="https://freesound.org/s/622068/" target="_blank">Sample Source <icon data-icon-name="external-link"></icon></a>
+        </div>
+
+        <div class="subtitle">Members</div>
+        
+        <div class="entry">
+            <div class="name">Dimitrios Pokkias</div>
+        </div>
+        <div class="entry-info">
+            <div class="role">Art, Programming</div>
+            <a href="https://www.linkedin.com/in/dimitris-pokkias-a5311923b/" target="_blank">LinkedIn <icon data-icon-name="external-link"></icon></a>
+        </div>
+
+        <div class="entry">
+            <div class="name">Eduardo Gonçalves</div>
+        </div>
+        <div class="entry-info">
+            <div class="role">Game Design, Narrative</div>
+            <a href="https://www.linkedin.com/in/eduardo-gon%C3%A7alves/" target="_blank">LinkedIn <icon data-icon-name="external-link"></icon></a>
+        </div>
+
+        <div class="entry">
+            <div class="name">Kyle Agius</div>
+        </div>
+        <div class="entry-info">
+            <div class="role">Art, Programming</div>
+            <a href="https://www.linkedin.com/in/dimitris-pokkias-a5311923b/" target="_blank">LinkedIn <icon data-icon-name="external-link"></icon></a>
+        </div>
+
+        <div class="entry">
+            <div class="name">MRSG</div>
+        </div>
+        <div class="entry-info">
+            <div class="role">Sound Design</div>
+            <a href="/about" target="_blank">About</a>
+        </div>
+
+        <div class="entry">
+            <div class="name">Shahd Metwaly</div>
+        </div>
+        <div class="entry-info">
+            <div class="role">Game Design, Narrative</div>
+            <a href="https://www.linkedin.com/in/shahd-hassan-metwally/" target="_blank">LinkedIn <icon data-icon-name="external-link"></icon></a>
+        </div>
     </div>
-    <div class="entry-info">
-      <div class="role">Game Design, Narrative</div>
-      <a href="https://www.linkedin.com/in/shahd-hassan-metwally/" target="_blank">LinkedIn <icon data-icon-name="external-link"></icon></a>
-    </div>
-  </div>
-  
 </div>

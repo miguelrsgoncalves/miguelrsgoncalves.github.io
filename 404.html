@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="robots" content="noindex">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="noindex">
 
-		<title>MRSG | 404 Page Not Found</title>
-		<meta name="description" content="All there is not about MRSG">
+        <title>MRSG | 404 Page Not Found</title>
+        <meta name="description" content="All there is not about MRSG">
 
-		<!------ Favicon ------>
-		<link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/favicon/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/favicon/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/assets/logo/favicon/favicon-16x16.png">
-		<link rel="manifest" href="/assets/logo/favicon/site.webmanifest">
-		<!--------------------->
+        <!------ Favicon ------>
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/logo/favicon/favicon-16x16.png">
+        <link rel="manifest" href="/assets/logo/favicon/site.webmanifest">
+        <!--------------------->
 
-		<!-- Font -->
-		<link rel="stylesheet" href="/styles/font.css">
-		<link rel="stylesheet" href="/styles/icons.css">
-		<!---->
+        <!-- Font -->
+        <link rel="stylesheet" href="/styles/font.css">
+        <link rel="stylesheet" href="/styles/icons.css">
+        <!---->
 
-		<!-- Styles -->
-		<link rel="stylesheet" href="/css/style.css">
-		<link rel="stylesheet" href="/css/404.css">
-		<!---->
-	</head>
+        <!-- Styles -->
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/404.css">
+        <!---->
+    </head>
 
-	<body>
-		<div class="error-box">
-			<div class="error-code">404</div>
-			<div class="spacer vertical"></div>
-			<h1>Nothing here<div class="spacer inline sad-face"></div>:(</h1>
-			<p>This page doesn't exist or was moved somewhere else.</p>
-			<div class="spacer vertical"></div>
-			<a href="/" class="home-button">Back home</a>
-		</div>
+    <body>
+        <div class="error-box">
+            <div class="error-code">404</div>
+            <div class="spacer vertical"></div>
+            <h1>Nothing here<div class="spacer inline sad-face"></div>:(</h1>
+            <p>This page doesn't exist or was moved somewhere else.</p>
+            <div class="spacer vertical"></div>
+            <a href="/" class="home-button">Back home</a>
+        </div>
 
-		<script>
-			(function () {
-				var path = window.location.pathname + window.location.search;
+        <script>
+            (function () {
+                var path = window.location.pathname + window.location.search;
 
-				if (/\.[a-z0-9]+$/i.test(window.location.pathname)) return;
+                if (/\.[a-z0-9]+$/i.test(window.location.pathname)) return;
 
-				try { sessionStorage.setItem('redirect', path); } catch (e) {}
-				window.location.replace('/');
-			})();
-		</script>
-	</body>
+                try { sessionStorage.setItem('redirect', path); } catch (e) {}
+                window.location.replace('/');
+            })();
+        </script>
+    </body>
 </html>
