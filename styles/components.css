@@ -695,9 +695,10 @@
 
 .credits {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
 
-  gap: 1.5rem;
+  gap: 2rem;
   
   .title {
     grid-column: auto / span 2;
@@ -733,6 +734,14 @@
       color: var(--font-color-muted);
       font-weight: var(--font-weight-bold);
     }
+  }
+
+  .entry {
+    text-align: end;
+  }
+
+  .entry-info {
+    text-align: start;
   }
 
 }
