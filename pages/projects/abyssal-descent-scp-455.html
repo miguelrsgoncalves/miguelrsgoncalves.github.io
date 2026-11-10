@@ -1,0 +1,152 @@
+<route
+	title="Abyssal Descent: SCP-455"
+	description="You are part of a rescue team which mission is to extract a previous team from a cargo ship. Be careful though, the lost souls are uneasy."
+	scripts='["/scripts/components.js"]'
+></route>
+
+<div class="page narrow">
+    <img src="/assets/projects/abyssal-descent-scp-455/images/thumbnail.png" alt="Abyssal Descent Thumbnail." loading="lazy">
+
+    <div class="control-group embedded">
+        <div class="control-bar embedded">
+            <div class="button left clickable" onclick="toggleControlPanel(this, 'how-to-play')">
+                <icon data-icon-name="info"></icon>
+                <p>How to Play</p>
+            </div>
+            
+            <div class="separator vertical"></div>
+            
+            <div class="button right clickable" onclick="toggleControlPanel(this, 'download')">
+                <p>Download</p>
+                <icon data-icon-name="download"></icon>
+            </div>
+        </div>
+
+        <div class="control-panel embedded" data-panel-name="how-to-play">
+            <div class="how-to-play">
+                Use your body in a VR environment to control an extraction team member and uncover the secrets inside the ship.
+            </div>
+        </div>
+
+        <div class="control-panel embedded" data-panel-name="download">
+            <div class="download-options">
+                <div class="download-group">
+                    <div class="header">
+                        <icon data-icon-name="globe"></icon>
+                        <span>External Links</span>
+                    </div>
+                    <div class="items">
+                        <a class="download-option" href="https://anibalferreira.itch.io/abyssal-descent-scp-455" target="_blank" rel="noopener">
+                            <icon data-icon-name="brands/itchdotio"></icon>
+                            <div class="info">
+                                <div class="title">Itch.io</div>
+                            </div>
+                            <icon class="action-icon" data-icon-name="external-link"></icon>
+                        </a>
+                    </div>
+                </div>
+                <div class="download-group">
+                    <div class="header">
+                        <icon data-icon-name="download"></icon>
+                        <span>Downloads</span>
+                    </div>
+                    <div class="items">
+                        <a class="download-option" href="/assets/projects/abyssal-descent-scp-455/builds/windows/abyssal_descent_scp-455.zip" download>
+                            <icon data-icon-name="monitor"></icon>
+                            <div class="info">
+                                <div class="title">Windows</div>
+                                <div class="subtitle">
+                                    <span>ZIP archive</span>
+                                    <div class="separator vertical thin semi"></div>
+                                    <span>92 MB</span>
+                                </div>
+                            </div>
+                            <icon class="action-icon" data-icon-name="download"></icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1>Abyssal Descent: SCP-455</h1>
+
+    <p>
+        Abyssal Descent: SCP-455 is an university project made by a big team composed of 3 different courses, Software Engineering (programming), Visual Arts (visuals) and Multimedia (sound design), where we had to create a game from scratch. Abyssal Descent: SCP-455 is a 3D horror VR experience inside the world of SCP-455 where the player will be put in the shoes of a SCP foundation agent, sent to investigate a mysterious ship abandoned at sea. As you explore the ship, you will uncover the dark secrets that lie within, facing horrors as you descend into the abyss.
+    </p>
+    <p>
+        My team was tasked with the game's sound design. A new challenge to tackle, as none of us had done anything horror related prior. But a challenge we happily went into face on! We had to first wait the first concept and demo shots from our programmers, as well as the first concept art from the artists so we could work on an atmosphere that would go hand in hand with the rest that the player would be experiencing. What we got was this solitary cargo ship in the middle of the ocean with a very rusty and decayed appearance with phantasmagoric vibes all around.
+    </p>
+    <p>
+        With the first drafts of the whole vibe, we got into work to make this project sound like something!
+    </p>
+
+    <h2>The Sound</h2>
+
+    <h3>The Ambience</h3>
+
+    <p>
+        The world our game would be inside of would be a very lonely, dark and mysterious one. So the sounds and music would need to fit right in that setting.
+    </p>
+    <p>
+        For the music, we decided we would have some synth-based generative music soundtrack, where one of our team members worked on all of the sound types that would be playing together, how they would evolve over time and how they would behave with increased intensity. We then passed the sounds onto FMOD, where we made the sounds play in a random and free manner. This ended up creating a very cool and strange feeling while the player explored through the corridors of the ship.
+    </p>
+    <p>
+        We would create most of the other sounds by ourselves. In our sound room we had a lot of metallic objects, like stands and cabinets, so we used those as percussion instruments and made beautiful sounds for our in-game actions and events. A good example of it is the step sounds, which I made by laying a chair on the ground and wall walking on a metal cabinet, which made quite a echoey metal clank.
+    </p>
+
+    <h3>The Speech</h2>
+
+    <p>
+        We had to add some voice lines, which we did by recording ourselves in our studio mic and adding post processing to the speech. It was pretty cool how we were able to easily distort and add white noise and interference to the voice so it sounds like its coming from a bad walkie-talkie and losing signal while the voice line plays.
+    </p>
+    
+    <h3>The Ghosts</h3>
+
+    <p>
+        The ghosts were easily my favorite part to make, which without any bias at all — I was the one in charge of these sounds — I think they came out pretty well!
+    </p>
+    <p>
+        The design for the sounds of the ghosts was also partially inspired by generative music, since the randomness by nature can give it a pretty eery feeling. The idea would be that the ghosts would actually sound like the collective souls from all of the people they had consumed, so they would sound like muffled, chaotic and desperate whispers that would intensify and more present when close by.
+    </p>
+    <p>
+        In order to achieve the effect I recorded around 25 or so voice lines, some whispering, some more aggressive. Then I put them into FMOD and created a sound system that would play an higher number of overlapped voicelines if the player was closer to the ghosts. This was more recoding work than it was technical, but the final effect came out pretty cool and gave a lot of life to the enemies in the game.
+    </p>
+
+    <h2>The Result</h2>
+
+    <p>
+        The game itself was pretty basic and honestly something more akin to a walking experience than an actually fledged game. But the whole feeling of playing it and experiencing it ended up being pretty cool once the sound and the visuals joined forces to bring the whole atmosphere to the player.
+    </p>
+    <p>
+        Overall, it was a cool project to work on and enabled up to learn even more about generative audio and how it can be used to bring whole new types of experiences to the audience.
+    </p>
+
+    <div class="credits">
+        <div class="title">Credits</div>
+
+        <div class="subtitle">Members</div>
+        
+        <div class="entry">
+            <div class="name">Amir Orouji</div>
+        </div>
+        <div class="entry-info">
+            <div class="role">Music Production</div>
+        </div>
+        
+        <div class="entry">
+            <div class="name">MRSG</div>
+        </div>
+        <div class="entry-info">
+            <div class="role">Dialog Sound Design, Enemy Sound Design</div>
+            <a href="/about" target="_blank">About</a>
+        </div>
+        
+        <div class="entry">
+            <div class="name">Sietse Postma</div>
+        </div>
+        <div class="entry-info">
+            <div class="role">Environment Sound Design</div>
+        </div>
+    </div>
+</div>
