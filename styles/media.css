@@ -40,6 +40,7 @@ audio {
     width: 100%;
     border-radius: var(--border-radius);
     background-color: var(--background-secondary-color);
+    overflow: hidden;
 }
 
 /*#endregion*/
