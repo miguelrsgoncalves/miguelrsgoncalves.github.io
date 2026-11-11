@@ -5,16 +5,22 @@
 ></route>
 
 <div class="page narrow">
-    <video controls
+    <video controls preload="none"
         src="/assets/projects/abyssal-descent-scp-455/videos/gameplay.mp4"
         poster="/assets/projects/abyssal-descent-scp-455/images/thumbnail.png"
-        preload="none"
     ></video>
 
     <div class="control-group embedded">
         <div class="control-bar embedded">
-            <div class="button left clickable" onclick="toggleControlPanel(this, 'how-to-play')">
+            <div class="button left clickable" onclick="toggleControlPanel(this, 'info')">
                 <icon data-icon-name="info"></icon>
+                <p>Info</p>
+            </div>
+
+            <div class="separator vertical"></div>
+
+            <div class="button middle clickable" onclick="toggleControlPanel(this, 'how-to-play')">
+                <icon data-icon-name="book-text"></icon>
                 <p>How to Play</p>
             </div>
             
@@ -23,6 +29,12 @@
             <div class="button right clickable" onclick="toggleControlPanel(this, 'download')">
                 <p>Download</p>
                 <icon data-icon-name="download"></icon>
+            </div>
+        </div>
+
+        <div class="control-panel embedded" data-panel-name="info">
+            <div class="how-to-play">
+                
             </div>
         </div>
 
@@ -89,36 +101,31 @@
 
     <h3>The UI</h3>
 
-    <audio controls controlsList="nodownload">
-        <source src="/assets/projects/abyssal-descent-scp-455/audio/vfx_ui_accept.wav" type="audio/wav">
-        Your browser does not support the audio element.
-    </audio>
+    <audio controls preload="none"
+        src="/assets/projects/abyssal-descent-scp-455/audio/vfx_ui_accept.wav"
+    ></audio>
 
-    <audio controls controlsList="nodownload">
-        <source src="/assets/projects/abyssal-descent-scp-455/audio/vfx_ui_decline.wav" type="audio/wav">
-        Your browser does not support the audio element.
-    </audio>
+    <audio controls preload="none"
+        src="/assets/projects/abyssal-descent-scp-455/audio/vfx_ui_decline.wav"
+    ></audio>
 
-    <audio controls controlsList="nodownload">
-        <source src="/assets/projects/abyssal-descent-scp-455/audio/vfx_ui_game_start.wav" type="audio/wav">
-        Your browser does not support the audio element.
-    </audio>
+    <audio controls preload="none"
+        src="/assets/projects/abyssal-descent-scp-455/audio/vfx_ui_game_start.wav"
+    ></audio>
 
-    <audio controls controlsList="nodownload">
-        <source src="/assets/projects/abyssal-descent-scp-455/audio/vfx_ui_game_pause.wav" type="audio/wav">
-        Your browser does not support the audio element.
-    </audio>
+    <audio controls preload="none"
+        src="/assets/projects/abyssal-descent-scp-455/audio/vfx_ui_game_pause.wav"
+    ></audio>
 
     <h3>The Music</h3>
 
     <p>
         For the music, Amir produced some amazing and very eery generative music that quickly gives mysterious and an ominous presence to any environment.
     </p>
-    
-    <audio controls controlsList="nodownload">
-        <source src="/assets/projects/abyssal-descent-scp-455/audio/music_drone.wav" type="audio/wav">
-        Your browser does not support the audio element.
-    </audio>
+
+    <audio controls preload="none"
+        src="/assets/projects/abyssal-descent-scp-455/audio/music_drone.wav"
+    ></audio>
 
     <h3>The Ambience</h3>
 
@@ -132,15 +139,13 @@
         We would create most of the other sounds by ourselves. In our sound room we had a lot of metallic objects, like stands and cabinets, so we used those as percussion instruments and made beautiful sounds for our in-game actions and events. A good example of it is the step sounds, which I made by laying a chair on the ground and wall walking on a metal cabinet, which made quite a echoey metal clank.
     </p>
 
-    <audio controls controlsList="nodownload">
-        <source src="/assets/projects/abyssal-descent-scp-455/audio/ambience_metal.wav" type="audio/wav">
-        Your browser does not support the audio element.
-    </audio>
+    <audio controls preload="none"
+        src="/assets/projects/abyssal-descent-scp-455/audio/ambience_metal.wav"
+    ></audio>
 
-    <audio controls controlsList="nodownload">
-        <source src="/assets/projects/abyssal-descent-scp-455/audio/ambience_light_flicker.wav" type="audio/wav">
-        Your browser does not support the audio element.
-    </audio>
+    <audio controls preload="none"
+        src="/assets/projects/abyssal-descent-scp-455/audio/ambience_light_flicker.wav"
+    ></audio>
 
     <h3>The Voicelines</h2>
 
@@ -148,10 +153,9 @@
         We had to add some voice lines, which I did by recording ourselves in our studio mic and adding post processing to the speech. It was pretty cool how I was able to easily distort and add white noise and interference to the voice so it sounds like its coming from a bad walkie-talkie and losing signal while the voice line plays. The static would automatically decline whenever the voice was detected, so the speech would be understandable and it would give the interference effect of higher noise when no real audio is being sent through the network.
     </p>
 
-    <audio controls controlsList="nodownload">
-        <source src="/assets/projects/abyssal-descent-scp-455/audio/voiceline_walkie_talkie.wav" type="audio/wav">
-        Your browser does not support the audio element.
-    </audio>
+    <audio controls preload="none"
+        src="/assets/projects/abyssal-descent-scp-455/audio/voiceline_walkie_talkie.wav"
+    ></audio>
     
     <h3>The Ghosts</h3>
 
@@ -165,10 +169,9 @@
         In order to achieve the effect I recorded around 30 voice lines, some whispering and some more aggressive. Then I put them into FMOD and created a sound system that would play an higher number of overlapped voicelines if the player was closer to the ghosts. This was more recoding work than it was technical, but the final effect came out pretty cool and gave a lot of life to the enemies in the game.
     </p>
 
-    <audio controls controlsList="nodownload">
-        <source src="/assets/projects/abyssal-descent-scp-455/audio/vfx_ghost.wav" type="audio/wav">
-        Your browser does not support the audio element.
-    </audio>
+    <audio controls preload="none"
+        src="/assets/projects/abyssal-descent-scp-455/audio/vfx_ghost.wav"
+    ></audio>
 
     <h2>Introspection</h2>
 
