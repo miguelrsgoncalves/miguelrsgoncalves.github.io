@@ -1,8 +1,13 @@
 <route
 	title="Abyssal Descent: SCP-455"
 	description="You are part of a rescue team which mission is to extract a previous team from a cargo ship. Be careful though, the lost souls are uneasy."
-	scripts='["/scripts/components.js"]'
+	scripts='["/scripts/components.js", "/scripts/project-manager.js"]'
 ></route>
+
+<script>
+    projectManagerInit('/assets/registries/project-registry.json')
+    insertProjects()
+</script>
 
 <div class="page narrow">
     <video controls preload="none"
@@ -27,15 +32,14 @@
             <div class="separator vertical"></div>
             
             <div class="button right clickable" onclick="toggleControlPanel(this, 'download')">
-                <p>Download</p>
+                <p>Links & Downloads</p>
+                <icon data-icon-name="external-link"></icon>
                 <icon data-icon-name="download"></icon>
             </div>
         </div>
 
         <div class="control-panel embedded" data-panel-name="info">
-            <div class="how-to-play">
-                
-            </div>
+            <div name="single-project-card" id="abyssal-descent-scp-455" style="width: 100%;"></div>
         </div>
 
         <div class="control-panel embedded" data-panel-name="how-to-play">
