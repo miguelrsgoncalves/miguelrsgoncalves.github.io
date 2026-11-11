@@ -1,13 +1,8 @@
 <route
 	title="Abyssal Descent: SCP-455"
 	description="You are part of a rescue team which mission is to extract a previous team from a cargo ship. Be careful though, the lost souls are uneasy."
-	scripts='["/scripts/components.js", "/scripts/project-manager.js"]'
+	scripts='["/scripts/components.js"]'
 ></route>
-
-<script>
-    projectManagerInit('/assets/registries/project-registry.json')
-    insertProjects()
-</script>
 
 <div class="page narrow">
     <video controls preload="none"
@@ -17,29 +12,27 @@
 
     <div class="control-group embedded">
         <div class="control-bar embedded">
-            <div class="button left clickable" onclick="toggleControlPanel(this, 'info')">
+            <div class="button left" onclick="toggleControlPanel(this, 'info')">
                 <icon data-icon-name="info"></icon>
-                <p>Info</p>
+                <div>Info</div>
             </div>
 
             <div class="separator vertical"></div>
 
-            <div class="button middle clickable" onclick="toggleControlPanel(this, 'how-to-play')">
+            <div class="button middle" onclick="toggleControlPanel(this, 'how-to-play')">
                 <icon data-icon-name="book-text"></icon>
-                <p>How to Play</p>
+                <div>How to Play</div>
             </div>
             
             <div class="separator vertical"></div>
             
-            <div class="button right clickable" onclick="toggleControlPanel(this, 'download')">
-                <p>Links & Downloads</p>
+            <div class="button right" onclick="toggleControlPanel(this, 'download')">
+                <div>Links & Downloads</div>
                 <icon data-icon-name="external-link"></icon>
-                <icon data-icon-name="download"></icon>
             </div>
         </div>
 
         <div class="control-panel embedded" data-panel-name="info">
-            <div name="single-project-card" id="abyssal-descent-scp-455" style="width: 100%;"></div>
         </div>
 
         <div class="control-panel embedded" data-panel-name="how-to-play">
@@ -53,7 +46,7 @@
                 <div class="download-group">
                     <div class="header">
                         <icon data-icon-name="globe"></icon>
-                        <span>External Links</span>
+                        <div>External Links</div>
                     </div>
                     <div class="items">
                         <a class="download-option" href="https://anibalferreira.itch.io/abyssal-descent-scp-455" target="_blank" rel="noopener">
@@ -68,7 +61,7 @@
                 <div class="download-group">
                     <div class="header">
                         <icon data-icon-name="download"></icon>
-                        <span>Downloads</span>
+                        <div>Downloads</div>
                     </div>
                     <div class="items">
                         <a class="download-option" href="/assets/projects/abyssal-descent-scp-455/builds/windows/abyssal_descent_scp-455.zip" download>
@@ -76,9 +69,9 @@
                             <div class="info">
                                 <div class="title">Windows</div>
                                 <div class="subtitle">
-                                    <span>ZIP archive</span>
+                                    <div>ZIP archive</div>
                                     <div class="separator vertical thin semi"></div>
-                                    <span>92 MB</span>
+                                    <div>92 MB</div>
                                 </div>
                             </div>
                             <icon class="action-icon" data-icon-name="download"></icon>
