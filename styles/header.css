@@ -1,239 +1,239 @@
 header {
   position: sticky;
-  top: 0;
-  width: 100%;
-  background-color: var(--background-secondary-color);
-  font-weight: bold;
-  text-align: center;
-  align-items: center;
-  box-shadow: 0 6px 6px var(--shadow-dark);
-  z-index: 999;
-  transition: height 0.3s ease;
-  padding: 10px 0;
-  
-  * {
-    padding: 0;
-    margin: 0;
-  }
-
-  .website-logo {
-    position: absolute;
-    left: var(--padding-main);
-    display: flex;
-    align-items: center;
-  }
-
-  .logo {
-    height: 1.5em;
-    width: auto;
-  }
-
-  .website-name {
-    padding-left: 10px;
-    font-size: var(--font-size-website-title);
-    font-weight: bold;
-    color: var(--primary-color);
-  }
-
-  .header-menu-button {
-    position: absolute;
-    font-size: xx-large;
-    right: var(--padding-main);
-    display: flex;
-    align-items: center;
     top: 0;
-    bottom: 0;
-    height: auto;
-    transition: transform 0.3s ease;
-  }
-
-  .header-menu-button:hover {
-    transform: translateY(-4px);
-  }
-
-  @media (max-width: 1024px) {
-    .website-name {
-      display: none;
-    }
-  }
-
-  nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 5%;
-  }
-
-  a {
-    position: relative;
-    color: var(--font-color-base);
-    transition: color 0.3s ease;
-
-    span{
-      display: inline-block;
-      transition: transform 0.3s ease;
-    }
-  }
-
-  a:hover span {
-    transform: translateY(-4px);
-  }
-  
-  a::after {
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-color);
-    transition: width 0.3s ease, left 0.3s ease;
-  }
-  
-  a:hover {
-    color: var(--primary-color);
-  }
-
-  a:hover::after {
-    width: 25%;
-    left: 37.5%;
-  }
-
-  a.active {
-    color: var(--primary-color);
-  }
-
-  a.active::after {
     width: 100%;
-    left: 0;
-  }
-
-  a.active:hover::after {
-    width: 75%;
-    left: 12.5%;
-  }
-
-  .route-title {
-    display: none;
-    animation: slideOut 0.3s ease;
-  }
-  
-  .route-title.active {
-    display: block;
-    margin-top: 10px;
-    animation: slideIn 0.3s ease;
-  }
-
-  .header-menu-dropdown {
-    position: absolute;
-    display: flex;
-    top: 2.5em;
-    right: 0;
-    background: var(--background-secondary-color);
-    padding: var(--padding-main);
-    display: none;
-    width: 15%;
+    background-color: var(--background-secondary-color);
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
     box-shadow: 0 6px 6px var(--shadow-dark);
-    border-radius: 0;
-    border-bottom-left-radius: var(--border-radius);
-    z-index: 998;
-    animation: slideInInverse 0.5s ease;
-
-    ul {
-      display: flex;
-      flex-direction: column;
-      list-style: none;
-      justify-content: center;
-      gap: 20px;
-      width: 100%;
+    z-index: 999;
+    transition: height 0.3s ease;
+    padding: 10px 0;
+    
+    * {
+        padding: 0;
+        margin: 0;
     }
 
-    a {
-      display: block;
-      transition: color 0.3s ease;
-      text-align: start;
+    .website-logo {
+        position: absolute;
+        left: var(--padding-main);
+        display: flex;
+        align-items: center;
+    }
 
-      span{
-        display: inline-block;
+    .logo {
+        height: 1.5em;
+        width: auto;
+    }
+
+    .website-name {
+        padding-left: 10px;
+        font-size: var(--font-size-website-title);
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+
+    .header-menu-button {
+        position: absolute;
+        font-size: xx-large;
+        right: var(--padding-main);
+        display: flex;
+        align-items: center;
+        top: 0;
+        bottom: 0;
+        height: auto;
         transition: transform 0.3s ease;
-      }
     }
 
-    a:hover span {
-      transform: translateY(-4px);
-    }
-    
-    a::after {
-      content: "";
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      background-color: var(--primary-color);
-      transition: width 0.3s ease, left 0.3s ease;
-    }
-    
-    a:hover {
-      color: var(--primary-color);
-    }
-
-    a:hover::after {
-      width: 75%;
-      left: 0;
-    }
-
-    a.active {
-      color: var(--primary-color);
-    }
-
-    a.active::after {
-      width: 100%;
-      left: 0;
-    }
-
-    a.active:hover::after {
-      width: 75%;
-      left: 0;
-    }
-
-    .adaptable-extended {
-      display: flex;
-    }
-
-    .adaptable-shrinked {
-      display: none;
+    .header-menu-button:hover {
+        transform: translateY(-4px);
     }
 
     @media (max-width: 1024px) {
-      .adaptable-extended {
-        display: none;
-      }
-
-      .adaptable-shrinked {
-        display: flex;
-      }
+        .website-name {
+            display: none;
+        }
     }
-  }
 
-  .header-menu-dropdown.show {
-    display: flex;
-  }
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 5%;
+    }
 
-  .adaptable-extended {
-    display: flex;
-  }
+    a {
+        position: relative;
+        color: var(--font-color-base);
+        transition: color 0.3s ease;
 
-  .adaptable-shrinked {
-    display: none;
-  }
+        span{
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+    }
 
-  @media (max-width: 1024px) {
+    a:hover span {
+        transform: translateY(-4px);
+    }
+  
+    a::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary-color);
+        transition: width 0.3s ease, left 0.3s ease;
+    }
+  
+    a:hover {
+        color: var(--primary-color);
+    }
+
+    a:hover::after {
+        width: 25%;
+        left: 37.5%;
+    }
+
+    a.active {
+        color: var(--primary-color);
+    }
+
+    a.active::after {
+        width: 100%;
+        left: 0;
+    }
+
+    a.active:hover::after {
+        width: 75%;
+        left: 12.5%;
+    }
+
+    .route-title {
+        display: none;
+        animation: slideOut 0.3s ease;
+    }
+    
+    .route-title.active {
+        display: block;
+        margin-top: 10px;
+        animation: slideIn 0.3s ease;
+    }
+
+    .header-menu-dropdown {
+        position: absolute;
+        display: flex;
+        top: 2.5em;
+        right: 0;
+        background: var(--background-secondary-color);
+        padding: var(--padding-main);
+        display: none;
+        width: 15%;
+        box-shadow: 0 6px 6px var(--shadow-dark);
+        border-radius: 0;
+        border-bottom-left-radius: var(--border-radius);
+        z-index: 998;
+        animation: slideInInverse 0.5s ease;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+        }
+
+        a {
+            display: block;
+            transition: color 0.3s ease;
+            text-align: start;
+
+            span{
+                display: inline-block;
+                transition: transform 0.3s ease;
+            }
+        }
+
+        a:hover span {
+            transform: translateY(-4px);
+        }
+    
+        a::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+    
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        a:hover::after {
+            width: 75%;
+            left: 0;
+        }
+
+        a.active {
+            color: var(--primary-color);
+        }
+
+        a.active::after {
+            width: 100%;
+            left: 0;
+        }
+
+        a.active:hover::after {
+            width: 75%;
+            left: 0;
+        }
+
+        .adaptable-extended {
+            display: flex;
+        }
+
+        .adaptable-shrinked {
+            display: none;
+        }
+
+        @media (max-width: 1024px) {
+            .adaptable-extended {
+                display: none;
+            }
+
+            .adaptable-shrinked {
+                display: flex;
+            }
+        }
+    }
+
+    .header-menu-dropdown.show {
+        display: flex;
+    }
+
     .adaptable-extended {
-      display: none;
+        display: flex;
     }
 
     .adaptable-shrinked {
-      display: flex;
+        display: none;
     }
-  }
+
+    @media (max-width: 1024px) {
+        .adaptable-extended {
+            display: none;
+        }
+
+        .adaptable-shrinked {
+            display: flex;
+        }
+    }
 }
