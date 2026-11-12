@@ -26,6 +26,14 @@
             border-bottom-left-radius: 0;
             mask-image: linear-gradient(to left, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
         }
+
+        &.no-fade {
+            mask-image: none !important;
+        }
+
+        &.object-fit-contain {
+            object-fit: contain;
+        }
     }
 }
 
