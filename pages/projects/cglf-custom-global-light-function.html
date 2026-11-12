@@ -4,19 +4,52 @@
 ></route>
 
 <div class="page narrow">
-
     <img src="/assets/projects/cglf-custom-global-light-function/images/thumbnail.png" alt="CGLF Thumbnail." loading="lazy">
 
-    <div class="control-bar">
-        <a class="button left clickable" href="https://github.com/miguelrsgoncalves/cglf_custom_global_light_function" target="_blank">
-            <icon data-icon-name="book-marked"></icon>
-            Repository
-        </a>
-        <div class="separator vertical"></div>
-        <a class="button right clickable" href="https://github.com/miguelrsgoncalves/cglf_custom_global_light_function/releases" target="_blank">
-            Download
-            <icon data-icon-name="download"></icon>
-        </a>
+    <div class="control-group embedded">
+        <div class="control-bar embedded">
+            <a class="button left" onclick="toggleControlPanel(this, 'info')">
+                <icon data-icon-name="info"></icon>
+                Info
+            </a>
+            <div class="separator vertical"></div>
+            <a class="button right" onclick="toggleControlPanel(this, 'links-and-downloads')">
+                Links & Downloads
+                <icon data-icon-name="external-link"></icon>
+            </a>
+        </div>
+
+        <div class="control-panel embedded" data-id="info">
+
+        </div>
+
+        <div class="control-panel embedded" data-id="links-and-downloads">
+            <div class="item-tree-card">
+                <div class="group">
+                    <div class="header">
+                        <icon data-icon-name="globe"></icon>
+                        <div>External Links</div>
+                    </div>
+    
+                    <div class="items">
+                        <a class="item" href="https://github.com/miguelrsgoncalves/cglf_custom_global_light_function" target="_blank">
+                            <icon data-icon-name="brands/github"></icon>
+                            <div class="data">
+                                <div class="title">Repository</div>
+                            </div>
+                            <icon class="action-icon" data-icon-name="external-link"></icon>
+                        </a>
+                        <a class="item" href="https://github.com/miguelrsgoncalves/cglf_custom_global_light_function/releases" target="_blank">
+                            <icon data-icon-name="brands/github"></icon>
+                            <div class="data">
+                                <div class="title">Releases & Downloads</div>
+                            </div>
+                            <icon class="action-icon" data-icon-name="download"></icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <p>
