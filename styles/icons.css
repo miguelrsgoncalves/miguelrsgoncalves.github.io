@@ -10,4 +10,18 @@ icon {
         height: 1em;
         width: 1em;
     }
+
+    &.external-link {
+        vertical-align: text-top;
+
+        svg {
+            height: 0.75em;
+            width: 0.75em;
+        }
+
+        img {
+            height: 0.75em;
+            width: 0.75em;
+        }
+    }
 }
