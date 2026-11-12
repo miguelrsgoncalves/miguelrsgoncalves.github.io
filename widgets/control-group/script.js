@@ -1,4 +1,4 @@
-function toggleControlPanel(source, panelName) {
+function toggleControlPanel(source, id) {
     const group = source.closest('.control-group');
     
     if (!group) {
@@ -10,7 +10,7 @@ function toggleControlPanel(source, panelName) {
     const panels = group.querySelectorAll('.control-panel');
     
     const targetPanel = Array.from(panels).find(panel => 
-        panel.dataset.panelName === panelName
+        panel.dataset.id === id
     );
     
     const isAlreadyActive = targetPanel?.classList.contains('active');
