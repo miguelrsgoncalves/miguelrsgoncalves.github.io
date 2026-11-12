@@ -16,42 +16,42 @@ let hydrated = false;
 //#region navigate
 
 async function navigate(route, isPopstate) {
-  if (!route) { navigate(DEFAULT_ROUTE, isPopstate); return; }
+    if (!route) { navigate(DEFAULT_ROUTE, isPopstate); return; }
 
-  if (!isPopstate && route === currentRoute) {
-    scrollToTheTop();
-    return;
-  }
-  
-  const segments = route.split('/').filter(Boolean);
+    if (!isPopstate && route === currentRoute) {
+        scrollToTheTop();
+        return;
+    }
+    
+    const segments = route.split('/').filter(Boolean);
 
-  if (!hydrated && isPopstate && mainContent.children.length > 0) {
+    if (!hydrated && isPopstate && mainContent.children.length > 0) {
+        hydrated = true;
+        currentRoute = route;
+        const meta = readRouteMeta(mainContent);
+        showRouteTitle(meta.title, meta.hideTitle);
+        updateNav(segments);
+        requestAnimationFrame(initScrollables);
+        return;
+    }
+
     hydrated = true;
-    currentRoute = route;
-    const meta = readRouteMeta(mainContent);
-    showRouteTitle(meta.title, meta.hideTitle);
-    updateNav(segments);
-    requestAnimationFrame(initScrollables);
-    return;
-  }
 
-  hydrated = true;
+    const filePath = ROOT_ROUTE + route;
 
-  const filePath = ROOT_ROUTE + route;
+    let html;
+    try {
+        const response = await fetch(`${filePath}.html`);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        html = await response.text();
+        if (html.includes('<!DOCTYPE html>')) throw new Error('Page not found');
+    } catch (err) {
+        console.error('Failed to load:', filePath, err);
+        if (route !== DEFAULT_ROUTE) navigate(DEFAULT_ROUTE);
+        return;
+    }
 
-  let html;
-  try {
-    const response = await fetch(`${filePath}.html`);
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    html = await response.text();
-    if (html.includes('<!DOCTYPE html>')) throw new Error('Page not found');
-  } catch (err) {
-    console.error('Failed to load:', filePath, err);
-    if (route !== DEFAULT_ROUTE) navigate(DEFAULT_ROUTE);
-    return;
-  }
-
-  render(route, segments, html, isPopstate);
+    render(route, segments, html, isPopstate);
 }
 
 //#endregion
@@ -59,142 +59,143 @@ async function navigate(route, isPopstate) {
 //#region render
 
 function render(route, segments, html, isPopstate) {
-  currentRoute = route;
+    currentRoute = route;
 
-  mainContent.replaceChildren('');
+    mainContent.replaceChildren('');
 
-  const fragment = document.createRange().createContextualFragment(html);
+    const fragment = document.createRange().createContextualFragment(html);
 
-  const meta = readRouteMeta(fragment);
-  const title = meta.title;
-  const description = meta.description;
-  const hideTitle = meta.hideTitle;
-  const fileScripts = meta.scripts;
-  const fileStyles = meta.styles;
+    const meta = readRouteMeta(fragment);
+    const title = meta.title;
+    const description = meta.description;
+    const hideTitle = meta.hideTitle;
+    const fileScripts = meta.scripts;
+    const fileStyles = meta.styles;
 
-  const inlineScripts = [];
-  fragment.querySelectorAll('script').forEach(script => {
-    const code = script.textContent.trim();
-    if (code) inlineScripts.push(code);
-    script.remove();
-  });
-
-  const routeBlock = fragment.querySelector('route');
-  if (routeBlock) routeBlock.replaceWith(...[...routeBlock.childNodes]);
-
-  showRouteTitle(title, hideTitle);
-  document.title = title ? `MRSG | ${title}` : 'MRSG';
-
-  const descEl = document.querySelector('meta[name="description"]');
-  if (descEl) descEl.setAttribute('content', description);
-
-  setMeta('og:title', title ? `MRSG | ${title}` : 'MRSG');
-  setMeta('og:description', description);
-  setMeta('og:url', `${window.location.origin}/${route}/`);
-
-  let canonical = document.querySelector('link[rel="canonical"]');
-  if (!canonical) {
-    canonical = document.createElement('link');
-    canonical.setAttribute('rel', 'canonical');
-    document.head.appendChild(canonical);
-  }
-  canonical.setAttribute('href', `${window.location.origin}/${route}/`);
-
-  updateNav(segments);
-  if (!isPopstate) history.pushState({ route }, '', `/${route}`);
-
-  loadPageStyles(fileStyles);
-  const scriptsPromise = loadPageScripts(fileScripts);
-
-  unloadPageScripts();
-  pageCleanup.run();
-
-  scrollToTheTop(true);
-
-  mainContent.replaceChildren(fragment);
-
-  scriptsPromise.then(() => {
-    inlineScripts.forEach(code => {
-      const script = document.createElement('script');
-      script.textContent = code;
-      script.setAttribute('data-page', '');
-      document.head.appendChild(script);
+    const inlineScripts = [];
+    fragment.querySelectorAll('script').forEach(script => {
+        const code = script.textContent.trim();
+        if (code) inlineScripts.push(code);
+        script.remove();
     });
-    return loadIncludes();
-  }).then(() => {
-    requestAnimationFrame(initScrollables);
-    createIcons();
-  });
+
+    const routeBlock = fragment.querySelector('route');
+    if (routeBlock) routeBlock.replaceWith(...[...routeBlock.childNodes]);
+
+    showRouteTitle(title, hideTitle);
+    document.title = title ? `MRSG | ${title}` : 'MRSG';
+
+    const descEl = document.querySelector('meta[name="description"]');
+    if (descEl) descEl.setAttribute('content', description);
+
+    setMeta('og:title', title ? `MRSG | ${title}` : 'MRSG');
+    setMeta('og:description', description);
+    setMeta('og:url', `${window.location.origin}/${route}/`);
+
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.setAttribute('rel', 'canonical');
+        document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', `${window.location.origin}/${route}/`);
+
+    updateNav(segments);
+    if (!isPopstate) history.pushState({ route }, '', `/${route}`);
+
+    loadPageStyles(fileStyles);
+    const scriptsPromise = loadPageScripts(fileScripts);
+
+    unloadPageScripts();
+    pageCleanup.run();
+
+    scrollToTheTop(true);
+
+    mainContent.replaceChildren(fragment);
+
+    scriptsPromise.then(() => {
+        inlineScripts.forEach(code => {
+            const script = document.createElement('script');
+            script.textContent = code;
+            script.setAttribute('data-page', '');
+            document.head.appendChild(script);
+        });
+        return loadIncludes();
+    }).then(() => {
+        requestAnimationFrame(initScrollables);
+        createIcons();
+        videoObserver.init()
+    });
 }
 
 function parseList(raw) {
-  if (!raw) return [];
-  try { return JSON.parse(raw); } catch (e) { return []; }
+    if (!raw) return [];
+    try { return JSON.parse(raw); } catch (e) { return []; }
 }
 
 function readRouteMeta(scope) {
-  const node = scope.querySelector('route');
+    const node = scope.querySelector('route');
 
-  if (!node) return { title: null, description: '', hideTitle: false, scripts: [], styles: [] };
+    if (!node) return { title: null, description: '', hideTitle: false, scripts: [], styles: [] };
 
-  return {
-    title: node.getAttribute('title'),
-    description: node.getAttribute('description') ?? '',
-    hideTitle: node.hasAttribute('hide-title'),
-    scripts: parseList(node.getAttribute('scripts') ?? ''),
-    styles: parseList(node.getAttribute('styles') ?? ''),
-  };
+    return {
+        title: node.getAttribute('title'),
+        description: node.getAttribute('description') ?? '',
+        hideTitle: node.hasAttribute('hide-title'),
+        scripts: parseList(node.getAttribute('scripts') ?? ''),
+        styles: parseList(node.getAttribute('styles') ?? ''),
+    };
 }
 
 function loadPageScripts(paths) {
-  const promises = paths
-    .filter(src => !document.querySelector(`script[data-page][src="${src}"]`))
-    .map(src => new Promise((resolve, reject) => {
-      const script = document.createElement('script');
-      script.src = src;
-      script.setAttribute('data-page', '');
-      script.onload = resolve;
-      script.onerror = reject;
-      document.head.appendChild(script);
-    }));
-  return Promise.all(promises);
+    const promises = paths
+            .filter(src => !document.querySelector(`script[data-page][src="${src}"]`))
+            .map(src => new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = src;
+                script.setAttribute('data-page', '');
+                script.onload = resolve;
+                script.onerror = reject;
+                document.head.appendChild(script);
+            }));
+    return Promise.all(promises);
 }
 
 function loadPageStyles(paths) {
-  paths.forEach(href => {
-    if (document.querySelector(`link[data-page][href="${href}"]`)) return;
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = href;
-    link.setAttribute('data-page', '');
-    document.head.appendChild(link);
-  });
+    paths.forEach(href => {
+        if (document.querySelector(`link[data-page][href="${href}"]`)) return;
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = href;
+        link.setAttribute('data-page', '');
+        document.head.appendChild(link);
+    });
 }
 
 function unloadPageScripts() {
-  document.querySelectorAll('script[data-page], link[data-page]').forEach(element => element.remove());
+    document.querySelectorAll('script[data-page], link[data-page]').forEach(element => element.remove());
 }
 
 function getSpinner() {
-  if (!loadingSpinnerElement) {
-    loadingSpinnerElement = document.createElement('div');
-    loadingSpinnerElement.className = 'loading-spinner';
-    loadingSpinnerElement.setAttribute('aria-hidden', 'true');
-    loadingSpinnerElement.innerHTML = '<div class="ring"></div>';
-  }
-  return loadingSpinnerElement;
+    if (!loadingSpinnerElement) {
+        loadingSpinnerElement = document.createElement('div');
+        loadingSpinnerElement.className = 'loading-spinner';
+        loadingSpinnerElement.setAttribute('aria-hidden', 'true');
+        loadingSpinnerElement.innerHTML = '<div class="ring"></div>';
+    }
+    return loadingSpinnerElement;
 }
 
 function showSpinner() {
-  const element = getSpinner();
-  if (!element.parentNode) document.body.appendChild(element);
-  element.classList.add('visible');
+    const element = getSpinner();
+    if (!element.parentNode) document.body.appendChild(element);
+    element.classList.add('visible');
 }
 
 function hideSpinner() {
-  clearTimeout(spinnerTimer);
-  spinnerTimer = null;
-  if (loadingSpinnerElement) loadingSpinnerElement.classList.remove('visible');
+    clearTimeout(spinnerTimer);
+    spinnerTimer = null;
+    if (loadingSpinnerElement) loadingSpinnerElement.classList.remove('visible');
 }
 
 //#endregion
@@ -202,42 +203,42 @@ function hideSpinner() {
 //#region helpers
 
 function showRouteTitle(title, hide) {
-  if (title && !hide) {
-    routeTitleText.innerHTML = title;
-    routeTitle.classList.add('active');
-  } else {
-    routeTitleText.innerHTML = '';
-    routeTitle.classList.remove('active');
-  }
+    if (title && !hide) {
+        routeTitleText.innerHTML = title;
+        routeTitle.classList.add('active');
+    } else {
+        routeTitleText.innerHTML = '';
+        routeTitle.classList.remove('active');
+    }
 }
 
 function setMeta(property, content) {
-  let tag = document.querySelector(`meta[property="${property}"]`);
-  if (!tag) {
-    tag = document.createElement('meta');
-    tag.setAttribute('property', property);
-    document.head.appendChild(tag);
-  }
-  tag.setAttribute('content', content);
+    let tag = document.querySelector(`meta[property="${property}"]`);
+    if (!tag) {
+        tag = document.createElement('meta');
+        tag.setAttribute('property', property);
+        document.head.appendChild(tag);
+    }
+    tag.setAttribute('content', content);
 }
 
 function updateNav(segments) {
-  const active = new Set(segments);
-  document.querySelectorAll('a[name]').forEach(a =>
-    a.classList.toggle('active', active.has(a.getAttribute('name')))
-  );
+    const active = new Set(segments);
+    document.querySelectorAll('a[name]').forEach(a =>
+        a.classList.toggle('active', active.has(a.getAttribute('name')))
+    );
 }
 
 async function loadIncludes() {
-  const includes = mainContent.querySelectorAll('[data-include]');
-  await Promise.all(Array.from(includes).map(async el => {
-    try {
-      const res = await fetch(el.getAttribute('data-include'));
-      el.outerHTML = await res.text();
-    } catch (err) {
-      console.error('Failed to load include:', err);
-    }
-  }));
+    const includes = mainContent.querySelectorAll('[data-include]');
+    await Promise.all(Array.from(includes).map(async el => {
+        try {
+        const res = await fetch(el.getAttribute('data-include'));
+        el.outerHTML = await res.text();
+        } catch (err) {
+        console.error('Failed to load include:', err);
+        }
+    }));
 }
 
 //#endregion
@@ -245,29 +246,29 @@ async function loadIncludes() {
 //#region ui
 
 function scrollToTheTop(instant) {
-  window.scrollTo({ top: 0, left: 0, behavior: instant ? 'instant' : 'smooth' });
+    window.scrollTo({ top: 0, left: 0, behavior: instant ? 'instant' : 'smooth' });
 }
 
 function toggleHeaderMenuDropdown() {
-  headerMenuDropdown.classList.toggle('show');
+    headerMenuDropdown.classList.toggle('show');
 }
 
 function initScrollables() {
-  [
-    { sel: '.h-scrollable', fn: el => el.scrollWidth - el.clientWidth, cls: 'h-scroll' },
-    { sel: '.v-scrollable', fn: el => el.scrollHeight - el.clientHeight, cls: 'v-scroll' }
-  ].forEach(({ sel, fn, cls }) =>
-    document.querySelectorAll(sel).forEach(el => {
-      const px = fn(el);
-      if (px > 0) {
-        el.style.setProperty('--scroll-distance', `-${px}px`);
-        el.classList.add(cls);
-      } else {
-        el.classList.remove(cls);
-        el.style.removeProperty('--scroll-distance');
-      }
-    })
-  );
+    [
+        { sel: '.h-scrollable', fn: el => el.scrollWidth - el.clientWidth, cls: 'h-scroll' },
+        { sel: '.v-scrollable', fn: el => el.scrollHeight - el.clientHeight, cls: 'v-scroll' }
+    ].forEach(({ sel, fn, cls }) =>
+        document.querySelectorAll(sel).forEach(el => {
+            const px = fn(el);
+            if (px > 0) {
+                el.style.setProperty('--scroll-distance', `-${px}px`);
+                el.classList.add(cls);
+            } else {
+                el.classList.remove(cls);
+                el.style.removeProperty('--scroll-distance');
+            }
+        })
+    );
 }
 
 //#endregion
@@ -275,26 +276,26 @@ function initScrollables() {
 //#region events
 
 window.onpopstate = ({ state }) => {
-  navigate(state ? state.route : DEFAULT_ROUTE, true);
+    navigate(state ? state.route : DEFAULT_ROUTE, true);
 };
 
 document.addEventListener('click', e => {
-  if (
-    headerMenuDropdown.classList.contains('show') &&
-    !headerMenuDropdown.contains(e.target) &&
-    !headerMenuButton.contains(e.target)
-  ) toggleHeaderMenuDropdown();
+    if (
+        headerMenuDropdown.classList.contains('show') &&
+        !headerMenuDropdown.contains(e.target) &&
+        !headerMenuButton.contains(e.target)
+    ) toggleHeaderMenuDropdown();
 
-  const link = e.target.closest('a[href]');
-  if (!link || e.button !== 0 || e.ctrlKey || e.shiftKey || e.metaKey) return;
+    const link = e.target.closest('a[href]');
+    if (!link || e.button !== 0 || e.ctrlKey || e.shiftKey || e.metaKey) return;
 
-  const href = link.getAttribute('href');
-  if (!href || !href.startsWith('/')) return;
-  if (href.split('/').pop().includes('.')) return;
+    const href = link.getAttribute('href');
+    if (!href || !href.startsWith('/')) return;
+    if (href.split('/').pop().includes('.')) return;
 
-  e.preventDefault();
-  if (link.closest('#header-menu-dropdown')) toggleHeaderMenuDropdown();
-  navigate(href.slice(1));
+    e.preventDefault();
+    if (link.closest('#header-menu-dropdown')) toggleHeaderMenuDropdown();
+    navigate(href.slice(1));
 });
 
 window.addEventListener('resize', initScrollables);
@@ -304,16 +305,16 @@ window.addEventListener('resize', initScrollables);
 //#region pageCleanup
 
 const pageCleanup = {
-  _callbacks: [],
+    _callbacks: [],
 
-  register(fn) {
-    this._callbacks.push(fn);
-  },
+    register(fn) {
+        this._callbacks.push(fn);
+    },
 
-  run() {
-    this._callbacks.forEach(fn => { try { fn(); } catch (e) {} });
-    this._callbacks = [];
-  }
+    run() {
+        this._callbacks.forEach(fn => { try { fn(); } catch (e) {} });
+        this._callbacks = [];
+    }
 };
 
 //#endregion
