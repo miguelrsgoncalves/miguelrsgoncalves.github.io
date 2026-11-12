@@ -1,0 +1,11 @@
+.content-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--gap);
+
+    .label {
+        text-wrap-mode: nowrap;
+        font-weight: var(--font-weight-bold);
+    }
+}

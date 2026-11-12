@@ -86,10 +86,10 @@
     <div class="content-row">
         <div class="left">
             <p>
-                Abyssal Descent: SCP-455 is an university project made by a big team composed of 3 different courses, Software Engineering (programming), Visual Arts (visuals) and Multimedia (sound design), where we had to create a game from scratch. Abyssal Descent: SCP-455 is a 3D horror VR experience inside the world of SCP-455 where the player will be put in the shoes of a SCP foundation agent, sent to investigate a mysterious ship abandoned at sea. As you explore the ship, you will uncover the dark secrets that lie within, facing horrors as you descend into the abyss.
+                Abyssal Descent: SCP-455 is an university project made by a big team composed of 3 different masters courses, Software Engineering (programming), Visual Arts (visuals) and Multimedia (sound design), where we had to create a game from scratch. Abyssal Descent: SCP-455 is a 3D horror VR experience inside the world of SCP-455 where the player will be put in the shoes of a SCP Foundation agent, sent to investigate a mysterious ship abandoned at sea. As you explore the ship, you will uncover the dark secrets that lie within, facing horrors as you descend into the abyss.
             </p>
             <p>
-                My team was tasked with the game's sound design. A new challenge to tackle, as none of us had done anything horror related prior. But a challenge we happily went into face on! We had to first wait the first concept and demo shots from our programmers, as well as the first concept art from the artists so we could work on an atmosphere that would go hand in hand with the rest that the player would be experiencing. What we got was this solitary cargo ship in the middle of the ocean with a very rusty and decayed appearance with phantasmagoric vibes all around.
+                My team was tasked with the game's sound design. A new challenge to tackle, as none of us had done anything horror related prior. But a challenge we happily went into face on. We had to first wait the first concept and demo shots from our programmers, as well as the first concept art from the artists so we could work on an atmosphere that would go hand in hand with the rest that the player would be experiencing. What we got was this solitary cargo ship in the middle of the ocean with a very rusty and decayed appearance with phantasmagoric vibes all around.
             </p>
             <p>
                 With the first drafts of the whole vibe, we got into work to make this project sound like something!
@@ -104,7 +104,7 @@
         <img class="left" src="/assets/projects/abyssal-descent-scp-455/images/corridors.png" alt="Corridor" loading="lazy">
         <div class="right">
             <p>
-                For the music, Amir produced some amazing and very eery generative music that quickly gives mysterious and an ominous presence to any environment.
+                For the music, Amir produced some amazing and very eery generative music that quickly gives a mysterious and an ominous presence to the dark and claustrophobic corridors of the ship.
             </p>
 
             <audio controls preload="none"
@@ -118,13 +118,10 @@
     <div class="content-row">
         <div class="left">
             <p>
-                The world our game would be inside of would be a very lonely, dark and mysterious one. So the sounds and music would need to fit right in that setting.
+                We got the environment sounds from free online libraries and tuned them for our needs so they would fit perfectly into the places on the game they would be used.
             </p>
             <p>
-                For the music, we decided we would have some synth-based generative music soundtrack, where one of our team members worked on all of the sound types that would be playing together, how they would evolve over time and how they would behave with increased intensity. We then passed the sounds onto FMOD, where we made the sounds play in a random and free manner. This ended up creating a very cool and strange feeling while the player explored through the corridors of the ship.
-            </p>
-            <p>
-                We would create most of the other sounds by ourselves. In our sound room we had a lot of metallic objects, like stands and cabinets, so we used those as percussion instruments and made beautiful sounds for our in-game actions and events. A good example of it is the step sounds, which I made by laying a chair on the ground and wall walking on a metal cabinet, which made quite a echoey metal clank.
+                We created most of the VFX sounds by ourselves. In our sound room we had a lot of metallic objects, like stands and cabinets, so we used those as percussion instruments and made beautiful sounds for our in-game actions and events. A good example of it is the step sounds, which I made by laying a chair on the ground and wall walking on a metal cabinet, which made quite a echoey metal clank.
             </p>
 
             <audio controls preload="none"
@@ -159,10 +156,10 @@
     <div class="content-row">
         <div class="left">
             <p>
-                The ghosts were easily my favorite part to make, which without any bias at all, like it wasn't me who made them, I think they came out pretty well.
+                The ghosts were easily my favorite part to make, which without any bias at all, I think they came out pretty well.
             </p>
             <p>
-                The design for the ghosts was also inspired by generative music, since the randomness by nature can give it a pretty eery feeling. The idea would be that the ghosts would sound like the collective souls from all of the people they had consumed, so they would be muffled, chaotic and desperate whispers that would intensify and increase in number the closer it got.
+                The design for the ghosts VFX was also inspired by generative music, since the randomness by nature can give it a pretty eery feeling. The idea would be that the ghosts would sound like the collective souls from all of the souls they had consumed, sounding like muffled, chaotic and desperate whispers that would intensify and increase in number the closer it got.
             </p>
             <p>
                 In order to achieve the effect I recorded around 30 voice lines, some whispering and some more aggressive. Then I put them into FMOD and created a sound system that would play an higher number of overlapped voicelines if the player was closer to the ghosts. This was more recoding work than it was technical, but the final effect came out pretty cool and gave a lot of life to the enemies in the game.
@@ -175,23 +172,47 @@
         <img class="right" src="/assets/projects/abyssal-descent-scp-455/images/ghost.png" alt="Walkie Talkie" loading="lazy">
     </div>
 
-    <h3>The UI</h3>
+    <h2>The UI</h2>
 
-    <audio controls preload="none"
-        src="/assets/projects/abyssal-descent-scp-455/audio/vfx_ui_accept.wav"
-    ></audio>
+    <p>
+        For the UI we decided to also use synthesized sounds to make weird and theme-fitting SFX.
+    </p>
 
-    <audio controls preload="none"
-        src="/assets/projects/abyssal-descent-scp-455/audio/vfx_ui_decline.wav"
-    ></audio>
+    <div class="content-label">
+        <div class="label">
+            UI Accept:
+        </div>
+        <audio controls preload="none"
+            src="/assets/projects/abyssal-descent-scp-455/audio/vfx_ui_accept.wav"
+        ></audio>
+    </div>
 
-    <audio controls preload="none"
-        src="/assets/projects/abyssal-descent-scp-455/audio/vfx_ui_game_start.wav"
-    ></audio>
+    <div class="content-label">
+        <div class="label">
+            UI Decline:
+        </div>
+        <audio controls preload="none"
+            src="/assets/projects/abyssal-descent-scp-455/audio/vfx_ui_decline.wav"
+        ></audio>
+    </div>
 
-    <audio controls preload="none"
-        src="/assets/projects/abyssal-descent-scp-455/audio/vfx_ui_game_pause.wav"
-    ></audio>
+    <div class="content-label">
+        <div class="label">
+            Game Start:
+        </div>
+        <audio controls preload="none"
+            src="/assets/projects/abyssal-descent-scp-455/audio/vfx_ui_game_start.wav"
+        ></audio>
+    </div>
+
+    <div class="content-label">
+        <div class="label">
+            Game Pause:
+        </div>
+        <audio controls preload="none"
+            src="/assets/projects/abyssal-descent-scp-455/audio/vfx_ui_game_pause.wav"
+        ></audio>
+    </div>
 
     <h2>Introspection</h2>
 
