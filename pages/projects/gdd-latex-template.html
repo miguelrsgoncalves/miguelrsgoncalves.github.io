@@ -4,28 +4,65 @@
 ></route>
 
 <div class="page narrow">
-
     <iframe class="pdf" src="https://cdn.jsdelivr.net/gh/miguelrsgoncalves/gdd_latex_template@main/main.pdf"></iframe>
 
-    <div class="control-bar">
-        <a class="button left clickable" href="https://cdn.jsdelivr.net/gh/miguelrsgoncalves/gdd_latex_template@main/main.pdf" target="_blank">
-            <icon data-icon-name="fullscreen"></icon>
-            Fullscreen
-        </a>
-        <div class="separator vertical"></div>
-        <a class="button middle clickable" href="https://github.com/miguelrsgoncalves/gdd_latex_template" target="_blank">
-            <icon data-icon-name="book-marked"></icon>
-            Repository
-        </a>
-        <div class="separator vertical"></div>
-        <a class="button right clickable" href="https://github.com/miguelrsgoncalves/gdd_latex_template/releases" target="_blank">
-            Download
-            <icon data-icon-name="download"></icon>
-        </a>
+    <div class="control-group embedded">
+        <div class="control-bar embedded">
+            <div class="button left" onclick="toggleControlPanel(this, 'info')">
+                <icon data-id="info"></icon>
+                <div>Info</div>
+            </div>
+
+            <div class="separator vertical"></div>
+
+            <a class="button middle" href="https://cdn.jsdelivr.net/gh/miguelrsgoncalves/gdd_latex_template@main/main.pdf" target="_blank">
+                <icon data-id="fullscreen"></icon>
+                <div>Fullscreen</div>
+            </a>
+            
+            <div class="separator vertical"></div>
+            
+            <div class="button right" onclick="toggleControlPanel(this, 'links-and-downloads')">
+                <div>Links & Downloads</div>
+                <icon data-id="external-link"></icon>
+            </div>
+        </div>
+
+        <div class="control-panel embedded" data-id="info">
+            
+        </div>
+
+        <div class="control-panel embedded" data-id="links-and-downloads">
+            <div class="item-tree-card">
+                <div class="group">
+                    <div class="header">
+                        <icon data-id="globe"></icon>
+                        <div>External Links</div>
+                    </div>
+
+                    <div class="items">
+                        <a class="item" href="https://github.com/miguelrsgoncalves/gdd_latex_template" target="_blank">
+                            <icon data-id="brands/github"></icon>
+                            <div class="data">
+                                <div class="title">Repository</div>
+                            </div>
+                            <icon class="action-icon" data-id="external-link"></icon>
+                        </a>
+
+                        <a class="item" href="https://github.com/miguelrsgoncalves/gdd_latex_template/releases" target="_blank">
+                            <icon data-id="brands/github"></icon>
+                            <div class="data">
+                                <div class="title">Releases & Downloads</div>
+                            </div>
+                            <icon class="action-icon" data-id="external-link"></icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <p>
         This LaTeX template was created to help and speed up the development of GDD documents for the creation of video games, adding a comfortable formatting style and many custom commands to speed up the writing process.
     </p>
-
 </div>

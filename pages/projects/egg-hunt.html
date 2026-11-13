@@ -6,40 +6,43 @@
 
 <section class="page narrow">
     <div class="embedded-project">
-        <div id="loading-screen" class="loading-screen">
-            <div class="spinner"></div>
-        </div>
-
-        <div id="embedded-project-frame" class="frame"></div>
+        <div id="loading-screen" class="loading-screen"><div class="spinner"></div></div>
+        <div id="embedded-project-frame" class="embed"></div>
+        <img class="thumbnail" src="/assets/projects/egg-hunt/images/thumbnail.png" alt="Egg Hunt Thumbnail" loading="lazy">
+        <div class="frame"></div>
     </div>
 
-  <div class="control-bar">
-        <div class="button left clickable" onclick="loadEmbeddedProject('embedded-project-frame', '/assets/projects/egg-hunt/game/egg-hunt-embedded.html', 'loading-screen')">
+    <div class="control-bar">
+        <div class="button left" onclick="loadEmbeddedProject('embedded-project-frame', '/assets/projects/egg-hunt/game/egg-hunt-embedded.html', 'loading-screen')">
             <icon data-id="play"></icon>
             <p>Start</p>
         </div>
+
         <div class="separator vertical"></div>
-        <a id="start-button" class="button middle clickable" href="/assets/projects/egg-hunt/game/project/index.html" target="_blank">
+
+        <a id="start-button" class="button middle" href="/assets/projects/egg-hunt/game/project/index.html" target="_blank">
             <icon data-id="fullscreen"></icon>
             <p>Fullscreen</p>
         </a>
+
         <div class="separator vertical"></div>
-        <div class="button right clickable" onclick="restartEmbeddedProject('embedded-project-frame', '/assets/projects/egg-hunt/game/egg-hunt-embedded.html', 'loading-screen')">
+
+        <div class="button right" onclick="restartEmbeddedProject('embedded-project-frame', '/assets/projects/egg-hunt/game/egg-hunt-embedded.html', 'loading-screen')">
             <p>Restart</p>
             <icon data-id="refresh-ccw"></icon>
         </div>
-  </div>
+    </div>
 
-  <div class="control-group embedded">
+    <div class="control-group embedded">
         <div class="control-bar embedded">
-            <div class="button left clickable" onclick="toggleControlPanel(this, 'controls')">
+            <div class="button left" onclick="toggleControlPanel(this, 'controls')">
                 <icon data-id="gamepad-2"></icon>
                 <p>Controls</p>
             </div>
             
             <div class="separator vertical"></div>
             
-            <div class="button right clickable" onclick="toggleControlPanel(this, 'how-to-play')">
+            <div class="button right" onclick="toggleControlPanel(this, 'how-to-play')">
                 <p>How to Play</p>
                 <icon data-id="book-text"></icon>
             </div>
@@ -135,7 +138,7 @@
     <h1>Egg Hunt</h1>
 
     <p>
-        This is the same class as <a href="/projects/webgl-train">WebGL Train</a><icon class="external-link" data-id="external-link"></icon>, which I had to retake as I had to leave it behind to prioritize other classes that year.
+        This is the same class as <a href="/projects/webgl-train">WebGL Train <icon class="external-link" data-id="external-link"></icon></a>, which I had to retake as I had to leave it behind to prioritize other classes that year.
     </p>
     <p>
         This project was way more enjoyable to work on, as it permitted us to make a game and way more complex systems around it. It introduced us to map generation using height maps, instantiating objects to make a forest and was overall a bigger and harder learning experience.
