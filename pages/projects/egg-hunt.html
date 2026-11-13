@@ -1,207 +1,216 @@
 <route
-	title="Egg Hunt"
-	description="Play as a bird tasked with gathering eggs and dropping them on a nest."
-	scripts='["/scripts/embedded-projects.js"]'
+    title="Egg Hunt"
+    description="Play as a bird tasked with gathering eggs and dropping them on a nest."
+    scripts='["/scripts/embedded-projects.js"]'
 ></route>
 
 <section class="page narrow">
-  <div class="embedded-project">
-    <div id="loading-screen" class="loading-screen">
-      <div class="spinner"></div>
-    </div>
+    <div class="embedded-project">
+        <div id="loading-screen" class="loading-screen">
+            <div class="spinner"></div>
+        </div>
 
-    <div id="embedded-project-frame" class="frame"></div>
-  </div>
+        <div id="embedded-project-frame" class="frame"></div>
+    </div>
 
   <div class="control-bar">
-    <div class="button left clickable" onclick="loadEmbeddedProject('embedded-project-frame', '/assets/projects/egg-hunt/game/egg-hunt-embedded.html', 'loading-screen')">
-      <icon data-icon-name="play"></icon>
-      <p>Start</p>
-    </div>
-    <div class="separator vertical"></div>
-    <a id="start-button" class="button middle clickable" href="/assets/projects/egg-hunt/game/project/index.html" target="_blank">
-      <icon data-icon-name="fullscreen"></icon>
-      <p>Fullscreen</p>
-    </a>
-    <div class="separator vertical"></div>
-    <div class="button right clickable" onclick="restartEmbeddedProject('embedded-project-frame', '/assets/projects/egg-hunt/game/egg-hunt-embedded.html', 'loading-screen')">
-      <p>Restart</p>
-      <icon data-icon-name="refresh-ccw"></icon>
-    </div>
+        <div class="button left clickable" onclick="loadEmbeddedProject('embedded-project-frame', '/assets/projects/egg-hunt/game/egg-hunt-embedded.html', 'loading-screen')">
+            <icon data-id="play"></icon>
+            <p>Start</p>
+        </div>
+        <div class="separator vertical"></div>
+        <a id="start-button" class="button middle clickable" href="/assets/projects/egg-hunt/game/project/index.html" target="_blank">
+            <icon data-id="fullscreen"></icon>
+            <p>Fullscreen</p>
+        </a>
+        <div class="separator vertical"></div>
+        <div class="button right clickable" onclick="restartEmbeddedProject('embedded-project-frame', '/assets/projects/egg-hunt/game/egg-hunt-embedded.html', 'loading-screen')">
+            <p>Restart</p>
+            <icon data-id="refresh-ccw"></icon>
+        </div>
   </div>
 
   <div class="control-group embedded">
-    <div class="control-bar embedded">
-      <div class="button left clickable" onclick="toggleControlPanel(this, 'controls')">
-        <icon data-icon-name="gamepad-2"></icon>
-        <p>Controls</p>
-      </div>
-      
-      <div class="separator vertical"></div>
-      
-      <div class="button right clickable" onclick="toggleControlPanel(this, 'how-to-play')">
-        <p>How to Play</p>
-        <icon data-icon-name="info"></icon>
-      </div>
-    </div>
-
-    <div class="control-panel embedded" data-panel-name="controls">
-      <div class="game-controls">
-        <p>
-          To focus on the game window press the egg counter text on the top of the game window!
-        </p>
-        <div class="title">Movement</div>
-        <div class="group">
-          <div class="entry">
-            <div class="name">Forward and Backwards</div>
-            <div class="control">W and S</div>
-            <div class="description">Works as an acceleration</div>
-          </div>
-          <div class="entry">
-            <div class="name">Sideways</div>
-            <div class="control">A and D</div>
-          </div>
-        </div>
-        <div class="title">Egg</div>
-        <div class="group">
-          <div class="entry">
-            <div class="name">Catch</div>
-            <div class="control">P</div>
-          </div>
-          <div class="entry">
-            <div class="name">Drop</div>
-            <div class="control">O</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="control-panel embedded" data-panel-name="how-to-play">
-      <div class="how-to-play">
-        <div class="text-wrap-image">
-          <div class="text">
-            <h2>Objective</h2>
-            <p>
-              You are a blue bird!
-            </p>
-            <p>
-              Your eggs are scattered through the forest and you must gather them and put them back into their nest!
-            </p>
-            <p>
-              Explore the forest and bring them back!
-            </p>
-          </div>
-          <img src="/assets/projects/egg-hunt/images/bird.png" alt="Bird." loading="lazy">
-        </div>
-  
-        <div class="text-wrap-image reverse">
-          <div class="text">
-            <h2>Catching Eggs</h2>
-            <p>
-              When close to an egg catch it!
-            </p>
-          </div>
-          <img src="/assets/projects/egg-hunt/images/catching_egg.png" alt="Catching the egg." loading="lazy">
+        <div class="control-bar embedded">
+            <div class="button left clickable" onclick="toggleControlPanel(this, 'controls')">
+                <icon data-id="gamepad-2"></icon>
+                <p>Controls</p>
+            </div>
+            
+            <div class="separator vertical"></div>
+            
+            <div class="button right clickable" onclick="toggleControlPanel(this, 'how-to-play')">
+                <p>How to Play</p>
+                <icon data-id="book-text"></icon>
+            </div>
         </div>
 
-        <div class="text-wrap-image">
-          <div class="text">
-            <h2>Dropping Eggs</h2>
+    <div class="control-panel embedded" data-id="controls">
+        <div class="game-controls">
             <p>
-              When close to the nest drop the egg!
+                To focus on the game window press the egg counter text on the top of the game window!
             </p>
-          </div>
-          <img src="/assets/projects/egg-hunt/images/dropping_egg.png" alt="Dropping the egg." loading="lazy">
+
+            <div class="title">Movement</div>
+
+            <div class="group">
+                <div class="entry">
+                    <div class="name">Forward and Backwards</div>
+                    <div class="control">W and S</div>
+                    <div class="description">Works as an acceleration</div>
+                </div>
+                <div class="entry">
+                    <div class="name">Sideways</div>
+                    <div class="control">A and D</div>
+                </div>
+            </div>
+
+            <div class="title">Egg</div>
+
+            <div class="group">
+                <div class="entry">
+                    <div class="name">Catch</div>
+                    <div class="control">P</div>
+                </div>
+                <div class="entry">
+                    <div class="name">Drop</div>
+                    <div class="control">O</div>
+                </div>
+            </div>
         </div>
-  
-        <div class="text-wrap-image reverse">
-          <div class="text">
-            <h2>Mission Successful!</h2>
-            <p>
-              Gather all five eggs to win!
-            </p>
-          </div>
-          <img src="/assets/projects/egg-hunt/images/win.png" alt="Win." loading="lazy">
+    </div>
+
+    <div class="control-panel embedded" data-id="how-to-play">
+        <div class="content-row">
+            <div class="left">
+                <h2>Objective</h2>
+
+                <p>
+                    You are a blue bird!
+                </p>
+                <p>
+                    Your eggs are scattered through the forest and you must gather them and put them back into their nest!
+                </p>
+                <p>
+                    Explore the forest and bring them back!
+                </p>
+            </div>
+            <img class="right" src="/assets/projects/egg-hunt/images/bird.png" alt="Bird" loading="lazy">
         </div>
-      </div>
+
+        <div class="content-row">
+            <img class="left" src="/assets/projects/egg-hunt/images/catching_egg.png" alt="Catching the egg" loading="lazy">
+            <div class="right">
+                <h2>Catching Eggs</h2>
+
+                <p>
+                    When close to an egg catch it!
+                </p>
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="left">
+                <h2>Dropping Eggs</h2>
+
+                <p>
+                    When close to the nest drop the egg!
+                </p>
+            </div>
+            <img class="right" src="/assets/projects/egg-hunt/images/dropping_egg.png" alt="Dropping the egg" loading="lazy">
+        </div>
+
+        <div class="content-row">
+            <img class="left" src="/assets/projects/egg-hunt/images/win.png" alt="Win" loading="lazy">
+            <div class="right">
+                <h2>Mission Successful!</h2>
+
+                <p>
+                    Gather all five eggs to win!
+                </p>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <h1>Graphics Programming</h1>
+    <h1>Egg Hunt</h1>
 
-  <p>
-    This is the same class as <a href="/projects/webgl-train">WebGL Train</a>, which I had to retake as I had to leave it behind to prioritize other classes that year.
-  </p>
-  <p>
-    This project was way more enjoyable to work on, as it permitted us to make a game and way more complex systems around it. It introduced us to map generation using height maps, instantiating objects to make a forest and was overall a bigger and harder learning experience.
-  </p>
-
-  <h1>The Models</h1>
-    
-  <div class="text-wrap-image">
-    <div class="text">
-      <p>
-        The models were done by programming one shape at a time, forming shapes by the use of different algorithms.
-      </p>
-    </div>
-    <img src="/assets/projects/egg-hunt/images/models.png" alt="Models." loading="lazy">
-  </div>
-
-  <h1>The Animations</h1>
-
-  <div class="text-wrap-image reverse">
-    <div class="text">
-      <p>
-        The bird animations were done in code by interpolating the translations and rotations of the individual elements of the bird.
-      </p>
-    </div>
-    <img src="/assets/projects/egg-hunt/images/animation_bird.png" alt="Animation bird." loading="lazy">
-  </div>
-
-  <div class="text-wrap-image">
-    <div class="text">
-      <p>
-        The egg falling animation was done by interpolating its position on the path of a parabola.
-      </p>
-    </div>
-    <img src="/assets/projects/egg-hunt/images/animation_egg.png" alt="Animation egg." loading="lazy">
-  </div>
-
-  <h1>The Map</h1>
-
-  <div class="text-wrap-image reverse">
-    <div class="text">
-      <p>
-        The map is a simple plane with its vertices translated according to a height map.
-      </p>
-    </div>
-    <img src="/assets/projects/egg-hunt/images/map.png" alt="Map." loading="lazy">
-  </div>
-
-  <h1>The Trees</h1>
-
-  <div class="text-wrap-image">
-    <div class="text">
-      <p>
-        The trees are 2D images which have a billboard logic to keep them always facing the camera.
-      </p>
-    </div>
-    <img src="/assets/projects/egg-hunt/images/tree.png" alt="Tree." loading="lazy">
-  </div>
-
-  <div class="credits">
-    <div class="title">Credits</div>
     <p>
-      This project was part of a group work
+        This is the same class as <a href="/projects/webgl-train">WebGL Train</a>, which I had to retake as I had to leave it behind to prioritize other classes that year.
     </p>
-    <div class="title">Members</div>
-    <div class="entry">
-      <div class="name">Ana Ramos</div>
-      <a href="https://linktr.ee/anacvr" target="_blank"> Linktree</a>
+    <p>
+        This project was way more enjoyable to work on, as it permitted us to make a game and way more complex systems around it. It introduced us to map generation using height maps, instantiating objects to make a forest and was overall a bigger and harder learning experience.
+    </p>
+
+    <h2>The Models</h2>
+        
+    <div class="content-row">
+        <div class="left">
+            <p>
+                The models were done by programming one shape at a time, forming shapes by the use of different algorithms.
+            </p>
+        </div>
+        <img class="right" src="/assets/projects/egg-hunt/images/models.png" alt="Models." loading="lazy">
     </div>
-    <div class="entry">
-      <div class="name">MRSG</div>
-      <a href="/about">Contacts & Links</a>
+
+    <h2>The Animations</h2>
+
+    <div class="content-row">
+        <img class="left" src="/assets/projects/egg-hunt/images/animation_bird.png" alt="Animation bird." loading="lazy">
+        <div class="right">
+            <p>
+                The bird animations were done in code by interpolating the translations and rotations of the individual elements of the bird.
+            </p>
+        </div>
     </div>
-  </div>
+
+    <div class="content-row">
+        <div class="left">
+            <p>
+                The egg falling animation was done by interpolating its position on the path of a parabola.
+            </p>
+        </div>
+        <img class="right" src="/assets/projects/egg-hunt/images/animation_egg.png" alt="Animation egg." loading="lazy">
+    </div>
+
+    <h2>The Map</h2>
+
+    <div class="content-row">
+        <img class="left" src="/assets/projects/egg-hunt/images/map.png" alt="Map." loading="lazy">
+        <div class="right">
+            <p>
+                The map is a simple plane with its vertices translated according to a height map.
+            </p>
+        </div>
+    </div>
+
+    <h2>The Trees</h2>
+
+    <div class="content-row">
+        <div class="left">
+            <p>
+                The trees are 2D images which have a billboard logic to keep them always facing the camera.
+            </p>
+        </div>
+        <img class="right" src="/assets/projects/egg-hunt/images/tree.png" alt="Tree." loading="lazy">
+    </div>
+
+    <div class="credits">
+        <div class="title">Credits</div>
+
+        <div class="subtitle">Members</div>
+
+        <div class="entry">
+            <div class="name">Ana Ramos</div>
+        </div>
+        <div class="entry-info">
+            <a href="https://linktr.ee/anacvr" target="_blank"> Linktree</a>
+        </div>
+
+        <div class="entry">
+            <div class="name">MRSG</div>
+        </div>
+        <div class="entry-info">
+            <a href="/about">About</a>
+        </div>
+    </div>
 </div>
