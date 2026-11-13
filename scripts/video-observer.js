@@ -1,6 +1,4 @@
 var videoObserver = (function () {
-
-    console.log("HERE")
     const options = { threshold: 0.35 };
     var observer = null;
 
