@@ -450,6 +450,11 @@
             color: var(--font-color-muted);
             font-weight: var(--font-weight-bold);
         }
+
+        &.full{
+            grid-column: auto / span 2;
+            text-align: center;
+        }
     }
 
     .entry {
