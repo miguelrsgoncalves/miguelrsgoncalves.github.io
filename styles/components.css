@@ -407,67 +407,6 @@
 
 /*#endregion*/
 
-/*#region credits*/
-
-.credits {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 100%;
-
-    gap: 2rem;
-    
-    .title {
-        grid-column: auto / span 2;
-        font-size: var(--font-size-xxlarge);
-        font-weight: bold;
-        color: var(--primary-color);
-        text-align: center;
-        margin-top: 1rem;
-        margin-bottom: 0.5em;
-    }
-
-    .subtitle {
-        grid-column: auto / span 2;
-        font-size: var(--font-size-medium);
-        font-weight: bold;
-        color: var(--primary-color);
-        text-align: center;
-        margin-top: 0.5rem;
-        margin-bottom: 0.25em;
-    }
-
-    .entry, .entry-info {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-
-        .name {
-            color: var(--font-color-normal);
-            font-weight: var(--font-weight-bold);
-        }
-    
-        .role, .license {
-            color: var(--font-color-muted);
-            font-weight: var(--font-weight-bold);
-        }
-
-        &.full{
-            grid-column: auto / span 2;
-            text-align: center;
-        }
-    }
-
-    .entry {
-        text-align: end;
-    }
-
-    .entry-info {
-        text-align: start;
-    }
-}
-
-/*#endregion*/
-
 /*#region loading*/
 
 .loading-screen {
