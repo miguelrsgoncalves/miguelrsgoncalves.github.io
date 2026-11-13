@@ -6,11 +6,11 @@ function resolveIconUrl(name) {
 }
 
 async function createIcons() {
-    const iconElements = document.querySelectorAll('icon[data-icon-name]');
+    const iconElements = document.querySelectorAll('icon[data-id]');
     
     const groups = {};
     iconElements.forEach(element => {
-        const name = element.dataset.iconName;
+        const name = element.dataset.id;
         if (name) {
         if (!groups[name]) groups[name] = [];
         groups[name].push(element);

@@ -1,7 +1,6 @@
 <route
     title="Chat95"
     description="You are ChatGPT. Talk with a set of weird users and take care of their crazy ordeals!"
-    scripts='["/scripts/embedded-projects.js", "/scripts/components.js"]'
 ></route>
 
 <div class="page narrow">
@@ -14,44 +13,55 @@
 
     <div class="control-bar">
         <div class="button left clickable" onclick="loadEmbeddedProject('embedded-project-frame', '/assets/projects/chat95/builds/web/chat95-embedded.html', 'loading-screen')">
-            <icon data-icon-name="play"></icon>
+            <icon data-id="play"></icon>
             <p>Start</p>
         </div>
         <div class="separator vertical"></div>
         <a id="start-button" class="button middle clickable" href="/assets/projects/chat95/builds/web/chat95_web.html" target="_blank">
-            <icon data-icon-name="fullscreen"></icon>
+            <icon data-id="fullscreen"></icon>
             <p>Fullscreen</p>
         </a>
         <div class="separator vertical"></div>
         <div class="button right clickable" onclick="restartEmbeddedProject('embedded-project-frame', '/assets/projects/chat95/builds/web/chat95-embedded.html', 'loading-screen')">
             <p>Restart</p>
-            <icon data-icon-name="refresh-ccw"></icon>
+            <icon data-id="refresh-ccw"></icon>
         </div>
     </div>
 
     <div class="control-group embedded">
         <div class="control-bar embedded">
-            <div class="button left clickable" onclick="toggleControlPanel(this, 'controls')">
-                <icon data-icon-name="gamepad-2"></icon>
+            <div class="button left" onclick="toggleControlPanel(this, 'info')">
+                <icon data-id="info"></icon>
+                <p>Info</p>
+            </div>
+
+            <div class="separator vertical"></div>
+
+            <div class="button middle" onclick="toggleControlPanel(this, 'controls')">
+                <icon data-id="gamepad-2"></icon>
                 <p>Controls</p>
             </div>
             
             <div class="separator vertical"></div>
             
-            <div class="button middle clickable" onclick="toggleControlPanel(this, 'how-to-play')">
-                <icon data-icon-name="info"></icon>
+            <div class="button middle" onclick="toggleControlPanel(this, 'how-to-play')">
+                <icon data-id="info"></icon>
                 <p>How to Play</p>
             </div>
 
             <div class="separator vertical"></div>
             
-            <div class="button right clickable" onclick="toggleControlPanel(this, 'download')">
+            <div class="button right" onclick="toggleControlPanel(this, 'links-and-downloads')">
                 <p>Download</p>
-                <icon data-icon-name="download"></icon>
+                <icon data-id="download"></icon>
             </div>
         </div>
 
-        <div class="control-panel embedded" data-panel-name="controls">
+        <div class="control-panel embedded" data-id="info">
+            
+        </div>
+
+        <div class="control-panel embedded" data-id="controls">
             <div class="game-controls">
                 <div class="title">Interact</div>
                 <div class="group">
@@ -69,45 +79,45 @@
             </div>
         </div>
 
-        <div class="control-panel embedded" data-panel-name="how-to-play">
+        <div class="control-panel embedded" data-id="how-to-play">
             <div class="how-to-play">
                 <p>
-                You play as Chat95, the new and classy LLM, where you will need to closely read and observe all of the confusing user's requests and do you best to fullfil them.
+                    You play as Chat95, the new and classy LLM, where you will need to closely read and observe all of the confusing user's requests and do you best to fullfil them.
                 </p>
                 <p>
-                Use your trusty mouse to progress the conversation and drag your complex data and objects onto the conversation to complete your day of work.
+                    Use your trusty mouse to progress the conversation and drag your complex data and objects onto the conversation to complete your day of work.
                 </p>
                 <p>
-                You will always have Mr. Totally Not Clippy to aid you whenever you have any difficulties, who you can ask for help with just a press.
+                    You will always have Mr. Totally Not Clippy to aid you whenever you have any difficulties, who you can ask for help with just a press.
                 </p>
             </div>
         </div>
 
-        <div class="control-panel embedded" data-panel-name="download">
-            <div class="download-options">
-                <div class="download-group">
+        <div class="control-panel embedded" data-id="links-and-downloads">
+            <div class="item-tree-card">
+                <div class="group">
                     <div class="header">
-                        <icon data-icon-name="globe"></icon>
+                        <icon data-id="globe"></icon>
                         <span>External Links</span>
                     </div>
                     <div class="items">
                         <a class="download-option" href="https://kyleagius.itch.io/chat95" target="_blank" rel="noopener">
-                            <icon data-icon-name="brands/itchdotio"></icon>
+                            <icon data-id="brands/itchdotio"></icon>
                             <div class="info">
                                 <div class="title">Itch.io</div>
                             </div>
-                            <icon class="action-icon" data-icon-name="external-link"></icon>
+                            <icon class="action-icon" data-id="external-link"></icon>
                         </a>
                     </div>
                 </div>
                 <div class="download-group">
                     <div class="header">
-                        <icon data-icon-name="download"></icon>
+                        <icon data-id="download"></icon>
                         <span>Downloads</span>
                     </div>
                     <div class="items">
                         <a class="download-option" href="/assets/projects/chat95/builds/linux/chat95_linux.zip" download>
-                            <icon data-icon-name="brands/linux"></icon>
+                            <icon data-id="brands/linux"></icon>
                             <div class="info">
                                 <div class="title">Linux</div>
                                 <div class="subtitle">
@@ -116,12 +126,12 @@
                                     <span>50 MB</span>
                                 </div>
                             </div>
-                            <icon class="action-icon" data-icon-name="download"></icon>
+                            <icon class="action-icon" data-id="download"></icon>
                         </a>
                     </div>
                     <div class="items">
                         <a class="download-option" href="/assets/projects/chat95/builds/windows/chat95_windows.zip" download>
-                            <icon data-icon-name="monitor"></icon>
+                            <icon data-id="monitor"></icon>
                             <div class="info">
                                 <div class="title">Windows</div>
                                 <div class="subtitle">
@@ -130,7 +140,7 @@
                                     <span>58 MB</span>
                                 </div>
                             </div>
-                            <icon class="action-icon" data-icon-name="download"></icon>
+                            <icon class="action-icon" data-id="download"></icon>
                         </a>
                     </div>
                 </div>
@@ -140,8 +150,8 @@
 
     <h1>Chat95</h1>
     
-    <div class="text-wrap-image reverse">
-        <div class="text">
+    <div class="content-row">
+        <div class="left">
             <p>
                 Chat95 was made as part of a game jam, during my stay in Gothenburg, with the theme <i>"Parody"</i>, which gave my team the idea to make a parody of LLMs (Loyal Literate Monkey) set in the 90s. But instead of you using an LLM, you are one instead.
             </p>
@@ -149,7 +159,7 @@
                 In this universe, which is pretty much like any other universe, your users come in various levels of weird and with unusual requests. You must do your best, and your best needs to be the best.
             </p>
         </div>
-        <img src="/assets/projects/chat95/images/environment.png" alt="Chat95 Desk." loading="lazy">
+        <img class="right" src="/assets/projects/chat95/images/environment.png" alt="Chat95 Desk." loading="lazy">
     </div>
     
     <p>
@@ -162,8 +172,9 @@
         For a parody of a chill work session set in the 90s, it had to have a cozy, homy feeling. So all sounds had to fit in together, easily flowing with each other.
     </p>
 
-    <div class="text-wrap-image">
-        <div class="text">
+    <div class="content-row">
+        <img class="left" src="/assets/projects/chat95/images/zodiac_signs.png" alt="Zodiac Signs screen." loading="lazy">
+        <div class="right">
             <p>
                 For an old PC, it had to have aggressive and effortful fans whenever it was loading something. So I found the worst possible sounding PC fans sample and mixed them into an audible asset. This would play at the boot time and whenever the PC loads the next user, giving the player the 90s grandma computer experience.
             </p>
@@ -174,10 +185,11 @@
                 The same philosophy was applied to other SFX, like the file pickup and drop, where I would use office sounds, such as picking up a paper, and mix them into a OS sound cue.
             </p>
         </div>
-        <img src="/assets/projects/chat95/images/zodiac_signs.png" alt="Zodiac Signs screen." loading="lazy">
     </div>
 
-    Overall, I think the Sound Design came out pretty nice and put together. It is hear catching enough, while having a somewhat Lo-Fi vibe to it and living up to the 90s aesthetic.
+    <p>
+        Overall, I think the Sound Design came out pretty nice and put together. It is hear catching enough, while having a somewhat Lo-Fi vibe to it and living up to the 90s aesthetic.
+    </p>
     
     <h2>Music</h2>
 
@@ -191,8 +203,8 @@
         One thing I always liked about Lo-Fi is that you can really do anything, as long as the vibe keeps vibing. No words, theme or sounds are out of place if you bring them on the right beat. So I challenged myself with starting the music with the weirdest sound cue or most random idea I could find.
     </p>
     
-    <div class="text-wrap-image reverse">
-        <div class="text">
+    <div class="content-row">
+        <div class="left">
             <p>
                 That's when I found the <i>"Jello is the most versatile dish in the world"</i> sample. One of the most random things I have ever heard, with a voice that sounded like it comes straight from a old radio microphone, which would blend in perfectly with the theme of the game and the whole vibe around it. So I spliced the sample, left it to run for some time at the start as an entrance and then mixed it with some delay to blend it onto the music we would have coming right next.
             </p>
@@ -206,7 +218,7 @@
                 In the second part, there is some editing done. For example, at some point the music cuts for a <i>"a treat"</i> sound cue from the <i>"Jello"</i> sample. Some other things might be inside somewhere, but to be honest I don't remember that well.
             </p>
         </div>
-        <img src="/assets/projects/chat95/images/lo-fi_girl.png" alt="Lo-Fi Girl screen." loading="lazy">
+        <img class="right" src="/assets/projects/chat95/images/lo-fi_girl.png" alt="Lo-Fi Girl screen." loading="lazy">
     </div>
 
     <p>
@@ -222,8 +234,8 @@
         But not winning first place doesn't mean we didn't win anything!
     </p>
 
-    <div class="text-wrap-image reverse">
-        <div class="text">
+    <div class="content-row">
+        <div class="left">
             <p>
                 We did win the Best in Graphics category in the game jam!
             </p>
@@ -231,7 +243,7 @@
                 As the sound guy, this had absolutely zero to do with me, but I will always proudly bloat how my team got this praise!
             </p>
         </div>
-        <img src="/assets/projects/chat95/images/best_in_graphics_medal.png" alt="Best in Graphics medal." loading="lazy">
+        <img class="right" src="/assets/projects/chat95/images/best_in_graphics_medal.png" alt="Best in Graphics medal." loading="lazy">
     </div>
 
     <h2>Introspection</h2>
@@ -259,8 +271,8 @@
         </div>
         <div class="entry-info">
             <div class="name">by Timbre</div>
-            <div class="license">License: Attribution NonCommercial 4.0</div>
-            <a href="https://freesound.org/s/622068/" target="_blank">Sample Source <icon data-icon-name="external-link"></icon></a>
+            <div class="license">Attribution NonCommercial 4.0</div>
+            <a href="https://freesound.org/s/622068/" target="_blank">Sample Source <icon class="external-link" data-id="external-link"></icon></a>
         </div>
 
         <div class="subtitle">Members</div>
@@ -270,7 +282,7 @@
         </div>
         <div class="entry-info">
             <div class="role">Art, Programming</div>
-            <a href="https://www.linkedin.com/in/dimitris-pokkias-a5311923b/" target="_blank">LinkedIn <icon data-icon-name="external-link"></icon></a>
+            <a href="https://www.linkedin.com/in/dimitris-pokkias-a5311923b/" target="_blank">LinkedIn <icon class="external-link" data-id="external-link"></icon></a>
         </div>
 
         <div class="entry">
@@ -278,7 +290,7 @@
         </div>
         <div class="entry-info">
             <div class="role">Game Design, Narrative</div>
-            <a href="https://www.linkedin.com/in/eduardo-gon%C3%A7alves/" target="_blank">LinkedIn <icon data-icon-name="external-link"></icon></a>
+            <a href="https://www.linkedin.com/in/eduardo-gon%C3%A7alves/" target="_blank">LinkedIn <icon class="external-link" data-id="external-link"></icon></a>
         </div>
 
         <div class="entry">
@@ -286,7 +298,7 @@
         </div>
         <div class="entry-info">
             <div class="role">Art, Programming</div>
-            <a href="https://www.linkedin.com/in/dimitris-pokkias-a5311923b/" target="_blank">LinkedIn <icon data-icon-name="external-link"></icon></a>
+            <a href="https://www.linkedin.com/in/dimitris-pokkias-a5311923b/" target="_blank">LinkedIn <icon class="external-link" data-id="external-link"></icon></a>
         </div>
 
         <div class="entry">
@@ -302,7 +314,7 @@
         </div>
         <div class="entry-info">
             <div class="role">Game Design, Narrative</div>
-            <a href="https://www.linkedin.com/in/shahd-hassan-metwally/" target="_blank">LinkedIn <icon data-icon-name="external-link"></icon></a>
+            <a href="https://www.linkedin.com/in/shahd-hassan-metwally/" target="_blank">LinkedIn <icon data-id="external-link"></icon></a>
         </div>
     </div>
 </div>
