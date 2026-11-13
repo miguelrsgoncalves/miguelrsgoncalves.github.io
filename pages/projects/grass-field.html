@@ -1,11 +1,9 @@
 <route
 	title="Grass Field"
 	description="Vast Stylized grass field made inside Unreal Engine 5, designed to be performant and dense."
-	scripts='["/scripts/video-observer.js"]'
 ></route>
 
 <div class="page narrow">
-    
     <video autoplay controls muted loop data-src="/assets/projects/grass-field/videos/grass_field.mp4"></video>
 
     <div class="control-group embedded">
@@ -29,7 +27,7 @@
 
     <video autoplay controls muted loop data-src="/assets/projects/grass-field/videos/grass_field_2.mp4"></video>
 
-    <h1>The Initial Steps</h1>
+    <h2>The Initial Steps</h2>
 
     <p>
         The software of choice for this project was Unreal Engine 5 and I got started with learning the landscape, grass and material systems of the engine.
@@ -43,10 +41,10 @@
     
     <video autoplay controls muted loop data-src="/assets/projects/grass-field/videos/grass_field_test1.mp4"></video>
 
-    <h1>The Grass Clump</h1>
+    <h2>The Grass Clump</h2>
 
-    <section class="text-wrap-image reverse">
-        <div class="text">
+    <div class="content-row">
+        <div class="left">
             <p>
                 The next step was to work on the grass assets themselves. I created in Blender a grass clump that would contain around 20 grass blades each, making them taller and more grass shape, although I did make them with no curvature. I also created 2 LOD levels that would help with performance.
                 
@@ -58,15 +56,16 @@
                 The problem I faced was that when the intensity was too high the grass blades would almost lay flat on the ground, and I wanted a more natural bending to their animation.
             </p>
         </div>
-        <img src="/assets/projects/grass-field/images/grass_clump_test1.png" alt="Grass Clump Test 1." loading="lazy">
-    </section>
+        <img class="right" src="/assets/projects/grass-field/images/grass_clump_test1.png" alt="Grass Clump Test 1" loading="lazy">
+    </div>
 
     <video autoplay controls muted loop data-src="/assets/projects/grass-field/videos/grass_field_test2.mp4"></video>
 
     <h2>Vertex Paint</h2>
 
-    <section class="text-wrap-image">
-        <div class="text">
+    <div class="content-row">
+        <img class="left" src="/assets/projects/grass-field/images/grass_vertex_paint.png" alt="Grass Blade Vertex Paint." loading="lazy">
+        <div class="right">
             <p>
                 The next step was to add vertex painting to the individual grass blades, making the values 0 at the bottom and interpolating them to 1 on the end of the blade. I then made it so the wind influence would be affected by the vertex paint values, having 0 influence at the bottom of the blades and the strongest influence at the end.
             </p>
@@ -74,12 +73,11 @@
                 This showed better results and the movement was looking more natural.
             </p>
         </div>
-        <img src="/assets/projects/grass-field/images/grass_vertex_paint.png" alt="Grass Blade Vertex Paint." loading="lazy">
-    </section>
+    </div>
 
     <video autoplay controls muted loop data-src="/assets/projects/grass-field/videos/grass_field_test3.mp4"></video>
 
-    <h1>The Night Setting</h1>
+    <h2>The Night Setting</h2>
 
     <p>
         I then worked on making the setting a night sky and worked on a cell shader.
@@ -92,10 +90,10 @@
     
     <video autoplay controls muted loop data-src="/assets/projects/grass-field/videos/grass_field_test5.mp4"></video>
     
-    <h1>Better Grass Clumps</h1>
+    <h2>Better Grass Clumps</h2>
 
-    <section class="text-wrap-image reverse">
-        <div class="text">
+    <div class="content-row">
+        <div class="left">
             <p>
                 The blades on the current grass clumps were too straight and made it so the wind animation would break at high wind intensities. The blades would also be invisible when viewed from the side, which would mean the grass field would lose density and cohesion when looking from different angles and during the wind animation. The vertical normals also made it so it was difficult to distinguish the grass blades from one another unless they were under high intensity light sources.
             </p>
@@ -103,10 +101,10 @@
                 I worked on new grass clumps that had a curvature to the blades, not only vertically but also when viewed from the sides, giving a better density to the field and also distinction between the blades, making it easier to see the clumps oscillating with the wind. I also pointed the normals facing perpendicular to the faces, making it so the grass blades would be shaded according to the lighting sources correctly. It did lose the more 2D look, but made it so they were more perceivable and their movement more readable.
             </p>
         </div>
-        <img src="/assets/projects/grass-field/images/better_grass_clump.png" alt="Better Grass Clump." loading="lazy">
-    </section>
+        <img class="right" src="/assets/projects/grass-field/images/better_grass_clump.png" alt="Better Grass Clump." loading="lazy">
+    </div>
 
-    <h1>Final Result</h1>
+    <h2>Final Result</h2>
 
     <p>
         The result of this project was a vast and dense grass field, akin to a wavy sea, that looks fluffy and alive.
@@ -122,7 +120,7 @@
     
     <video autoplay controls muted loop data-src="/assets/projects/grass-field/videos/grass_field_test7.mp4"></video>
 
-    <h1>The Future</h1>
+    <h2>The Future</h2>
 
     <p>
         For next iterations of grass fields I might add to my projects, I want to see if I would be able to create my own particle system to instantiate the grass blades on the landscape. This would allow me for more control of the look and performance of the grass field.
@@ -133,11 +131,13 @@
 
     <div class="credits">
         <div class="title">Material References</div>
+
         <div class="entry">
+            <div class="name">Rendering Millions of Grass Blades Using UE and Niagara</div>
+        </div>
+        <div class="entry-info">
             <div class="name">Radosław Paszkowski</div>
-            <div class="role">Rendering Millions of Grass Blades Using UE and Niagara</div>
-            <a href="https://pixelantgames.com/blog/rendering-millions-of-grass-blades-using-ue-and-niagara/" target="_blank">Link</a>
+            <a href="https://pixelantgames.com/blog/rendering-millions-of-grass-blades-using-ue-and-niagara/" target="_blank">Article <icon class="external-link" data-id="external-link"></icon></a>
         </div>
     </div>
-
 </div>
