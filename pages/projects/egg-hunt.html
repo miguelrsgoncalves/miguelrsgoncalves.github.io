@@ -1,7 +1,6 @@
 <route
     title="Egg Hunt"
     description="Play as a bird tasked with gathering eggs and dropping them on a nest."
-    scripts='["/scripts/embedded-projects.js"]'
 ></route>
 
 <section class="page narrow">
@@ -13,21 +12,21 @@
     </div>
 
     <div class="control-bar">
-        <div class="button left" onclick="loadEmbeddedProject('embedded-project-frame', '/assets/projects/egg-hunt/game/egg-hunt-embedded.html', 'loading-screen')">
+        <div class="button left" onclick="loadEmbeddedProject('embedded-project-frame', '/assets/projects/egg-hunt/builds/web/egg-hunt-embedded.html', 'loading-screen')">
             <icon data-id="play"></icon>
             <div>Start</div>
         </div>
 
         <div class="separator vertical"></div>
 
-        <a id="start-button" class="button middle" href="/assets/projects/egg-hunt/game/project/index.html" target="_blank">
+        <a id="start-button" class="button middle" href="/assets/projects/egg-hunt/builds/web/project/index.html" target="_blank">
             <icon data-id="fullscreen"></icon>
             <div>Fullscreen</div>
         </a>
 
         <div class="separator vertical"></div>
 
-        <div class="button right" onclick="restartEmbeddedProject('embedded-project-frame', '/assets/projects/egg-hunt/game/egg-hunt-embedded.html', 'loading-screen')">
+        <div class="button right" onclick="restartEmbeddedProject('embedded-project-frame', '/assets/projects/egg-hunt/builds/web/egg-hunt-embedded.html', 'loading-screen')">
             <div>Restart</div>
             <icon data-id="refresh-ccw"></icon>
         </div>
