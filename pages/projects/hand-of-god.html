@@ -34,299 +34,322 @@
 
     <div class="control-group embedded">
         <div class="control-bar embedded">
-        <div class="button left clickable" onclick="toggleControlPanel(this, 'controls')">
-            <icon data-id="gamepad-2"></icon>
-            <p>Controls</p>
-        </div>
-        
-        <div class="separator vertical"></div>
-        
-        <div class="button middle clickable" onclick="toggleControlPanel(this, 'how-to-play')">
-            <icon data-id="info"></icon>
-            <p>How to Play</p>
-        </div>
+            <div class="button left clickable" onclick="toggleControlPanel(this, 'controls')">
+                <icon data-id="gamepad-2"></icon>
+                <p>Controls</p>
+            </div>
+            
+            <div class="separator vertical"></div>
+            
+            <div class="button middle clickable" onclick="toggleControlPanel(this, 'how-to-play')">
+                <icon data-id="info"></icon>
+                <p>How to Play</p>
+            </div>
 
-        <div class="separator vertical"></div>
-        
-        <div class="button right clickable" onclick="toggleControlPanel(this, 'tips-and-tricks')">
-            <p>Tips and Tricks</p>
-            <icon data-id="badge-info"></icon>
-        </div>
+            <div class="separator vertical"></div>
+            
+            <div class="button right clickable" onclick="toggleControlPanel(this, 'tips-and-tricks')">
+                <p>Tips and Tricks</p>
+                <icon data-id="badge-info"></icon>
+            </div>
         </div>
 
         <div class="control-panel embedded" data-id="controls">
-        <div class="game-controls">
-            <div class="title">IMPORTANT</div>
+            <div class="game-controls">
+                <div class="title">IMPORTANT</div>
+                <p>
+                    It's necessary to give camera permission to play the game! Don't worry! This is strictly for gameplay purposes! This web page has no external connections and your beautiful face won't be sent anywhere nor stored locally!
+                </p>
+
+                <div class="title">Powers</div>
+                <P>
+                    All powers are performed using your hand. Join your index finger and your thumb to use the powers. Use the following combinations to change the selected power:
+                </P>
+                <div class="group">
+                    <div class="entry">
+                        <div class="name">Create Farmland</div>
+                        <div class="control">Extend index finger</div>
+                    </div>
+                    <div class="entry">
+                        <div class="name">Create Forest</div>
+                        <div class="control">Extend index and middle fingers</div>
+                    </div>
+                    <div class="entry">
+                        <div class="name">Scorch</div>
+                        <div class="control">Extend, middle and ring fingers</div>
+                    </div>
+                    <div class="entry">
+                        <div class="name">Final Judgment</div>
+                        <div class="control">Extend index, middle, ring and pinky fingers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-panel embedded" data-id="how-to-play">
+            <h2>Hand of God</h2>
+
+            <div class="content-row">
+                <div class="left">
+                    <p>
+                        You are god. Your power lies within your hand.
+                    </p>
+                    <p>
+                        Position you hand in front of the camera and your powers will take effect where you index finger's tip is.
+                    </p>
+                    <P>
+                        In order to activate your powers, you must touch your index finger and your thumb.
+                    </P>
+                </div>
+                <img class="right" src="/assets/projects/hand-of-god/images/pre_civ.png" alt="Hand of God" loading="lazy">
+            </div>
+
+            <h2>Starting the Game</h2>
+
+            <div class="content-row">
+                <img class="left" src="/assets/projects/hand-of-god/images/creating_civ.png" alt="Creating the civilization" loading="lazy">
+                <div class="right">
+                    <p>
+                        To start the game you must choose where the civilization will be located.
+                    </p>
+                    <p>
+                        Choose a nice and cozy place for the miniscule mortal beings and watch as they grow their civilization.
+                    </p>
+                </div>
+            </div>
+
+            <h2>Powers</h2>
+
             <p>
-            It's necessary to give camera permission to play the game! Don't worry! This is strictly for gameplay purposes! This web page has no external connections and your beautiful face won't be sent anywhere nor stored locally!
+                All powers are related to a specific hand gesture to activate. Gestures are a combination of extended fingers. After activation, the Hand of God changes to the color of the chosen power. Each power has a specific God Points cost associated, which is shown during gameplay.
+            </p>
+            
+            <div class="content-row">
+                <div class="left">
+                    <h3>Create Farmland</h3>
+
+                    <p>
+                        Creates a plot of farmland in an empty grass plot.
+                    </p>
+                    <p>
+                        <b>Cost:</b> 50 GP per plot
+                    </p>
+                    <p>
+                        <b>Gesture:</b> Index finger extended
+                    </p>
+                </div>
+                <img class="right" src="/assets/projects/hand-of-god/images/farmland.png" alt="Power: Create Farmland" loading="lazy">
+            </div>
+
+            <div class="content-row">
+                <img class="left" src="/assets/projects/hand-of-god/images/forest.png" alt="Power: Create Forest" loading="lazy">
+                <div class="right">
+                    <h3>Create Forest</h3>
+
+                    <p>
+                        Creates a plot of forest in an empty grass plot.
+                    </p>
+                    <p>
+                        <b>Cost:</b> 50 GP per plot
+                    </p>
+                    <p>
+                        <b>Gesture:</b> Index and middle finger extended
+                    </p>
+                </div>
+            </div>
+
+            <div class="content-row">
+                <div class="left">
+                    <h3>Scorch</h3>
+
+                    <p>
+                        Burns and kills everyone that comes in touch with the power.
+                    </p>
+                    <p>
+                        <b>Income:</b> 500 GP per soul burned
+                    </p>
+                    <p>
+                        <b>Gesture:</b> Index, middle and ring finger extended
+                    </p>
+                </div>
+                <img class="right" src="/assets/projects/hand-of-god/images/scorch.png" alt="Power: Scorch" loading="lazy">
+            </div>
+
+            <div class="content-row">
+                <img class="left" src="/assets/projects/hand-of-god/images/nuke.png" alt="Power: Final Judgment" loading="lazy">
+                <div class="right">
+                    <h3>Final Judgement</h3>
+
+                    <p>
+                        Bring the wrath of God to those in range. Obliterates all beings and plots of land in a large area.
+                    </p>
+                    <p>
+                        Quite explosive. Use at own risk!
+                    </p>
+                    <p>
+                        <b>Cost:</b> 2500 per Judgment
+                    </p>
+                    <p>
+                        <b>Gesture:</b> Index, middle, ring and pinky fingers extended
+                    </p>
+                </div>
+            </div>
+
+            <h2>The World</h2>
+
+            <p>
+                The world is procedurally generated every time the game starts, making every run unique with different challenges.
             </p>
 
-            <div class="title">Powers</div>
-            <P>
-            All powers are performed using your hand. Join your index finger and your thumb to use the powers. Use the following combinations to change the selected power:
-            </P>
-            <div class="group">
-            <div class="entry">
-                <div class="name">Create Farmland</div>
-                <div class="control">Extend index finger</div>
+            <div class="content-row">
+                <div class="left">
+                    <h3>Plots of Land</h3>
+
+                    <h3>Grass</h3>
+                    <p>
+                        <b>Color:</b> Light Green
+                    </p>
+                    <p>
+                        Free plot of land that can be transformed into a farmland or forest by God.
+                    </p>
+                    <h3>Water</h3>
+                    <p>
+                        <b>Color:</b> Light Blue
+                    </p>
+                    <p>
+                        Plot of land that cannot be transformed into farmland or forest. Workers can traverse water by the use of a boat.
+                    </p>
+                    <h3>Farmland</h3>
+                    <p>
+                        <b>Color:</b> Yellow
+                    </p>
+                    <p>
+                        Plot of land capable of producing food by a farmer.
+                    </p>
+                    <h3>Forest</h3>
+                    <p>
+                        <b>Color:</b> Dark Green
+                    </p>
+                    <p>
+                        Plot of land capable of producing wood by a woodcutter.
+                    </p>
+                    <h3>No Man's Land</h3>
+                    <p>
+                        <b>Color:</b> Dark Grey
+                    </p>
+                    <p>
+                        Plot of land that is left behind from the Final Judgement. Has no use nor can it be recovered.
+                    </p>
+                </div>
+                <img class="right" src="/assets/projects/hand-of-god/images/world.png" alt="The World" loading="lazy">
             </div>
-            <div class="entry">
-                <div class="name">Create Forest</div>
-                <div class="control">Extend index and middle fingers</div>
+
+            <h2>The Civilization</h2>
+
+            <div class="content-row">
+                <img class="left" src="/assets/projects/hand-of-god/images/growing_civ.png" alt="Big civilization" loading="lazy">
+                <div class="right">
+                    <h3>Food</h3>
+
+                    <p>
+                        The people consume food during time. The more people there are, the more food they consume.
+                    </p>
+
+                    <h3>Houses</h3>
+
+                    <p>
+                        Each house can fit 5 people. To build more houses the civilization needs wood. Watch the civilization grow as the people build more houses.
+                    </p>
+                    <p>
+                        The houses are represented by different shades of brown rectangles that are built around the civilization center.
+                    </p>
+                </div>
             </div>
-            <div class="entry">
-                <div class="name">Scorch</div>
-                <div class="control">Extend, middle and ring fingers</div>
+
+            <h2>Workers</h2>
+
+            <div class="content-row">
+                <div class="left">
+                    <p>
+                        In this society, everybody is born with a specific job for life.
+                    </p>
+
+                    <h3>Farmer</h3>
+
+                    <p>
+                        <b>Color:</b> Red
+                    </p>
+                    <p>
+                        Goes to a plot of farmland and creates food for the civilization.
+                    </p>
+
+                    <h3>Woodcutter</h3>
+
+                    <p>
+                        <b>Color:</b> Orange
+                    </p>
+                    <p>
+                        Goes to a plot of forest and creates wood for the civilization.
+                    </p>
+
+                    <h3>Food Carrier</h3>
+
+                    <p>
+                        <b>Color:</b> Pink
+                    </p>
+                    <p>
+                        Goes to the closest food resource produced by farmers and brings it to the civilization to be used.
+                    </p>
+
+                    <h3>Wood Carrier</h3>
+
+                    <p>
+                        <b>Color:</b> Blue
+                    </p>
+                    <p>
+                        Goes to the closest wood resource produced by woodcutters and brings it to the civilization to be used.
+                    </p>
+                </div>
+                <img class="right" src="/assets/projects/hand-of-god/images/workers.png" alt="Workers" loading="lazy">
             </div>
-            <div class="entry">
-                <div class="name">Final Judgment</div>
-                <div class="control">Extend index, middle, ring and pinky fingers</div>
-            </div>
-            </div>
+        </div>
+
+        <div class="control-panel embedded" data-id="tips-and-tricks">
+            <h2>Population Control</h2>
+
+            <p>
+                The food consumption is exponentially increased the more people there are in the civilization. Keep the number of people in check by using Scorch. I know you are their God, but don't get too attached! You are seeing the World from too far away to see their suffering!
+            </p>
+    
+            <h2>God Points Economy</h2>
+
+            <p>
+                This comes hand in hand with the Population Control. Always keep your GP in mind, as running out of them can be a free ticket for the civilization to plummet to it's demise!
+            </p>
+    
+            <h2>Time of Travel of Carriers</h2>
+
+            <p>
+                All workers take time to travel. Carriers are faster than all other workers but they still take time to go around! Keep resource production plots near your civilization center for faster production.
+            </p>
+    
+            <h2>Spread Out the People</h2>
+            
+            <p>
+                Although it's good to have resource plots close to each other, try to spread them out around the civilization in such a way that not all workers clump together. If they are tightly packed you may end up taking more lives than expected when you use Scorch! And you aren't that bad of a God. Right?
+            </p>
+    
+            <h2>Final Judgment</h2>
+
+            <p>
+                It's fun to use! Just don't feel remorse after!
+            </p>
         </div>
     </div>
-
-    <div class="control-panel embedded" data-id="how-to-play">
-      <div class="how-to-play">
-        <h1>Hand of God</h1>
-        <div class="text-wrap-image">
-          <div class="text">
-              <p>
-                You are god. Your power lies within your hand.
-              </p>
-              <p>
-                Position you hand in front of the camera and your powers will take effect where you index finger's tip is.
-              </p>
-              <P>
-                In order to activate your powers, you must touch your index finger and your thumb.
-              </P>
-          </div>
-          <img src="/assets/projects/hand-of-god/images/pre_civ.png" alt="Hand of God." loading="lazy">
-        </div>
-
-        <h1>Starting the Game</h1>
-
-        <section class="text-wrap-image reverse">
-          <div class="text">
-              <p>To start the game you must choose where the civilization will be located.</p>
-              <p>Choose a nice and cozy place for the miniscule mortal beings and watch as they grow their civilization.</p>
-          </div>
-          <img src="/assets/projects/hand-of-god/images/creating_civ.png" alt="Creating the civilization." loading="lazy">
-        </section>
-
-        <h1>Powers</h1>
-
-        <p>
-          All powers are related to a specific hand gesture to activate. Gestures are a combination of extended fingers. After activation, the Hand of God changes to the color of the chosen power. Each power has a specific God Points cost associated, which is shown during gameplay.
-        </p>
-        
-        <div class="text-wrap-image">
-          <div class="text">
-              <h2>Create Farmland</h2>
-              <p>
-                Creates a plot of farmland in an empty grass plot.
-              </p>
-              <p>
-                <b>Cost: </b>50 GP per plot
-              </p>
-              <p>
-                <b>Gesture: </b>Index finger extended
-              </p>
-          </div>
-          <img src="/assets/projects/hand-of-god/images/farmland.png" alt="Power: Create Farmland." loading="lazy">
-        </div>
-
-        <div class="text-wrap-image reverse">
-          <div class="text">
-              <h2>Create Forest</h2>
-              <p>
-                Creates a plot of forest in an empty grass plot.
-              </p>
-              <p>
-                <b>Cost: </b>50 GP per plot
-              </p>
-              <p>
-                <b>Gesture: </b>Index and middle finger extended
-              </p>
-          </div>
-          <img src="/assets/projects/hand-of-god/images/forest.png" alt="Power: Create Forest." loading="lazy">
-        </div>
-
-        <div class="text-wrap-image">
-          <div class="text">
-              <h2>Scorch</h2>
-              <p>
-                Burns and kills everyone that comes in touch with the power.
-              </p>
-              <p>
-                <b>Income: </b>500 GP per soul burned
-              </p>
-              <p>
-                <b>Gesture: </b>Index, middle and ring finger extended
-              </p>
-          </div>
-          <img src="/assets/projects/hand-of-god/images/scorch.png" alt="Power: Scorch." loading="lazy">
-        </div>
-
-        <div class="text-wrap-image reverse">
-          <div class="text">
-              <h2>Final Judgement</h2>
-              <p>
-                Bring the wrath of God to those in range. Obliterates all beings and plots of land in a large area.
-              </p>
-              <p>
-                Quite explosive. Use at own risk!
-              </p>
-              <p>
-                <b>Cost: </b>2500 per Judgment
-              </p>
-              <p>
-                <b>Gesture: </b>Index, middle, ring and pinky fingers extended
-              </p>
-          </div>
-          <img src="/assets/projects/hand-of-god/images/nuke.png" alt="Power: Final Judgment." loading="lazy">
-        </div>
-
-        <h1>The World</h1>
-
-        <p>
-          The world is procedurally generated every time the game starts, making every run unique with different challenges.
-        </p>
-
-        <div class="text-wrap-image">
-          <div class="text">
-              <h2>Plots of Land</h2>
-              <h3>Grass</h3>
-              <p>
-                <b>Color: </b> Light Green
-              </p>
-              <p>
-                Free plot of land that can be transformed into a farmland or forest by God.
-              </p>
-              <h3>Water</h3>
-              <p>
-                <b>Color: </b> Light Blue
-              </p>
-              <p>
-                Plot of land that cannot be transformed into farmland or forest. Workers can traverse water by the use of a boat.
-              </p>
-              <h3>Farmland</h3>
-              <p>
-                <b>Color: </b> Yellow
-              </p>
-              <p>
-                Plot of land capable of producing food by a farmer.
-              </p>
-              <h3>Forest</h3>
-              <p>
-                <b>Color: </b> Dark Green
-              </p>
-              <p>
-                Plot of land capable of producing wood by a woodcutter.
-              </p>
-              <h3>No Man's Land</h3>
-              <p>
-                <b>Color: </b> Dark Grey
-              </p>
-              <p>
-                Plot of land that is left behind from the Final Judgement. Has no use nor can it be recovered.
-              </p>
-          </div>
-          <img src="/assets/projects/hand-of-god/images/world.png" alt="The World." loading="lazy">
-        </div>
-
-        <h1>The Civilization</h1>
-
-        <div class="text-wrap-image reverse">
-          <div class="text">
-              <h2>Food</h2>
-              <p>
-                The people consume food during time. The more people there are, the more food they consume.
-              </p>
-              <h2>Houses</h2>
-              <p>
-                Each house can fit 5 people. To build more houses the civilization needs wood. Watch the civilization grow as the people build more houses.
-              </p>
-              <p>
-                The houses are represented by different shades of brown rectangles that are built around the civilization center.
-              </p>
-          </div>
-          <img src="/assets/projects/hand-of-god/images/growing_civ.png" alt="Big civilization." loading="lazy">
-        </div>
-
-        <div class="text-wrap-image">
-          <div class="text">
-              <h2>Workers</h2>
-              <p>
-                In this society, everybody is born with a specific job for life.
-              </p>
-              <h3>Farmer</h3>
-              <p>
-                <b>Color: </b> Red
-              </p>
-              <p>
-                Goes to a plot of farmland and creates food for the civilization.
-              </p>
-              <h3>Woodcutter</h3>
-              <p>
-                <b>Color: </b> Orange
-              </p>
-              <p>
-                Goes to a plot of forest and creates wood for the civilization.
-              </p>
-              <h3>Food Carrier</h3>
-              <p>
-                <b>Color: </b> Pink
-              </p>
-              <p>
-                Goes to the closest food resource produced by farmers and brings it to the civilization to be used.
-              </p>
-              <h3>Wood Carrier</h3>
-              <p>
-                <b>Color: </b> Blue
-              </p>
-              <p>
-                Goes to the closest wood resource produced by woodcutters and brings it to the civilization to be used.
-              </p>
-          </div>
-          <img src="/assets/projects/hand-of-god/images/workers.png" alt="Workers." loading="lazy">
-        </div>
-      </div>
-    </div>
-
-    <div class="control-panel embedded" data-id="tips-and-tricks">
-      <div>
-        <h1>Population Control</h1>
-        <p>
-          The food consumption is exponentially increased the more people there are in the civilization. Keep the number of people in check by using Scorch. I know you are their God, but don't get too attached! You are seeing the World from too far away to see their suffering!
-        </p>
-  
-        <h1>God Points Economy</h1>
-        <p>
-          This comes hand in hand with the Population Control. Always keep your GP in mind, as running out of them can be a free ticket for the civilization to plummet to it's demise!
-        </p>
-  
-        <h1>Time of Travel of Carriers</h1>
-        <p>
-          All workers take time to travel. Carriers are faster than all other workers but they still take time to go around! Keep resource production plots near your civilization center for faster production.
-        </p>
-  
-        <h1>Spread Out the People</h1>
-        <p>
-          Although it's good to have resource plots close to each other, try to spread them out around the civilization in such a way that not all workers clump together. If they are tightly packed you may end up taking more lives than expected when you use Scorch! And you aren't that bad of a God. Right?
-        </p>
-  
-        <h1>Final Judgment</h1>
-        <p>
-          It's fun to use! Just don't feel remorse after!
-        </p>
-      </div>
-    </div>
-  </div>
 
   <h1>The Hand of God</h1>
   
-  <div class="text-wrap-image reverse">
+  <div class="content-row">
     <div class="text">
       <p>
         In order to track the hand and the position of its different elements I used ML5.js PoseNet.
@@ -341,9 +364,9 @@
     <img src="/assets/projects/hand-of-god/videos/hand_of_god.gif" alt="Hand of God gif." loading="lazy">
   </div>
 
-  <h1>The World</h1>
+  <h2>The World</h2>
   
-  <div class="text-wrap-image">
+  <div class="content-row">
     <div class="text">
       <p>
         The world uses a noise texture for the procedural generation.
@@ -358,11 +381,11 @@
     <img src="/assets/projects/hand-of-god/images/world_generation.png" alt="World Generation." loading="lazy">
   </div>
 
-  <h1>The Civilization</h1>
+  <h2>The Civilization</h2>
 
   <h2>The People</h2>
   
-  <section class="text-wrap-image reverse">
+  <div class="content-row">
     <div class="text">
       <p>
         The workers function with an A* search for the detection of their resources to work on.
@@ -375,11 +398,11 @@
       </p>
     </div>
     <img src="/assets/projects/hand-of-god/images/astar_workers.png" alt="A* Star Workers." loading="lazy">
-  </section>
+  </div>
 
   <h2>The City</h2>
 
-  <div class="text-wrap-image">
+  <div class="content-row">
     <div class="text">
       <p>
         The city spawns houses randomly around the city center, trying to mimic a growing civilization as the number of houses grow.
