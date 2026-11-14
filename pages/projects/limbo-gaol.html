@@ -7,25 +7,27 @@
 <div class="page narrow">
     <div class="embedded-project">
         <div id="loading-screen" class="loading-screen"><div class="spinner"></div></div>
-        <div id="embedded-project-frame" class="frame"></div>
+        <div id="embedded-project-frame" class="embed"></div>
+        <img class="thumbnail" src="/assets/projects/limbo-gaol/images/thumbnail.png" alt="Thumbnail" loading="lazy">
+        <div class="frame"></div>
     </div>
 
     <div class="control-bar">
-        <div class="button left" onclick="loadEmbeddedProject('embedded-project-frame', '/assets/projects/limbo-gaol/game/limbo-gaol-embedded.html', 'loading-screen')">
+        <div class="button left" onclick="loadEmbeddedProject('embedded-project-frame', '/assets/projects/limbo-gaol/builds/web/limbo-gaol-embedded.html', 'loading-screen')">
             <icon data-id="play"></icon>
             <div>Start</div>
         </div>
 
         <div class="separator vertical"></div>
 
-        <a id="start-button" class="button middle" href="/assets/projects/limbo-gaol/game/limbo_gaol_v1.0.1.html" target="_blank">
+        <a id="start-button" class="button middle" href="/assets/projects/limbo-gaol/builds/web/limbo_gaol_v1.0.1.html" target="_blank">
             <icon data-id="fullscreen"></icon>
             <div>Fullscreen</div>
         </a>
 
         <div class="separator vertical"></div>
 
-        <div class="button right" onclick="restartEmbeddedProject('embedded-project-frame', '/assets/projects/limbo-gaol/game/limbo-gaol-embedded.html', 'loading-screen')">
+        <div class="button right" onclick="restartEmbeddedProject('embedded-project-frame', '/assets/projects/limbo-gaol/builds/web/limbo-gaol-embedded.html', 'loading-screen')">
             <div>Restart</div>
             <icon data-id="refresh-ccw"></icon>
         </div>
@@ -54,71 +56,108 @@
 
             <div class="separator vertical"></div>
             
-            <div class="button right" onclick="toggleControlPanel(this, 'download')">
-                <div>Download</div>
-                <icon data-id="download"></icon>
+            <div class="button right" onclick="toggleControlPanel(this, 'links-and-downloads')">
+                <div>Links & Downloads</div>
+                <icon data-id="external-link"></icon>
             </div>
         </div>
 
-    <div class="control-panel embedded" data-id="controls">
-      <div class="game-controls">
-        <div class="title">Movement</div>
-        <div class="group">
-          <div class="entry">
-            <div class="control">WASD</div>
-          </div>
+        <div class="control-panel embedded" data-id="info">
+            
         </div>
 
-        <div class="title">Camera</div>
-        <div class="group">
-          <div class="entry">
-            <div class="control">Mouse</div>
-          </div>
+        <div class="control-panel embedded" data-id="controls">
+            <div class="game-controls">
+                <div class="title">Movement</div>
+
+                <div class="group">
+                    <div class="entry">
+                        <div class="control">WASD</div>
+                    </div>
+                </div>
+
+                <div class="title">Camera</div>
+
+                <div class="group">
+                    <div class="entry">
+                        <div class="control">Mouse</div>
+                    </div>
+                </div>
+
+                <div class="title">Interact</div>
+
+                <div class="group">
+                    <div class="entry">
+                        <div class="control">E</div>
+                    </div>
+                </div>
+
+                <div class="title">Menu</div>
+
+                <div class="group">
+                    <div class="entry">
+                        <div class="name">Pause</div>
+                        <div class="control">Escape</div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="title">Interact</div>
-        <div class="group">
-          <div class="entry">
-            <div class="control">E</div>
-          </div>
+        <div class="control-panel embedded" data-id="how-to-play">
+            <p>
+                Limbo's Gaol is a simple walking game where you need to solve some puzzles and uncover the story behind the world you are put into. This is more of a prototype game, made to gather info on how each player perceives a story depending on which protagonist they play as.
+            </p>
         </div>
 
-        <div class="title">Menu</div>
-        <div class="group">
-          <div class="entry">
-            <div class="name">Pause</div>
-            <div class="control">Escape</div>
-          </div>
+        <div class="control-panel embedded" data-id="links-and-downloads">
+            <p>
+                I recommend playing the downloadable version of the game, as it offer a better overall experience. It has better visuals, load times and smoother gameplay experience. The web version simply offers easier distribution for all platforms.
+            </p>
+
+            <div class="item-tree-card">
+                <div class="group">
+                    <div class="header">
+                        <icon data-id="download"></icon>
+                        <div>Downloads</div>
+                    </div>
+
+                    <div class="items">
+                        <a class="item" href="/assets/projects/limbo-gaol/builds/linux/limbo_gaol_v1.0.1_linux.7z" download>
+                            <icon data-id="brands/linux"></icon>
+                            <div class="data">
+                                <div class="title">Linux</div>
+                                <div class="info">
+                                    <div>ZIP archive</div>
+                                    <div class="separator vertical thin semi"></div>
+                                    <div>40 MB</div>
+                                </div>
+                            </div>
+                            <icon class="action-icon" data-id="download"></icon>
+                        </a>
+                    </div>
+
+                    <div class="items">
+                        <a class="item" href="/assets/projects/limbo-gaol/builds/windows/limbo_gaol_v1.0.1_windows.exe" download>
+                            <icon data-id="monitor"></icon>
+                            <div class="data">
+                                <div class="title">Windows</div>
+                                <div class="info">
+                                    <div>Executable</div>
+                                    <div class="separator vertical thin semi"></div>
+                                    <div>82 MB</div>
+                                </div>
+                            </div>
+                            <icon class="action-icon" data-id="download"></icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
-    <div class="control-panel embedded" data-id="how-to-play">
-      <div class="how-to-play">
-        <p>
-          Limbo's Gaol is a simple walking game where you need to solve some puzzles and uncover the story behind the world you are put into. This is more of a prototype game, made to gather info on how each player perceives a story depending on which protagonist they play as.
-        </p>
-      </div>
-    </div>
+    <h1>Limbo's Gaol</h1>
 
-    <div class="control-panel embedded" data-id="download">
-      <div class="how-to-play">
-          <p>
-            I recommend playing the downloadable version of the game, as it offer a better overall experience. It has better visuals, load times and smoother gameplay experience. The web version simply offers easier distribution for all platforms.
-          </p>
-          <a href="/assets/projects/limbo-gaol/game/limbo_gaol_v1.0.1_linux.7z" download>
-            <icon data-id="download"></icon> Linux
-          </a>
-          <a href="/assets/projects/limbo-gaol/game/limbo_gaol_v1.0.1_windows.exe" download>
-            <icon data-id="download"></icon> Windows
-          </a>
-      </div>
-    </div>
-  </div>
-
-  <h1>Limbo's Gaol</h1>
-
-  <p>
-    This prototype game was done for my master's thesis <a href="/projects/the-player-eye">The Player's Eye</a> and it served as testing grounds to gather data.
-  </p>
+    <p>
+        This prototype game was done for my master's thesis <a href="/projects/the-player-eye">The Player's Eye</a> and it served as testing grounds to gather data.
+    </p>
 </div>
