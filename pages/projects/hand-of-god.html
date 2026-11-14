@@ -12,21 +12,21 @@
     </div>
 
     <div class="control-bar">
-        <div class="button left clickable" onclick="loadEmbeddedProject('embedded-project-frame', '/assets/projects/hand-of-god/project/hand-of-god-embedded.html', 'loading-screen')">
+        <div class="button left" onclick="loadEmbeddedProject('embedded-project-frame', '/assets/projects/hand-of-god/project/hand-of-god-embedded.html', 'loading-screen')">
             <icon data-id="play"></icon>
             <p>Start</p>
         </div>
 
         <div class="separator vertical"></div>
 
-        <a id="start-button" class="button middle clickable" href="/assets/projects/hand-of-god/project/index.html" target="_blank">
+        <a id="start-button" class="button middle" href="/assets/projects/hand-of-god/project/index.html" target="_blank">
             <icon data-id="fullscreen"></icon>
             <p>Fullscreen</p>
         </a>
 
         <div class="separator vertical"></div>
 
-        <div class="button right clickable" onclick="restartEmbeddedProject('embedded-project-frame', '/assets/projects/hand-of-god/project/hand-of-god-embedded.html', 'loading-screen')">
+        <div class="button right" onclick="restartEmbeddedProject('embedded-project-frame', '/assets/projects/hand-of-god/project/hand-of-god-embedded.html', 'loading-screen')">
             <p>Restart</p>
             <icon data-id="refresh-ccw"></icon>
         </div>
@@ -34,24 +34,35 @@
 
     <div class="control-group embedded">
         <div class="control-bar embedded">
-            <div class="button left clickable" onclick="toggleControlPanel(this, 'controls')">
+            <div class="button left" onclick="toggleControlPanel(this, 'info')">
+                <icon data-id="info"></icon>
+                <div>Info</div>
+            </div>
+
+            <div class="separator vertical"></div>
+
+            <div class="button middle" onclick="toggleControlPanel(this, 'controls')">
                 <icon data-id="gamepad-2"></icon>
                 <p>Controls</p>
             </div>
             
             <div class="separator vertical"></div>
             
-            <div class="button middle clickable" onclick="toggleControlPanel(this, 'how-to-play')">
+            <div class="button middle" onclick="toggleControlPanel(this, 'how-to-play')">
                 <icon data-id="info"></icon>
                 <p>How to Play</p>
             </div>
 
             <div class="separator vertical"></div>
             
-            <div class="button right clickable" onclick="toggleControlPanel(this, 'tips-and-tricks')">
+            <div class="button right" onclick="toggleControlPanel(this, 'tips-and-tricks')">
                 <p>Tips and Tricks</p>
                 <icon data-id="badge-info"></icon>
             </div>
+        </div>
+
+        <div class="control-panel embedded" data-id="info">
+
         </div>
 
         <div class="control-panel embedded" data-id="controls">
@@ -347,67 +358,67 @@
         </div>
     </div>
 
-  <h1>The Hand of God</h1>
-  
-  <div class="content-row">
-    <div class="text">
-      <p>
-        In order to track the hand and the position of its different elements I used ML5.js PoseNet.
-      </p>
-      <p>
-        PoseNet also gives access to the state of each finger, such as if it's curled or extended.
-      </p>
-      <p>
-        I then map the positions of the fingers to the index of the world's map tiles.
-      </p>
+    <h1>The Hand of God</h1>
+    
+    <div class="content-row">
+        <div class="left">
+            <p>
+                In order to track the hand and the position of its different elements I used ML5.js PoseNet.
+            </p>
+            <p>
+                PoseNet also gives access to the state of each finger, such as if it's curled or extended.
+            </p>
+            <p>
+                I then map the positions of the fingers to the index of the world's map tiles.
+            </p>
+        </div>
+        <img class="right" src="/assets/projects/hand-of-god/videos/hand_of_god.gif" alt="Hand of God gif" loading="lazy">
     </div>
-    <img src="/assets/projects/hand-of-god/videos/hand_of_god.gif" alt="Hand of God gif." loading="lazy">
-  </div>
 
-  <h2>The World</h2>
-  
-  <div class="content-row">
-    <div class="text">
-      <p>
-        The world uses a noise texture for the procedural generation.
-      </p>
-      <p>
-        The values from the texture are used to choose what type of plot each tile will be.
-      </p>
-      <p>
-        The settings of the noise texture give the world a nice mix of land and sea, filling in the land with forests and farmlands.
-      </p>
+    <h2>The World</h2>
+    
+    <div class="content-row">
+        <img class="left" src="/assets/projects/hand-of-god/images/world_generation.png" alt="World Generation" loading="lazy">
+        <div class="right">
+            <p>
+                The world uses a noise texture for the procedural generation.
+            </p>
+            <p>
+                The values from the texture are used to choose what type of plot each tile will be.
+            </p>
+            <p>
+                The settings of the noise texture give the world a nice mix of land and sea, filling in the land with forests and farmlands.
+            </p>
+        </div>
     </div>
-    <img src="/assets/projects/hand-of-god/images/world_generation.png" alt="World Generation." loading="lazy">
-  </div>
 
-  <h2>The Civilization</h2>
+    <h2>The Civilization</h2>
 
-  <h2>The People</h2>
-  
-  <div class="content-row">
-    <div class="text">
-      <p>
-        The workers function with an A* search for the detection of their resources to work on.
-      </p>
-      <p>
-        The movement works in a simple straight line, as adding more complex movement was creating a lot of lag with the amount of moving pieces plus PoseNet reading the players input at all times.
-      </p>
-      <p>
-        To combat the straight line movement, workers get boats when they are on water, at least this way they don't seem to randomly gain the power to walk on the sea.
-      </p>
+    <h2>The People</h2>
+    
+    <div class="content-row">
+        <div class="left">
+            <p>
+                The workers function with an A* search for the detection of their resources to work on.
+            </p>
+            <p>
+                The movement works in a simple straight line, as adding more complex movement was creating a lot of lag with the amount of moving pieces plus PoseNet reading the players input at all times.
+            </p>
+            <p>
+                To combat the straight line movement, workers get boats when they are on water, at least this way they don't seem to randomly gain the power to walk on the sea.
+            </p>
+        </div>
+        <img class="right" src="/assets/projects/hand-of-god/images/astar_workers.png" alt="A* Star Workers" loading="lazy">
     </div>
-    <img src="/assets/projects/hand-of-god/images/astar_workers.png" alt="A* Star Workers." loading="lazy">
-  </div>
 
-  <h2>The City</h2>
+    <h2>The City</h2>
 
-  <div class="content-row">
-    <div class="text">
-      <p>
-        The city spawns houses randomly around the city center, trying to mimic a growing civilization as the number of houses grow.
-      </p>
+    <div class="content-row">
+        <img class="left" src="/assets/projects/hand-of-god/images/city.png" alt="City" loading="lazy">
+        <div class="right">
+            <p>
+                The city spawns houses randomly around the city center, trying to mimic a growing civilization as the number of houses grow.
+            </p>
+        </div>
     </div>
-    <img src="/assets/projects/hand-of-god/images/city.png" alt="City." loading="lazy">
-  </div>
 </div>
