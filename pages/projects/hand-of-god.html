@@ -14,20 +14,20 @@
     <div class="control-bar">
         <div class="button left" onclick="loadEmbeddedProject('embedded-project-frame', '/assets/projects/hand-of-god/project/hand-of-god-embedded.html', 'loading-screen')">
             <icon data-id="play"></icon>
-            <p>Start</p>
+            <div>Start</div>
         </div>
 
         <div class="separator vertical"></div>
 
         <a id="start-button" class="button middle" href="/assets/projects/hand-of-god/project/index.html" target="_blank">
             <icon data-id="fullscreen"></icon>
-            <p>Fullscreen</p>
+            <div>Fullscreen</div>
         </a>
 
         <div class="separator vertical"></div>
 
         <div class="button right" onclick="restartEmbeddedProject('embedded-project-frame', '/assets/projects/hand-of-god/project/hand-of-god-embedded.html', 'loading-screen')">
-            <p>Restart</p>
+            <div>Restart</div>
             <icon data-id="refresh-ccw"></icon>
         </div>
     </div>
@@ -43,20 +43,20 @@
 
             <div class="button middle" onclick="toggleControlPanel(this, 'controls')">
                 <icon data-id="gamepad-2"></icon>
-                <p>Controls</p>
+                <div>Controls</div>
             </div>
             
             <div class="separator vertical"></div>
             
             <div class="button middle" onclick="toggleControlPanel(this, 'how-to-play')">
+                <div>How to Play</div>
                 <icon data-id="info"></icon>
-                <p>How to Play</p>
             </div>
 
             <div class="separator vertical"></div>
             
             <div class="button right" onclick="toggleControlPanel(this, 'tips-and-tricks')">
-                <p>Tips and Tricks</p>
+                <div>Tips and Tricks</div>
                 <icon data-id="badge-info"></icon>
             </div>
         </div>
@@ -68,6 +68,7 @@
         <div class="control-panel embedded" data-id="controls">
             <div class="game-controls">
                 <div class="title">IMPORTANT</div>
+
                 <p>
                     It's necessary to give camera permission to play the game! Don't worry! This is strictly for gameplay purposes! This web page has no external connections and your beautiful face won't be sent anywhere nor stored locally!
                 </p>
@@ -76,19 +77,23 @@
                 <P>
                     All powers are performed using your hand. Join your index finger and your thumb to use the powers. Use the following combinations to change the selected power:
                 </P>
+
                 <div class="group">
                     <div class="entry">
                         <div class="name">Create Farmland</div>
                         <div class="control">Extend index finger</div>
                     </div>
+
                     <div class="entry">
                         <div class="name">Create Forest</div>
                         <div class="control">Extend index and middle fingers</div>
                     </div>
+
                     <div class="entry">
                         <div class="name">Scorch</div>
                         <div class="control">Extend, middle and ring fingers</div>
                     </div>
+
                     <div class="entry">
                         <div class="name">Final Judgment</div>
                         <div class="control">Extend index, middle, ring and pinky fingers</div>

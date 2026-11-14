@@ -12,18 +12,22 @@
     </div>
 
     <div class="control-bar">
-        <div class="button left clickable" onclick="loadEmbeddedProject('embedded-project-frame', '/assets/projects/chat95/builds/web/chat95-embedded.html', 'loading-screen')">
+        <div class="button left" onclick="loadEmbeddedProject('embedded-project-frame', '/assets/projects/chat95/builds/web/chat95-embedded.html', 'loading-screen')">
             <icon data-id="play"></icon>
-            <p>Start</p>
+            <div>Start</div>
         </div>
+
         <div class="separator vertical"></div>
-        <a id="start-button" class="button middle clickable" href="/assets/projects/chat95/builds/web/chat95_web.html" target="_blank">
+
+        <a id="start-button" class="button middle" href="/assets/projects/chat95/builds/web/chat95_web.html" target="_blank">
             <icon data-id="fullscreen"></icon>
-            <p>Fullscreen</p>
+            <div>Fullscreen</div>
         </a>
+
         <div class="separator vertical"></div>
-        <div class="button right clickable" onclick="restartEmbeddedProject('embedded-project-frame', '/assets/projects/chat95/builds/web/chat95-embedded.html', 'loading-screen')">
-            <p>Restart</p>
+
+        <div class="button right" onclick="restartEmbeddedProject('embedded-project-frame', '/assets/projects/chat95/builds/web/chat95-embedded.html', 'loading-screen')">
+            <div>Restart</div>
             <icon data-id="refresh-ccw"></icon>
         </div>
     </div>
@@ -32,27 +36,27 @@
         <div class="control-bar embedded">
             <div class="button left" onclick="toggleControlPanel(this, 'info')">
                 <icon data-id="info"></icon>
-                <p>Info</p>
+                <div>Info</div>
             </div>
 
             <div class="separator vertical"></div>
 
             <div class="button middle" onclick="toggleControlPanel(this, 'controls')">
                 <icon data-id="gamepad-2"></icon>
-                <p>Controls</p>
+                <div>Controls</div>
             </div>
             
             <div class="separator vertical"></div>
             
             <div class="button middle" onclick="toggleControlPanel(this, 'how-to-play')">
-                <p>How to Play</p>
+                <div>How to Play</div>
                 <icon data-id="book-text"></icon>
             </div>
 
             <div class="separator vertical"></div>
             
             <div class="button right" onclick="toggleControlPanel(this, 'links-and-downloads')">
-                <p>Links and Downloads</p>
+                <div>Links and Downloads</div>
                 <icon data-id="external-link"></icon>
             </div>
         </div>
@@ -64,17 +68,19 @@
         <div class="control-panel embedded" data-id="controls">
             <div class="game-controls">
                 <div class="title">Interact</div>
+
                 <div class="group">
-                <div class="entry">
-                    <div class="name">Activate</div>
-                    <div class="control">Left Mouse Click</div>
+                    <div class="entry">
+                        <div class="name">Activate</div>
+                        <div class="control">Left Mouse Click</div>
+                    </div>
                 </div>
-                </div>
+
                 <div class="group">
-                <div class="entry">
-                    <div class="name">Drag</div>
-                    <div class="control">Left Mouse Click and Drag</div>
-                </div>
+                    <div class="entry">
+                        <div class="name">Drag</div>
+                        <div class="control">Left Mouse Click and Drag</div>
+                    </div>
                 </div>
             </div>
         </div>
