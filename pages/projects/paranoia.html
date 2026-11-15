@@ -1,94 +1,147 @@
 <route
-	title="Paranoia"
-	description="Play through an unusual dungeon while trying to not lose your own mind. Things might change."
+    title="Paranoia"
+    description="Play through an unusual dungeon while trying to not lose your own mind. Things might change."
 ></route>
 
 <div class="page narrow">
+    <img src="/assets/projects/paranoia/images/thumbnail.png" alt="Thumbnail" loading="lazy">
 
-  <img src="/assets/projects/paranoia/images/thumbnail.png" alt="Paranoia Thumbnail." loading="lazy">
+    <div class="control-group embedded">
+        <div class="control-bar embedded">
+            <div class="button left" onclick="toggleControlPanel(this, 'info')">
+                <icon data-id="info"></icon>
+                <div>Info</div>
+            </div>
 
-  <div class="control-group embedded">
-    <div class="control-bar embedded">
-      <div class="button left clickable" onclick="toggleControlPanel(this, 'controls')">
-        <icon data-icon-name="gamepad-2"></icon>
-        <p>Controls</p>
-      </div>
-      
-      <div class="separator vertical"></div>
-      
-      <div class="button right clickable" onclick="toggleControlPanel(this, 'download')">
-        <p>Download</p>
-        <icon data-icon-name="download"></icon>
-      </div>
-    </div>
+            <div class="separator vertical"></div>
 
-    <div class="control-panel embedded" data-panel-name="controls">
-      <div class="game-controls">
-        <div class="title">Movement</div>
-        <div class="group">
-          <div class="entry">
-            <div class="name">Walk</div>
-            <div class="control">WASD</div>
-          </div>
-          <div class="entry">
-            <div class="name">Jump</div>
-            <div class="control">Space</div>
-          </div>
+            <div class="button middle" onclick="toggleControlPanel(this, 'controls')">
+                <icon data-id="gamepad-2"></icon>
+                <div>Controls</div>
+            </div>
+            
+            <div class="separator vertical"></div>
+            
+            <div class="button right" onclick="toggleControlPanel(this, 'links-and-downloads')">
+                <div>Links & Downloads</div>
+                <icon data-id="external-link"></icon>
+            </div>
         </div>
 
-        <div class="title">Actions</div>
-        <div class="group">
-          <div class="entry">
-            <div class="name">Switch Dimension</div>
-            <div class="control">F</div>
-          </div>
-          <div class="entry">
-            <div class="name">Attack</div>
-            <div class="control">Left Mouse Click</div>
-          </div>
+        <div class="control-panel embedded" data-id="info">
+
         </div>
-      </div>
+
+        <div class="control-panel embedded" data-id="controls">
+            <div class="game-controls">
+                <div class="title">Movement</div>
+                <div class="group">
+                <div class="entry">
+                    <div class="name">Walk</div>
+                    <div class="control">WASD</div>
+                </div>
+                <div class="entry">
+                    <div class="name">Jump</div>
+                    <div class="control">Space</div>
+                </div>
+                </div>
+
+                <div class="title">Actions</div>
+
+                <div class="group">
+                    <div class="entry">
+                        <div class="name">Switch Dimension</div>
+                        <div class="control">F</div>
+                    </div>
+                    <div class="entry">
+                        <div class="name">Attack</div>
+                        <div class="control">Left Mouse Click</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-panel embedded" data-id="links-and-downloads">
+            <div class="item-tree-card">
+                <div class="group">
+                    <div class="header">
+                        <icon data-id="globe"></icon>
+                        <div>External Links</div>
+                    </div>
+
+                    <div class="items">
+                        <a class="item" href="https://miguelrsgoncalves.itch.io/paranoia" target="_blank">
+                            <icon data-id="brands/itchdotio"></icon>
+                            <div class="data">
+                                <div class="title">Itch.io</div>
+                            </div>
+                            <icon class="action-icon" data-id="external-link"></icon>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group">
+                    <div class="header">
+                        <icon data-id="download"></icon>
+                        <div>Downloads</div>
+                    </div>
+
+                    <div class="items">
+                        <a class="item" href="/assets/projects/paranoia/builds/windows/paranoia.zip" download>
+                            <icon data-id="monitor"></icon>
+                            <div class="data">
+                                <div class="title">Windows</div>
+                                <div class="info">
+                                    <div>ZIP archive</div>
+                                    <div class="separator vertical thin semi"></div>
+                                    <div>33 MB</div>
+                                </div>
+                            </div>
+                            <icon class="action-icon" data-id="download"></icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="control-panel embedded" data-panel-name="download">
-      <div class="how-to-play">
-          <p>
-            The game can be downloaded and played through it's itch.io page.
-          </p>
-          <a href="https://miguelrsgoncalves.itch.io/paranoia" download>
-            <icon data-icon-name="download"></icon> Itch.io
-          </a>
-      </div>
-    </div>
-  </div>
+    <h1>Paranoia</h1>
 
-  <h1>Paranoia</h1>
+    <p>
+        This game was developed during the
+    </p>
 
-  <p>
-    This game was developed during the
-  </p>
+    <div class="credits">
+        <div class="title">Credits</div>
+        
+        <div class="subtitle">Members</div>
 
-  <div class="credits">
-      <div class="title">Credits</div>
-      <p>
-        This project was made by a team during a Game Jam
-      </p>
-      <div class="subtitle">Members</div>
-      <div class="entry">
-        <div class="name">Eduardo Gonçalves</div>
-        <a href="https://www.linkedin.com/in/eduardo-gon%C3%A7alves/" target="_blank"> Linkedin</a>
-      </div>
-      <div class="entry">
-          <div class="name">Hugo Santos</div>
-          <a href="https://www.linkedin.com/in/vhtsantos/" target="_blank"> Linkedin</a>
-      </div>
-      <div class="entry">
-          <div class="name">João Batista</div>
-          <a href="https://www.linkedin.com/in/jo%C3%A3o-alexandre-dur%C3%A3o-batista-a6b526283/" target="_blank"> Linkedin</a>
-      </div>
-      <div class="entry">
-        <div class="name">MRSG</div>
-        <a href="/about">Contacts & Links</a>
-      </div>
+        <div class="entry">
+            <div class="name">Eduardo Gonçalves</div>
+        </div>
+        <div class="entry-info">
+            <a href="https://www.linkedin.com/in/eduardo-gon%C3%A7alves/" target="_blank">LinkedIn <icon class="external-link" data-id="external-link"></icon></a>
+        </div>
+
+        <div class="entry">
+            <div class="name">Hugo Santos</div>
+        </div>
+        <div class="entry-info">
+            <a href="https://www.linkedin.com/in/vhtsantos/" target="_blank">LinkedIn <icon class="external-link" data-id="external-link"></icon></a>
+        </div>
+
+        <div class="entry">
+            <div class="name">João Batista</div>
+        </div>
+        <div class="entry-info">
+            <a href="https://www.linkedin.com/in/jo%C3%A3o-alexandre-dur%C3%A3o-batista-a6b526283/" target="_blank">LinkedIn <icon class="external-link" data-id="external-link"></icon></a>
+        </div>
+
+        <div class="entry">
+            <div class="name">MRSG</div>
+        </div>
+        <div class="entry-info">
+            <a href="/about">About</a>
+        </div>
     </div>
 </div>
