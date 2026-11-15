@@ -4,35 +4,76 @@
 ></route>
 
 <div class="page narrow">
-  <iframe class="pdf" src="/assets/projects/the-player-eye/pdf/the-player-eye.pdf"></iframe>
+    <iframe class="pdf" src="/assets/projects/the-player-eye/pdf/the-player-eye.pdf"></iframe>
 
-  <div class="control-bar">
-    <a class="button left clickable" href="/assets/projects/the-player-eye/pdf/the-player-eye.pdf" target="_blank">
-      <icon data-icon-name="fullscreen"></icon>
-      Fullscreen
-    </a>
-    <div class="separator vertical"></div>
-    <a class="button right clickable" href="/assets/projects/the-player-eye/pdf/the-player-eye.pdf" download>
-      <icon data-icon-name="download"></icon>
-      Download
-    </a>
-  </div>
+    <div class="control-group embedded">
+        <div class="control-bar embedded">
+            <div class="button left" onclick="toggleControlPanel(this, 'info')">
+                <icon data-id="info"></icon>
+                <div>Info</div>
+            </div>
 
-  <h1>The Player's Eye</h1>
+            <div class="separator vertical"></div>
+            
+            <a class="button middle" href="/assets/projects/the-player-eye/pdf/the-player-eye.pdf" target="_blank">
+                <div>Links and Downloads</div>
+                <icon data-id="fullscreen"></icon>
+            </a>
 
-  <p>
-    This thesis focused on the relationship between the design of a protagonist in a video-game's story and how the player interprets the game through its eyes. It involved the creation of a prototype game <a href="/projects/limbo-gaol">Limbo's Gaol</a>, which served as a testing playground to gather data for the thesis.
-  </p>
-  <p>
-    I worked on the thesis during my stay in Sweden, where I took part in the Game Design course at <b>Chalmers University of Technology</b> and my supervisor was <b>Michael Heron</b>.
-  </p>
-  <p>
-    The thesis was an overall success, arriving at good conclusions and having a project I am proud of.
-  </p>
+            <div class="separator vertical"></div>
+            
+            <div class="button right" onclick="toggleControlPanel(this, 'links-and-downloads')">
+                <div>Links and Downloads</div>
+                <icon data-id="external-link"></icon>
+            </div>
+        </div>
 
-  <h1>The concept</h1>
+        <div class="control-panel embedded" data-id="info">
+            
+        </div>
 
-  <p>
-    Although the thesis finished as <b>The Player's Eye</b>, it started much more connected to the overall narrative of video games, but just a very broad idea. Which I then had to narrow through many iterations just so I could arrive at what I had in the end.
-  </p>
+        <div class="control-panel embedded" data-id="links-and-downloads">
+            <div class="item-tree-card">                
+                <div class="group">
+                    <div class="header">
+                        <icon data-id="download"></icon>
+                        <div>Downloads</div>
+                    </div>
+
+                    <div class="items">
+                        <a class="item" href="/assets/projects/the-player-eye/pdf/the-player-eye.pdf" download>
+                            <icon data-id="file"></icon>
+                            <div class="data">
+                                <div class="title">PDF</div>
+                                <div class="info">
+                                    <div>PDF</div>
+                                    <div class="separator vertical thin semi"></div>
+                                    <div>3 MB</div>
+                                </div>
+                            </div>
+                            <icon class="action-icon" data-id="download"></icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1>The Player's Eye</h1>
+
+    <p>
+        This thesis focused on the relationship between the design of a protagonist in a video-game's story and how the player interprets the game through its eyes. It involved the creation of a prototype game <a href="/projects/limbo-gaol">Limbo's Gaol</a>, which served as a testing playground to gather data for the thesis.
+    </p>
+    <p>
+        I worked on the thesis during my stay in Sweden, where I took part in the Game Design course at Chalmers University of Technology and my supervisor was Michael Heron.
+    </p>
+    <p>
+        The thesis was an overall success, arriving at good conclusions and having a project I am proud of.
+    </p>
+
+    <h2>The concept</h2>
+
+    <p>
+        Although the thesis finished as The Player's Eye, it started much more connected to the overall narrative of video games, but just a very broad idea. Which I then had to narrow through many iterations just so I could arrive at what I had in the end.
+    </p>
 </div>
