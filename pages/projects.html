@@ -7,7 +7,7 @@
 <script>
     filterInit(["startYear", "endYear", "status", "category", "tool", "tag"])
     projectManagerInit('/assets/registries/project-registry.json')
-    populateProjects('card-container')
+    populateProjects('project-container')
 </script>
 
 <div class="page full">
@@ -17,14 +17,18 @@
                 <icon data-id="list-filter"></icon>
                 <p>Filter</p>
             </div>
+
             <div class="separator vertical semi thin"></div>
+
             <div class="button left sub-button clickable" onclick="resetFilter()"><p>Reset</p></div>
+
             <div class="separator vertical"></div>
+
             <input name="search" class="search-bar right" type="search" placeholder="Search" oninput="handleProjectSearchInput(this.value)">
         </div>
         
         <div id="project-filter" class="control-panel" data-panel-name="filter"></div>
     </div>
 
-    <div id="card-container" class="projects-grid"></div>
+    <div id="project-container" class="projects-grid"></div>
 </div>
