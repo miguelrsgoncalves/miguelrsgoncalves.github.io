@@ -15,19 +15,19 @@
         <div class="control-bar">
             <div class="button left clickable" onclick="toggleControlPanel(this, 'filter')">
                 <icon data-id="list-filter"></icon>
-                <p>Filter</p>
+                <div>Filter</div>
             </div>
 
             <div class="separator vertical semi thin"></div>
 
-            <div class="button left sub-button clickable" onclick="resetFilter()"><p>Reset</p></div>
+            <div class="button left sub-button clickable" onclick="resetFilter()">Reset</div>
 
             <div class="separator vertical"></div>
 
             <input name="search" class="search-bar right" type="search" placeholder="Search" oninput="handleProjectSearchInput(this.value)">
         </div>
         
-        <div id="project-filter" class="control-panel" data-panel-name="filter"></div>
+        <div id="project-filter" class="control-panel" data-id="filter"></div>
     </div>
 
     <div id="project-container" class="projects-grid"></div>
