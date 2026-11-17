@@ -8,24 +8,26 @@ function resolveIconUrl(name) {
 async function createIcons() {
     const iconElements = document.querySelectorAll('icon[data-id]');
     
-    const groups = {};
+    const iconTargets = {};
     iconElements.forEach(element => {
-        const name = element.dataset.id;
-        if (name) {
-        if (!groups[name]) groups[name] = [];
-        groups[name].push(element);
+        const iconID = element.dataset.id;
+
+        if (iconID) {
+            if (!iconTargets[iconID]) iconTargets[iconID] = [];
+            iconTargets[iconID].push(element);
         }
     });
 
-    const fetchPromises = Object.keys(groups).map(async (iconName) => {
+    const fetchPromises = Object.keys(iconTargets).map(async (iconID) => {
         let svgElement;
 
-        if (iconCache.has(iconName)) {
-            svgElement = iconCache.get(iconName);
+        if (iconCache.has(iconID)) {
+            svgElement = iconCache.get(iconID);
         } else {
         try {
-            const response = await fetch(resolveIconUrl(iconName));
-            if (!response.ok) throw new Error(`Local icon "${iconName}" not found.`);
+            const response = await fetch(resolveIconUrl(iconID));
+            if (!response.ok) throw new Error(`Local icon "${iconID}" not found.`);
+
             const svgText = await response.text();
             
             const parser = new DOMParser();
@@ -33,10 +35,7 @@ async function createIcons() {
             svgElement = doc.querySelector('svg');
             
             if (svgElement) {
-                if (!svgElement.hasAttribute('fill')) {
-                    svgElement.setAttribute('fill', 'currentColor');
-                }
-                iconCache.set(iconName, svgElement);
+                iconCache.set(iconID, svgElement);
             }
         } catch (err) {
             console.error('Icon Loader Error:', err);
@@ -45,7 +44,7 @@ async function createIcons() {
         }
 
         if (svgElement) {
-            groups[iconName].forEach(element => {
+            iconTargets[iconID].forEach(element => {
                 element.replaceChildren(svgElement.cloneNode(true));
             });
         }
