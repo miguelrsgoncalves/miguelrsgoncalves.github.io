@@ -124,7 +124,7 @@ function render(route, segments, html, isPopstate) {
     }).then(() => {
         requestAnimationFrame(initScrollables);
         managerIcon.createIcons();
-        videoObserver.init()
+        observerVideo.init()
     });
 }
 
