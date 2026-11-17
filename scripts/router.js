@@ -107,7 +107,7 @@ function render(route, segments, html, isPopstate) {
     const scriptsPromise = loadPageScripts(fileScripts);
 
     unloadPageScripts();
-    pageCleanup.run();
+    managerGarbageCollector.run();
 
     scrollToTheTop(true);
 
@@ -123,7 +123,7 @@ function render(route, segments, html, isPopstate) {
         return loadIncludes();
     }).then(() => {
         requestAnimationFrame(initScrollables);
-        createIcons();
+        managerIcon.createIcons();
         videoObserver.init()
     });
 }
@@ -299,22 +299,5 @@ document.addEventListener('click', e => {
 });
 
 window.addEventListener('resize', initScrollables);
-
-//#endregion
-
-//#region pageCleanup
-
-const pageCleanup = {
-    _callbacks: [],
-
-    register(fn) {
-        this._callbacks.push(fn);
-    },
-
-    run() {
-        this._callbacks.forEach(fn => { try { fn(); } catch (e) {} });
-        this._callbacks = [];
-    }
-};
 
 //#endregion

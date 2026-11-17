@@ -4,7 +4,7 @@ var videoObserver = (function () {
 
     function init() {
         observer = new IntersectionObserver(handleIntersection, options);
-        pageCleanup.register(cleanup);
+        managerGarbageCollector.register(cleanup);
         document.querySelectorAll('video[autoplay]').forEach(function (video) {
             observer.observe(video);
         });
@@ -33,5 +33,5 @@ var videoObserver = (function () {
 
     init();
 
-    return { init: init, cleanup: cleanup };
+    return { init, cleanup };
 })();

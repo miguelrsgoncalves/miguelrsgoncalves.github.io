@@ -8,7 +8,7 @@ var renderStep = undefined
 var filter = undefined
 
 function projectManagerInit(path) {
-  pageCleanup.register(projectManagerCleanup)
+  managerGarbageCollector.register(projectManagerCleanup)
   renderIndex = 0
   renderStep = 6
   if(dataSourcePath != path) {
@@ -319,7 +319,7 @@ var searchText = ""
 
 function filterInit(fields) {
   filterConfig = fields
-  pageCleanup.register(filterCleanup)
+  managerGarbageCollector.register(filterCleanup)
 }
 
 function buildFilter(allProjectsData) {

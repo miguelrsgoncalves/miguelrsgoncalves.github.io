@@ -10,7 +10,7 @@ var route = (path && path !== 'index.html') ? path : DEFAULT_ROUTE;
 history.replaceState({ route: route }, '', '/' + route);
 
 navigate(route, true);
-createIcons();
+managerIcon.createIcons();
 
 var header = document.querySelector('header');
 if (header) {
