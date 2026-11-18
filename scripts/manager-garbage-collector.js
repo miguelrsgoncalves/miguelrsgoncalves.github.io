@@ -6,8 +6,8 @@ var managerGarbageCollector = (function () {
     }
 
     function run() {
-        _callbacks.forEach(func => { try { func(); } catch (e) {} });
+        _callbacks.forEach(func => { try { func(); } catch (e) {} })
     }
 
-    return { register, run };
-})();
+    return { register, run }
+})()
