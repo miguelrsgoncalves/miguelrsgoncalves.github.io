@@ -1,26 +1,26 @@
 function toggleControlPanel(source, id) {
-    const group = source.closest('.control-group');
+    const group = source.closest('.control-group')
     
     if (!group) {
-        console.error("toggleControlPanel needs a parent control-group in order to work.");
-        return;
+        console.error("toggleControlPanel needs a parent control-group in order to work.")
+        return
     }
 
-    const bar = group.querySelector('.control-bar');
-    const panels = group.querySelectorAll('.control-panel');
+    const bar = group.querySelector('.control-bar')
+    const panels = group.querySelectorAll('.control-panel')
     
     const targetPanel = Array.from(panels).find(panel => 
         panel.dataset.id === id
-    );
+    )
     
-    const isAlreadyActive = targetPanel?.classList.contains('active');
+    const isAlreadyActive = targetPanel?.classList.contains('active')
 
-    panels.forEach(panel => panel.classList.remove('active'));
+    panels.forEach(panel => panel.classList.remove('active'))
 
     if (targetPanel && !isAlreadyActive) {
-        targetPanel.classList.add('active');
-        bar.classList.add('active');
+        targetPanel.classList.add('active')
+        bar.classList.add('active')
     } else {
-        bar.classList.remove('active');
+        bar.classList.remove('active')
     }
 }

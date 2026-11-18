@@ -1,4 +1,7 @@
-/*#region manager*/
+var managerProject = (function() {
+
+    return {}
+})()
 
 var dataSourcePath = undefined
 var container = undefined
