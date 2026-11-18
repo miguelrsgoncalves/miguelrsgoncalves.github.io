@@ -14,12 +14,19 @@
         "id": "leafcutters",
         "title": "Leafcutters",
         "startDate": "2026-08-16",
-        "endDate": "",
-        "status": "Active",
+        "endDate": "2026-11-18",
+        "status": "On Hold",
         "category": ["Game Dev"],
         "tool": ["Godot"],
         "description": "A game about the Leafcutters ants.",
-        "tag": ["Solo Dev"]
+        "tag": ["Solo Dev"],
+        "milestones": [
+            {
+                "date": "2026-11-18",
+                "title": "Put on Hold",
+                "description": ""
+            }
+        ]
     },
     {
         "id": "layered-heaven",
@@ -56,14 +63,21 @@
     },
     {
         "id": "mammon-awakening",
-        "title": "Mammon's Awakening",
+        "title": "Greed: Mammon's Awakening",
         "startDate": "2026-04-08",
-        "endDate": "",
-        "status": "Active",
+        "endDate": "2026-11-18",
+        "status": "On Hold",
         "category": ["Game Dev"],
         "tool": ["Godot", "Aseprite"],
         "description": "Greed",
-        "tag": ["Solo Dev"]
+        "tag": ["Solo Dev"],
+        "milestones": [
+            {
+                "date": "2026-11-18",
+                "title": "Put on Hold",
+                "description": ""
+            }
+        ]
     },
     {
         "id": "gdd-latex-template",
