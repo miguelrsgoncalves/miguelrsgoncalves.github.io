@@ -1,5 +1,16 @@
 [
     {
+        "id": "under-sky",
+        "title": "Under Sky",
+        "startDate": "2026-11-19",
+        "endDate": "",
+        "status": "Active",
+        "category": ["Game Dev"],
+        "tool": ["Godot", "Blender", "Krita", "Reaper", "FL Studio"],
+        "description": "Freedom",
+        "tag": ["Solo Dev"]
+    },
+    {
         "id": "game-of-life",
         "title": "Game of Life",
         "startDate": "2026-08-24",
