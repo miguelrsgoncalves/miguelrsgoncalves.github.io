@@ -11,13 +11,13 @@ var renderStep = undefined
 var filter = undefined
 
 function projectManagerInit(path) {
-  managerGarbageCollector.register(projectManagerCleanup)
-  renderIndex = 0
-  renderStep = 6
-  if(dataSourcePath != path) {
-    dataSourcePath = path
-    projectsData = undefined
-  }
+    managerGarbageCollector.register(projectManagerCleanup)
+    renderIndex = 0
+    renderStep = 6
+    if(dataSourcePath != path) {
+        dataSourcePath = path
+        projectsData = undefined
+    }
 }
 
 async function getProjectsData() {
@@ -64,12 +64,12 @@ async function getProjectsData() {
 }
 
 async function populateProjects(containerId) {
-  window.removeEventListener("scroll", handleScroll)
-  container = document.getElementById(containerId)
-  await getProjectsData()
-  if(typeof buildFilter === 'function') buildFilter(projectsData)
-  renderProjects()
-  window.addEventListener("scroll", handleScroll)
+    window.removeEventListener("scroll", handleScroll)
+    container = document.getElementById(containerId)
+    await getProjectsData()
+    if(typeof buildFilter === 'function') buildFilter(projectsData)
+    renderProjects()
+    window.addEventListener("scroll", handleScroll)
 }
 
 async function insertProjects() {
